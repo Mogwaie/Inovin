@@ -1,16 +1,4 @@
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 0 2rem;
-  height: 80px;
-  background-color: $app-bg-color;
-
-  img {
-    width: 50px;
-  }
-
+.container-burger-menu {
   .nav-links {
     display: flex;
     flex-wrap: wrap;
@@ -24,7 +12,6 @@
     padding: 2rem;
     background-color: $app-bg-color;
   }
-
   .show-nav {
     right: 0;
     width: 100%;
@@ -37,6 +24,10 @@
     text-decoration: none;
     color: $font-family-title-color;
     font-family: $font-family-title;
+  }
+
+  li:hover {
+    color: $app-primary-font-color;
   }
 
   li::after {
@@ -100,5 +91,9 @@
 
   .show-nav .burger-bar::after {
     transform: rotate(-45deg);
+  }
+
+  .hide-burger-menu {
+    visibility: hidden;
   }
 }
