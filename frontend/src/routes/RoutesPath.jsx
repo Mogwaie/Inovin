@@ -1,17 +1,12 @@
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
 import Test from "../pages/Test";
+import NavbarUser from "../components/Navbar";
 
 function RoutesPath() {
   return (
     <div className="RoutesPath">
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-        </ul>
-      </nav>
+      <NavbarUser />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/test" element={<Test />} />
