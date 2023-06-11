@@ -19,6 +19,7 @@ export default function UserBurgerMenu({
           <li>Profil</li>
           <li>Atelier</li>
           <li>Boutique</li>
+          <li className="link-deconnection-admin">Déconnexion</li>
         </ul>
         <button
           type="button"
