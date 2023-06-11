@@ -11,7 +11,9 @@
     top: 4rem;
     padding: 2rem;
     background-color: $app-bg-color;
+    width: 100%;
   }
+
   .show-nav {
     right: 0;
     width: 100%;
@@ -20,22 +22,19 @@
   li {
     display: block;
     padding: 1.5rem;
-    font-size: 38px;
     text-decoration: none;
     color: $font-family-title-color;
     font-family: $font-family-title;
+    font-size: $font-size-list-burger-tablet;
   }
 
   li:hover {
     color: $app-primary-font-color;
   }
 
-  li::after {
-    display: block;
-    content: "";
-    width: 1rem;
-    height: 1px;
-    background-color: $app-supporting-color;
+  .link-deconnection-admin {
+    color: $app-primary-font-color;
+    font-size: $font-size-text-tablet;
   }
 
   .menu-burger {
@@ -95,5 +94,11 @@
 
   .hide-burger-menu {
     visibility: hidden;
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .container-burger-menu li {
+    text-align: end;
   }
 }
