@@ -3,17 +3,11 @@ import PropTypes from "prop-types";
 import "../main.scss";
 
 function Button({ text, onClick, id }) {
-  const handleClick = () => {
-    if (onClick) {
-      onClick();
-    }
-  };
-
   return (
     <button
       className="primary-button-desktop"
       id={id}
-      onClick={handleClick}
+      onClick={onClick}
       type="button"
     >
       {text}
