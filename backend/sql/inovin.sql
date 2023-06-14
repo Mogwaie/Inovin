@@ -77,7 +77,6 @@ CREATE TABLE `review` (
   `rating` integer
 );
 
-
 ALTER TABLE `user` ADD FOREIGN KEY (`taste_profile_id`) REFERENCES `taste_profile` (`taste_profile_id`);
 
 ALTER TABLE `taste_profile` ADD FOREIGN KEY (`taste_level_id`) REFERENCES `taste_level` (`taste_level_id`);
@@ -95,7 +94,7 @@ ALTER TABLE `cepage_level` ADD FOREIGN KEY (`cepage_id`) REFERENCES `cepage` (`c
 ALTER TABLE `cepage` ADD FOREIGN KEY (`taste_level_id`) REFERENCES `taste_level` (`taste_level_id`);
 
 INSERT INTO taste (name) 
-VALUES ('Châteauneuf-du-Pape'), ('Château Margaux'), ('Beaujolais Nouveau'), ('Domaine de la Romanée-Conti'), ('Le Sancerre Blanc'), ('Pouilly-Fuissé'), ('Châteauneuf-du-Pape Blanc'), ('Château Yquem')
+VALUES ('Châteauneuf-du-Pape'), ('Château Margaux'), ('Beaujolais Nouveau'), ('Domaine de la Romanée-Conti'), ('Le Sancerre Blanc'), ('Pouilly-Fuissé'), ('Châteauneuf-du-Pape Blanc'), ('Château Yquem');
 
 INSERT INTO user (firstname, lastname, email, address, zip_code, city, job, is_admin)
 VALUES 
@@ -119,4 +118,47 @@ VALUES
 ("secs et élégants", "Les vins blancs secs et élégants vous raviront avec leurs arômes floraux, leurs notes d'agrumes et leur belle fraîcheur. Ils se marient parfaitement avec des poissons, des fruits de mer ou des fromages de chèvre frais."),
 ("frais et vifs", "Vous préférez les vins blancs, vous serez enchanté par ceux qui sont frais, vifs et dotés d'une belle acidité. Ces vins offrent des arômes délicats d'agrumes, de fleurs blanches et peuvent présenter une subtile minéralité. Ils sont particulièrement appréciés en apéritif, avec des fruits de mer ou des salades légères."),
 ("riches et complexes", "Vous recherchez des vins blancs plus riches et complexes, vous apprécierez ceux qui offrent une belle structure, des arômes de fruits exotiques, de miel et des nuances épicées. Ils sont parfaits pour accompagner des plats plus élaborés ou pour déguster en tant qu'expérience sensorielle à part entière."),
-("doux et liquoreux", "Les vins doux et liquoreux vous séduiront par leur richesse et leur onctuosité. Ces vins offrent des arômes intenses de fruits confits, de miel et d'épices douces. Ils sont parfaits en accompagnement de desserts ou pour déguster avec un foie gras.")
+("doux et liquoreux", "Les vins doux et liquoreux vous séduiront par leur richesse et leur onctuosité. Ces vins offrent des arômes intenses de fruits confits, de miel et d'épices douces. Ils sont parfaits en accompagnement de desserts ou pour déguster avec un foie gras.");
+
+INSERT INTO cepage (name, taste_level_id)
+VALUES
+    ('Grenache', NULL),
+    ('Petit Verdot', NULL),
+    ('Gamay', NULL),
+    ('Pinot Noir', NULL),
+    ('Sancerre Blanc', NULL),
+    ('Chardonnay', NULL),
+    ('Picpoul', NULL),
+    ('Sémillon', NULL),
+    ('Cabernet Sauvignon', NULL),
+    ('Syrah', NULL),
+    ('Merlot', NULL),
+    ('Malbec', NULL),
+    ('Carmenère', NULL),
+    ('Tannat', NULL),
+    ('Petit Syrah', NULL),
+    ('Alicante Bouschet', NULL),
+    ('Cinsault', NULL),
+    ('Dolcetto', NULL),
+    ('Zweigelt', NULL),
+    ('Blauer Portugieser', NULL),
+    ('Nebbiolo', NULL),
+    ('Sangiovese', NULL),
+    ('Mazuelo', NULL),
+    ('Tempranillo', NULL),
+    ('Tenlo Blanc', NULL),
+    ('Vermentino (Rolle)', NULL),
+    ('Grüner Veltliner', NULL),
+    ('Albariño', NULL),
+    ('Viognier', NULL),
+    ('Riesling', NULL),
+    ('Chenin Blanc', NULL),
+    ('Gewürztraminer', NULL),
+    ('Folle Blanche', NULL),
+    ('Trebbiano (Ugni Blanc)', NULL),
+    ('Melon de Bourgogne', NULL),
+    ('Muscon', NULL),
+    ('Muscadelle', NULL),
+    ('Furmint', NULL),
+    ('Palomino', NULL),
+    ('Colombard', NULL);
