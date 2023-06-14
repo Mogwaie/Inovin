@@ -53,6 +53,7 @@ CREATE TABLE `cepage_level` (
 CREATE TABLE `cepage` (
   `cepage_id` integer PRIMARY KEY,
   `name` varchar(255)
+  `taste_profile_id` integer
 );
 
 
@@ -79,3 +80,5 @@ ALTER TABLE `user` ADD FOREIGN KEY (`receipe_id`) REFERENCES `receipe` (`receipe
 ALTER TABLE `receipe` ADD FOREIGN KEY (`cepage_level_id`) REFERENCES `cepage_level` (`cepage_level_id`);
 
 ALTER TABLE `cepage_level` ADD FOREIGN KEY (`cepage_id`) REFERENCES `cepage` (`cepage_id`);
+
+ALTER TABLE `cepage` ADD FOREIGN KEY (`taste_level_id`) REFERENCES `taste_level` (`taste_level_id`);
