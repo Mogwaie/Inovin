@@ -4,14 +4,18 @@
     flex-wrap: wrap;
     align-items: center;
     flex-direction: column;
+    justify-content: space-around;
     position: fixed;
-    height: 100vh;
+    height: 90vh;
     right: -100vw;
     bottom: 0;
     top: 4rem;
     padding: 2rem;
     background-color: $app-bg-color;
+    width: 100%;
+    transition: 0.5s ease-in-out;
   }
+
   .show-nav {
     right: 0;
     width: 100%;
@@ -19,23 +23,25 @@
 
   li {
     display: block;
-    padding: 1.5rem;
-    font-size: 38px;
+    margin: 3.5rem;
     text-decoration: none;
     color: $font-family-title-color;
     font-family: $font-family-title;
+    font-size: $font-size-list-burger-tablet;
   }
 
   li:hover {
     color: $app-primary-font-color;
+    cursor: pointer;
   }
 
-  li::after {
-    display: block;
-    content: "";
-    width: 1rem;
-    height: 1px;
-    background-color: $app-supporting-color;
+  .link-deconnection-admin {
+    color: $app-primary-font-color;
+    font-size: $font-size-text-tablet;
+  }
+
+  .link-deconnection-admin:hover {
+    color: $app-supporting-color;
   }
 
   .menu-burger {
@@ -95,5 +101,21 @@
 
   .hide-burger-menu {
     visibility: hidden;
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .container-burger-menu {
+    li {
+      text-align: end;
+    }
+
+    .show-nav {
+      align-items: end;
+    }
+
+    .nav-links {
+      align-items: end;
+    }
   }
 }

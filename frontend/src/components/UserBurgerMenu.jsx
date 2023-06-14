@@ -1,23 +1,16 @@
-import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
-export default function UserBurgerMenu() {
-  const [showLinks, setShowLinks] = useState(false);
-  const [currentUrl, setCurrentUrl] = useState("");
-
+export default function UserBurgerMenu({
+  handleShowLinks,
+  showLinks,
+  currentUrl,
+}) {
   // hide or show burger menu
   const urlPageListHideBurgerMenu = ["/"];
-  useEffect(() => {
-    setCurrentUrl(window.location.pathname);
-  }, []);
 
   const hideBurgerMenu = urlPageListHideBurgerMenu.find(
     (urlPage) => urlPage === currentUrl
   );
-
-  // links burger menu
-  const handleShowLinks = () => {
-    setShowLinks(!showLinks);
-  };
 
   return (
     <div className="container-burger-menu">
@@ -26,6 +19,7 @@ export default function UserBurgerMenu() {
           <li>Profil</li>
           <li>Atelier</li>
           <li>Boutique</li>
+          <li className="link-deconnection-admin">Déconnexion</li>
         </ul>
         <button
           type="button"
@@ -38,3 +32,9 @@ export default function UserBurgerMenu() {
     </div>
   );
 }
+
+UserBurgerMenu.propTypes = {
+  handleShowLinks: PropTypes.func.isRequired,
+  showLinks: PropTypes.bool.isRequired,
+  currentUrl: PropTypes.string.isRequired,
+};
