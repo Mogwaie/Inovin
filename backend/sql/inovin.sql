@@ -52,7 +52,7 @@ CREATE TABLE `cepage_level` (
 
 CREATE TABLE `cepage` (
   `cepage_id` integer PRIMARY KEY,
-  `name` varchar(255)
+  `name` varchar(255),
   `taste_profile_id` integer
 );
 
