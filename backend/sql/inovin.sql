@@ -1,5 +1,5 @@
 CREATE TABLE `user` (
-  `user_id` integer PRIMARY KEY,
+  `user_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `last_name` varchar(255),
   `first_name` varchar(255),
   `email` varchar(255),
@@ -13,7 +13,7 @@ CREATE TABLE `user` (
 );
 
 CREATE TABLE `taste_profile` (
-  `taste_profile_id` integer PRIMARY KEY,
+  `taste_profile_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(255),
   `description` TEXT,
   `taste_level_id` integer,
@@ -21,7 +21,7 @@ CREATE TABLE `taste_profile` (
 );
 
 CREATE TABLE `wine` (
-  `wine_id` integer PRIMARY KEY,
+  `wine_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(255),
   `origin` varchar(255),
   `img_wine` varchar(255),
@@ -29,36 +29,36 @@ CREATE TABLE `wine` (
 );
 
 CREATE TABLE `taste_level` (
-  `taste_level_id` integer PRIMARY KEY,
+  `taste_level_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `taste_id` integer,
   `level` integer
 );
 
 CREATE TABLE `taste` (
-  `taste_id` integer PRIMARY KEY,
+  `taste_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(255)
 );
 
 CREATE TABLE `receipe` (
-  `receipe_id` integer PRIMARY KEY,
+  `receipe_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `cepage_level_id` integer
 );
 
 CREATE TABLE `cepage_level` (
-  `cepage_level_id` integer PRIMARY KEY,
+  `cepage_level_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `cepage_id` integer,
   `level` integer
 );
 
 CREATE TABLE `cepage` (
-  `cepage_id` integer PRIMARY KEY,
+  `cepage_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(255),
-  `taste_profile_id` integer
+  `taste_level_id` integer
 );
 
 
 CREATE TABLE `review` (
-  `review_id` integer PRIMARY KEY,
+  `review_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `user_name` varchar(255),
   `user_last_name` varchar(255),
   `user_email` varchar(255),
