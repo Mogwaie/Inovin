@@ -1,8 +1,8 @@
 CREATE TABLE `user` (
   `user_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `last_name` varchar(255),
-  `first_name` varchar(255),
-  `email` varchar(255),
+  `lastname` varchar(255) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `address` varchar(255),
   `zip_code` integer,
   `city` varchar(255),
