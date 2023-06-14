@@ -1,8 +1,8 @@
 CREATE TABLE `user` (
-  `user_id` integer PRIMARY KEY,
-  `last_name` varchar(255),
-  `first_name` varchar(255),
-  `email` varchar(255),
+  `user_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `lastname` varchar(255) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `address` varchar(255),
   `zip_code` integer,
   `city` varchar(255),
@@ -82,3 +82,17 @@ ALTER TABLE `receipe` ADD FOREIGN KEY (`cepage_level_id`) REFERENCES `cepage_lev
 ALTER TABLE `cepage_level` ADD FOREIGN KEY (`cepage_id`) REFERENCES `cepage` (`cepage_id`);
 
 ALTER TABLE `cepage` ADD FOREIGN KEY (`taste_level_id`) REFERENCES `taste_level` (`taste_level_id`);
+
+
+INSERT INTO user (firstname, lastname, email, address, zip_code, city, job, is_admin)
+VALUES 
+  ('Valeriy', 'Appius', 'valeriy.appius@example.com', '4 rue react', '33300', 'bordeaux', "dev", "0"),
+  ('Alice', 'Johnson', 'alice.johnson@example.com', '10 rue du Paradis', '75001', 'Paris', 'Ingénieur', '0'),
+  ('Robert', 'Brown', 'robert.brown@example.com', '15 rue vue', '10001', 'New York', 'Architecte', '0'),
+  ('Sophie', 'Garcia', 'sophie.garcia@example.com', '22 Avenue de la Liberté', '69002', 'Lyon', 'Avocate', '0'),
+  ('Maxime', 'Dubois', 'maxime.dubois@example.com', '5 Calle Principal', '28001', 'Madrid', 'Consultant', '0'),
+  ('Julia', 'Lee', 'julia.lee@example.com', '7 Elm Street', '90001', 'Los Angeles', 'Designer', '0'),
+  ('Alexandre', 'Moreau', 'alexandre.moreau@example.com', '27 Rue de la Paix', '75008', 'Paris', 'Comptable', '0'),
+  ('Laura', 'Sanchez', 'laura.sanchez@example.com', '14 Calle del Sol', '28002', 'Madrid', 'Infirmière', '0'),
+  ('Thomas', 'Rousseau', 'thomas.rousseau@example.com', '3 Avenue des Champs-Élysées', '75009', 'Paris', 'Journaliste', '0'),
+  ('john', 'doe', 'j.do@example.com', '3 Avenue angular', '75009', 'Paris', 'Journaliste', '0');
