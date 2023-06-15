@@ -14,7 +14,7 @@ const getAllUsers = (req, res) => {
 
 const getUserById = (req, res) => {
   models.user
-    .find(req.params.id)
+    .findUserById(req.params.id)
     .then(([user]) => {
       if (user[0] == null) {
         res.sendStatus(404);
