@@ -6,7 +6,7 @@ export default function UserBurgerMenu({
   currentUrl,
 }) {
   // hide or show burger menu
-  const urlPageListHideBurgerMenu = ["/"];
+  const urlPageListHideBurgerMenu = ["/", "/login"];
 
   const hideBurgerMenu = urlPageListHideBurgerMenu.find(
     (urlPage) => urlPage === currentUrl

@@ -34,6 +34,10 @@ const ItemManager = require("./ItemManager");
 models.item = new ItemManager();
 models.item.setDatabase(pool);
 
+const TasteManager = require("./TasteManager");
+
+models.taste = new TasteManager();
+models.taste.setDatabase(pool);
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 

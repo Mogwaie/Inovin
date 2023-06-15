@@ -31,9 +31,7 @@ const read = (req, res) => {
 const edit = (req, res) => {
   const taste = req.body;
 
-  // TODO validations (length, format...)
-
-  taste.id = parseInt(req.params.id, 10);
+  taste.taste_id = parseInt(req.params.id, 10);
 
   models.taste
     .update(taste)
@@ -58,7 +56,7 @@ const add = (req, res) => {
   models.taste
     .insert(taste)
     .then(([result]) => {
-      res.location(`/tastes/${result.insertId}`).sendStatus(201);
+      res.location(`/taste/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
