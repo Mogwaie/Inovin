@@ -25,4 +25,5 @@ class AbstractManager {
     this.database = database;
   }
 }
+
 module.exports = AbstractManager;

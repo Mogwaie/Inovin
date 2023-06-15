@@ -30,14 +30,22 @@ pool.getConnection().catch(() => {
 const models = {};
 
 const ItemManager = require("./ItemManager");
+const UserManager = require("./UserManager");
+const CepagesManager = require("./CepagesManager");
+const TasteManager = require("./TasteManager");
 
 models.item = new ItemManager();
 models.item.setDatabase(pool);
 
-const TasteManager = require("./TasteManager");
+models.user = new UserManager();
+models.user.setDatabase(pool);
+
+models.cepage = new CepagesManager();
+models.cepage.setDatabase(pool);
 
 models.taste = new TasteManager();
 models.taste.setDatabase(pool);
+
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 
