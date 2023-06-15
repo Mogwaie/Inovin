@@ -1,0 +1,61 @@
+.homeBorderDiv {
+    border: 2px solid $app-primary-font-color;
+    width: 90vw;
+    height: 95vh;
+    margin: 5% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+  }
+
+  .homeContentDiv {
+    margin-top: 10vh;
+    height: fit-content;
+  }
+
+  .homeTextDiv {
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
+
+  .nav-container {
+    display: none;
+  }
+  
+  .logoImage {
+    height: 10vh;
+    width: auto;
+    margin-bottom: 7vh;
+  }
+  
+  .vineyardImage {
+    position: absolute;
+    width: 100vw;
+    height: auto;
+    top: 22vh;
+    z-index: -1;
+    opacity: 50%;
+  }
+
+.homeButton {
+    margin-top: 25vh;
+    margin-bottom: 5vh;
+}
+
+@media screen and (min-width: $app-tablet) {
+
+  .homeContentDiv {
+    margin-top: -2vh;
+  }
+
+  .vineyardImage {
+    width: 100vw;
+    height: 100vh;
+    top: 5vh;
+  }
+
+
+}
