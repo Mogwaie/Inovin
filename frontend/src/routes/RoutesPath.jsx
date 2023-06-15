@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Test from "../pages/Test";
 import Navbar from "../components/Navbar";
 import AdminTest from "../pages/Admintest";
+import Login from "../pages/Login";
 
 function RoutesPath() {
   return (
@@ -13,6 +14,7 @@ function RoutesPath() {
         <Route path="/" element={<Home />} />
         <Route path="/test" element={<Test />} />
         <Route path="/admin" element={<AdminTest />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );
