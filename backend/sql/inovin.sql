@@ -7,7 +7,7 @@ CREATE TABLE `user` (
   `user_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `lastname` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `email` varchar(255) UNIQUE NOT NULL,
   `address` varchar(255),
   `zip_code` integer,
   `city` varchar(255),
@@ -16,12 +16,13 @@ CREATE TABLE `user` (
   `taste_profile_id` integer,
   `receipe_id` integer
 );
+
 DROP TABLE IF EXISTS `taste_profile`;
 CREATE TABLE `taste_profile` (
   `taste_profile_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(255),
   `description` TEXT,
-  `taste_level_id` integer,
+  `taste_id` integer,
   `wine_id` integer
 );
 
@@ -32,13 +33,6 @@ CREATE TABLE `wine` (
   `origin` varchar(255),
   `img_wine` varchar(255),
   `description` TEXT
-);
-
-DROP TABLE IF EXISTS `taste_level`;
-CREATE TABLE `taste_level` (
-  `taste_level_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `taste_id` integer,
-  `level` integer
 );
 
 DROP TABLE IF EXISTS `taste`;
@@ -79,9 +73,7 @@ CREATE TABLE `review` (
 
 ALTER TABLE `user` ADD FOREIGN KEY (`taste_profile_id`) REFERENCES `taste_profile` (`taste_profile_id`);
 
-ALTER TABLE `taste_profile` ADD FOREIGN KEY (`taste_level_id`) REFERENCES `taste_level` (`taste_level_id`);
-
-ALTER TABLE `taste_level` ADD FOREIGN KEY (`taste_id`) REFERENCES `taste` (`taste_id`);
+ALTER TABLE `taste_profile` ADD FOREIGN KEY (`taste_id`) REFERENCES `taste` (`taste_id`);
 
 ALTER TABLE `taste_profile` ADD FOREIGN KEY (`wine_id`) REFERENCES `wine` (`wine_id`);
 
@@ -120,45 +112,45 @@ VALUES
 ("riches et complexes", "Vous recherchez des vins blancs plus riches et complexes, vous apprécierez ceux qui offrent une belle structure, des arômes de fruits exotiques, de miel et des nuances épicées. Ils sont parfaits pour accompagner des plats plus élaborés ou pour déguster en tant qu'expérience sensorielle à part entière."),
 ("doux et liquoreux", "Les vins doux et liquoreux vous séduiront par leur richesse et leur onctuosité. Ces vins offrent des arômes intenses de fruits confits, de miel et d'épices douces. Ils sont parfaits en accompagnement de desserts ou pour déguster avec un foie gras.");
 
-INSERT INTO cepage (name, taste_level_id)
+INSERT INTO cepage (name)
 VALUES
-    ('Grenache', NULL),
-    ('Petit Verdot', NULL),
-    ('Gamay', NULL),
-    ('Pinot Noir', NULL),
-    ('Sancerre Blanc', NULL),
-    ('Chardonnay', NULL),
-    ('Picpoul', NULL),
-    ('Sémillon', NULL),
-    ('Cabernet Sauvignon', NULL),
-    ('Syrah', NULL),
-    ('Merlot', NULL),
-    ('Malbec', NULL),
-    ('Carmenère', NULL),
-    ('Tannat', NULL),
-    ('Petit Syrah', NULL),
-    ('Alicante Bouschet', NULL),
-    ('Cinsault', NULL),
-    ('Dolcetto', NULL),
-    ('Zweigelt', NULL),
-    ('Blauer Portugieser', NULL),
-    ('Nebbiolo', NULL),
-    ('Sangiovese', NULL),
-    ('Mazuelo', NULL),
-    ('Tempranillo', NULL),
-    ('Tenlo Blanc', NULL),
-    ('Vermentino (Rolle)', NULL),
-    ('Grüner Veltliner', NULL),
-    ('Albariño', NULL),
-    ('Viognier', NULL),
-    ('Riesling', NULL),
-    ('Chenin Blanc', NULL),
-    ('Gewürztraminer', NULL),
-    ('Folle Blanche', NULL),
-    ('Trebbiano (Ugni Blanc)', NULL),
-    ('Melon de Bourgogne', NULL),
-    ('Muscon', NULL),
-    ('Muscadelle', NULL),
-    ('Furmint', NULL),
-    ('Palomino', NULL),
-    ('Colombard', NULL);
+    ('Grenache'),
+    ('Petit Verdot'),
+    ('Gamay'),
+    ('Pinot Noir'),
+    ('Sancerre Blanc'),
+    ('Chardonnay'),
+    ('Picpoul'),
+    ('Sémillon'),
+    ('Cabernet Sauvignon'),
+    ('Syrah'),
+    ('Merlot'),
+    ('Malbec'),
+    ('Carmenère'),
+    ('Tannat'),
+    ('Petit Syrah'),
+    ('Alicante Bouschet'),
+    ('Cinsault'),
+    ('Dolcetto'),
+    ('Zweigelt'),
+    ('Blauer Portugieser'),
+    ('Nebbiolo'),
+    ('Sangiovese'),
+    ('Mazuelo'),
+    ('Tempranillo'),
+    ('Tenlo Blanc'),
+    ('Vermentino (Rolle)'),
+    ('Grüner Veltliner'),
+    ('Albariño'),
+    ('Viognier'),
+    ('Riesling'),
+    ('Chenin Blanc'),
+    ('Gewürztraminer'),
+    ('Folle Blanche'),
+    ('Trebbiano (Ugni Blanc)'),
+    ('Melon de Bourgogne'),
+    ('Muscon'),
+    ('Muscadelle'),
+    ('Furmint'),
+    ('Palomino'),
+    ('Colombard');
