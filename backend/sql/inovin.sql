@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS `inovin`;
+CREATE DATABASE `inovin`;
+USE `inovin`;
+
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `user_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,

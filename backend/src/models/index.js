@@ -39,6 +39,10 @@ const CepagesManager = require("./CepagesManager");
 models.cepage = new CepagesManager();
 models.cepage.setDatabase(pool);
 
+const ProfileTasteManager = require("./ProfileTasteManager");
+
+models.taste_profile = new ProfileTasteManager();
+models.taste_profile.setDatabase(pool);
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 
