@@ -5,6 +5,7 @@ const router = express.Router();
 const itemControllers = require("./controllers/itemControllers");
 const userControllers = require("./controllers/userControllers");
 const cepageControllers = require("./controllers/cepageControllers");
+const tasteControllers = require("./controllers/tasteControllers");
 
 router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);
@@ -23,5 +24,11 @@ router.get("/cepages/:id", cepageControllers.findCepageById);
 router.post("/cepages", cepageControllers.createNewCepage);
 router.put("/cepages/:id", cepageControllers.editCepage);
 router.delete("/cepages/:id", cepageControllers.deleteCepage);
+
+router.get("/taste", tasteControllers.tasteBrowse);
+router.get("/taste/:id", tasteControllers.read);
+router.put("/taste/:id", tasteControllers.edit);
+router.post("/taste", tasteControllers.add);
+router.delete("/taste/:id", tasteControllers.destroy);
 
 module.exports = router;
