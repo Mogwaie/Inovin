@@ -2,7 +2,7 @@ CREATE TABLE `user` (
   `user_id` integer PRIMARY KEY,
   `last_name` varchar(255),
   `first_name` varchar(255),
-  `email` varchar(255),
+  `email` varchar(255) ,
   `address` varchar(255),
   `zip_code` integer,
   `city` varchar(255),
