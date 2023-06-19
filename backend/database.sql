@@ -4,3 +4,5 @@ CREATE TABLE item (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO item (title) VALUES ('Stuff'), ('Doodads');
+
+
