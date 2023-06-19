@@ -7,7 +7,7 @@ CREATE TABLE `user` (
   `user_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `lastname` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `email` varchar(255) UNIQUE NOT NULL,
   `address` varchar(255),
   `zip_code` integer,
   `city` varchar(255),
@@ -16,6 +16,7 @@ CREATE TABLE `user` (
   `taste_profile_id` integer,
   `receipe_id` integer
 );
+
 DROP TABLE IF EXISTS `taste_profile`;
 CREATE TABLE `taste_profile` (
   `taste_profile_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
