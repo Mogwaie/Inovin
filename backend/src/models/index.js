@@ -32,8 +32,9 @@ const models = {};
 const ItemManager = require("./ItemManager");
 const UserManager = require("./UserManager");
 const CepagesManager = require("./CepagesManager");
-const TasteManager = require("./TasteManager");
 const ProfileTasteManager = require("./ProfileTasteManager");
+const TasteManager = require("./TasteManager");
+const ReviewManager = require("./ReviewManager");
 
 models.item = new ItemManager();
 models.item.setDatabase(pool);
@@ -46,8 +47,12 @@ models.cepage.setDatabase(pool);
 
 models.taste_profile = new ProfileTasteManager();
 models.taste_profile.setDatabase(pool);
+
 models.taste = new TasteManager();
 models.taste.setDatabase(pool);
+
+models.review = new ReviewManager();
+models.review.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
