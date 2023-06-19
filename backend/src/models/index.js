@@ -33,6 +33,7 @@ const ItemManager = require("./ItemManager");
 const UserManager = require("./UserManager");
 const CepagesManager = require("./CepagesManager");
 const TasteManager = require("./TasteManager");
+const ProfileTasteManager = require("./ProfileTasteManager");
 
 models.item = new ItemManager();
 models.item.setDatabase(pool);
@@ -43,6 +44,8 @@ models.user.setDatabase(pool);
 models.cepage = new CepagesManager();
 models.cepage.setDatabase(pool);
 
+models.taste_profile = new ProfileTasteManager();
+models.taste_profile.setDatabase(pool);
 models.taste = new TasteManager();
 models.taste.setDatabase(pool);
 
