@@ -1,9 +1,14 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home";
-import Test from "./pages/Test";
+import ReactDOM from "react-dom/client";
 import "./main.scss";
+
+import MaxLengthProvider from "./context/MaxLengthContext";
+import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
+import AdminTest from "./pages/Admintest";
+import Login from "./pages/Login";
+// import SignUp from "./components/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -11,15 +16,28 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/test",
-    element: <Test />,
+    path: "/navbar",
+    element: <Navbar />,
   },
+  {
+    path: "/adnim",
+    element: <AdminTest />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  // {
+  //   path: "/signUp",
+  //   element: <SignUp />,
+  // },
 ]);
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <MaxLengthProvider>
+      <RouterProvider router={router} />
+    </MaxLengthProvider>
   </React.StrictMode>
 );

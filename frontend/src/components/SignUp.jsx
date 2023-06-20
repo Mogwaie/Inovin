@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../context/MaxLengthContext";
 import InputPassword from "./InputPassword";
 import InputEmail from "./InputEmail";
 import Button from "./Button";
+// import MaxLenghtContext from "../context/MaxLengthContext";
 
 function Signup() {
-  const MAX_LENGTH = 250; // Feel free to change the value
+  // const { MaxLength } = useContext(MaxLenghtContext);
+  const { maxl } = useContext(UserContext);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
@@ -13,33 +16,33 @@ function Signup() {
   const [city, setCity] = useState("");
   const [job, setJob] = useState("");
   const handleChangeFirstName = (event) => {
-    if (event.target.value.length <= MAX_LENGTH) {
+    if (event.target.value.length <= maxl) {
       setFirstName(event.target.value);
     }
   };
   const handleChangeLastName = (event) => {
-    if (event.target.value.length <= MAX_LENGTH) {
+    if (event.target.value.length <= maxl) {
       setLastName(event.target.value);
     }
   };
 
   const handleChangeAddress = (event) => {
-    if (event.target.value.length <= MAX_LENGTH) {
+    if (event.target.value.length <= maxl) {
       setAddress(event.target.value);
     }
   };
   const handleChangePostalCode = (event) => {
-    if (event.target.value.length <= MAX_LENGTH) {
+    if (event.target.value.length <= maxl) {
       setPostalCode(event.target.value);
     }
   };
   const handleChangeCity = (event) => {
-    if (event.target.value.length <= MAX_LENGTH) {
+    if (event.target.value.length <= maxl) {
       setCity(event.target.value);
     }
   };
   const handleChangeJob = (event) => {
-    if (event.target.value.length <= MAX_LENGTH) {
+    if (event.target.value.length <= maxl) {
       setJob(event.target.value);
     }
   };
@@ -60,8 +63,8 @@ function Signup() {
         onChange={handleChangeLastName}
         placeholder="Nom*"
       />
-      <InputEmail MAX_LENGTH={MAX_LENGTH} />
-      <InputPassword MAX_LENGTH={MAX_LENGTH} />
+      <InputEmail MaxLength={maxl} />
+      <InputPassword MaxLength={maxl} />
       <input
         type="text"
         required
@@ -90,7 +93,7 @@ function Signup() {
         onChange={handleChangeJob}
         placeholder="Fonction"
       />
-      <Button text="Valider" />
+      <Button className="signup_button" text="Valider" />
     </form>
   );
 }
