@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import AdminTest from "./pages/Admintest";
 import Login from "./pages/Login";
-// import SignUp from "./components/SignUp";
+import SignUp from "./components/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -27,10 +27,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
-  // {
-  //   path: "/signUp",
-  //   element: <SignUp />,
-  // },
+  {
+    path: "/signUp",
+    element: <SignUp />,
+  },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
