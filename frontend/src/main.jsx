@@ -4,7 +4,6 @@ import ReactDOM from "react-dom/client";
 import "./main.scss";
 import MaxLengthProvider from "./context/MaxLengthContext";
 import Home from "./pages/Home";
-import Test from "./pages/Test";
 import Navbar from "./components/Navbar";
 import AdminTest from "./pages/Admintest";
 import Login from "./pages/Login";
@@ -14,10 +13,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-  },
-  {
-    path: "/test",
-    element: <Test />,
   },
   {
     path: "/navbar",
