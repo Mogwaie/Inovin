@@ -1,17 +1,21 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
-export const UserContext = createContext({});
+const MaxL = { maxl: 35 };
+export const MaxLengthContext = createContext({});
 
 function MaxLengthProvider({ children }) {
-  const [user, setUser] = useState({});
-  const MaxL = { maxl: 35 };
+  const [maxLength, setMaxLength] = useState({});
 
   useEffect(() => {
-    setUser(MaxL);
+    setMaxLength(MaxL);
   }, []);
 
-  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
+  return (
+    <MaxLengthContext.Provider value={maxLength}>
+      {children}
+    </MaxLengthContext.Provider>
+  );
 }
 
 MaxLengthProvider.propTypes = {
