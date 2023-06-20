@@ -1,17 +1,24 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
 import ReactDOM from "react-dom/client";
-import "./main.scss";
-import SignUp from "./components/SignUp";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./pages/Home";
+import Test from "./pages/Test";
 
-// import RoutesPath from "./routes/RoutesPath";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/test",
+    element: <Test />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <SignUp />
-    </BrowserRouter>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
