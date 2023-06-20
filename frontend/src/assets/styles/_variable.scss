@@ -29,18 +29,21 @@ $font-size-list-burger-tablet: 38px;
 
 @mixin font-title-phone {
   font-family: $font-family-title;
+  color: $app-primary-font-color;
   font-weight: normal;
   font-size: 22px;
 }
 
 @mixin font-title-tablet {
   font-family: $font-family-title;
+  color: $app-primary-font-color;
   font-weight: normal;
   font-size: 38px;
 }
 
 @mixin font-title-desktop {
   font-family: $font-family-title;
+  color: $app-primary-font-color;
   font-weight: normal;
   font-size: 60px;
 }

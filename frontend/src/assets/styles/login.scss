@@ -1,0 +1,27 @@
+.login-container-page {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 80vh;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+      margin-top: 2rem;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  input {
+    background-color: black;
+    border: none;
+    border-bottom: 1px solid $app-primary-font-color;
+  }
+}
