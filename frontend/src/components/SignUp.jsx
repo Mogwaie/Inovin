@@ -3,8 +3,6 @@ import { UserContext } from "../context/MaxLengthContext";
 import InputPassword from "./InputPassword";
 import InputEmail from "./InputEmail";
 import Button from "./Button";
-import "../main.scss";
-// import MaxLenghtContext from "../context/MaxLengthContext";
 
 function Signup() {
   // const { MaxLength } = useContext(MaxLenghtContext);
