@@ -2,7 +2,6 @@ import { useState } from "react";
 import InputPassword from "./InputPassword";
 import InputEmail from "./InputEmail";
 import Button from "./Button";
-import "../main.scss";
 
 function Signup() {
   const MAX_LENGTH = 250; // Feel free to change the value
