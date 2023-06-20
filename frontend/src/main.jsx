@@ -2,8 +2,6 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import "./main.scss";
-// import MaxLengthContext from "./context/MaxLengthContext";
-// import UserProvider from "./context/UserContext";
 import MaxLengthProvider from "./context/MaxLengthContext";
 import Home from "./pages/Home";
 import Test from "./pages/Test";
@@ -12,7 +10,6 @@ import AdminTest from "./pages/Admintest";
 import Login from "./pages/Login";
 import SignUp from "./components/SignUp";
 
-// const MaxLenght = 5;
 const router = createBrowserRouter([
   {
     path: "/",
