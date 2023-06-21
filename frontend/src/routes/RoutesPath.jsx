@@ -5,6 +5,8 @@ import Test from "../pages/Test";
 import Navbar from "../components/Navbar";
 import AdminTest from "../pages/Admintest";
 import Login from "../pages/Login";
+import SignUp from "../components/SignUp";
+import DegustationProfile from "../pages/DegustationProfile";
 
 function RoutesPath() {
   return (
@@ -15,6 +17,8 @@ function RoutesPath() {
         <Route path="/test" element={<Test />} />
         <Route path="/admin" element={<AdminTest />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/degustation-profile" element={<DegustationProfile />} />
       </Routes>
     </div>
   );

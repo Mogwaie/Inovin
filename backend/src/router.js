@@ -5,6 +5,7 @@ const router = express.Router();
 const itemControllers = require("./controllers/itemControllers");
 const userControllers = require("./controllers/userControllers");
 const cepageControllers = require("./controllers/cepageControllers");
+const reviewControllers = require("./controllers/reviewControllers");
 const tasteControllers = require("./controllers/tasteControllers");
 
 router.get("/items", itemControllers.browse);
@@ -30,5 +31,8 @@ router.get("/tastes/:id", tasteControllers.read);
 router.put("/tastes/:id", tasteControllers.edit);
 router.post("/tastes", tasteControllers.add);
 router.delete("/tastes/:id", tasteControllers.destroy);
+
+router.get("/reviews", reviewControllers.getAllReviews);
+router.post("/reviews", reviewControllers.createNewReview);
 
 module.exports = router;
