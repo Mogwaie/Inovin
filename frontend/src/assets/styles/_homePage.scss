@@ -1,61 +1,92 @@
+.nav-container {
+  display: none;
+}
+
 .homeBorderDiv {
-    border: 2px solid $app-primary-font-color;
-    width: 90vw;
-    height: 95vh;
-    margin: 5% auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    text-align: center;
-  }
+  border: 5px solid $app-primary-font-color;
+  width: 90vw;
+  height: 95vh;
+  margin: 5% auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  line-height: 1.7rem;
 
   .homeContentDiv {
     margin-top: 10vh;
     height: fit-content;
+
+    .homeTextDiv {
+      margin-left: 12vw;
+      margin-right: 12vw;
+    }
+    .logoImage {
+      height: 10vh;
+      width: auto;
+      margin-bottom: 7vh;
+    }
+    .homeButton {
+      margin-top: 25vh;
+      margin-bottom: 5vh;
+    }
   }
 
-  .homeTextDiv {
-    margin-left: 10vw;
-    margin-right: 10vw;
-  }
-
-  .nav-container {
-    display: none;
-  }
-  
-  .logoImage {
-    height: 10vh;
-    width: auto;
-    margin-bottom: 7vh;
-  }
-  
   .vineyardImage {
     position: absolute;
     width: 100vw;
     height: auto;
-    top: 22vh;
+    top: 45vh;
     z-index: -1;
     opacity: 50%;
   }
 
-.homeButton {
-    margin-top: 25vh;
-    margin-bottom: 5vh;
-}
-
-@media screen and (min-width: $app-tablet) {
-
-  .homeContentDiv {
-    margin-top: -2vh;
+  @media screen and (min-width: 390px) {
+    .homeP {
+      font-size: 16px;
+    }
+    .homeButton {
+      margin-top: 22vh;
+    }
   }
 
-  .vineyardImage {
-    width: 100vw;
-    height: 100vh;
-    top: 5vh;
+  @media screen and (min-width: $app-tablet) {
+    .homeContentDiv {
+      margin-top: 5vh;
+      margin-left: 3vw;
+      margin-right: 3vw;
+      line-height: 3rem;
+
+      .homeP {
+        font-size: 24px;
+      }
+      .logoImage {
+        margin-bottom: 3vh;
+      }
+      .homeButton {
+        margin-top: 32vh;
+        margin-bottom: 0;
+      }
+    }
+    .vineyardImage {
+      top: 35vh;
+    }
   }
 
-
+  @media screen and (min-width: $app-desktop) {
+    
+    .vineyardImage {
+      position: fixed;
+      top: 0;
+      height: 100vh;
+      width: 100vw;
+    }
+    
+    .homeBorderDiv {
+      height: 95vh;
+      width: 90vw;
+    }
+  }
 }
