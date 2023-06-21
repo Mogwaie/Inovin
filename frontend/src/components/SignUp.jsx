@@ -64,8 +64,12 @@ function Signup() {
         onChange={handleChangeLastName}
         placeholder="Nom*"
       />
-      <InputEmail MaxLength={maxl} />
-      <InputPassword MaxLength={maxl} />
+      <div>
+        <InputEmail MaxLength={maxl} />
+      </div>
+      <div>
+        <InputPassword MaxLength={maxl} />
+      </div>
       <input
         type="text"
         required
@@ -96,11 +100,7 @@ function Signup() {
         onChange={handleChangeJob}
         placeholder="Fonction"
       />
-      <Button
-        className="primary-button"
-        onClick={() => navigate("/login")}
-        text="Valider"
-      />
+      <Button onClick={() => navigate("/login")} text="Valider" />
     </form>
   );
 }

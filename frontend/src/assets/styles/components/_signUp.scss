@@ -14,6 +14,9 @@
       margin-right: 10px;
       margin-left: 10px;
     }
+    input:focus {
+      outline: none;
+    }
   }
   input {
     width: 70%;
@@ -21,7 +24,15 @@
     border: none;
     border-bottom: 1px solid $font-family-title-color;
     background-color: $app-bg-color;
-    color: $app-supporting-color2;
+    color: $font-family-title-color;
+  }
+  input:focus {
+    outline: none;
+  }
+  div {
+    display: flex;
+    justify-content: center;
+    width: 84%;
   }
   .primary-button {
     margin-top: 30px;
