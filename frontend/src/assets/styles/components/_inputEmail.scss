@@ -1,0 +1,20 @@
+.input-email-container {
+  width: 100%;
+
+  .input-email {
+    border: none;
+    border-bottom: 1px solid $font-family-title-color;
+    background-color: $app-bg-color;
+    color: $font-family-title-color;
+    width: 100%;
+  }
+
+  input::placeholder {
+    color: $font-family-title-color;
+  }
+
+  .input-email:focus {
+    outline: none;
+    border-bottom: solid 2px $font-family-title-color;
+  }
+}

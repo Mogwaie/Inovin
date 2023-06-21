@@ -2,6 +2,9 @@
 @import "./assets/styles/components/navbar.scss";
 @import "./assets/styles/components/burgerMenu.scss";
 @import "./assets/styles/components/signup.scss";
+@import "./assets/styles/login.scss";
+@import "./assets/styles/components/inputPassword";
+@import "./assets/styles/components/inputEmail";
 
 *,
 *::before,
@@ -34,16 +37,8 @@ p {
 }
 
 /* button */
-.primary-button-phone {
+.primary-button {
   @include primary-button-phone;
-}
-
-.primary-button-tablet {
-  @include primary-button-tablet;
-}
-
-.primary-button-desktop {
-  @include primary-button-desktop;
 }
 
 /* search bar */
@@ -67,6 +62,10 @@ p {
   p {
     @include font-text-tablet-desktop;
   }
+
+  .primary-button {
+    @include primary-button-tablet;
+  }
 }
 
 @media screen and (min-width: $app-desktop) {
@@ -80,5 +79,9 @@ p {
 
   p {
     @include font-text-tablet-desktop;
+  }
+
+  .primary-button {
+    @include primary-button-desktop;
   }
 }
