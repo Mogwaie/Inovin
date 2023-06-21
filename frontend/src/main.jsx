@@ -8,6 +8,7 @@ import MaxLengthProvider from "./context/MaxLengthContext";
 import Home from "./pages/Home";
 import AdminTest from "./pages/Admintest";
 import Login from "./pages/Login";
+import Workshop from "./pages/Workshop";
 import SignUp from "./components/SignUp";
 
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/signUp",
         element: <SignUp />,
+      },
+      {
+        path: "/workshop",
+        element: <Workshop />,
       },
     ],
   },
