@@ -10,21 +10,26 @@ export default function Login() {
       <form>
         <InputEmail />
         <InputPassword />
-        <Link to="/change to next page">
-          <button className="primary-button" type="submit">
-            Connexion
-          </button>
-        </Link>
       </form>
+      <div className="links-page-login">
+        <div className="buttons-container-login-page">
+          <Link to="/change to next page">
+            <button className="primary-button" type="submit">
+              Connexion
+            </button>
+          </Link>
 
-      <Link to="/signUp">
-        <button className="primary-button" type="button">
-          Inscription
-        </button>
-      </Link>
-      <Link to="/passwordRecovery">
-        <p>Mot de passe oublié ?</p>
-      </Link>
+          <Link to="/signUp">
+            <button className="primary-button" type="button">
+              Inscription
+            </button>
+          </Link>
+        </div>
+
+        <Link to="/passwordRecovery">
+          <p>Mot de passe oublié ?</p>
+        </Link>
+      </div>
     </div>
   );
 }
