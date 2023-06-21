@@ -56,7 +56,7 @@ const add = (req, res) => {
   models.taste
     .insert(taste)
     .then(([result]) => {
-      res.location(`/taste/${result.insertId}`).sendStatus(201);
+      res.location(`/tastes/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);

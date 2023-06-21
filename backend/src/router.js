@@ -25,7 +25,14 @@ router.post("/cepages", cepageControllers.createNewCepage);
 router.put("/cepages/:id", cepageControllers.editCepage);
 router.delete("/cepages/:id", cepageControllers.deleteCepage);
 
+router.get("/tastes", tasteControllers.tasteBrowse);
+router.get("/tastes/:id", tasteControllers.read);
+router.put("/tastes/:id", tasteControllers.edit);
+router.post("/tastes", tasteControllers.add);
+router.delete("/tastes/:id", tasteControllers.destroy);
+
 router.get("/reviews", reviewControllers.getAllReviews);
 router.post("/reviews", reviewControllers.createNewReview);
+
 
 module.exports = router;
