@@ -1,7 +1,7 @@
 const models = require("../models");
 
-const tasteBrowse = (req, res) => {
-  models.taste
+const findAllTasteProfile = (req, res) => {
+  models.taste_profile
     .findAll()
     .then(([rows]) => {
       res.send(rows);
@@ -12,8 +12,8 @@ const tasteBrowse = (req, res) => {
     });
 };
 
-const read = (req, res) => {
-  models.taste
+const findTasteProfileById = (req, res) => {
+  models.taste_profile
     .find(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
@@ -28,13 +28,24 @@ const read = (req, res) => {
     });
 };
 
-const edit = (req, res) => {
-  const taste = req.body;
+const createNewTasteProfile = (req, res) => {
+  const tasteProfile = req.body;
+  models.taste_profile
+    .insert(tasteProfile)
+    .then(([result]) => {
+      res.location(`/tasteprofile/${result.insertId}`).sendStatus(201);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
 
-  taste.taste_id = parseInt(req.params.id, 10);
-
-  models.taste
-    .update(taste)
+const editTasteProfile = (req, res) => {
+  const tasteProfile = req.body;
+  tasteProfile.taste_profile_id = parseInt(req.params.id, 10);
+  models.taste_profile
+    .update(tasteProfile)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
@@ -48,24 +59,8 @@ const edit = (req, res) => {
     });
 };
 
-const add = (req, res) => {
-  const taste = req.body;
-
-  // TODO validations (length, format...)
-
-  models.taste
-    .insert(taste)
-    .then(([result]) => {
-      res.location(`/tastes/${result.insertId}`).sendStatus(201);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
-
-const destroy = (req, res) => {
-  models.taste
+const deleteTasteProfile = (req, res) => {
+  models.taste_profile
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
@@ -81,9 +76,9 @@ const destroy = (req, res) => {
 };
 
 module.exports = {
-  tasteBrowse,
-  read,
-  edit,
-  add,
-  destroy,
+  findAllTasteProfile,
+  findTasteProfileById,
+  createNewTasteProfile,
+  editTasteProfile,
+  deleteTasteProfile,
 };
