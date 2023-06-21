@@ -1,7 +1,6 @@
 .nav-container {
-  display: none;
+  display: none !important;
 }
-
 .homeBorderDiv {
   border: 5px solid $app-primary-font-color;
   width: 90vw;
@@ -28,9 +27,17 @@
       width: auto;
       margin-bottom: 7vh;
     }
-    .homeButton {
+    #homeButton {
       margin-top: 25vh;
       margin-bottom: 5vh;
+      background-color: $app-bg-color;
+      cursor: pointer;
+
+    &:hover {
+      background-color: $app-primary-font-color;
+      color: $app-bg-color-button;
+      border: solid 2px $app-bg-color-button;
+  }
     }
   }
 
@@ -47,7 +54,7 @@
     .homeP {
       font-size: 16px;
     }
-    .homeButton {
+    #homeButton {
       margin-top: 22vh;
     }
   }
@@ -65,8 +72,8 @@
       .logoImage {
         margin-bottom: 3vh;
       }
-      .homeButton {
-        margin-top: 32vh;
+      #homeButton {
+        margin-top: 27vh;
         margin-bottom: 0;
       }
     }
@@ -90,3 +97,4 @@
     }
   }
 }
+
