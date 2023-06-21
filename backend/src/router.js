@@ -6,6 +6,7 @@ const itemControllers = require("./controllers/itemControllers");
 const userControllers = require("./controllers/userControllers");
 const cepageControllers = require("./controllers/cepageControllers");
 const reviewControllers = require("./controllers/reviewControllers");
+const tasteControllers = require("./controllers/tasteControllers");
 
 router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);
@@ -33,6 +34,5 @@ router.delete("/tastes/:id", tasteControllers.destroy);
 
 router.get("/reviews", reviewControllers.getAllReviews);
 router.post("/reviews", reviewControllers.createNewReview);
-
 
 module.exports = router;
