@@ -20,10 +20,17 @@ export default function Navbar() {
   // url Admin
   const urlPageListAdmin = ["/admin"];
 
+  // url nav hidden
+  const urlPageListNavHidden = ["/"];
+
+  // compare current url with url array
   const isUrlAdmin = urlPageListAdmin.find((urlPage) => urlPage === currentUrl);
+  const isUrlNavHidden = urlPageListNavHidden.find(
+    (urlPage) => urlPage === currentUrl
+  );
 
   return (
-    <div className="nav-container">
+    <div className={` ${isUrlNavHidden ? "hide-navbar" : "nav-container"}`}>
       <img src={logoInovin} alt="logo website inovin" />
       {isUrlAdmin ? (
         <AdminBurgerMenu
