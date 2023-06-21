@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/MaxLengthContext";
 import InputPassword from "./InputPassword";
 import InputEmail from "./InputEmail";
 import Button from "./Button";
 
 function Signup() {
-  // const { MaxLength } = useContext(MaxLenghtContext);
+  const navigate = useNavigate();
   const { maxl } = useContext(UserContext);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -73,6 +74,7 @@ function Signup() {
       />
       <div className="container_form_city">
         <input
+          className="postalCode"
           type="text"
           required
           value={postalCode}
@@ -80,6 +82,7 @@ function Signup() {
           placeholder="Code postal*"
         />
         <input
+          className="city"
           type="text"
           value={city}
           onChange={handleChangeCity}
@@ -92,7 +95,11 @@ function Signup() {
         onChange={handleChangeJob}
         placeholder="Fonction"
       />
-      <Button className="signup_button" text="Valider" />
+      <Button
+        className="primary-button"
+        onClick={() => navigate("/login")}
+        text="Valider"
+      />
     </form>
   );
 }

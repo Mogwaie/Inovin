@@ -3,17 +3,27 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  .container_form_city input {
-    width: 30%;
+  width: 100vw;
+  .container_form_city {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    input {
+      width: 32%;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
   }
   input {
-    margin-top: 20px;
+    width: 70%;
+    margin-top: 40px;
     border: none;
-    border-bottom: 1px solid $app-primary-font-color;
+    border-bottom: 1px solid $font-family-title-color;
     background-color: $app-bg-color;
     color: $app-supporting-color2;
   }
-  .primary-button-desktop {
+  .primary-button {
     margin-top: 30px;
   }
 }
