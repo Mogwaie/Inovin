@@ -22,7 +22,7 @@ CREATE TABLE `taste_profile` (
   `taste_profile_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(255),
   `description` TEXT,
-  `taste_level_id` integer,
+  `taste_id` integer,
   `wine_id` integer
 );
 
@@ -33,13 +33,6 @@ CREATE TABLE `wine` (
   `origin` varchar(255),
   `img_wine` varchar(255),
   `description` TEXT
-);
-
-DROP TABLE IF EXISTS `taste_level`;
-CREATE TABLE `taste_level` (
-  `taste_level_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `taste_id` integer,
-  `level` integer
 );
 
 DROP TABLE IF EXISTS `taste`;
@@ -65,7 +58,7 @@ DROP TABLE IF EXISTS `cepage`;
 CREATE TABLE `cepage` (
   `cepage_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(255),
-  `taste_level_id` integer
+  `taste_profile_id` integer
 );
 
 DROP TABLE IF EXISTS `review`;
@@ -80,9 +73,7 @@ CREATE TABLE `review` (
 
 ALTER TABLE `user` ADD FOREIGN KEY (`taste_profile_id`) REFERENCES `taste_profile` (`taste_profile_id`);
 
-ALTER TABLE `taste_profile` ADD FOREIGN KEY (`taste_level_id`) REFERENCES `taste_level` (`taste_level_id`);
-
-ALTER TABLE `taste_level` ADD FOREIGN KEY (`taste_id`) REFERENCES `taste` (`taste_id`);
+ALTER TABLE `taste_profile` ADD FOREIGN KEY (`taste_id`) REFERENCES `taste` (`taste_id`);
 
 ALTER TABLE `taste_profile` ADD FOREIGN KEY (`wine_id`) REFERENCES `wine` (`wine_id`);
 
@@ -92,7 +83,7 @@ ALTER TABLE `receipe` ADD FOREIGN KEY (`cepage_level_id`) REFERENCES `cepage_lev
 
 ALTER TABLE `cepage_level` ADD FOREIGN KEY (`cepage_id`) REFERENCES `cepage` (`cepage_id`);
 
-ALTER TABLE `cepage` ADD FOREIGN KEY (`taste_level_id`) REFERENCES `taste_level` (`taste_level_id`);
+ALTER TABLE `cepage` ADD FOREIGN KEY (`taste_profile_id`) REFERENCES `taste_profile` (`taste_profile_id`);
 
 INSERT INTO taste (name) 
 VALUES ('Châteauneuf-du-Pape'), ('Château Margaux'), ('Beaujolais Nouveau'), ('Domaine de la Romanée-Conti'), ('Le Sancerre Blanc'), ('Pouilly-Fuissé'), ('Châteauneuf-du-Pape Blanc'), ('Château Yquem');
@@ -121,45 +112,46 @@ VALUES
 ("riches et complexes", "Vous recherchez des vins blancs plus riches et complexes, vous apprécierez ceux qui offrent une belle structure, des arômes de fruits exotiques, de miel et des nuances épicées. Ils sont parfaits pour accompagner des plats plus élaborés ou pour déguster en tant qu'expérience sensorielle à part entière."),
 ("doux et liquoreux", "Les vins doux et liquoreux vous séduiront par leur richesse et leur onctuosité. Ces vins offrent des arômes intenses de fruits confits, de miel et d'épices douces. Ils sont parfaits en accompagnement de desserts ou pour déguster avec un foie gras.");
 
-INSERT INTO cepage (name, taste_level_id)
+INSERT INTO cepage (name, taste_profile_id)
 VALUES
-    ('Grenache', NULL),
-    ('Petit Verdot', NULL),
-    ('Gamay', NULL),
-    ('Pinot Noir', NULL),
-    ('Sancerre Blanc', NULL),
-    ('Chardonnay', NULL),
-    ('Picpoul', NULL),
-    ('Sémillon', NULL),
-    ('Cabernet Sauvignon', NULL),
-    ('Syrah', NULL),
-    ('Merlot', NULL),
-    ('Malbec', NULL),
-    ('Carmenère', NULL),
-    ('Tannat', NULL),
-    ('Petit Syrah', NULL),
-    ('Alicante Bouschet', NULL),
-    ('Cinsault', NULL),
-    ('Dolcetto', NULL),
-    ('Zweigelt', NULL),
-    ('Blauer Portugieser', NULL),
-    ('Nebbiolo', NULL),
-    ('Sangiovese', NULL),
-    ('Mazuelo', NULL),
-    ('Tempranillo', NULL),
-    ('Tenlo Blanc', NULL),
-    ('Vermentino (Rolle)', NULL),
-    ('Grüner Veltliner', NULL),
-    ('Albariño', NULL),
-    ('Viognier', NULL),
-    ('Riesling', NULL),
-    ('Chenin Blanc', NULL),
-    ('Gewürztraminer', NULL),
-    ('Folle Blanche', NULL),
-    ('Trebbiano (Ugni Blanc)', NULL),
-    ('Melon de Bourgogne', NULL),
-    ('Muscon', NULL),
-    ('Muscadelle', NULL),
-    ('Furmint', NULL),
-    ('Palomino', NULL),
-    ('Colombard', NULL);
+    ('Grenache', 1),
+    ('Cabernet Sauvignon', 1),
+    ('Syrah', 1),
+    ('Merlot', 1),
+    ('Malbec', 1),
+    ('Petit Verdot', 2),
+    ('Carmenère', 2),
+    ('Tannat', 2),
+    ('Petit Syrah', 2),
+    ('Alicante Bouschet', 2),
+    ('Gamay', 3),
+    ('Cinsault', 3),
+    ('Dolcetto', 3),
+    ('Zweigelt', 3),
+    ('Blauer Portugieser', 3),
+    ('Pinot Noir', 4),
+    ('Nebbiolo', 4),
+    ('Sangiovese', 4),
+    ('Mazuelo', 4),
+    ('Tempranillo', 4),
+    ('Sancerre Blanc', 5),
+    ('Tenlo Blanc', 5),
+    ('Vermentino (Rolle)', 5),
+    ('Grüner Veltliner', 5),
+    ('Albariño', 5),
+    ('Chardonnay', 6),
+    ('Viognier', 6),
+    ('Riesling', 6),
+    ('Chenin Blanc', 6),
+    ('Gewürztraminer', 6),
+    ('Picpoul', 7),
+    ('Folle Blanche', 7),
+    ('Trebbiano Ugni Blanc', 7),
+    ('Melon de Bourgogne', 7),
+    ('Muscon', 7),
+    ('Sémillon', 8),
+    ('Muscadelle', 8),
+    ('Furmint', 8),
+    ('Palomino', 8),
+    ('Colombard', 8);
+
