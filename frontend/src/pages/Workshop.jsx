@@ -42,65 +42,76 @@ function Workshop() {
 
   return (
     <div className="Workshop">
-      <h1 className="title-page">Atelier de création</h1>
+      <h1 className="title-page">Atelier</h1>
+      <h1 className="title-page">de création</h1>
 
       <div className="cepage-dosage-ctn">
         <div className="cepage-ctn">
           <div className="title-cepage-ctn">Cépages :</div>
-          <div className="cepage-1">Grenache</div>
-          <div className="cepage-2">Syrah</div>
-          <div className="cepage-3">Merlot</div>
-          <div className="cepage-4">Malbec</div>
-          <div className="cepage-5">Cabernet Sauvignon</div>
+          <div className="cepage-name">Grenache</div>
+          <div className="cepage-name">Syrah</div>
+          <div className="cepage-name">Merlot</div>
+          <div className="cepage-name">Malbec</div>
+          <div className="cepage-name">Cabernet Sauvignon</div>
         </div>
 
         <div className="dosage-ctn">
           <div className="title-dosage-ctn">Dosage :</div>
-          <div className="dosage-1">
+          <div className="dosage-input">
             <input
-              type="text"
+              className="input-dosage"
+              type="number"
               value={dosage1}
               onChange={handleChangeDosage1}
-              placeholder="Dosage"
+              placeholder="0"
             />
+            <div className="dosage-unite">ml</div>
           </div>
-          <div className="dosage-2">
+          <div className="dosage-input">
             <input
-              type="text"
+              className="input-dosage"
+              type="number"
               value={dosage2}
               onChange={handleChangeDosage2}
-              placeholder="Dosage"
+              placeholder="0"
             />
+            <div className="dosage-unite">ml</div>
           </div>
-          <div className="dosage-3">
+          <div className="dosage-input">
             <input
-              type="text"
+              className="input-dosage"
+              type="number"
               value={dosage3}
               onChange={handleChangeDosage3}
-              placeholder="Dosage"
+              placeholder="0"
             />
+            <div className="dosage-unite">ml</div>
           </div>
-          <div className="dosage-4">
+          <div className="dosage-input">
             <input
-              type="text"
+              className="input-dosage"
+              type="number"
               value={dosage4}
               onChange={handleChangeDosage4}
-              placeholder="Dosage"
+              placeholder="0"
             />
+            <div className="dosage-unite">ml</div>
           </div>
-          <div className="dosage-5">
+          <div className="dosage-input">
             <input
-              type="text"
+              className="input-dosage"
+              type="number"
               value={dosage5}
               onChange={handleChangeDosage5}
-              placeholder="Dosage"
+              placeholder="0"
             />
+            <div className="dosage-unite">ml</div>
           </div>
         </div>
       </div>
 
+      <div className="title-guide-ctn">Guide :</div>
       <div className="guide-ctn">
-        <div className="title-guide-ctn">Guide :</div>
         <div className="img-guide-ctn">
           <img
             src="https://miro.medium.com/v2/resize:fit:820/0*oyD7ekV-hMU91h4J.png"

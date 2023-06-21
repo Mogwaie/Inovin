@@ -1,0 +1,71 @@
+@mixin center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Workshop {
+  @include center;
+  margin: 5%;
+  padding: 2%;
+}
+
+.title-page {
+  @include font-title-phone;
+}
+
+.cepage-dosage-ctn {
+  @include center;
+  flex-direction: row;
+}
+
+.cepage-name {
+  @include font-text-phone;
+}
+
+.title-cepage-ctn, .title-dosage-ctn, .title-guide-ctn {
+ @include font-subheading-phone;
+}
+
+.dosage-ctn {
+  width: 30%;
+
+  .input-dosage {
+    border: none;
+    border-bottom: 1px solid $font-family-title-color;
+    background-color: $app-bg-color;
+    color: $font-family-title-color;
+    width: 70%;
+    padding: 0% 2%;
+    margin: 0% 5% 0% 0%;
+  }
+
+  input::placeholder {
+    color: $font-family-title-color;
+  }
+
+  .input-dosage:focus {
+    outline: none;
+    border-bottom: solid 2px $font-family-title-color;
+  }
+}
+
+.dosage-input {
+  display: flex;
+}
+
+.guide-ctn {
+  @include center;
+  flex-direction: row;
+}
+
+.img-guide {
+  @include center;
+  height: 40%;
+  width: 100%;
+}
+
+.content-guide-ctn ul li {
+  @include font-text-phone;
+}
