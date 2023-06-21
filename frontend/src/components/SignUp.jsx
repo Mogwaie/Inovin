@@ -49,7 +49,7 @@ function Signup() {
   };
   return (
     <form className="container_form">
-      <h1 className="title_form">Créer un compte</h1>
+      <h2 className="title_form">Créer un compte</h2>
       <input
         type="text"
         required
