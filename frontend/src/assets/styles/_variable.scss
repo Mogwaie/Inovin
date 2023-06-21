@@ -21,7 +21,8 @@ $app-desktop-large: 1680px;
 
 /* Website Font Size */
 $font-size-text-phone: 14px;
-$font-size-text-tablet: 18px;
+$font-size-text-phone-home: 18px;
+$font-size-text-tablet: 25px;
 $font-size-list-burger-tablet: 38px;
 
 @mixin font-title-phone {
