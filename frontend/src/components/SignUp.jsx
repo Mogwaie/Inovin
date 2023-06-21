@@ -1,13 +1,14 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../context/MaxLengthContext";
+import { MaxLengthContext } from "../context/MaxLengthContext";
 import InputPassword from "./InputPassword";
 import InputEmail from "./InputEmail";
 import Button from "./Button";
 
 function Signup() {
   const navigate = useNavigate();
-  const { maxl } = useContext(UserContext);
+  const { maxl } = useContext(MaxLengthContext);
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
