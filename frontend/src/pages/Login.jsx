@@ -13,7 +13,7 @@ export default function Login() {
       </form>
       <div className="links-page-login">
         <div className="buttons-container-login-page">
-          <Link to="/change to next page">
+          <Link to="/tastingSheet">
             <button className="primary-button" type="submit">
               Connexion
             </button>
