@@ -10,6 +10,7 @@ import AdminTest from "./pages/Admintest";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import DegustationPage from "./pages/DegustationPage";
+import Workshop from "./pages/Workshop";
 import Reviews from "./pages/Reviews";
 
 const router = createBrowserRouter([
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/degustation",
         element: <DegustationPage />,
+      },
+      {
+        path: "/workshop",
+        element: <Workshop />,
       },
       {
         path: "/reviews",
