@@ -54,3 +54,37 @@ svg {
     height: 3vh;
     width: 3vh;
 }
+
+@media screen and (min-width: $app-tablet) {
+   .wineGlass {
+    width: 70vw;
+    margin-right: 15vw;
+    margin-left: 15vw;
+   }
+   .reviewsInput {
+    width: 30vw;
+   }
+   .nameInput {
+    margin-right: 10vw;
+   }
+   .longInput {
+    width: 65vw;
+   }
+  }
+
+  @media screen and (min-width: $app-desktop) {
+    .wineGlass {
+     width: 35vw;
+     margin-right: 32.5vw;
+     margin-left: 32.5vw;
+    }
+    .reviewsInput {
+     width: 15vw;
+    }
+    .nameInput {
+     margin-right: 10vw;
+    }
+    .longInput {
+     width: 35vw;
+    }
+   }
