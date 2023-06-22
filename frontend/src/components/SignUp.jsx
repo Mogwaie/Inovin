@@ -101,6 +101,7 @@ function Signup() {
         placeholder="Fonction"
       />
       <Button onClick={() => navigate("/login")} text="Valider" />
+      <a href="/login">Déjà inscrit(e) ?</a>
     </form>
   );
 }
