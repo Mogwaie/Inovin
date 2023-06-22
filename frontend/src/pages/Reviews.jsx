@@ -1,5 +1,5 @@
-import { Rating } from "primereact/rating";
 import { useState } from "react";
+import { Rating } from "primereact/rating";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import wineglass from "../assets/images/wineGlass.png";
@@ -12,7 +12,7 @@ export default function Reviews() {
   };
   return (
     <div className="reviewsPageDiv">
-      <h1 className="reviewsPageH1">Votre avis</h1>
+      <h2 className="reviewsPageH2">Votre avis</h2>
       <p className="reviewsPageP">Qu'avez-vous pensé de l'atelier ?</p>
       <div className="nameDiv">
         <input
