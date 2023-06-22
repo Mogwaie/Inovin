@@ -18,14 +18,15 @@
 .cepage-dosage-ctn {
   @include center;
   flex-direction: row;
-}
-
-.cepage-name {
-  @include font-text-phone;
+  justify-content: space-evenly;
 }
 
 .title-cepage-ctn, .title-dosage-ctn, .title-guide-ctn {
  @include font-subheading-phone;
+}
+
+.cepage-name {
+  @include font-text-phone;
 }
 
 .dosage-ctn {
@@ -51,6 +52,11 @@
   }
 }
 
+.dosage-input-ctn {
+  margin: 5%;
+
+}
+
 .dosage-input {
   display: flex;
 }
@@ -58,14 +64,28 @@
 .guide-ctn {
   @include center;
   flex-direction: row;
+  flex: 1;
+  width: 100%;
+}
+
+.img-guide-ctn {
+  @include center;
+  padding: 5%;
+  margin: 5%;
+  width: 100%;
 }
 
 .img-guide {
   @include center;
-  height: 40%;
   width: 100%;
+  margin: 10%;
 }
 
-.content-guide-ctn ul li {
+.content-guide-ctn{
+    @include center;
+  padding: 5%;
+  margin: 5%;
+  ul li {
   @include font-text-phone;
+  }
 }

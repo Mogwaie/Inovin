@@ -48,64 +48,68 @@ function Workshop() {
       <div className="cepage-dosage-ctn">
         <div className="cepage-ctn">
           <div className="title-cepage-ctn">Cépages :</div>
-          <div className="cepage-name">Grenache</div>
-          <div className="cepage-name">Syrah</div>
-          <div className="cepage-name">Merlot</div>
-          <div className="cepage-name">Malbec</div>
-          <div className="cepage-name">Cabernet Sauvignon</div>
+          <div className="cepage-name-ctn">
+            <div className="cepage-name">Grenache</div>
+            <div className="cepage-name">Syrah</div>
+            <div className="cepage-name">Merlot</div>
+            <div className="cepage-name">Malbec</div>
+            <div className="cepage-name">Cabernet Sauvignon</div>
+          </div>
         </div>
 
         <div className="dosage-ctn">
           <div className="title-dosage-ctn">Dosage :</div>
-          <div className="dosage-input">
-            <input
-              className="input-dosage"
-              type="number"
-              value={dosage1}
-              onChange={handleChangeDosage1}
-              placeholder="0"
-            />
-            <div className="dosage-unite">ml</div>
-          </div>
-          <div className="dosage-input">
-            <input
-              className="input-dosage"
-              type="number"
-              value={dosage2}
-              onChange={handleChangeDosage2}
-              placeholder="0"
-            />
-            <div className="dosage-unite">ml</div>
-          </div>
-          <div className="dosage-input">
-            <input
-              className="input-dosage"
-              type="number"
-              value={dosage3}
-              onChange={handleChangeDosage3}
-              placeholder="0"
-            />
-            <div className="dosage-unite">ml</div>
-          </div>
-          <div className="dosage-input">
-            <input
-              className="input-dosage"
-              type="number"
-              value={dosage4}
-              onChange={handleChangeDosage4}
-              placeholder="0"
-            />
-            <div className="dosage-unite">ml</div>
-          </div>
-          <div className="dosage-input">
-            <input
-              className="input-dosage"
-              type="number"
-              value={dosage5}
-              onChange={handleChangeDosage5}
-              placeholder="0"
-            />
-            <div className="dosage-unite">ml</div>
+          <div className="dosage-input-ctn">
+            <div className="dosage-input">
+              <input
+                className="input-dosage"
+                type="number"
+                value={dosage1}
+                onChange={handleChangeDosage1}
+                placeholder="0"
+              />
+              <div className="dosage-unite">ml</div>
+            </div>
+            <div className="dosage-input">
+              <input
+                className="input-dosage"
+                type="number"
+                value={dosage2}
+                onChange={handleChangeDosage2}
+                placeholder="0"
+              />
+              <div className="dosage-unite">ml</div>
+            </div>
+            <div className="dosage-input">
+              <input
+                className="input-dosage"
+                type="number"
+                value={dosage3}
+                onChange={handleChangeDosage3}
+                placeholder="0"
+              />
+              <div className="dosage-unite">ml</div>
+            </div>
+            <div className="dosage-input">
+              <input
+                className="input-dosage"
+                type="number"
+                value={dosage4}
+                onChange={handleChangeDosage4}
+                placeholder="0"
+              />
+              <div className="dosage-unite">ml</div>
+            </div>
+            <div className="dosage-input">
+              <input
+                className="input-dosage"
+                type="number"
+                value={dosage5}
+                onChange={handleChangeDosage5}
+                placeholder="0"
+              />
+              <div className="dosage-unite">ml</div>
+            </div>
           </div>
         </div>
       </div>
@@ -135,36 +139,6 @@ function Workshop() {
               Et consequat anim officia fugiat dolor aute excepteur deserunt
               sint aute anim aliqua est.
             </li>
-            <li>
-              Et consequat anim officia fugiat dolor aute excepteur deserunt
-              sint aute anim aliqua est.
-            </li>
-
-            <li>
-              Et consequat anim officia fugiat dolor aute excepteur deserunt
-              sint aute anim aliqua est.
-            </li>
-
-            <li>
-              Et consequat anim officia fugiat dolor aute excepteur deserunt
-              sint aute anim aliqua est.
-            </li>
-
-            <li>
-              Et consequat anim officia fugiat dolor aute excepteur deserunt
-              sint aute anim aliqua est.
-            </li>
-
-            <li>
-              Et consequat anim officia fugiat dolor aute excepteur deserunt
-              sint aute anim aliqua est.
-            </li>
-
-            <li>
-              Et consequat anim officia fugiat dolor aute excepteur deserunt
-              sint aute anim aliqua est.
-            </li>
-
             <li>
               Et consequat anim officia fugiat dolor aute excepteur deserunt
               sint aute anim aliqua est.
