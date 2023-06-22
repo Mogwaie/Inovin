@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MaxLengthContext } from "../context/MaxLengthContext";
-import InputPassword from "./InputPassword";
-import InputEmail from "./InputEmail";
-import Button from "./Button";
+import InputPassword from "../components/InputPassword";
+import InputEmail from "../components/InputEmail";
+import Button from "../components/Button";
 
 function Signup() {
   const navigate = useNavigate();
@@ -100,7 +100,7 @@ function Signup() {
         onChange={handleChangeJob}
         placeholder="Fonction"
       />
-      <Button onClick={() => navigate("/login")} text="Valider" />
+      <Button onClick={() => navigate("/degustation")} text="Valider" />
     </form>
   );
 }
