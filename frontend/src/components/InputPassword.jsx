@@ -1,14 +1,15 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useContext, useState } from "react";
+import { MaxLengthContext } from "../context/MaxLengthContext";
 
-function InputPassword({ MAX_LENGTH }) {
+function InputPassword() {
+  const { maxl } = useContext(MaxLengthContext);
   const [password, setPassword] = useState("");
 
   const handleChangePassword = (event) => {
-    if (event.target.value.length <= MAX_LENGTH) {
+    if (event.target.value.length <= maxl) {
       setPassword(event.target.value);
     }
-    console.error(MAX_LENGTH);
+    console.error(maxl);
   };
 
   return (
@@ -25,7 +26,4 @@ function InputPassword({ MAX_LENGTH }) {
   );
 }
 
-InputPassword.propTypes = {
-  MAX_LENGTH: PropTypes.number.isRequired,
-};
 export default InputPassword;

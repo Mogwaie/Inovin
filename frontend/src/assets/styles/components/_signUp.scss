@@ -1,0 +1,40 @@
+.container_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  .container_form_city {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    input {
+      width: 32%;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+    input:focus {
+      outline: none;
+    }
+  }
+  input {
+    width: 70%;
+    margin-top: 40px;
+    border: none;
+    border-bottom: 1px solid $font-family-title-color;
+    background-color: $app-bg-color;
+    color: $font-family-title-color;
+  }
+  input:focus {
+    outline: none;
+  }
+  div {
+    display: flex;
+    justify-content: center;
+    width: 84%;
+  }
+  .primary-button {
+    margin-top: 30px;
+  }
+}
