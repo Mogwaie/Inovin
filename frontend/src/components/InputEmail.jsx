@@ -9,13 +9,16 @@ function InputEmail({ MAX_LENGTH }) {
     }
   };
   return (
-    <input
-      type="email"
-      required
-      value={mail}
-      onChange={handleChangeMail}
-      placeholder="Email*"
-    />
+    <div className="input-email-container">
+      <input
+        className="input-email"
+        type="email"
+        required
+        value={mail}
+        onChange={handleChangeMail}
+        placeholder="Email*"
+      />
+    </div>
   );
 }
 

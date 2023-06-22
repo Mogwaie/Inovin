@@ -1,30 +1,55 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home";
-import Test from "./pages/Test";
-import DegustationProfile from "./pages/DegustationProfile";
+import ReactDOM from "react-dom/client";
 import "./main.scss";
+
+import DegustationProfile from "./pages/DegustationProfile";
+import Root from "./routes/Root";
+import MaxLengthProvider from "./context/MaxLengthContext";
+import Home from "./pages/Home";
+import AdminTest from "./pages/Admintest";
+import Login from "./pages/Login";
+import SignUp from "./components/SignUp";
+import Reviews from "./pages/Reviews";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/test",
-    element: <Test />,
-  },
-  {
-    path: "/degustation-profile",
-    element: <DegustationProfile />,
+    element: <Root />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/adnim",
+        element: <AdminTest />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/signUp",
+        element: <SignUp />,
+      },
+      {
+        path: "/reviews",
+        element: <Reviews />,
+      },
+      {
+        path: "/degustation-profile",
+        element: <DegustationProfile />,
+      },
+    ],
   },
 ]);
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <MaxLengthProvider>
+      <RouterProvider router={router} />
+    </MaxLengthProvider>
   </React.StrictMode>
 );

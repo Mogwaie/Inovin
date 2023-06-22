@@ -12,13 +12,16 @@ function InputPassword({ MAX_LENGTH }) {
   };
 
   return (
-    <input
-      type="password"
-      required
-      value={password}
-      onChange={handleChangePassword}
-      placeholder="Mot de passe*"
-    />
+    <div className="input-passeword-container">
+      <input
+        className="input-password"
+        type="password"
+        required
+        value={password}
+        onChange={handleChangePassword}
+        placeholder="Mot de passe*"
+      />
+    </div>
   );
 }
 
