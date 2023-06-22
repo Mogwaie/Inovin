@@ -11,7 +11,7 @@ function DegustationPage() {
     navigateTo("/workshop");
   };
   return (
-    <div className="DegustationPage">
+    <div className="DegustationPage" id="DegustationPage">
       <h1 className="title-page">Fiche de Dégustation</h1>
 
       <p className="title-content">Quels sont vos goûts ?</p>
