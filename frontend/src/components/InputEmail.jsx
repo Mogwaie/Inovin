@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useContext, useState } from "react";
+import { MaxLengthContext } from "../context/MaxLengthContext";
 
-function InputEmail({ MAX_LENGTH }) {
+function InputEmail() {
+  const { maxl } = useContext(MaxLengthContext);
   const [mail, setMail] = useState("");
   const handleChangeMail = (event) => {
-    if (event.target.value.length <= MAX_LENGTH) {
+    if (event.target.value.length <= maxl) {
       setMail(event.target.value);
     }
   };
@@ -22,7 +23,4 @@ function InputEmail({ MAX_LENGTH }) {
   );
 }
 
-InputEmail.propTypes = {
-  MAX_LENGTH: PropTypes.number.isRequired,
-};
 export default InputEmail;
