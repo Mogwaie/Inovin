@@ -25,7 +25,7 @@ function DegustationProfile() {
         </p>
       </div>
       <div className="assemblez-vin">
-        <h3v className="title-h3">Assemblez votre vin</h3v>
+        <h3 className="title-h3">Assemblez votre vin</h3>
         <img src={Assemblage} alt="empty" />
       </div>
       <div className="selection-vin">
