@@ -1,8 +1,7 @@
-/* eslint-disable prettier/prettier */
-// eslint-disable-next-line import/no-unresolved
-import { Rating } from "primereact/Rating";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+// eslint-disable-next-line import/no-unresolved
+import { Rating } from "primereact/Rating";
 import Button from "../components/Button";
 import wineglass from "../assets/images/wineGlass.png";
 
