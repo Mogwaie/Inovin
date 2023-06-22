@@ -13,6 +13,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    a:link {
+        text-decoration: none;
+    }
     .reviewsPageH1 {
         margin-top: 5vh;
     }
@@ -31,14 +34,25 @@
         border-right: none;
         border-top: none;
         margin-bottom: 5vh;
+        width: 40vw;
+        font-size: 14px;
+        color: $font-family-title-color;
     }
     .nameInput {
         margin-right: 5vw;
     }
-}
-
-.longInput {
-    width: 85vw;
+    .longInput {
+        background-color: transparent;
+        border-right: none;
+        border-top: none;
+        margin-bottom: 5vh;
+        width: 85vw;
+        font-size: 14px;
+        color: $font-family-title-color;
+    }
+    .nextTimeP {
+        color: $font-family-title-color;
+    }
 }
 
 .stars {
@@ -62,13 +76,13 @@ svg {
     margin-left: 15vw;
    }
    .reviewsInput {
-    width: 30vw;
+    width: 30vw !important;
    }
    .nameInput {
-    margin-right: 10vw;
+    margin-right: 10vw !important;
    }
    .longInput {
-    width: 65vw;
+    width: 70vw !important;
    }
   }
 
@@ -79,12 +93,12 @@ svg {
      margin-left: 32.5vw;
     }
     .reviewsInput {
-     width: 15vw;
-    }
-    .nameInput {
-     margin-right: 10vw;
-    }
-    .longInput {
-     width: 35vw;
-    }
+        width: 15vw !important;
+       }
+       .nameInput {
+        margin-right: 10vw !important;
+       }
+       .longInput {
+        width: 40vw !important;
+       }
    }

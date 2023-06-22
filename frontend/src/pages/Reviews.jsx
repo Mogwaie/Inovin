@@ -24,12 +24,12 @@ export default function Reviews() {
         <input className="reviewsInput" type="text" placeholder="Prénom *" />
       </div>
       <input
-        className="reviewsInput longInput"
+        className="longInput"
         type="text"
         placeholder="Email *"
       />
       <input
-        className="reviewsInput longInput"
+        className="longInput"
         type="text"
         placeholder="Message *"
       />
@@ -39,7 +39,7 @@ export default function Reviews() {
       <Button id="reviewsPageButton" text="Envoyer" onClick={goToSelection} />
       <img className="wineGlass" src={wineglass} alt="BackgroundImage" />
       <a href="/">
-        <p className="reviewsPageP">Une prochaine fois peut-être ?</p>
+        <p className="reviewsPageP nextTimeP">Une prochaine fois peut-être ?</p>
       </a>
     </div>
   );
