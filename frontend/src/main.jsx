@@ -10,6 +10,7 @@ import AdminTest from "./pages/Admintest";
 import Login from "./pages/Login";
 import Workshop from "./pages/Workshop";
 import SignUp from "./components/SignUp";
+import Reviews from "./pages/Reviews";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/adnim",
+        path: "/admin",
         element: <AdminTest />,
       },
       {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/workshop",
         element: <Workshop />,
+      },
+      {
+        path: "/reviews",
+        element: <Reviews />,
       },
     ],
   },
