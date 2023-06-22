@@ -18,11 +18,18 @@
 .cepage-dosage-ctn {
   @include center;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 5%;
+  padding: 5%;
 }
 
 .title-cepage-ctn, .title-dosage-ctn, .title-guide-ctn {
  @include font-subheading-phone;
+}
+
+.cepage-ctn {
+  width: 40%;
 }
 
 .cepage-name {
@@ -30,7 +37,7 @@
 }
 
 .dosage-ctn {
-  width: 30%;
+  width: 40%;
 
   .input-dosage {
     border: none;
