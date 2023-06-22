@@ -1,0 +1,23 @@
+@mixin center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.DegustationPage {
+  @include center;
+}
+
+.taste-slider-ctn {
+  @include center;
+  width: 75vw;
+}
+
+.taste-slider {
+  width: 100%;
+}
+
+#desgutation-page-btn {
+  @include primary-button-phone;
+}
