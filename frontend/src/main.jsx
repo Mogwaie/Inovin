@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import AdminTest from "./pages/Admintest";
 import Login from "./pages/Login";
 import SignUp from "./components/SignUp";
+import Reviews from "./pages/Reviews";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/signUp",
         element: <SignUp />,
+      },
+      {
+        path: "/reviews",
+        element: <Reviews />,
       },
     ],
   },
