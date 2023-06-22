@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import logoInovin from "../assets/images/logo-inovin.svg";
 import UserBurgerMenu from "./UserBurgerMenu";
 import AdminBurgerMenu from "./AdminBurgerMenu";
@@ -31,7 +32,9 @@ export default function Navbar() {
 
   return (
     <div className={` ${isUrlNavHidden ? "hide-navbar" : "nav-container"}`}>
-      <img src={logoInovin} alt="logo website inovin" />
+      <Link to="/">
+        <img src={logoInovin} alt="logo website inovin" />
+      </Link>
       {isUrlAdmin ? (
         <AdminBurgerMenu
           handleShowLinks={handleShowLinks}
