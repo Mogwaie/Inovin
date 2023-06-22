@@ -6,7 +6,7 @@ import Button from "../components/Button";
 function Workshop() {
   const navigateTo = useNavigate();
   const goToReview = async () => {
-    await navigateTo("/test");
+    await navigateTo("/reviews");
   };
 
   const [dosage1, setDosage1] = useState(0);
