@@ -16,7 +16,7 @@
     a:link {
         text-decoration: none;
     }
-    .reviewsPageH1 {
+    .reviewsPageH2 {
         margin-top: 5vh;
     }
     .reviewsPageP {
@@ -38,6 +38,11 @@
         font-size: 14px;
         color: $font-family-title-color;
     }
+
+    .reviewsInput:focus {
+        outline: none;
+    }
+
     .nameInput {
         margin-right: 5vw;
     }
@@ -50,8 +55,14 @@
         font-size: 14px;
         color: $font-family-title-color;
     }
+    .longInput {
+        outline: none;
+    }
     .nextTimeP {
         color: $font-family-title-color;
+    }
+    .nextTimeP:hover {
+        color: $app-supporting-color2;
     }
 }
 
