@@ -1,10 +1,11 @@
-.nav-container {
+.nav-container{
   display: none !important;
 }
+
 .homeBorderDiv {
-  border: 5px solid $app-primary-font-color;
+  border: 3px solid $app-primary-font-color;
   width: 90vw;
-  height: 95vh;
+  height: fit-content;
   margin: 5% auto;
   display: flex;
   flex-direction: column;
@@ -28,15 +29,15 @@
       margin-bottom: 7vh;
     }
     #homeButton {
-      margin-top: 25vh;
+      margin-top: 20vh;
       margin-bottom: 5vh;
-      background-color: $app-bg-color;
+      background-color: transparent;
       cursor: pointer;
 
     &:hover {
       background-color: $app-primary-font-color;
-      color: $app-bg-color-button;
-      border: solid 2px $app-bg-color-button;
+      color: $app-bg-color;
+      border: solid 2px $app-primary-font-color;
   }
     }
   }
@@ -45,7 +46,7 @@
     position: absolute;
     width: 100vw;
     height: auto;
-    top: 45vh;
+    top: 40vh;
     z-index: -1;
     opacity: 50%;
   }
@@ -74,27 +75,44 @@
       }
       #homeButton {
         margin-top: 27vh;
-        margin-bottom: 0;
+        margin-bottom: 5vh;
       }
     }
     .vineyardImage {
-      top: 35vh;
+      top: 30vh;
+    }
+  }
+
+  @media screen and (min-width: 820px) {
+    .vineyardImage {
+      top: 27vh;
     }
   }
 
   @media screen and (min-width: $app-desktop) {
-    
     .vineyardImage {
       position: fixed;
       top: 0;
       height: 100vh;
       width: 100vw;
     }
-    
-    .homeBorderDiv {
-      height: 95vh;
-      width: 90vw;
     }
   }
+
+
+@media screen and (min-width: $app-desktop) {
+ .homeBorderDiv {
+  height: 80vh;
+  width: 85vw;
+ }
+ .homeContentDiv {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+ }
+ #homeButton {
+  margin-top: 10vh !important;
+ }
 }
+
+
 

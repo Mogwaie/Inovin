@@ -5,8 +5,8 @@ import Button from "../components/Button";
 
 export default function Home() {
   const navigateTo = useNavigate();
-  const goToHome = async () => {
-    await navigateTo("/");
+  const goToInscription = async () => {
+    await navigateTo("/test");
   };
   return (
     <div className="homePageDiv">
@@ -22,7 +22,11 @@ export default function Home() {
               de votre vin dans notre base de données pour le reproduire à tout
               moment.
             </p>
-            <Button id="homeButton" text="Inscription" onClick={goToHome} />
+            <Button
+              id="homeButton"
+              text="Inscription"
+              onClick={goToInscription}
+            />
           </div>
         </div>
         <img className="vineyardImage" src={vineyard} alt="BackgroundImage" />
