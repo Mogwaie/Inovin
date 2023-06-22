@@ -6,7 +6,7 @@ import Button from "../components/Button";
 export default function Home() {
   const navigateTo = useNavigate();
   const goToInscription = async () => {
-    await navigateTo("/test");
+    await navigateTo("/signUp");
   };
   return (
     <div className="homePageDiv">
