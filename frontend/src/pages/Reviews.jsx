@@ -1,6 +1,6 @@
+import { Rating } from "primereact/rating";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Rating } from "primereact/rating";
 import Button from "../components/Button";
 import wineglass from "../assets/images/wineGlass.png";
 
@@ -22,16 +22,8 @@ export default function Reviews() {
         />
         <input className="reviewsInput" type="text" placeholder="Prénom *" />
       </div>
-      <input
-        className="reviewsInput longInput"
-        type="text"
-        placeholder="Email *"
-      />
-      <input
-        className="reviewsInput longInput"
-        type="text"
-        placeholder="Message *"
-      />
+      <input className="longInput" type="text" placeholder="Email *" />
+      <input className="longInput" type="text" placeholder="Message *" />
       <div className=" starsDiv card flex justify-content-center">
         <Rating
           className="stars"
@@ -43,7 +35,7 @@ export default function Reviews() {
       <Button id="reviewsPageButton" text="Envoyer" onClick={goToSelection} />
       <img className="wineGlass" src={wineglass} alt="BackgroundImage" />
       <a href="/">
-        <p className="reviewsPageP">Une prochaine fois peut-être ?</p>
+        <p className="reviewsPageP nextTimeP">Une prochaine fois peut-être ?</p>
       </a>
     </div>
   );
