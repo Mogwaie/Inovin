@@ -148,6 +148,14 @@ function Workshop() {
               Et consequat anim officia fugiat dolor aute excepteur deserunt
               sint aute anim aliqua est.
             </li>
+            <li>
+              Et consequat anim officia fugiat dolor aute excepteur deserunt
+              sint aute anim aliqua est.
+            </li>
+            <li>
+              Et consequat anim officia fugiat dolor aute excepteur deserunt
+              sint aute anim aliqua est.
+            </li>
           </ul>
         </div>
       </div>
