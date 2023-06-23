@@ -100,7 +100,12 @@ function Signup() {
         onChange={handleChangeJob}
         placeholder="Fonction"
       />
-      <Button onClick={() => navigate("/degustation")} text="Valider" />
+      <Button
+        className="popup"
+        onClick={() => navigate("/degustation")}
+        text="Valider"
+      />
+      <a href="/login">Déjà inscrit(e) ?</a>
     </form>
   );
 }
