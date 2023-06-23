@@ -7,7 +7,7 @@ import Button from "../components/Button";
 function DegustationProfile() {
   const navigateTo = useNavigate();
 
-  const maFunction = async () => {
+  const buttonDirection = async () => {
     navigateTo("/test");
   };
 
@@ -26,17 +26,25 @@ function DegustationProfile() {
       </div>
       <div className="assemblez-vin">
         <h3 className="title-h3">Assemblez votre vin</h3>
-        <img src={Assemblage} alt="empty" />
+        <div>
+          <a href="/test">
+            <img src={Assemblage} alt="empty" />
+            <p className="selection-text"> Cliquez ici </p>
+          </a>
+        </div>
       </div>
       <div className="selection-vin">
         <h3 className="title-h3">Nous avons sélectionné pour vous</h3>
-        <img src={ShopCave} alt="empty" />
+        <a href="/test">
+          <img src={ShopCave} alt="empty" />
+          <p className="selection-text"> Cliquez ici </p>
+        </a>
       </div>
       <h4 className="title-h4">Ce profil ne vous correspond pas ?</h4>
       <div className="button-deg">
         <Button
           text="Revenir sur mes préférences "
-          onClick={maFunction}
+          onClick={buttonDirection}
           id="Degustation-profile-button"
         />
       </div>
