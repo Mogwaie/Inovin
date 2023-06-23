@@ -42,6 +42,10 @@
   }
   a {
     text-decoration: none;
-    color: whitesmoke;
+    color: $font-family-title-color;
+    margin-top: 2rem;
+    &:hover {
+      color: $app-supporting-color2;
+    }
   }
 }

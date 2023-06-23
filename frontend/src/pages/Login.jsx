@@ -19,7 +19,7 @@ export default function Login() {
             </button>
           </Link>
 
-          <Link to="/signUp">
+          <Link to="/sign-up">
             <button className="primary-button" type="button">
               Inscription
             </button>
