@@ -29,7 +29,7 @@ function DegustationProfile() {
         <div>
           <a href="/test">
             <img src={Assemblage} alt="empty" />
-            <p className="selection-text"> Cliquez ici </p>
+            <p className="selection-text"> L'Atelier </p>
           </a>
         </div>
       </div>
@@ -37,7 +37,7 @@ function DegustationProfile() {
         <h3 className="title-h3">Nous avons sélectionné pour vous</h3>
         <a href="/test">
           <img src={ShopCave} alt="empty" />
-          <p className="selection-text"> Cliquez ici </p>
+          <p className="selection-text"> La Cave </p>
         </a>
       </div>
       <h4 className="title-h4">Ce profil ne vous correspond pas ?</h4>
