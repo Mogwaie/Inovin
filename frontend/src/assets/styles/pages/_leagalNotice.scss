@@ -1,0 +1,41 @@
+.page-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+margin-top: 5%;
+}
+}
+
+.scrolling-container {
+    height: 60vh;
+    position: relative;
+    width: 80%;
+    padding: 0 0 0 0;
+    margin: 10% 0 0 0;
+    overflow-y: scroll;
+}
+
+// .scrolling-container {
+//   height: 60vh;
+//   max-height: 400vh; /* Set the maximum height of the container */
+//   overflow-y: auto; /* Enable vertical scrolling */
+//   scrollbar-width: thin; /* Customize the width of the scrollbar */
+//   scrollbar-color: #888888 #f2f2f2; /* Customize the color of the scrollbar */
+// }
+
+// /* Optional: Customize the appearance of the scrollbar track */
+// .scrolling-container::-webkit-scrollbar {
+//   width: 8px;
+// }
+
+// .scrolling-container::-webkit-scrollbar-track {
+//   background-color: #f2f2f2;
+// }
+
+// /* Optional: Customize the appearance of the scrollbar thumb */
+// .scrolling-container::-webkit-scrollbar-thumb {
+//   background-color: #888888;
+// }
