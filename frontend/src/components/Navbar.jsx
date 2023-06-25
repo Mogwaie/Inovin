@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import logoInovin from "../assets/images/logo-inovin.svg";
 import UserBurgerMenu from "./UserBurgerMenu";
 import AdminBurgerMenu from "./AdminBurgerMenu";
