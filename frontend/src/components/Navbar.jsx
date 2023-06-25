@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logoInovin from "../assets/images/logo-inovin.svg";
 import UserBurgerMenu from "./UserBurgerMenu";
 import AdminBurgerMenu from "./AdminBurgerMenu";
@@ -6,6 +8,23 @@ import AdminBurgerMenu from "./AdminBurgerMenu";
 export default function Navbar() {
   const [showLinks, setShowLinks] = useState(false);
   const [currentUrl, setCurrentUrl] = useState("");
+  const [showNav, setShowNav] = useState(true);
+
+  const location = useLocation();
+
+  const hideNavbarList = ["/"];
+
+  useEffect(() => {
+    if (
+      hideNavbarList.find(
+        (urlHideNavbar) => urlHideNavbar === location.pathname
+      )
+    ) {
+      setShowNav(false);
+    } else {
+      setShowNav(true);
+    }
+  }, [location]);
 
   // current url
   useEffect(() => {
@@ -20,18 +39,15 @@ export default function Navbar() {
   // url Admin
   const urlPageListAdmin = ["/admin"];
 
-  // url nav hidden
-  const urlPageListNavHidden = ["/"];
-
   // compare current url with url array
   const isUrlAdmin = urlPageListAdmin.find((urlPage) => urlPage === currentUrl);
-  const isUrlNavHidden = urlPageListNavHidden.find(
-    (urlPage) => urlPage === currentUrl
-  );
 
   return (
-    <div className={` ${isUrlNavHidden ? "hide-navbar" : "nav-container"}`}>
-      <img src={logoInovin} alt="logo website inovin" />
+    <div className={`nav-container ${showNav ? "" : "hide-navbar"}`}>
+      <Link to="/">
+        <img src={logoInovin} alt="logo website inovin" />
+      </Link>
+
       {isUrlAdmin ? (
         <AdminBurgerMenu
           handleShowLinks={handleShowLinks}
