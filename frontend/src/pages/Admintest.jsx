@@ -1,3 +1,9 @@
+import ModalPopup from "../components/ModalPopup";
+
 export default function AdminTest() {
-  return <p>admin</p>;
+  return (
+    <div className="AdminTest">
+      <ModalPopup />
+    </div>
+  );
 }
