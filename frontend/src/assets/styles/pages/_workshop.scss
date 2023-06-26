@@ -24,8 +24,10 @@
   padding: 5%;
 }
 
-.title-cepage-ctn, .title-dosage-ctn, .title-guide-ctn {
- @include font-subheading-phone;
+.title-cepage-ctn,
+.title-dosage-ctn,
+.title-guide-ctn {
+  @include font-subheading-phone;
 }
 
 .cepage-ctn {
@@ -61,7 +63,6 @@
 
 .dosage-input-ctn {
   margin: 5%;
-
 }
 
 .dosage-input {
@@ -88,11 +89,11 @@
   margin: 10%;
 }
 
-.content-guide-ctn{
-    @include center;
+.content-guide-ctn {
+  @include center;
   padding: 5%;
   margin: 5%;
   ul li {
-  @include font-text-phone;
+    @include font-text-phone;
   }
 }

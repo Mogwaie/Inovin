@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
 import { MaxLengthContext } from "../context/MaxLengthContext";
 import InputPassword from "../components/InputPassword";
 import InputEmail from "../components/InputEmail";
@@ -11,7 +12,6 @@ function Signup() {
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-
   const [address, setAddress] = useState("");
   const [postalCode, setPostalCode] = useState("");
   const [city, setCity] = useState("");
@@ -47,8 +47,36 @@ function Signup() {
       setJob(event.target.value);
     }
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const body = {
+      firstName,
+      lastName,
+      address,
+      postalCode,
+      InputEmail,
+      city,
+      job,
+      InputPassword,
+    };
+
+    try {
+      const response = await axios.post("http://localhost:5000/users", body);
+      console.error(response);
+      if (response.status === 201) {
+        console.info(
+          "Données enregistrées avec succès dans la base de données !"
+        );
+        navigate("/degustation");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
-    <form className="container_form">
+    <form onSubmit={handleSubmit} className="container_form">
       <h2 className="title_form">Créer un compte</h2>
       <input
         type="text"
@@ -64,10 +92,10 @@ function Signup() {
         onChange={handleChangeLastName}
         placeholder="Nom*"
       />
-      <div>
+      <div className="form_input_component">
         <InputEmail MaxLength={maxl} />
       </div>
-      <div>
+      <div className="form_input_component">
         <InputPassword MaxLength={maxl} />
       </div>
       <input
@@ -100,12 +128,12 @@ function Signup() {
         onChange={handleChangeJob}
         placeholder="Fonction"
       />
-      <Button
-        className="popup"
-        onClick={() => navigate("/degustation")}
-        text="Valider"
-      />
-      <a href="/login">Déjà inscrit(e) ?</a>
+      <div className="form_navigate">
+        <Button type="submit" className="primary-button" text="Valider" />
+        <Link to="/login">
+          <p className="form_login_link">Déjà inscrit(e) ?</p>
+        </Link>
+      </div>
     </form>
   );
 }

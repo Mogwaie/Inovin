@@ -12,6 +12,7 @@ CREATE TABLE `user` (
   `zip_code` integer,
   `city` varchar(255),
   `job` varchar(255),
+  `hashedPassword` varchar(255) NOT NULL,
   `is_admin` integer,
   `taste_profile_id` integer,
   `receipe_id` integer
@@ -88,18 +89,18 @@ ALTER TABLE `cepage` ADD FOREIGN KEY (`taste_profile_id`) REFERENCES `taste_prof
 INSERT INTO taste (name) 
 VALUES ('Châteauneuf-du-Pape'), ('Château Margaux'), ('Beaujolais Nouveau'), ('Domaine de la Romanée-Conti'), ('Le Sancerre Blanc'), ('Pouilly-Fuissé'), ('Châteauneuf-du-Pape Blanc'), ('Château Yquem');
 
-INSERT INTO user (firstname, lastname, email, address, zip_code, city, job, is_admin)
+INSERT INTO user (firstname, lastname, email, address, zip_code, city, job, hashedPassword, is_admin)
 VALUES 
-  ('Valeriy', 'Appius', 'valeriy.appius@example.com', '4 rue react', '33300', 'bordeaux', "dev", "0"),
-  ('Alice', 'Johnson', 'alice.johnson@example.com', '10 rue du Paradis', '75001', 'Paris', 'Ingénieur', '0'),
-  ('Robert', 'Brown', 'robert.brown@example.com', '15 rue vue', '10001', 'New York', 'Architecte', '0'),
-  ('Sophie', 'Garcia', 'sophie.garcia@example.com', '22 Avenue de la Liberté', '69002', 'Lyon', 'Avocate', '0'),
-  ('Maxime', 'Dubois', 'maxime.dubois@example.com', '5 Calle Principal', '28001', 'Madrid', 'Consultant', '0'),
-  ('Julia', 'Lee', 'julia.lee@example.com', '7 Elm Street', '90001', 'Los Angeles', 'Designer', '0'),
-  ('Alexandre', 'Moreau', 'alexandre.moreau@example.com', '27 Rue de la Paix', '75008', 'Paris', 'Comptable', '0'),
-  ('Laura', 'Sanchez', 'laura.sanchez@example.com', '14 Calle del Sol', '28002', 'Madrid', 'Infirmière', '0'),
-  ('Thomas', 'Rousseau', 'thomas.rousseau@example.com', '3 Avenue des Champs-Élysées', '75009', 'Paris', 'Journaliste', '0'),
-  ('john', 'doe', 'j.do@example.com', '3 Avenue angular', '75009', 'Paris', 'Journaliste', '0');
+  ('Valeriy', 'Appius', 'valeriy.appius@example.com', '4 rue react', '33300', 'bordeaux', "dev", "$argon2id$v=19$m=16,t=2,p=1$emVmZXpmemZlemVmZWR6ZXplZg$rqZkhxu5YbqCGHPNrjJZpQ", "0"),
+  ('Alice', 'Johnson', 'alice.johnson@example.com', '10 rue du Paradis', '75001', 'Paris', 'Ingénieur', '$argon2id$v=19$m=16,t=2,p=1$emVmemVmemZlemZ6ZnpmZQ$eSetR6KPUNAGW+q+wDadcw', '0'),
+  ('Robert', 'Brown', 'robert.brown@example.com', '15 rue vue', '10001', 'New York', 'Architecte', '$argon2id$v=19$m=16,t=2,p=1$emVmemVmemZlemZ6ZnpmZXphZGF6ZGQ$a0bg5DZB6H6v3jjQC81DXg', '0'),
+  ('Sophie', 'Garcia', 'sophie.garcia@example.com', '22 Avenue de la Liberté', '69002', 'Lyon', 'Avocate', '$argon2id$v=19$m=16,t=2,p=1$emVmemVmemZlenplZHpkZnpmemZlemFkYXpkZA$V1qAnJDyMuuWG7g9yoGYXA', '0'),
+  ('Maxime', 'Dubois', 'maxime.dubois@example.com', '5 Calle Principal', '28001', 'Madrid', 'Consultant', '$argon2id$v=19$m=16,t=2,p=1$emVmemVmemZlenplZHpkZGZ6ZnpmZXphZGF6ZGQ$VCzq45PL9t8khtc44Kk5iw', '0'),
+  ('Julia', 'Lee', 'julia.lee@example.com', '7 Elm Street', '90001', 'Los Angeles', 'Designer', '$argon2id$v=19$m=16,t=2,p=1$emVmemVmemVmemZlenplZHpkZGZ6ZnpmZXphZGF6ZGQ$UKaGZ9hGFn/S5SBQDMe/Uw','0'),
+  ('Alexandre', 'Moreau', 'alexandre.moreau@example.com', '27 Rue de la Paix', '75008', 'Paris', 'Comptable', '$argon2id$v=19$m=65536,t=5,p=1$6F4WFjpSx9bSq9k4lp2fiQ$cjVgCHF/voka5bZI9YAainiaT+LkaQxfNN638b/h4fQ','0'),
+  ('Laura', 'Sanchez', 'laura.sanchez@example.com', '14 Calle del Sol', '28002', 'Madrid', 'Infirmière', '$argon2id$v=19$m=65536,t=5,p=1$6F4WFjpSx9bSq9k4lp2fiQ$cjVgCHF/voka5bZI9YAainiaT+LkaQxfNN638b/h4fQ','0'),
+  ('Thomas', 'Rousseau', 'thomas.rousseau@example.com', '3 Avenue des Champs-Élysées', '75009', 'Paris', 'Journaliste', '$argon2id$v=19$m=65536,t=5,p=1$6F4WFjpSx9bSq9k4lp2fiQ$cjVgCHF/voka5bZI9YAainiaT+LkaQxfNN638b/h4fQ', '0'),
+  ('john', 'doe', 'j.do@example.com', '3 Avenue angular', '75009', 'Paris', 'Journaliste', '$argon2id$v=19$m=65536,t=5,p=1$6F4WFjpSx9bSq9k4lp2fiQ$cjVgCHF/voka5bZI9YAainiaT+LkaQxfNN638b/h4fQ','0');
 
 INSERT INTO taste_profile (name, description) 
 VALUES 

@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 100vw;
+  height: 87vh;
   .container_form_city {
-    width: 100%;
+    width: 98%;
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -14,7 +15,7 @@
       margin-right: 10px;
       margin-left: 10px;
       @media (min-width: $app-tablet) {
-        width: 34%;
+        width: 34.5%;
       }
     }
     input:focus {
@@ -32,20 +33,25 @@
   input:focus {
     outline: none;
   }
-  div {
+  .form_input_component {
     display: flex;
     justify-content: center;
-    width: 84%;
+    width: 70%;
   }
-  .primary-button {
-    margin-top: 30px;
-  }
-  a {
-    text-decoration: none;
-    color: $font-family-title-color;
-    margin-top: 2rem;
-    &:hover {
-      color: $app-supporting-color2;
+  .form_navigate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .primary-button {
+      margin-top: 30px;
+    }
+    .form_login_link {
+      text-decoration: none;
+      color: $font-family-title-color;
+      margin-top: 1em;
+      &:hover {
+        color: $app-supporting-color2;
+      }
     }
   }
 }
