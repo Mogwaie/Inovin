@@ -13,6 +13,7 @@ import SignUp from "./pages/SignUp";
 import DegustationPage from "./pages/DegustationPage";
 import Workshop from "./pages/Workshop";
 import Reviews from "./pages/Reviews";
+import LegalNotice from "./pages/LegalNotice";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,7 @@ const router = createBrowserRouter([
         path: "/degustation-profile",
         element: <DegustationProfile />,
       },
+      { path: "/legal-notice", element: <LegalNotice /> },
     ],
   },
 ]);
