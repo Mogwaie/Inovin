@@ -6,6 +6,9 @@
   padding: 0 2rem;
   height: 80px;
   background-color: $app-bg-color;
+  position: fixed;
+  z-index: 10;
+  top: 0;
 
   img {
     width: 50px;

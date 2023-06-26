@@ -9,7 +9,9 @@ import MaxLengthProvider from "./context/MaxLengthContext";
 import Home from "./pages/Home";
 import AdminTest from "./pages/Admintest";
 import Login from "./pages/Login";
-import SignUp from "./components/SignUp";
+import SignUp from "./pages/SignUp";
+import DegustationPage from "./pages/DegustationPage";
+import Workshop from "./pages/Workshop";
 import Reviews from "./pages/Reviews";
 import LegalNotice from "./pages/LegalNotice";
 
@@ -23,7 +25,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/adnim",
+        path: "/admin",
         element: <AdminTest />,
       },
       {
@@ -31,8 +33,16 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/signUp",
+        path: "/sign-up",
         element: <SignUp />,
+      },
+      {
+        path: "/degustation",
+        element: <DegustationPage />,
+      },
+      {
+        path: "/workshop",
+        element: <Workshop />,
       },
       {
         path: "/reviews",
