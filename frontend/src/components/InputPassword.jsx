@@ -3,7 +3,7 @@ import { MaxLengthContext } from "../context/MaxLengthContext";
 
 function InputPassword() {
   const { maxl } = useContext(MaxLengthContext);
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("frertthyu");
 
   const handleChangePassword = (event) => {
     if (event.target.value.length <= maxl) {

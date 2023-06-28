@@ -10,17 +10,19 @@ function Signup() {
   const navigate = useNavigate();
   const { maxl } = useContext(MaxLengthContext);
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [address, setAddress] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [city, setCity] = useState("");
-  const [job, setJob] = useState("");
+  const [firstName, setFirstName] = useState("toto");
+  const [lastName, setLastName] = useState("tata");
+  const [address, setAddress] = useState("ffffff");
+  const [postalCode, setPostalCode] = useState(35695);
+  const [city, setCity] = useState("fffffgh");
+  const [job, setJob] = useState("hhhhhhhh");
+
   const handleChangeFirstName = (event) => {
     if (event.target.value.length <= maxl) {
       setFirstName(event.target.value);
     }
   };
+
   const handleChangeLastName = (event) => {
     if (event.target.value.length <= maxl) {
       setLastName(event.target.value);
@@ -32,16 +34,19 @@ function Signup() {
       setAddress(event.target.value);
     }
   };
+
   const handleChangePostalCode = (event) => {
     if (event.target.value.length <= maxl) {
       setPostalCode(event.target.value);
     }
   };
+
   const handleChangeCity = (event) => {
     if (event.target.value.length <= maxl) {
       setCity(event.target.value);
     }
   };
+
   const handleChangeJob = (event) => {
     if (event.target.value.length <= maxl) {
       setJob(event.target.value);
@@ -50,7 +55,6 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const body = {
       firstName,
       lastName,
@@ -63,7 +67,10 @@ function Signup() {
     };
 
     try {
-      const response = await axios.post("http://localhost:5000/users", body);
+      const response = await axios.post(
+        "http://localhost:5000/api/users",
+        body
+      );
       console.error(response);
       if (response.status === 201) {
         console.info(
@@ -71,13 +78,15 @@ function Signup() {
         );
         navigate("/degustation");
       }
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error(err);
     }
   };
+
   return (
-    <form onSubmit={handleSubmit} className="container_form">
+    <form onSubmit={(e) => handleSubmit(e)} className="container_form">
       <h2 className="title_form">Créer un compte</h2>
+
       <input
         type="text"
         required
@@ -137,4 +146,5 @@ function Signup() {
     </form>
   );
 }
+
 export default Signup;

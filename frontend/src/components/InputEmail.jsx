@@ -3,7 +3,7 @@ import { MaxLengthContext } from "../context/MaxLengthContext";
 
 function InputEmail() {
   const { maxl } = useContext(MaxLengthContext);
-  const [mail, setMail] = useState("");
+  const [mail, setMail] = useState("ddddd@gggg.com");
   const handleChangeMail = (event) => {
     if (event.target.value.length <= maxl) {
       setMail(event.target.value);
