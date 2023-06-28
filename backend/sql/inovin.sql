@@ -64,9 +64,9 @@ CREATE TABLE `cepage` (
 DROP TABLE IF EXISTS `review`;
 CREATE TABLE `review` (
   `review_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(255),
-  `user_last_name` varchar(255),
-  `user_email` varchar(255),
+  `firstName` varchar(255),
+  `lastName` varchar(255),
+  `email` varchar(255),
   `message` TEXT,
   `rating` integer
 );

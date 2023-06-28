@@ -7,11 +7,11 @@ class ReviewManager extends AbstractManager {
 
   addReview(review) {
     return this.database.query(
-      `insert into ${this.table} (user_name, user_last_name, user_email, message, rating ) values (?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (firstName, lastName, email, message, rating ) values (?, ?, ?, ?, ?)`,
       [
-        review.user_name,
-        review.user_last_name,
-        review.user_email,
+        review.firstName,
+        review.lastName,
+        review.email,
         review.message,
         review.rating,
       ]
