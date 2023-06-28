@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Button from "../components/Button";
+import wireframe from "../assets/images/imageAtelier.svg";
 
 function Workshop() {
   const navigateTo = useNavigate();
@@ -117,21 +118,9 @@ function Workshop() {
       <div className="title-guide-ctn">Guide :</div>
       <div className="guide-ctn">
         <div className="img-guide-ctn">
-          <img
-            src="https://miro.medium.com/v2/resize:fit:820/0*oyD7ekV-hMU91h4J.png"
-            alt="img-guide"
-            className="img-guide"
-          />
-          <img
-            src="https://miro.medium.com/v2/resize:fit:820/0*oyD7ekV-hMU91h4J.png"
-            alt="img-guide"
-            className="img-guide"
-          />
-          <img
-            src="https://miro.medium.com/v2/resize:fit:820/0*oyD7ekV-hMU91h4J.png"
-            alt="img-guide"
-            className="img-guide"
-          />
+          <img src={wireframe} alt="img-guide" className="img-guide" />
+          <img src={wireframe} alt="img-guide" className="img-guide" />
+          <img src={wireframe} alt="img-guide" className="img-guide" />
         </div>
         <div className="content-guide-ctn">
           <ul>

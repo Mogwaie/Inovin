@@ -30,12 +30,17 @@
   @include font-subheading-phone;
 }
 
+.title-cepage-ctn {
+  padding: 0 0 4% 0;
+}
+
 .cepage-ctn {
   width: 40%;
 }
 
 .cepage-name {
   @include font-text-phone;
+  padding: 3% 0 0 0;
 }
 
 .dosage-ctn {
