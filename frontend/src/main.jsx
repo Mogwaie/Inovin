@@ -48,7 +48,7 @@ const router = createBrowserRouter([
         element: <Reviews />,
       },
       {
-        path: "/profil",
+        path: "/profile",
         element: <Profil />,
       },
     ],

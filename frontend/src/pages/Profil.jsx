@@ -4,21 +4,36 @@ import { useState } from "react";
 import profileBottles from "../assets/images/profileBottles.png";
 import profilePicture from "../assets/images/profilePicture.png";
 
-export default function Reviews() {
+export default function Profile() {
   const navigateTo = useNavigate();
 
   const [firstName, setFirstName] = useState(" ");
   const [lastName, setLastName] = useState(" ");
   const [email, setEmail] = useState(" ");
-  const [message, setMessage] = useState(" ");
+  const [password, setPassword] = useState(" ");
+  const [confirmedPassword, setConfirmedPassword] = useState(" ");
+  const [adress, setAdress] = useState(" ");
+  const [zip, setZip] = useState(" ");
+  const [city, setCity] = useState(" ");
+  const [fonction, setFonction] = useState(" ");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const body = { firstName, lastName, email, message };
+    const body = {
+      firstName,
+      lastName,
+      email,
+      password,
+      confirmedPassword,
+      adress,
+      zip,
+      city,
+      fonction,
+    };
     console.info(body, "test");
     try {
       const response = await axios.post(
-        "http://www.localhost:4242/api/reviews",
+        "http://www.localhost:4242/api/user",
         body
       );
       if (response.status === 201) {
@@ -27,13 +42,14 @@ export default function Reviews() {
     } catch (error) {
       console.error(error);
     }
-    navigateTo("/workshop");
+    navigateTo("/degustation");
   };
   return (
-    <div className="reviewsPageDiv">
-      <img src={profileBottles} alt="Bottles" />
-      <img src={profilePicture} alt="Profile" />
-      <form onSubmit={(e) => handleSubmit(e)} className="reviewsPageDiv">
+    <div className="profilePageDiv">
+      <img className="profileBottles" src={profileBottles} alt="Bottles" />
+      <img className="profileImage" src={profilePicture} alt="Profile" />
+      <h2>Profile</h2>
+      <form onSubmit={(e) => handleSubmit(e)} className="profilePageDiv">
         <div className="nameDiv">
           <input
             className="reviewsInput nameInput"
@@ -60,17 +76,51 @@ export default function Reviews() {
         <input
           className="longInput"
           type="text"
-          placeholder="Message *"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Mot de passe *"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+          className="longInput"
+          type="text"
+          placeholder="Confirmer mot de passe *"
+          value={confirmedPassword}
+          onChange={(e) => setConfirmedPassword(e.target.value)}
+        />
+        <input
+          className="longInput"
+          type="text"
+          placeholder="Adresse *"
+          value={adress}
+          onChange={(e) => setAdress(e.target.value)}
+        />
+        <div className="cityDiv">
+          <input
+            className="reviewsInput nameInput"
+            type="text"
+            placeholder="Code postal *"
+            value={zip}
+            onChange={(e) => setZip(e.target.value)}
+          />
+          <input
+            className="reviewsInput"
+            type="text"
+            placeholder="Ville *"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
+        </div>
+        <input
+          className="longInput"
+          type="text"
+          placeholder="Fonction *"
+          value={fonction}
+          onChange={(e) => setFonction(e.target.value)}
         />
         <button className="primary-button" id="reviewsPageButton" type="submit">
-          Envoyer
+          Mettre à jour
         </button>
       </form>
-      <a href="/">
-        <p className="reviewsPageP nextTimeP">Une prochaine fois peut-être ?</p>
-      </a>
     </div>
   );
 }
