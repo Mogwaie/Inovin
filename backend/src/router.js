@@ -1,7 +1,5 @@
 const express = require("express");
-const { hashPassword } = require("../middleware/auth");
-
-console.error(hashPassword);
+const { hashPassword } = require("./middlewares/auth");
 
 const router = express.Router();
 

@@ -1,6 +1,7 @@
 .error_message {
   color: aqua;
 }
+
 .container_form {
   display: flex;
   flex-direction: column;
@@ -8,11 +9,15 @@
   justify-content: space-between;
   width: 100vw;
   height: 87vh;
+
   .container_form_city {
     width: 98%;
     display: flex;
     justify-content: center;
     flex-direction: row;
+    @media (min-width: $app-desktop) {
+      width: 70%;
+    }
     input {
       width: 32.5%;
       margin-right: 10px;
@@ -32,6 +37,9 @@
     border-bottom: 1px solid $font-family-title-color;
     background-color: $app-bg-color;
     color: $font-family-title-color;
+    @media (min-width: $app-desktop) {
+      width: 50%;
+    }
   }
   input:focus {
     outline: none;
@@ -40,6 +48,9 @@
     display: flex;
     justify-content: center;
     width: 70%;
+    @media (min-width: $app-desktop) {
+      width: 50%;
+    }
   }
   .form_navigate {
     display: flex;

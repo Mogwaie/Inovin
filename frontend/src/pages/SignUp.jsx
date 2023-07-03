@@ -16,6 +16,8 @@ function Signup() {
   const [postalCode, setPostalCode] = useState(35695);
   const [city, setCity] = useState("fffffgh");
   const [job, setJob] = useState("hhhhhhhh");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleChangeFirstName = (event) => {
     if (event.target.value.length <= maxl) {
@@ -56,22 +58,24 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const body = {
-      firstName,
-      lastName,
+      firstname: firstName,
+      lastname: lastName,
       address,
-      postalCode,
-      InputEmail,
+      zip_code: postalCode,
+      email,
       city,
       job,
-      InputPassword,
+      password,
     };
+
+    console.info(body);
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/users",
+        "http://localhost:4242/api/users",
         body
       );
-      console.error(response);
+
       if (response.status === 201) {
         console.info(
           "Données enregistrées avec succès dans la base de données !"
@@ -102,10 +106,10 @@ function Signup() {
         placeholder="Nom*"
       />
       <div className="form_input_component">
-        <InputEmail MaxLength={maxl} />
+        <InputEmail state={email} setter={setEmail} type="email" />
       </div>
       <div className="form_input_component">
-        <InputPassword MaxLength={maxl} />
+        <InputPassword state={password} setter={setPassword} />
       </div>
       <input
         type="text"

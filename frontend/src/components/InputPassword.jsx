@@ -1,15 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { MaxLengthContext } from "../context/MaxLengthContext";
 
-function InputPassword() {
+function InputPassword({ state, setter }) {
   const { maxl } = useContext(MaxLengthContext);
-  const [password, setPassword] = useState("frertthyu");
 
   const handleChangePassword = (event) => {
     if (event.target.value.length <= maxl) {
-      setPassword(event.target.value);
+      setter(event.target.value);
     }
-    console.error(maxl);
   };
 
   return (
@@ -18,12 +17,16 @@ function InputPassword() {
         className="input-password"
         type="password"
         required
-        value={password}
+        value={state}
         onChange={handleChangePassword}
         placeholder="Mot de passe*"
       />
     </div>
   );
 }
+InputPassword.propTypes = {
+  state: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  setter: PropTypes.func.isRequired,
+};
 
 export default InputPassword;
