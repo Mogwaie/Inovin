@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import "./main.scss";
 
-import DegustationProfile from "./pages/DegustationProfile";
 import Root from "./routes/Root";
 import MaxLengthProvider from "./context/MaxLengthContext";
 import Home from "./pages/Home";
@@ -13,7 +12,7 @@ import SignUp from "./pages/SignUp";
 import DegustationPage from "./pages/DegustationPage";
 import Workshop from "./pages/Workshop";
 import Reviews from "./pages/Reviews";
-import LegalNotice from "./pages/LegalNotice";
+import WineSelection from "./pages/WineSelection";
 
 const router = createBrowserRouter([
   {
@@ -49,10 +48,9 @@ const router = createBrowserRouter([
         element: <Reviews />,
       },
       {
-        path: "/degustation-profile",
-        element: <DegustationProfile />,
+        path: "/wine-selection",
+        element: <WineSelection />,
       },
-      { path: "/legal-notice", element: <LegalNotice /> },
     ],
   },
 ]);
