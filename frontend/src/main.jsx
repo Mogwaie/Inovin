@@ -12,7 +12,6 @@ import SignUp from "./pages/SignUp";
 import DegustationPage from "./pages/DegustationPage";
 import Workshop from "./pages/Workshop";
 import Reviews from "./pages/Reviews";
-import WineSelection from "./pages/WineSelection";
 
 const router = createBrowserRouter([
   {
@@ -46,10 +45,6 @@ const router = createBrowserRouter([
       {
         path: "/reviews",
         element: <Reviews />,
-      },
-      {
-        path: "/wine-selection",
-        element: <WineSelection />,
       },
     ],
   },
