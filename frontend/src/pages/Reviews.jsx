@@ -1,38 +1,82 @@
-import { useState } from "react";
+import axios from "axios";
 import { Rating } from "primereact/rating";
 import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
+import { useState } from "react";
 import wineglass from "../assets/images/wineGlass.png";
 
 export default function Reviews() {
-  const [value, setValue] = useState(null);
   const navigateTo = useNavigate();
-  const goToSelection = async () => {
-    await navigateTo("/test");
+
+  const [firstName, setFirstName] = useState(" ");
+  const [lastName, setLastName] = useState(" ");
+  const [email, setEmail] = useState(" ");
+  const [message, setMessage] = useState(" ");
+  const [rating, setRating] = useState(0);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const body = { firstName, lastName, email, message, rating };
+    console.info(body, "test");
+    try {
+      const response = await axios.post(
+        "http://www.localhost:4242/api/reviews",
+        body
+      );
+      if (response.status === 201) {
+        console.info("yessssssss");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+    navigateTo("/workshop");
   };
   return (
     <div className="reviewsPageDiv">
       <h2 className="reviewsPageH2">Votre avis</h2>
       <p className="reviewsPageP">Qu'avez-vous pensé de l'atelier ?</p>
-      <div className="nameDiv">
+      <form onSubmit={(e) => handleSubmit(e)} className="reviewsPageDiv">
+        <div className="nameDiv">
+          <input
+            className="reviewsInput nameInput"
+            type="text"
+            placeholder="Nom *"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+          <input
+            className="reviewsInput"
+            type="text"
+            placeholder="Prénom *"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+        </div>
         <input
-          className="reviewsInput nameInput"
+          className="longInput"
           type="text"
-          placeholder="Nom *"
+          placeholder="Email *"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
-        <input className="reviewsInput" type="text" placeholder="Prénom *" />
-      </div>
-      <input className="longInput" type="text" placeholder="Email *" />
-      <input className="longInput" type="text" placeholder="Message *" />
-      <div className=" starsDiv card flex justify-content-center">
-        <Rating
-          className="stars"
-          value={value}
-          onChange={(e) => setValue(e.value)}
-          cancel={false}
+        <input
+          className="longInput"
+          type="text"
+          placeholder="Message *"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
         />
-      </div>
-      <Button id="reviewsPageButton" text="Envoyer" onClick={goToSelection} />
+        <div className="starsDiv card flex justify-content-center">
+          <Rating
+            className="stars"
+            cancel={false}
+            value={rating}
+            onChange={(e) => setRating(e.target.value)}
+          />
+        </div>
+        <button className="primary-button" id="reviewsPageButton" type="submit">
+          Envoyer
+        </button>
+      </form>
       <img className="wineGlass" src={wineglass} alt="BackgroundImage" />
       <a href="/">
         <p className="reviewsPageP nextTimeP">Une prochaine fois peut-être ?</p>

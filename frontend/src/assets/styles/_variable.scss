@@ -11,6 +11,7 @@ $app-supporting-color2: #eeeeee;
 /* Website Background */
 $app-bg-color: #232222;
 $app-bg-color-button: #000000;
+$app-bow-shadow: rgba(170, 170, 170, 0.6);
 
 /* Media query */
 $app-mobile: 320px;
@@ -29,7 +30,7 @@ $font-size-list-burger-tablet: 38px;
   font-family: $font-family-title;
   color: $app-primary-font-color;
   font-weight: 600;
-  font-size: 22px;
+  font-size: 26px;
 }
 
 @mixin font-title-tablet {
