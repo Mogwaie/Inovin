@@ -1,0 +1,19 @@
+.wine-selection-container {
+  padding-top: 1rem;
+
+  h2 {
+    text-align: center;
+  }
+
+  .card-list-container-wine-shop {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 3rem;
+
+    li {
+      margin-top: 3rem;
+    }
+  }
+}
