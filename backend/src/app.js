@@ -9,7 +9,6 @@ const { corsMiddleware } = require("./middlewares/cors");
 const app = express();
 
 // use some application-level middlewares
-
 app.use(corsMiddleware);
 
 app.use(express.json());

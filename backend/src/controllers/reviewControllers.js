@@ -17,6 +17,7 @@ const createNewReview = (req, res) => {
   models.review
     .addReview(review)
     .then(([result]) => {
+      res.status(200);
       res.location(`/review/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {

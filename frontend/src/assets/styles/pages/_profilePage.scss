@@ -6,6 +6,19 @@
     a:link {
         text-decoration: none;
     }
+
+    .profilePartTwo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .profilePageForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     .reviewsPageH2 {
         margin-top: 5vh;
     }
@@ -53,10 +66,11 @@
         color: $app-supporting-color2;
     }
     .profileBottles {
+        position: relative;
         width: 100vw;
         height: auto;
         opacity: 50%;
-        margin-top: -12vh;
+        margin-top: -9vh;
     }
     .profileImage{
         height: 10vh;
@@ -80,10 +94,33 @@
    .profileBottles {
     width: 100vh;
     height: auto;
+    margin-top: -7vh !important;
    }
   }
 
   @media screen and (min-width: $app-desktop) {
+    .profilePageDiv {
+        flex-direction: row-reverse;
+    }
+    .profileBottles {
+        transform: rotate(90deg);
+        position: fixed !important;
+        margin-right: -50vw;
+        margin-top: 0;
+    }
+    .profilePartOne {
+        display: flex;
+        flex-wrap: wrap;
+        width: fit-content;
+    }
+    .profilePartTwo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: -35vw;
+        margin-top: 5vh;
+    }
     .reviewsInput {
         width: 15vw !important;
        }
@@ -93,7 +130,4 @@
     .longInput {
         width: 40vw !important;
        }
-    .profileBottles {
-        margin-top: -45vh !important;
-    }
    }

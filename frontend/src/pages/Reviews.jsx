@@ -7,10 +7,10 @@ import wineglass from "../assets/images/wineGlass.png";
 export default function Reviews() {
   const navigateTo = useNavigate();
 
-  const [firstName, setFirstName] = useState(" ");
-  const [lastName, setLastName] = useState(" ");
-  const [email, setEmail] = useState(" ");
-  const [message, setMessage] = useState(" ");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [rating, setRating] = useState(0);
 
   const handleSubmit = async (e) => {
