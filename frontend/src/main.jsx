@@ -2,9 +2,10 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import "./main.scss";
-
 import Root from "./routes/Root";
+
 import MaxLengthProvider from "./context/MaxLengthContext";
+
 import Home from "./pages/Home";
 import AdminTest from "./pages/Admintest";
 import Login from "./pages/Login";
@@ -13,6 +14,7 @@ import DegustationPage from "./pages/DegustationPage";
 import Workshop from "./pages/Workshop";
 import Reviews from "./pages/Reviews";
 import WineSelection from "./pages/WineSelection";
+import WineDescription from "./pages/WineDescription";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/wine-selection",
         element: <WineSelection />,
+      },
+      {
+        path: "/wine/:id",
+        element: <WineDescription />,
       },
     ],
   },

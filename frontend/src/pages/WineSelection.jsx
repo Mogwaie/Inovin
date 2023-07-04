@@ -1,4 +1,5 @@
 // import { useState } from "react";
+import { Link } from "react-router-dom";
 import CardWine from "../components/CardWine";
 
 export default function WineSelection() {
@@ -40,9 +41,11 @@ export default function WineSelection() {
       <ul className="card-list-container-wine-shop">
         {wineListShop.map((wineBottle) => {
           return (
-            <li key={wineBottle.id} className="card-list-wine-shop">
-              <CardWine wineBottle={wineBottle} />
-            </li>
+            <Link to={`/wine/${wineBottle.id}`}>
+              <li key={wineBottle.id} className="card-list-wine-shop">
+                <CardWine wineBottle={wineBottle} />
+              </li>
+            </Link>
           );
         })}
       </ul>
