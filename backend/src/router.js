@@ -8,6 +8,7 @@ const userControllers = require("./controllers/userControllers");
 const cepageControllers = require("./controllers/cepageControllers");
 const reviewControllers = require("./controllers/reviewControllers");
 const tasteControllers = require("./controllers/tasteControllers");
+const wineControllers = require("./controllers/wineControllers");
 
 router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);
@@ -35,5 +36,8 @@ router.delete("/tastes/:id", tasteControllers.destroy);
 
 router.get("/reviews", reviewControllers.getAllReviews);
 router.post("/reviews", reviewControllers.createNewReview);
+
+router.get("/wines", wineControllers.findAllWines);
+router.get("/wines/:id", wineControllers.findWineById);
 
 module.exports = router;
