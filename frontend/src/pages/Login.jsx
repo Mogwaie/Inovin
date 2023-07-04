@@ -20,7 +20,7 @@ export default function Login() {
 
     try {
       const response = await axios.post(
-        "http://localhost:4242/api/login",
+        `http://localhost:4242/api/login`,
         body
       );
 
