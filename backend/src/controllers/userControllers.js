@@ -30,6 +30,7 @@ const getUserById = (req, res) => {
 
 const createUser = (req, res) => {
   const user = req.body;
+  user.is_admin = 0;
 
   models.user
     .addUser(user)

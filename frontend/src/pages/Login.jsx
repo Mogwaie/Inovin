@@ -13,20 +13,20 @@ export default function Login() {
       </form>
       <div className="links-page-login">
         <div className="buttons-container-login-page">
-          <Link to="/degustation">
+          <Link to="/tastingSheet">
             <button className="primary-button" type="submit">
               Connexion
             </button>
           </Link>
 
-          <Link to="/sign-up">
+          <Link to="/signUp">
             <button className="primary-button" type="button">
               Inscription
             </button>
           </Link>
         </div>
 
-        <Link to="/password-recovery">
+        <Link to="/passwordRecovery">
           <p>Mot de passe oublié ?</p>
         </Link>
       </div>

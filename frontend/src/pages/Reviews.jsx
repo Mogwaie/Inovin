@@ -16,7 +16,6 @@ export default function Reviews() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const body = { firstName, lastName, email, message, rating };
-    console.info(body, "test");
     try {
       const response = await axios.post(
         "http://www.localhost:4242/api/reviews",
@@ -24,12 +23,13 @@ export default function Reviews() {
       );
       if (response.status === 201) {
         console.info("yessssssss");
+        navigateTo("/workshop");
       }
     } catch (error) {
       console.error(error);
     }
-    navigateTo("/workshop");
   };
+
   return (
     <div className="reviewsPageDiv">
       <h2 className="reviewsPageH2">Votre avis</h2>

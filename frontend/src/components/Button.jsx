@@ -4,7 +4,7 @@ import "../main.scss";
 
 function Button({ text, onClick, id }) {
   return (
-    <button className="primary-button" id={id} onClick={onClick} type="button">
+    <button className="primary-button" id={id} onClick={onClick} type="submit">
       {text}
     </button>
   );
