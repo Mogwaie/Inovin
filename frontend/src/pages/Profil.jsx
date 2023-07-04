@@ -30,7 +30,6 @@ export default function Profile() {
       city,
       fonction,
     };
-    console.info(body, "test");
     try {
       const response = await axios.put(
         "http://www.localhost:4242/api/user/:id",
