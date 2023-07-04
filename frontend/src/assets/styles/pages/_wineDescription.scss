@@ -1,6 +1,46 @@
 .wine-desciption-user-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 4rem;
+
   .pict-wine-and-description-user {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+
+    img {
+      height: 16rem;
+      width: 16rem;
+    }
+
+    .description-line-container {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+
+      p {
+        padding-top: 2rem;
+      }
+
+      .vertical-line-next-description-wine {
+        width: 2px;
+        height: 16rem;
+        background-color: white;
+        margin-right: 2rem;
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  button {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (min-width: $app-tablet) and (max-width: $app-desktop) {
+  img {
+    height: 10rem;
   }
 }

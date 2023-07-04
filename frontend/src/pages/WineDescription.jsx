@@ -7,7 +7,7 @@ function WineDescription() {
   const [selectedWine, setSelectedWine] = useState("");
 
   useEffect(() => {
-    axios.get(`http://localhost:6000/wine/${id}`).then((response) => {
+    axios.get(`http://localhost:4242/api/wines/${id}`).then((response) => {
       setSelectedWine(response.data);
     });
   }, [id]);
@@ -17,7 +17,10 @@ function WineDescription() {
       <h2>{selectedWine.name}</h2>
       <div className="pict-wine-and-description-user">
         <img src={selectedWine.img_wine} alt="wine bottle to buy" />
-        <p>{selectedWine.description}</p>
+        <div className="description-line-container">
+          <p>{selectedWine.description}</p>
+          <div className="vertical-line-next-description-wine" />
+        </div>
       </div>
       <Link to="/wine-selection">
         <button type="button" className="primary-button ">
