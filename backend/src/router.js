@@ -39,5 +39,8 @@ router.post("/reviews", reviewControllers.createNewReview);
 
 router.get("/wines", wineControllers.findAllWines);
 router.get("/wines/:id", wineControllers.findWineById);
+router.put("/wines/:id", wineControllers.editWine);
+router.post("/wines", wineControllers.createNewWine);
+router.delete("/wines/:id", wineControllers.deleteWine);
 
 module.exports = router;
