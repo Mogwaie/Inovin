@@ -1,5 +1,5 @@
 const express = require("express");
-const { hashPassword } = require("./middlewares/auth");
+const { hashPassword, verifyPassword } = require("./middlewares/auth");
 
 const router = express.Router();
 
@@ -35,5 +35,13 @@ router.delete("/tastes/:id", tasteControllers.destroy);
 
 router.get("/reviews", reviewControllers.getAllReviews);
 router.post("/reviews", reviewControllers.createNewReview);
+
+router.post(
+  "/login",
+
+  userControllers.getUserByEmailWithPasswordAndPassToNext,
+
+  verifyPassword
+);
 
 module.exports = router;
