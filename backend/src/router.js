@@ -1,5 +1,11 @@
 const express = require("express");
-const { hashPassword, verifyPassword } = require("./middlewares/auth");
+
+const app = express();
+const {
+  hashPassword,
+  verifyPassword,
+  verifyToken,
+} = require("./middlewares/auth");
 
 const router = express.Router();
 
@@ -9,6 +15,15 @@ const cepageControllers = require("./controllers/cepageControllers");
 const reviewControllers = require("./controllers/reviewControllers");
 const tasteControllers = require("./controllers/tasteControllers");
 
+router.post("/users", hashPassword, userControllers.createUser);
+router.post(
+  "/login",
+  userControllers.getUserByEmailWithPasswordAndPassToNext,
+  verifyPassword
+);
+
+app.use(verifyToken);
+
 router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);
 router.put("/items/:id", itemControllers.edit);
@@ -17,16 +32,8 @@ router.delete("/items/:id", itemControllers.destroy);
 
 router.get("/users", userControllers.getAllUsers);
 router.get("/users/:id", userControllers.getUserById);
-router.post("/users", hashPassword, userControllers.createUser);
 router.put("/users/:id", userControllers.updateUser);
 router.delete("/users/:id", userControllers.destroy);
-router.post(
-  "/login",
-
-  userControllers.getUserByEmailWithPasswordAndPassToNext,
-
-  verifyPassword
-);
 
 router.get("/cepages", cepageControllers.findAllCepages);
 router.get("/cepages/:id", cepageControllers.findCepageById);
