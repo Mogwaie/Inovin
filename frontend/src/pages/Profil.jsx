@@ -32,8 +32,8 @@ export default function Profile() {
     };
     console.info(body, "test");
     try {
-      const response = await axios.post(
-        "http://www.localhost:4242/api/user",
+      const response = await axios.put(
+        "http://www.localhost:4242/api/user/:id",
         body
       );
       if (response.status === 201) {
