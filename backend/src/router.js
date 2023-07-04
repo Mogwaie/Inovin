@@ -20,6 +20,13 @@ router.get("/users/:id", userControllers.getUserById);
 router.post("/users", hashPassword, userControllers.createUser);
 router.put("/users/:id", userControllers.updateUser);
 router.delete("/users/:id", userControllers.destroy);
+router.post(
+  "/login",
+
+  userControllers.getUserByEmailWithPasswordAndPassToNext,
+
+  verifyPassword
+);
 
 router.get("/cepages", cepageControllers.findAllCepages);
 router.get("/cepages/:id", cepageControllers.findCepageById);
@@ -35,13 +42,5 @@ router.delete("/tastes/:id", tasteControllers.destroy);
 
 router.get("/reviews", reviewControllers.getAllReviews);
 router.post("/reviews", reviewControllers.createNewReview);
-
-router.post(
-  "/login",
-
-  userControllers.getUserByEmailWithPasswordAndPassToNext,
-
-  verifyPassword
-);
 
 module.exports = router;
