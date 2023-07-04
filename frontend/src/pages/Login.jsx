@@ -25,6 +25,7 @@ export default function Login() {
       );
 
       if (response.status === 200) {
+        localStorage.setItem("token", response.data.token);
         console.info(
           "Données vérifiées avec succès ! User checked successfully."
         );
