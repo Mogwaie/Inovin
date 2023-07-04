@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 const models = require("../models");
 
 const getAllUsers = (req, res) => {
@@ -79,26 +80,22 @@ const destroy = (req, res) => {
     });
 };
 
-// // const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
-// //   const { email } = req.body;
-
-// //   models.user
-
-//     .then((users) => {
-//       if (users[0] != null) {
-//         const [user] = users;
-//         req.user = user;
-
-//         next();
-//       } else {
-//         res.sendStatus(401);
-//       }
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//       res.status(500).send("Error retrieving data from database");
-//     });
-// };
+const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
+  models.user
+    .findUserByEmail(req.body)
+    .then(([users]) => {
+      if (users[0] != null) {
+      [req.user] = users;
+        next();
+      } else {
+        res.sendStatus(401);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error retrieving data from database");
+    });
+};
 
 module.exports = {
   getAllUsers,
@@ -106,5 +103,5 @@ module.exports = {
   createUser,
   updateUser,
   destroy,
-  // getUserByEmailWithPasswordAndPassToNext,
+  getUserByEmailWithPasswordAndPassToNext,
 };
