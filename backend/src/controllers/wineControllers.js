@@ -1,10 +1,10 @@
 const models = require("../models");
 
-const getAllUsers = (req, res) => {
-  models.user
+const findAllWines = (req, res) => {
+  models.wine
     .findAll()
-    .then(([user]) => {
-      res.status(200).send(user);
+    .then(([rows]) => {
+      res.send(rows);
     })
     .catch((err) => {
       console.error(err);
@@ -12,14 +12,14 @@ const getAllUsers = (req, res) => {
     });
 };
 
-const getUserById = (req, res) => {
-  models.user
+const findWineById = (req, res) => {
+  models.wine
     .find(req.params.id)
-    .then(([user]) => {
-      if (user[0] == null) {
+    .then(([rows]) => {
+      if (rows[0] == null) {
         res.sendStatus(404);
       } else {
-        res.send(user[0]);
+        res.send(rows[0]);
       }
     })
     .catch((err) => {
@@ -28,14 +28,12 @@ const getUserById = (req, res) => {
     });
 };
 
-const createUser = (req, res) => {
-  const user = req.body;
-  user.is_admin = 0;
-
-  models.user
-    .addUser(user)
+const createNewWine = (req, res) => {
+  const wine = req.body;
+  models.wine
+    .insert(wine)
     .then(([result]) => {
-      res.location(`/users/${result.insertId}`).sendStatus(201);
+      res.location(`/wines/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
@@ -43,13 +41,11 @@ const createUser = (req, res) => {
     });
 };
 
-const updateUser = (req, res) => {
-  const user = req.body;
-
-  user.user_id = parseInt(req.params.id, 10);
-
-  models.user
-    .updateUser(user)
+const editWine = (req, res) => {
+  const wine = req.body;
+  wine.wine_id = parseInt(req.params.id, 10);
+  models.wine
+    .update(wine)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
@@ -63,8 +59,8 @@ const updateUser = (req, res) => {
     });
 };
 
-const destroy = (req, res) => {
-  models.user
+const deleteWine = (req, res) => {
+  models.wine
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
@@ -80,9 +76,9 @@ const destroy = (req, res) => {
 };
 
 module.exports = {
-  getAllUsers,
-  getUserById,
-  createUser,
-  updateUser,
-  destroy,
+  findAllWines,
+  findWineById,
+  createNewWine,
+  editWine,
+  deleteWine,
 };

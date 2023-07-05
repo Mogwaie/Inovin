@@ -1,4 +1,5 @@
 const express = require("express");
+const { hashPassword } = require("./middlewares/auth");
 
 const router = express.Router();
 
@@ -7,6 +8,7 @@ const userControllers = require("./controllers/userControllers");
 const cepageControllers = require("./controllers/cepageControllers");
 const reviewControllers = require("./controllers/reviewControllers");
 const tasteControllers = require("./controllers/tasteControllers");
+const wineControllers = require("./controllers/wineControllers");
 
 router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);
@@ -16,7 +18,7 @@ router.delete("/items/:id", itemControllers.destroy);
 
 router.get("/users", userControllers.getAllUsers);
 router.get("/users/:id", userControllers.getUserById);
-router.post("/users", userControllers.createUser);
+router.post("/users", hashPassword, userControllers.createUser);
 router.put("/users/:id", userControllers.updateUser);
 router.delete("/users/:id", userControllers.destroy);
 
@@ -34,5 +36,11 @@ router.delete("/tastes/:id", tasteControllers.destroy);
 
 router.get("/reviews", reviewControllers.getAllReviews);
 router.post("/reviews", reviewControllers.createNewReview);
+
+router.get("/wines", wineControllers.findAllWines);
+router.get("/wines/:id", wineControllers.findWineById);
+router.put("/wines/:id", wineControllers.editWine);
+router.post("/wines", wineControllers.createNewWine);
+router.delete("/wines/:id", wineControllers.deleteWine);
 
 module.exports = router;

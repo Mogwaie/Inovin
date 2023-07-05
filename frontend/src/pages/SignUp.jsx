@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
 import { MaxLengthContext } from "../context/MaxLengthContext";
 import InputPassword from "../components/InputPassword";
 import InputEmail from "../components/InputEmail";
@@ -9,18 +10,21 @@ function Signup() {
   const navigate = useNavigate();
   const { maxl } = useContext(MaxLengthContext);
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [firstName, setFirstName] = useState("toto");
+  const [lastName, setLastName] = useState("tata");
+  const [address, setAddress] = useState("ffffff");
+  const [postalCode, setPostalCode] = useState(35695);
+  const [city, setCity] = useState("fffffgh");
+  const [job, setJob] = useState("hhhhhhhh");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const [address, setAddress] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [city, setCity] = useState("");
-  const [job, setJob] = useState("");
   const handleChangeFirstName = (event) => {
     if (event.target.value.length <= maxl) {
       setFirstName(event.target.value);
     }
   };
+
   const handleChangeLastName = (event) => {
     if (event.target.value.length <= maxl) {
       setLastName(event.target.value);
@@ -32,24 +36,61 @@ function Signup() {
       setAddress(event.target.value);
     }
   };
+
   const handleChangePostalCode = (event) => {
     if (event.target.value.length <= maxl) {
       setPostalCode(event.target.value);
     }
   };
+
   const handleChangeCity = (event) => {
     if (event.target.value.length <= maxl) {
       setCity(event.target.value);
     }
   };
+
   const handleChangeJob = (event) => {
     if (event.target.value.length <= maxl) {
       setJob(event.target.value);
     }
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const body = {
+      firstname: firstName,
+      lastname: lastName,
+      address,
+      zip_code: postalCode,
+      email,
+      city,
+      job,
+      password,
+    };
+
+    console.info(body);
+
+    try {
+      const response = await axios.post(
+        "http://localhost:4242/api/users",
+        body
+      );
+
+      if (response.status === 201) {
+        console.info(
+          "Données enregistrées avec succès dans la base de données !"
+        );
+        navigate("/degustation");
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
-    <form className="container_form">
+    <form onSubmit={(e) => handleSubmit(e)} className="container_form">
       <h2 className="title_form">Créer un compte</h2>
+
       <input
         type="text"
         required
@@ -64,11 +105,11 @@ function Signup() {
         onChange={handleChangeLastName}
         placeholder="Nom*"
       />
-      <div>
-        <InputEmail MaxLength={maxl} />
+      <div className="form_input_component">
+        <InputEmail state={email} setter={setEmail} type="email" />
       </div>
-      <div>
-        <InputPassword MaxLength={maxl} />
+      <div className="form_input_component">
+        <InputPassword state={password} setter={setPassword} />
       </div>
       <input
         type="text"
@@ -100,8 +141,14 @@ function Signup() {
         onChange={handleChangeJob}
         placeholder="Fonction"
       />
-      <Button onClick={() => navigate("/degustation")} text="Valider" />
+      <div className="form_navigate">
+        <Button type="submit" className="primary-button" text="Valider" />
+        <Link to="/login">
+          <p className="form_login_link">Déjà inscrit(e) ?</p>
+        </Link>
+      </div>
     </form>
   );
 }
+
 export default Signup;

@@ -1,16 +1,23 @@
 @import "./assets/styles/variable";
+
 @import "./assets/styles/pages/homePage.scss";
 @import "./assets/styles/pages/workshop.scss";
 @import "./assets/styles/pages/reviewsPage.scss";
 @import "./assets/styles/pages/degustationPage.scss";
 @import "./assets/styles/pages/profilePage";
+@import "./assets/styles/pages/login";
+
 @import "./assets/styles/components/navbar.scss";
 @import "./assets/styles/components/burgerMenu.scss";
 @import "./assets/styles/components/signUp.scss";
-@import "./assets/styles/login.scss";
 @import "./assets/styles/components/inputPassword";
 @import "./assets/styles/components/inputEmail";
+@import "./assets/styles/pages/degustation-profile";
+@import "./assets/styles/pages/leagalNotice";
 @import "./assets/styles/components/sliderUser.scss";
+@import "./assets/styles/components/cardWine";
+@import "./assets/styles/pages/wineSelection";
+@import "./assets/styles/pages/wineDescription";
 
 *,
 *::before,
@@ -19,6 +26,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: $app-primary-font;
+}
+
+main {
+  margin-top: 80px;
 }
 
 body {
