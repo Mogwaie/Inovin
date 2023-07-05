@@ -20,9 +20,7 @@ export default function Login() {
           </Link>
 
           <Link to="/signUp">
-            <button className="primary-button" type="button">
-              Inscription
-            </button>
+            <p>Inscription</p>
           </Link>
         </div>
 
