@@ -13,6 +13,7 @@ import SignUp from "./pages/SignUp";
 import DegustationPage from "./pages/DegustationPage";
 import Workshop from "./pages/Workshop";
 import Reviews from "./pages/Reviews";
+import Profil from "./pages/Profil";
 import WineSelection from "./pages/WineSelection";
 import WineDescription from "./pages/WineDescription";
 
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/reviews",
         element: <Reviews />,
+      },
+      {
+        path: "/profile",
+        element: <Profil />,
       },
       {
         path: "/wine-selection",
