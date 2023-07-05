@@ -32,7 +32,7 @@ const verifyPassword = (req, res) => {
 
         delete req.user.hashedPassword;
 
-        res.send({ token, user: req.user });
+        res.send({ token, userId: req.user.id });
       } else {
         res.sendStatus(401);
       }
