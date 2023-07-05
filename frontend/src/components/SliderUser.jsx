@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 function SliderRating(props) {
@@ -10,6 +10,10 @@ function SliderRating(props) {
     setRating(newRating);
     onChange(newRating);
   };
+
+  useEffect(() => {
+    console.info("Rating :", rating);
+  }, [rating]);
 
   return (
     <div className="SliderRating">
@@ -27,7 +31,7 @@ function SliderRating(props) {
       <input
         type="range"
         min="0"
-        max={5}
+        max={10}
         value={rating}
         onChange={handleSliderChange}
         className="my-slider"
