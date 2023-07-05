@@ -16,6 +16,7 @@ export default function Reviews() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const body = { firstName, lastName, email, message, rating };
+    console.error(body);
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/reviews`,
