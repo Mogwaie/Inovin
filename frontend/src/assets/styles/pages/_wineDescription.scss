@@ -4,6 +4,10 @@
   align-items: center;
   padding: 0 4rem;
 
+  h2 {
+    text-align: center;
+  }
+
   .pict-wine-and-description-user {
     display: flex;
     flex-direction: column;
@@ -39,8 +43,29 @@
   }
 }
 
-@media screen and (min-width: $app-tablet) and (max-width: $app-desktop) {
-  img {
-    height: 10rem;
+@media screen and (min-width: $app-tablet) {
+  .wine-desciption-user-container {
+    .pict-wine-and-description-user {
+      flex-direction: row;
+      justify-content: space-around;
+      height: 70vh;
+
+      img {
+        height: 16rem;
+      }
+
+      .description-line-container {
+        p {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .wine-desciption-user-container {
+    width: 80%;
+    margin: auto;
   }
 }
