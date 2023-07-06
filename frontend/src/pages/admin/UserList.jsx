@@ -1,23 +1,40 @@
 import { useState } from "react";
 import SearchBar from "../../components/admin/SearchBar";
-import DisplayUserList from "./DisplayUserList";
+import DisplayUserList from "../../components/admin/DisplayUserList";
 
 function UserList() {
   const [searchInput, setSearchInput] = useState("");
 
   const searchList = [
-    { id: 1, lol: "Belgium", continent: "Europe" },
-    { id: 2, lol: "India", continent: "Asia" },
-    { id: 2, lol: "Japan", continent: "Asia" },
-    { id: 3, lol: "Canada", continent: "North America" },
-    { id: 4, lol: "Australia", continent: "Australasia" },
+    {
+      user_id: 1,
+      firstname: "John",
+      lastname: "Doe",
+      email: "john.doe@example.com",
+      address: "123 Main St",
+      zip_code: "12345",
+      city: "New York",
+      job: "Software Engineer",
+      hashedPassword: "12345",
+      is_admin: true,
+    },
+    {
+      user_id: 2,
+      firstname: "Lane",
+      lastname: "Smith",
+      email: "jane.smith@example.com",
+      address: "456 Elm St",
+      zip_code: "54321",
+      city: "Los Angeles",
+      job: "Product Manager",
+      hashedPassword: "67890",
+      is_admin: false,
+    },
   ];
-
-  const propertyName = "lol";
 
   const searchListFilter = searchList.filter((element) => {
     if (searchInput.length > 0) {
-      const propertyValue = element[propertyName].toLowerCase();
+      const propertyValue = element.firstname.toLowerCase();
       return propertyValue.includes(searchInput.toLowerCase());
     }
     return element;
@@ -29,8 +46,8 @@ function UserList() {
       <ul>
         {searchListFilter.map((user) => {
           return (
-            <li key={user.id}>
-              <DisplayUserList country={user} />
+            <li key={user.user_id}>
+              <DisplayUserList user={user} />
             </li>
           );
         })}
