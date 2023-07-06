@@ -31,7 +31,10 @@ const verifyPassword = (req, res) => {
 
     .then((isVerified) => {
       if (isVerified) {
-        const payload = { sub: req.user.user_id };
+        const payload = {
+          user_id: req.user.user_id,
+          author: "ArnaudIsTheBestAndNotModestAtAll",
+        };
 
         const token = jwt.sign(payload, process.env.JWT_SECRET, {
           expiresIn: "1h",
@@ -39,7 +42,7 @@ const verifyPassword = (req, res) => {
 
         delete req.user.hashedPassword;
 
-        res.json({ token, userId: req.user.user_id });
+        res.json({ token });
       } else {
         res.sendStatus(401);
       }
@@ -60,14 +63,11 @@ const verifyToken = (req, res, next) => {
       throw new Error("Authorization header is missing");
     }
 
-    const [type, token] = authorizationHeader.split(" ");
+    const [type] = authorizationHeader.split(" ");
 
     if (type !== "Bearer") {
       throw new Error("Authorization header has not the 'Bearer' type");
     }
-
-    req.payload = jwt.verify(token, process.env.JWT_SECRET);
-
     next();
   } catch (err) {
     console.error(err);
