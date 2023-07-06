@@ -1,15 +1,28 @@
 import PropTypes from "prop-types";
 import SliderAdmin from "./SliderAdmin";
+import deleteButton from "../../assets/images/deleteButton.svg";
+import modifButton from "../../assets/images/modifButton.png";
 
 function DisplayUserList({ user }) {
   return (
-    <div>
-      <p>{user.firstname}</p>
-      <p>{user.lastname}</p>
-      <p>{user.email}</p>
-      <p>10/04/1985</p>
-      <p>{user.is_admin}</p>
-      <SliderAdmin />
+    <div className="user-display-container">
+      <div className="email-name-lastname-user">
+        <div className="name-lastname-user-admin">
+          <p>{user.firstname}</p>
+          <p>{user.lastname}</p>
+        </div>
+        <p className="email-container">{user.email}</p>
+      </div>
+      <div className="icons-and-admin">
+        <div className="member-admin-switch">
+          <p>Admin</p>
+          <SliderAdmin />
+        </div>
+        <div className="buttons-modif-and-delete">
+          <img src={deleteButton} alt="button delete a user" />
+          <img src={modifButton} alt="button modify a user" />
+        </div>
+      </div>
     </div>
   );
 }
@@ -19,7 +32,6 @@ DisplayUserList.propTypes = {
     firstname: PropTypes.string.isRequired,
     lastname: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    is_admin: PropTypes.bool.isRequired,
   }).isRequired,
 };
 
