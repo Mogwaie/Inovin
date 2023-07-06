@@ -12,6 +12,7 @@ $app-supporting-color2: #eeeeee;
 $app-bg-color: #232222;
 $app-bg-color-button: #000000;
 $app-bow-shadow: rgba(170, 170, 170, 0.6);
+$app-slider-off: #8b7b50;
 
 /* Media query */
 $app-mobile: 320px;
@@ -111,7 +112,7 @@ $font-size-list-burger-tablet: 38px;
   border-radius: 6px;
   width: 11rem;
   height: 4rem;
-  font-size: $font-size-text-tablet;
+  font-size: 18px;
   font-family: $app-primary-font;
 
   cursor: pointer;

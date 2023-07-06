@@ -14,6 +14,17 @@
 
     li {
       margin-top: 3rem;
+      list-style-type: none;
     }
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .wine-selection-container {
+    padding: 0 2rem;
   }
 }

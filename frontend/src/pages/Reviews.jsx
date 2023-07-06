@@ -1,16 +1,16 @@
 import axios from "axios";
 import { Rating } from "primereact/rating";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import wineglass from "../assets/images/wineGlass.png";
 
 export default function Reviews() {
   const navigateTo = useNavigate();
 
-  const [firstName, setFirstName] = useState(" ");
-  const [lastName, setLastName] = useState(" ");
-  const [email, setEmail] = useState(" ");
-  const [message, setMessage] = useState(" ");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [rating, setRating] = useState(0);
 
   const handleSubmit = async (e) => {
@@ -74,9 +74,15 @@ export default function Reviews() {
             onChange={(e) => setRating(e.target.value)}
           />
         </div>
-        <button className="primary-button" id="reviewsPageButton" type="submit">
-          Envoyer
-        </button>
+        <Link to="/wine-selection">
+          <button
+            className="primary-button"
+            id="reviewsPageButton"
+            type="submit"
+          >
+            Envoyer
+          </button>
+        </Link>
       </form>
       <img className="wineGlass" src={wineglass} alt="BackgroundImage" />
       <a href="/">
