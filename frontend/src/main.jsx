@@ -17,6 +17,7 @@ import Profil from "./pages/Profil";
 import WineSelection from "./pages/WineSelection";
 import WineDescription from "./pages/WineDescription";
 import UserList from "./pages/admin/UserList";
+import DegustationProfile from "./pages/DegustationProfile";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
       {
         path: "user-list",
         element: <UserList />,
+      },
+      {
+        path: "/degustation-profile",
+        element: <DegustationProfile />,
       },
     ],
   },
