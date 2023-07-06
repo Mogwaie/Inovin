@@ -21,7 +21,7 @@ function DegustationProfile() {
           Aujourd’hui, on dénombre plus de 10 000 variétés de raisins à travers
           le monde mais seule une douzaine est parvenue à une reconnaissance
           générale et indiscutée. Parmi les cépages les plus réputés, on
-          retrouve le Cabernet Sauvignon..
+          retrouve le Cabernet Sauvignon...
         </p>
       </div>
       <div className="assemblez-vin">
