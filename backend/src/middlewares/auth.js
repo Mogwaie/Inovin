@@ -26,23 +26,28 @@ const hashPassword = (req, res, next) => {
 
 const verifyPassword = (req, res) => {
   argon2
+
     .verify(req.user.hashedPassword, req.body.password)
+
     .then((isVerified) => {
       if (isVerified) {
-        const payload = { sub: req.user.id };
+        const payload = { sub: req.user.user_id };
 
         const token = jwt.sign(payload, process.env.JWT_SECRET, {
           expiresIn: "1h",
         });
 
         delete req.user.hashedPassword;
-        res.send({ token, user: req.user });
+
+        res.json({ token, userId: req.user.user_id });
       } else {
         res.sendStatus(401);
       }
     })
+
     .catch((err) => {
       console.error(err);
+
       res.sendStatus(500);
     });
 };
