@@ -20,7 +20,7 @@ export default function Login() {
 
     try {
       const response = await axios.post(
-        `http://localhost:4242/api/login`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/login`,
         body
       );
 
@@ -54,12 +54,12 @@ export default function Login() {
             Connexion
           </button>
 
-          <Link to="/signUp">
+          <Link to="/sign-up">
             <p>Inscription</p>
           </Link>
         </div>
 
-        <Link to="/passwordRecovery">
+        <Link to="/password-recovery">
           <p>Mot de passe oublié ?</p>
         </Link>
       </div>

@@ -72,7 +72,7 @@ function Signup() {
 
     try {
       const response = await axios.post(
-        "http://localhost:4242/api/users",
+        `${import.meta.env.VITE_BACKEND_URL}/api/users`,
         body
       );
 
