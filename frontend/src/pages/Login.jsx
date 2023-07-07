@@ -54,12 +54,12 @@ export default function Login() {
             Connexion
           </button>
 
-          <Link to="/signUp">
+          <Link to="/sign-up">
             <p>Inscription</p>
           </Link>
         </div>
 
-        <Link to="/passwordRecovery">
+        <Link to="/password-recovery">
           <p>Mot de passe oublié ?</p>
         </Link>
       </div>

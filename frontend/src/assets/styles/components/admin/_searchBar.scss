@@ -1,0 +1,18 @@
+.search-bar-conatiner-admin {
+  input {
+    border: solid 2px $app-primary-font-color;
+    border-radius: 6px;
+    background-color: $app-supporting-color;
+    color: $font-family-title-color;
+    padding: 0.5rem;
+  }
+
+  input::placeholder {
+    color: $font-family-title-color;
+  }
+
+  input:focus {
+    outline: none;
+    border: 3px solid $app-primary-font-color;
+  }
+}
