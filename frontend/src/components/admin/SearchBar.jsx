@@ -7,7 +7,7 @@ export default function SearchBar({ searchInput, setSearchInput }) {
   };
 
   return (
-    <div className="search-bar-conatiner-admin">
+    <div className="search-bar-container-admin">
       <input
         type="text"
         placeholder="Recherche"
