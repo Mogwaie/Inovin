@@ -1,0 +1,12 @@
+.display-wine-container-for-admin {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  align-items: center;
+
+  .wine-and-origin {
+    p {
+      margin: 0.25rem 0;
+    }
+  }
+}
