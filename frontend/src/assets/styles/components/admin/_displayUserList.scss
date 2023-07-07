@@ -13,7 +13,8 @@
   .email-name-lastname-user {
     .name-lastname-user-admin {
       display: flex;
-      width: 9rem;
+      width: 12rem;
+      overflow: hidden;
     }
 
     .email-container {
@@ -37,7 +38,7 @@
   }
 }
 
-@media screen and (min-width: $app-tablet) and (max-width: $app-desktop) {
+@media screen and (min-width: $app-tablet) {
   .user-display-container {
     .email-name-lastname-user {
       display: flex;
@@ -65,10 +66,19 @@
 
 @media screen and (min-width: $app-desktop) {
   .user-display-container {
-    width: 80%;
     .icons-and-admin {
       .buttons-modif-and-delete {
-        margin-left: 4rem;
+        margin-left: 2rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop-medium) {
+  .user-display-container {
+    .email-name-lastname-user {
+      .email-container {
+        width: auto;
       }
     }
   }

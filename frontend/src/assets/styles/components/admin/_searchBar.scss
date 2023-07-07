@@ -16,3 +16,19 @@
     border: 3px solid $app-primary-font-color;
   }
 }
+
+@media screen and (min-width: $app-tablet) {
+  .search-bar-conatiner-admin {
+    input {
+      width: 15rem;
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .search-bar-conatiner-admin {
+    input {
+      width: 20rem;
+    }
+  }
+}

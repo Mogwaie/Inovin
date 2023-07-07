@@ -1,0 +1,21 @@
+.user-list-page-container {
+  .search-bar-and-button-create {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem 0;
+  }
+
+  ul {
+    li {
+      list-style-type: none;
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .user-list-page-container {
+    width: 80%;
+    margin: auto;
+  }
+}
