@@ -20,7 +20,7 @@ export default function Login() {
 
     try {
       const response = await axios.post(
-        `http://localhost:4242/api/login`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/login`,
         body
       );
 
