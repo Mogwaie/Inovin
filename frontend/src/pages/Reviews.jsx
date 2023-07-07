@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Rating } from "primereact/rating";
 import { useNavigate, Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import wineglass from "../assets/images/wineGlass.png";
 
 export default function Reviews() {
@@ -12,6 +12,20 @@ export default function Reviews() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [rating, setRating] = useState(0);
+
+  useEffect(() => {
+    const fetchUserInformation = async () => {
+      try {
+        const reponse = await axios.get(
+          "http://www.localhost:4242/api/userinformation"
+        );
+        console.info("User Information :", reponse.data);
+      } catch (error) {
+        console.error("Can not get user data");
+      }
+    };
+    fetchUserInformation();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

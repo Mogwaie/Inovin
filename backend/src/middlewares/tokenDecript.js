@@ -5,6 +5,7 @@ const tokenDecript = (req, res, next) => {
   try {
     const { token } = req.body;
     req.payload = jwt.verify(token, process.env.JWT_SECRET);
+    console.info(req.payload);
     next();
   } catch (err) {
     console.error(err);
@@ -12,4 +13,4 @@ const tokenDecript = (req, res, next) => {
   }
 };
 
-module.exports = { tokenDecript };
+module.exports = tokenDecript;

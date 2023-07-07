@@ -97,6 +97,30 @@ const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
     });
 };
 
+const getUserInformation = (req, res) => {
+  const userId = req.user_id;
+
+  models.user
+    .find(userId)
+    .then(([user]) => {
+      if (user) {
+        const userInfo = {
+          name: user.firstname,
+          surname: user.lastname,
+          email: user.email,
+        };
+        res.send(userInfo);
+      } else {
+        res.sendStatus(404);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+
 module.exports = {
   getAllUsers,
   getUserById,
@@ -104,4 +128,5 @@ module.exports = {
   updateUser,
   destroy,
   getUserByEmailWithPasswordAndPassToNext,
+  getUserInformation,
 };

@@ -1,13 +1,13 @@
 const express = require("express");
 
 const app = express();
+const router = express.Router();
+
 const {
   hashPassword,
   verifyPassword,
   verifyToken,
 } = require("./middlewares/auth");
-
-const router = express.Router();
 
 const itemControllers = require("./controllers/itemControllers");
 const userControllers = require("./controllers/userControllers");
@@ -48,7 +48,6 @@ router.put("/tastes/:id", tasteControllers.edit);
 router.post("/tastes", tasteControllers.add);
 router.delete("/tastes/:id", tasteControllers.destroy);
 
-router.get("/reviews", reviewControllers.getAllReviews);
 router.post("/reviews", reviewControllers.createNewReview);
 
 router.get("/wines", wineControllers.findAllWines);
