@@ -9,9 +9,8 @@
 
 @import "./assets/styles/components/navbar.scss";
 @import "./assets/styles/components/burgerMenu.scss";
-@import "./assets/styles/components/signUp.scss";
-@import "./assets/styles/components/inputPassword";
-@import "./assets/styles/components/inputEmail";
+@import "./assets/styles/pages/signUp.scss";
+@import "./assets/styles/components/inputForm";
 @import "./assets/styles/pages/degustation-profile";
 @import "./assets/styles/pages/leagalNotice";
 @import "./assets/styles/components/sliderUser.scss";
@@ -19,7 +18,14 @@
 @import "./assets/styles/pages/wineSelection";
 @import "./assets/styles/pages/wineDescription";
 @import "./assets/styles/pages/degustation-profile";
+
+//admin
+@import "./assets/styles/components/admin/searchBar";
 @import "./assets/styles/components/admin/sliderAdmin";
+@import "./assets//styles/components/admin/displayUserList";
+@import "./assets/styles/pages/admin/userList";
+@import "./assets/styles/components/admin/displayWineList";
+@import "./assets//styles/pages/admin/wineList";
 
 *,
 *::before,
@@ -60,6 +66,10 @@ p {
   @include primary-button-phone;
 }
 
+.secondary-button {
+  @include secondary-button-phone;
+}
+
 /* search bar */
 .search-bar-phone {
   @include search-bar(10rem, 3rem, $font-size-text-phone);
@@ -85,6 +95,10 @@ p {
   .primary-button {
     @include primary-button-tablet;
   }
+
+  .secondary-button {
+    @include primary-secondary-tablet-desktop;
+  }
 }
 
 @media screen and (min-width: $app-desktop) {
@@ -102,5 +116,9 @@ p {
 
   .primary-button {
     @include primary-button-desktop;
+  }
+
+  .secondary-button {
+    @include primary-secondary-tablet-desktop;
   }
 }

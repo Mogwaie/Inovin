@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import InputEmail from "../components/InputEmail";
+import InputForm from "../components/InputForm";
 import Button from "../components/Button";
 
 function PasswordResetForm() {
@@ -36,7 +36,7 @@ function PasswordResetForm() {
       <h2 className="title_form">Mot de passe oublié</h2>
 
       <div className="form_input_component">
-        <InputEmail value={email} onChange={(e) => setEmail(e.target.value)} />
+        <InputForm value={email} onChange={(e) => setEmail(e.target.value)} />
       </div>
 
       <div className="form_navigate">
