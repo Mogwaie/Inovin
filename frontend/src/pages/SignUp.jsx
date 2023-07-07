@@ -2,8 +2,8 @@ import { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { MaxLengthContext } from "../context/MaxLengthContext";
-import InputPassword from "../components/InputPassword";
-import InputEmail from "../components/InputEmail";
+// import InputPassword from "../components/InputPassword";
+import InputForm from "../components/InputForm";
 import Button from "../components/Button";
 
 function Signup() {
@@ -91,27 +91,36 @@ function Signup() {
     <form onSubmit={(e) => handleSubmit(e)} className="container_form">
       <h2 className="title_form">Créer un compte</h2>
 
-      <input
+      <InputForm
         type="text"
         required
         value={firstName}
         onChange={handleChangeFirstName}
         placeholder="Prénom*"
       />
-      <input
+      <InputForm
         type="text"
         required
         value={lastName}
         onChange={handleChangeLastName}
         placeholder="Nom*"
       />
-      <div className="form_input_component">
-        <InputEmail state={email} setter={setEmail} type="email" />
-      </div>
-      <div className="form_input_component">
-        <InputPassword state={password} setter={setPassword} />
-      </div>
-      <input
+
+      <InputForm
+        state={email}
+        setter={setEmail}
+        type="email"
+        placeholder="email*"
+      />
+
+      <InputForm
+        state={password}
+        setter={setPassword}
+        type="password"
+        placeholder="Mot de passe*"
+      />
+
+      <InputForm
         type="text"
         required
         value={address}
@@ -119,23 +128,27 @@ function Signup() {
         placeholder="Adresse*"
       />
       <div className="container_form_city">
-        <input
-          className="postalCode"
-          type="text"
-          required
-          value={postalCode}
-          onChange={handleChangePostalCode}
-          placeholder="Code postal*"
-        />
-        <input
-          className="city"
-          type="text"
-          value={city}
-          onChange={handleChangeCity}
-          placeholder="Ville"
-        />
+        <div>
+          <InputForm
+            className="postalCode"
+            type="text"
+            required
+            value={postalCode}
+            onChange={handleChangePostalCode}
+            placeholder="Code postal*"
+          />
+        </div>
+        <div>
+          <InputForm
+            className="city"
+            type="text"
+            value={city}
+            onChange={handleChangeCity}
+            placeholder="Ville"
+          />
+        </div>
       </div>
-      <input
+      <InputForm
         type="text"
         value={job}
         onChange={handleChangeJob}
