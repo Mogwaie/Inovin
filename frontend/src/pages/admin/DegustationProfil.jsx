@@ -35,8 +35,13 @@ function DegustationProfil() {
   });
 
   return (
-    <div>
-      <SearchBar setSearchInput={setSearchInput} searchInput={searchInput} />
+    <div className="degustation-profil-list-container">
+      <div className="search-bar-and-button-create">
+        <SearchBar setSearchInput={setSearchInput} searchInput={searchInput} />
+        <button type="button" className="secondary-button">
+          Créer
+        </button>
+      </div>
       <ul>
         {searchListFilter.map((profil) => {
           return (
