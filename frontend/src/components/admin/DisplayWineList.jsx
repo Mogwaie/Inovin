@@ -1,4 +1,6 @@
 import PropTypes from "prop-types";
+import deleteButton from "../../assets/images/deleteButton.svg";
+import modifButton from "../../assets/images/modifButton.png";
 
 function DisplayWineList({ wine }) {
   return (
@@ -7,7 +9,13 @@ function DisplayWineList({ wine }) {
         <p>{wine.name}</p>
         <p>Origine: {wine.origin}</p>
       </div>
-      <p>22/03/2022</p>
+      <div className="date-and-icons-delete-modif">
+        <p>22/03/2022</p>
+        <div className="buttons-modif-and-delete">
+          <img src={deleteButton} alt="button delete a user" />
+          <img src={modifButton} alt="button modify a user" />
+        </div>
+      </div>
     </div>
   );
 }
