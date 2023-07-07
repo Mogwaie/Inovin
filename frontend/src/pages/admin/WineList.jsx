@@ -28,15 +28,20 @@ function WineList() {
 
   const searchListFilter = wineList.filter((element) => {
     if (searchInput.length > 0) {
-      const propertyValue = element.firstname.toLowerCase();
+      const propertyValue = element.name.toLowerCase();
       return propertyValue.includes(searchInput.toLowerCase());
     }
     return element;
   });
 
   return (
-    <div>
-      <SearchBar setSearchInput={setSearchInput} searchInput={searchInput} />
+    <div className="wine-list-page-container">
+      <div className="search-bar-and-button-create">
+        <SearchBar setSearchInput={setSearchInput} searchInput={searchInput} />
+        <button type="button" className="secondary-button">
+          Créer
+        </button>
+      </div>
       <ul>
         {searchListFilter.map((wine) => {
           return (
