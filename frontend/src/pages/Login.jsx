@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
-import InputPassword from "../components/InputPassword";
-import InputEmail from "../components/InputEmail";
+import InputForm from "../components/InputForm";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -41,8 +40,18 @@ export default function Login() {
       <h2>Accéder à notre compte</h2>
 
       <form onSubmit={handleSubmit}>
-        <InputEmail setter={setEmailLogin} />
-        <InputPassword setter={setPasswordLogin} />
+        <InputForm
+          state={emailLogin}
+          setter={setEmailLogin}
+          type="email"
+          placeholder="email*"
+        />
+        <InputForm
+          state={passwordLogin}
+          setter={setPasswordLogin}
+          type="password"
+          placeholder="Mot de passe*"
+        />
       </form>
       <div className="links-page-login">
         <div className="buttons-container-login-page">

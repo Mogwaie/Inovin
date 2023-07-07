@@ -1,7 +1,7 @@
-.input-email-container {
+.input-Form-container {
   width: 100%;
-
-  .input-email {
+  margin: auto;
+  .input-Form {
     border: none;
     border-bottom: 1px solid $font-family-title-color;
     background-color: $app-bg-color;
@@ -13,15 +13,15 @@
     color: $font-family-title-color;
   }
 
-  .input-email:focus {
+  .input-Form:focus {
     outline: none;
     border-bottom: solid 2px $font-family-title-color;
   }
 }
 
 @media screen and (min-width: $app-desktop) {
-  .input-email-container {
-    .input-email {
+  .input-Form-container {
+    .input-Form {
       font-size: $font-size-text-tablet;
     }
   }
