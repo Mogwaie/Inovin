@@ -28,6 +28,7 @@
 @import "./assets//styles/pages/admin/wineList";
 @import "./assets/styles/components/admin/displayDegustationProfil";
 @import "./assets/styles/pages/admin/tasteProfil";
+@import "./assets/styles/pages/admin/winedescriptionModif";
 
 *,
 *::before,
@@ -70,6 +71,10 @@ p {
 
 .secondary-button {
   @include secondary-button-phone;
+}
+
+.modification-button {
+  @include button-pen-modification(2rem, 2rem);
 }
 
 /* search bar */
