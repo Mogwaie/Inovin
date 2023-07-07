@@ -10,7 +10,6 @@
 
   .pict-wine-and-description-user {
     display: flex;
-    flex-direction: column;
     align-items: center;
     padding-top: 2rem;
 
@@ -48,10 +47,12 @@
     .pict-wine-and-description-user {
       flex-direction: row;
       justify-content: space-around;
-      height: 65vh;
+      align-items: flex-start;
+      height: 69vh;
 
       .wine-bottle-picture {
         height: 16rem;
+        margin-top: 4rem;
       }
 
       .description-line-container {
@@ -67,6 +68,13 @@
   .wine-desciption-user-container {
     width: 80%;
     margin: auto;
+
+    .pict-wine-and-description-user {
+      .wine-bottle-picture {
+        height: 16rem;
+        margin-top: 2rem;
+      }
+    }
 
     .wine-desciption-user-container {
       height: 64vh;

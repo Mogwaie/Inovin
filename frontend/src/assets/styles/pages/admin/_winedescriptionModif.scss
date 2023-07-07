@@ -20,3 +20,12 @@
     padding-top: 2rem;
   }
 }
+
+@media screen and (min-width: $app-tablet) {
+  .wine-desciption-user-container {
+    padding-bottom: 2rem;
+    .button-modif-and-wine-description {
+      padding-top: 0;
+    }
+  }
+}
