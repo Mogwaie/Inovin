@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { MaxLengthContext } from "../context/MaxLengthContext";
-import InputPassword from "../components/InputPassword";
+// import InputPassword from "../components/InputPassword";
 import InputEmail from "../components/InputEmail";
 import Button from "../components/Button";
 
@@ -106,10 +106,20 @@ function Signup() {
         placeholder="Nom*"
       />
       <div className="form_input_component">
-        <InputEmail state={email} setter={setEmail} type="email" />
+        <InputEmail
+          state={email}
+          setter={setEmail}
+          type="email"
+          placeholder="email*"
+        />
       </div>
       <div className="form_input_component">
-        <InputPassword state={password} setter={setPassword} />
+        <InputEmail
+          state={password}
+          setter={setPassword}
+          type="password"
+          placeholder="Mot de passe*"
+        />
       </div>
       <input
         type="text"

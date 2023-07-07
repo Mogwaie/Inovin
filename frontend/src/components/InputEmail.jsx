@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { MaxLengthContext } from "../context/MaxLengthContext";
 
-function InputEmail({ state, setter, type }) {
+function InputEmail({ state, setter, type, placeholder }) {
   const { maxl } = useContext(MaxLengthContext);
   const handleChangeMail = (event) => {
     if (event.target.value.length <= maxl) {
@@ -17,7 +17,7 @@ function InputEmail({ state, setter, type }) {
         required
         value={state}
         onChange={handleChangeMail}
-        placeholder="Email*"
+        placeholder={placeholder}
       />
     </div>
   );
@@ -26,5 +26,6 @@ InputEmail.propTypes = {
   state: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   setter: PropTypes.func.isRequired,
   type: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
 };
 export default InputEmail;
