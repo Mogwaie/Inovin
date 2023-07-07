@@ -11,6 +11,7 @@
   .pict-wine-and-description-user {
     display: flex;
     align-items: center;
+    flex-direction: column;
     padding-top: 2rem;
 
     .wine-bottle-picture {
