@@ -1,3 +1,1 @@
-export default function AdminTest() {
-  return <p>admin</p>;
-}
+export default function AdminTest() {}
