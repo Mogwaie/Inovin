@@ -1,14 +1,13 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
-import { MaxLengthContext } from "../context/MaxLengthContext";
+
 // import InputPassword from "../components/InputPassword";
 import InputForm from "../components/InputForm";
 import Button from "../components/Button";
 
 function Signup() {
   const navigate = useNavigate();
-  const { maxl } = useContext(MaxLengthContext);
 
   const [firstName, setFirstName] = useState("toto");
   const [lastName, setLastName] = useState("tata");
@@ -18,42 +17,6 @@ function Signup() {
   const [job, setJob] = useState("hhhhhhhh");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleChangeFirstName = (event) => {
-    if (event.target.value.length <= maxl) {
-      setFirstName(event.target.value);
-    }
-  };
-
-  const handleChangeLastName = (event) => {
-    if (event.target.value.length <= maxl) {
-      setLastName(event.target.value);
-    }
-  };
-
-  const handleChangeAddress = (event) => {
-    if (event.target.value.length <= maxl) {
-      setAddress(event.target.value);
-    }
-  };
-
-  const handleChangePostalCode = (event) => {
-    if (event.target.value.length <= maxl) {
-      setPostalCode(event.target.value);
-    }
-  };
-
-  const handleChangeCity = (event) => {
-    if (event.target.value.length <= maxl) {
-      setCity(event.target.value);
-    }
-  };
-
-  const handleChangeJob = (event) => {
-    if (event.target.value.length <= maxl) {
-      setJob(event.target.value);
-    }
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -94,15 +57,14 @@ function Signup() {
       <InputForm
         type="text"
         required
-        value={firstName}
-        onChange={handleChangeFirstName}
+        state={firstName}
+        setter={setFirstName}
         placeholder="Prénom*"
       />
       <InputForm
         type="text"
-        required
-        value={lastName}
-        onChange={handleChangeLastName}
+        state={lastName}
+        setter={setLastName}
         placeholder="Nom*"
       />
 
@@ -123,8 +85,8 @@ function Signup() {
       <InputForm
         type="text"
         required
-        value={address}
-        onChange={handleChangeAddress}
+        state={address}
+        setter={setAddress}
         placeholder="Adresse*"
       />
       <div className="container_form_city">
@@ -133,8 +95,8 @@ function Signup() {
             className="postalCode"
             type="text"
             required
-            value={postalCode}
-            onChange={handleChangePostalCode}
+            state={postalCode}
+            setter={setPostalCode}
             placeholder="Code postal*"
           />
         </div>
@@ -142,16 +104,16 @@ function Signup() {
           <InputForm
             className="city"
             type="text"
-            value={city}
-            onChange={handleChangeCity}
+            state={city}
+            setter={setCity}
             placeholder="Ville"
           />
         </div>
       </div>
       <InputForm
         type="text"
-        value={job}
-        onChange={handleChangeJob}
+        state={job}
+        setter={setJob}
         placeholder="Fonction"
       />
       <div className="form_navigate">
