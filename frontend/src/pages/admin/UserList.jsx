@@ -30,6 +30,42 @@ function UserList() {
       hashedPassword: "67890",
       is_admin: false,
     },
+    {
+      user_id: 3,
+      firstname: "David",
+      lastname: "Johnson",
+      email: "david.johnson@example.com",
+      address: "789 Oak St",
+      zip_code: "54321",
+      city: "Chicago",
+      job: "Accountant",
+      hashedPassword: "54321",
+      is_admin: false,
+    },
+    {
+      user_id: 4,
+      firstname: "Sarah",
+      lastname: "Williams",
+      email: "sarah.williams@example.com",
+      address: "321 Pine St",
+      zip_code: "98765",
+      city: "San Francisco",
+      job: "Graphic Designer",
+      hashedPassword: "98765",
+      is_admin: false,
+    },
+    {
+      user_id: 5,
+      firstname: "Michael",
+      lastname: "Brown",
+      email: "michael.brown@example.com",
+      address: "654 Cedar St",
+      zip_code: "23456",
+      city: "Seattle",
+      job: "Project Manager",
+      hashedPassword: "23456",
+      is_admin: false,
+    },
   ];
 
   const searchListFilter = searchList.filter((element) => {
@@ -41,8 +77,13 @@ function UserList() {
   });
 
   return (
-    <div>
-      <SearchBar setSearchInput={setSearchInput} searchInput={searchInput} />
+    <div className="user-list-page-container">
+      <div className="search-bar-and-button-create">
+        <SearchBar setSearchInput={setSearchInput} searchInput={searchInput} />
+        <button type="button" className="secondary-button">
+          Créer
+        </button>
+      </div>
       <ul>
         {searchListFilter.map((user) => {
           return (

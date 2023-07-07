@@ -1,4 +1,4 @@
-.search-bar-conatiner-admin {
+.search-bar-container-admin {
   input {
     border: solid 2px $app-primary-font-color;
     border-radius: 6px;
@@ -14,5 +14,21 @@
   input:focus {
     outline: none;
     border: 3px solid $app-primary-font-color;
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .search-bar-container-admin {
+    input {
+      width: 15rem;
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .search-bar-container-admin {
+    input {
+      width: 20rem;
+    }
   }
 }
