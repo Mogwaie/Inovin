@@ -1,4 +1,4 @@
-.user-list-page-container {
+.degustation-profil-list-container {
   .search-bar-and-button-create {
     display: flex;
     align-items: center;
@@ -15,14 +15,14 @@
 }
 
 @media screen and (min-width: $app-desktop) {
-  .user-list-page-container {
+  .degustation-profil-list-container {
     width: 80%;
     margin: auto;
   }
 }
 
 @media screen and (min-width: $app-desktop-medium) {
-  .user-list-page-container {
+  .search-bar-and-button-create {
     width: 65%;
   }
 }
