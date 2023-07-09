@@ -40,7 +40,7 @@ export default function WineDescriptionModif() {
       <div className="buttons-delete-and-back">
         <Link to="/wine-list">
           <button type="button" className="primary-button ">
-            Revenir à la liste
+            Mettre à jour
           </button>
         </Link>
         <button type="button" className="primary-button ">
