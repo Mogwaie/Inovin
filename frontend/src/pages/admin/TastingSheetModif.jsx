@@ -26,6 +26,18 @@ function TastingSheetModif() {
         <div className="taste-slider">
           <SliderUser tasteName="Domaine de la Romanée" />
         </div>
+        <div className="taste-slider">
+          <SliderUser tasteName="Châteauneuf-du-Pape" />
+        </div>
+        <div className="taste-slider">
+          <SliderUser tasteName="Château Margaux" />
+        </div>
+        <div className="taste-slider">
+          <SliderUser tasteName="Beaujolais Nouveau" />
+        </div>
+        <div className="taste-slider">
+          <SliderUser tasteName="Domaine de la Romanée" />
+        </div>
       </div>
       <div className="button-end-tasting">
         <Button
