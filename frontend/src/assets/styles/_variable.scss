@@ -12,6 +12,7 @@ $app-supporting-color2: #eeeeee;
 $app-bg-color: #232222;
 $app-bg-color-button: #000000;
 $app-bow-shadow: rgba(170, 170, 170, 0.6);
+$app-slider-off: #8b7b50;
 
 /* Media query */
 $app-mobile: 320px;
@@ -23,7 +24,7 @@ $app-desktop-large: 1680px;
 /* Website Font Size */
 $font-size-text-phone: 14px;
 $font-size-text-phone-home: 18px;
-$font-size-text-tablet: 25px;
+$font-size-text-tablet: 23px;
 $font-size-list-burger-tablet: 38px;
 
 @mixin font-title-phone {
@@ -151,8 +152,8 @@ $font-size-list-burger-tablet: 38px;
   border-style: none;
   border: solid 2px $app-primary-font-color;
   border-radius: 6px;
-  width: 3rem;
-  height: 1.5rem;
+  width: 4rem;
+  height: 2.5rem;
   font-size: $font-size-text-phone;
   font-family: $app-primary-font;
 

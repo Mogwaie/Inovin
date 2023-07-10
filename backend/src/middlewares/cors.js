@@ -7,7 +7,6 @@ const corsMiddleware = (req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
 
   if (req.method === "OPTIONS") {
-    res.status(200).json({});
     next();
   } else {
     next();

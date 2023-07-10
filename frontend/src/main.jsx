@@ -13,8 +13,13 @@ import SignUp from "./pages/SignUp";
 import DegustationPage from "./pages/DegustationPage";
 import Workshop from "./pages/Workshop";
 import Reviews from "./pages/Reviews";
+import Profil from "./pages/Profil";
 import WineSelection from "./pages/WineSelection";
 import WineDescription from "./pages/WineDescription";
+import UserList from "./pages/admin/UserList";
+import DegustationProfile from "./pages/DegustationProfile";
+import WineList from "./pages/admin/WineList";
+import DegustationProfil from "./pages/admin/DegustationProfil";
 
 const router = createBrowserRouter([
   {
@@ -50,12 +55,32 @@ const router = createBrowserRouter([
         element: <Reviews />,
       },
       {
+        path: "/profile",
+        element: <Profil />,
+      },
+      {
         path: "/wine-selection",
         element: <WineSelection />,
       },
       {
         path: "/wine/:id",
         element: <WineDescription />,
+      },
+      {
+        path: "user-list",
+        element: <UserList />,
+      },
+      {
+        path: "/degustation-profile",
+        element: <DegustationProfile />,
+      },
+      {
+        path: "/wine-list",
+        element: <WineList />,
+      },
+      {
+        path: "/degustation-profil",
+        element: <DegustationProfil />,
       },
     ],
   },
