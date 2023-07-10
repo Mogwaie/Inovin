@@ -43,7 +43,7 @@ export default function Reviews() {
     console.info("hello");
     try {
       const response = await axios.post(
-        "http://www.localhost:4242/api/reviews",
+        `${import.meta.env.VITE_BACKEND_URL}/api/reviews`,
         body
       );
       if (response.status === 201) {

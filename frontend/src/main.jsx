@@ -16,6 +16,11 @@ import Reviews from "./pages/Reviews";
 import Profil from "./pages/Profil";
 import WineSelection from "./pages/WineSelection";
 import WineDescription from "./pages/WineDescription";
+import UserList from "./pages/admin/UserList";
+import DegustationProfile from "./pages/DegustationProfile";
+import WineList from "./pages/admin/WineList";
+import DegustationProfil from "./pages/admin/DegustationProfil";
+import WineDescriptionModif from "./pages/admin/WineDescriptionModif";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +66,26 @@ const router = createBrowserRouter([
       {
         path: "/wine/:id",
         element: <WineDescription />,
+      },
+      {
+        path: "user-list",
+        element: <UserList />,
+      },
+      {
+        path: "/degustation-profile",
+        element: <DegustationProfile />,
+      },
+      {
+        path: "/wine-list",
+        element: <WineList />,
+      },
+      {
+        path: "/degustation-profil",
+        element: <DegustationProfil />,
+      },
+      {
+        path: "/wine-list/:id",
+        element: <WineDescriptionModif />,
       },
     ],
   },

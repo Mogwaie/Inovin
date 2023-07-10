@@ -2,29 +2,30 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { MaxLengthContext } from "../context/MaxLengthContext";
 
-function InputEmail({ state, setter, type }) {
+function InputForm({ state, setter, type, placeholder }) {
   const { maxl } = useContext(MaxLengthContext);
-  const handleChangeMail = (event) => {
+  const handleChangeForm = (event) => {
     if (event.target.value.length <= maxl) {
       setter(event.target.value);
     }
   };
   return (
-    <div className="input-email-container">
+    <div className="input-Form-container">
       <input
-        className="input-email"
+        className="input-Form"
         type={type}
         required
         value={state}
-        onChange={handleChangeMail}
-        placeholder="Email*"
+        onChange={handleChangeForm}
+        placeholder={placeholder}
       />
     </div>
   );
 }
-InputEmail.propTypes = {
+InputForm.propTypes = {
   state: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   setter: PropTypes.func.isRequired,
   type: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
 };
-export default InputEmail;
+export default InputForm;

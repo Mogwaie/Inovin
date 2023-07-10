@@ -24,7 +24,7 @@ $app-desktop-large: 1680px;
 /* Website Font Size */
 $font-size-text-phone: 14px;
 $font-size-text-phone-home: 18px;
-$font-size-text-tablet: 25px;
+$font-size-text-tablet: 23px;
 $font-size-list-burger-tablet: 38px;
 
 @mixin font-title-phone {
@@ -152,8 +152,8 @@ $font-size-list-burger-tablet: 38px;
   border-style: none;
   border: solid 2px $app-primary-font-color;
   border-radius: 6px;
-  width: 3rem;
-  height: 1.5rem;
+  width: 4rem;
+  height: 2.5rem;
   font-size: $font-size-text-phone;
   font-family: $app-primary-font;
 
@@ -184,6 +184,23 @@ $font-size-list-burger-tablet: 38px;
   &:hover {
     background-color: $app-primary-font-color;
     color: $app-bg-color-button;
+    border: solid 2px $app-bg-color-button;
+  }
+}
+
+@mixin button-pen-modification($width, $height) {
+  background-color: $app-bg-color;
+  border-style: none;
+  margin-left: 1rem;
+  cursor: pointer;
+
+  .pen-img {
+    width: $width;
+    height: $height;
+  }
+
+  &:hover {
+    background-color: $app-bg-color-button;
     border: solid 2px $app-bg-color-button;
   }
 }
