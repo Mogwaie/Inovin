@@ -109,7 +109,6 @@ const getUserInformation = (req, res) => {
           surname: user[0].lastname,
           email: user[0].email,
         };
-        console.info(userInfo, "userInfo");
         res.status(200).json(userInfo);
       } else {
         res.sendStatus(404);

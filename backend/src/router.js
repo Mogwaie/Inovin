@@ -22,12 +22,6 @@ router.post(
   verifyPassword
 );
 
-router.post(
-  "/userinformation",
-  verifyToken,
-  userControllers.getUserInformation
-);
-
 router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);
 router.put("/items/:id", itemControllers.edit);
@@ -38,6 +32,11 @@ router.get("/users", userControllers.getAllUsers);
 router.get("/users/:id", userControllers.getUserById);
 router.put("/users/:id", userControllers.updateUser);
 router.delete("/users/:id", userControllers.destroy);
+router.post(
+  "/userinformation",
+  verifyToken,
+  userControllers.getUserInformation
+);
 
 router.get("/cepages", cepageControllers.findAllCepages);
 router.get("/cepages/:id", cepageControllers.findCepageById);

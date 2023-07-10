@@ -33,13 +33,11 @@ const verifyPassword = (req, res) => {
       if (isVerified) {
         const payload = {
           user_id: req.user.user_id,
-          author: "ArnaudIsTheBestAndNotModestAtAll",
         };
 
         const token = jwt.sign(payload, process.env.JWT_SECRET, {
           expiresIn: "1h",
         });
-        console.info(payload);
         delete req.user.hashedPassword;
 
         res.json({ token });
@@ -71,7 +69,6 @@ const verifyToken = (req, res, next) => {
 
     const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
     req.user_id = decodedToken.user_id;
-    console.info("token is being verified");
 
     next();
   } catch (err) {

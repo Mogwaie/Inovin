@@ -40,14 +40,12 @@ export default function Reviews() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const body = { firstName, lastName, email, message, rating };
-    console.info("hello");
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/reviews`,
         body
       );
       if (response.status === 201) {
-        console.info("yessssssss");
         navigateTo("/wine-selection");
       }
     } catch (error) {
