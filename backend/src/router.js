@@ -1,6 +1,5 @@
 const express = require("express");
 
-const app = express();
 const router = express.Router();
 
 const {
@@ -23,7 +22,11 @@ router.post(
   verifyPassword
 );
 
-app.use(verifyToken);
+router.post(
+  "/userinformation",
+  verifyToken,
+  userControllers.getUserInformation
+);
 
 router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);

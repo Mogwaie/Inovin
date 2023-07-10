@@ -105,11 +105,12 @@ const getUserInformation = (req, res) => {
     .then(([user]) => {
       if (user) {
         const userInfo = {
-          name: user.firstname,
-          surname: user.lastname,
-          email: user.email,
+          name: user[0].firstname,
+          surname: user[0].lastname,
+          email: user[0].email,
         };
-        res.send(userInfo);
+        console.info(userInfo, "userInfo");
+        res.status(200).json(userInfo);
       } else {
         res.sendStatus(404);
       }
