@@ -19,6 +19,7 @@
 @import "./assets/styles/pages/wineSelection";
 @import "./assets/styles/pages/wineDescription";
 @import "./assets/styles/pages/degustation-profile";
+@import "./assets/styles/pages/forgottenpassword";
 
 //admin
 @import "./assets/styles/components/admin/searchBar";
@@ -30,6 +31,20 @@
 @import "./assets/styles/components/admin/displayDegustationProfil";
 @import "./assets/styles/pages/admin/tasteProfil";
 
+:root {
+  .Toastify__toast-theme--colored.Toastify__toast--default {
+    background: $app-primary-font-color;
+    color: #444c63;
+    text-align: left;
+  }
+  .Toastify__toast-body {
+    font-size: 19px;
+    line-height: 20px;
+    width: 70%;
+    font-weight: 600;
+    margin-left: 25px;
+  }
+}
 *,
 *::before,
 *::after {
