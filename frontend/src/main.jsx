@@ -105,14 +105,13 @@ const router = createBrowserRouter([
         path: "/admin/tasting-sheet",
         element: <TastingSheetModif />,
       },
-     {
+      {
         path: "/admin/home",
         element: <HomeAdmin />,
       },
-    {
+      {
         path: "/forgottenpasswordform",
         element: <ForgottenPassword />,
-
       },
     ],
   },
