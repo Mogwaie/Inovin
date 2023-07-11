@@ -143,6 +143,14 @@ Comment faire pour arriver sur page de conditions d'utilisations ?
 
 
 
+Changer routes en front pour que :
+toutes les pages admin puissent être accessibles via par exemple :
+http://localhost:3000/admin/degustation-profil
+http://localhost:3000/admin/user
+etc
+et faire les liens de redirection depuis le menu burger de Admin pour les pages admin
+
+
 -------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------
 
@@ -155,6 +163,8 @@ Envoyer un mail pour newsletter
 En Back - Envoyer un mail pour réinitialiser mot de passe 
 Créer le lien sécurisé pour réinitialiser le mot de passe
 
+
+Styliser le HTML des mails envoyés par les reviews
 
 
 
