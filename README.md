@@ -143,6 +143,14 @@ Comment faire pour arriver sur page de conditions d'utilisations ?
 
 
 
+Changer routes en front pour que :
+toutes les pages admin puissent être accessibles via par exemple :
+http://localhost:3000/admin/degustation-profil
+http://localhost:3000/admin/user
+etc
+et faire les liens de redirection depuis le menu burger de Admin pour les pages admin
+
+
 -------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------
 
