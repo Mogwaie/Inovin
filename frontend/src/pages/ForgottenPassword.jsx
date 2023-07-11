@@ -6,14 +6,13 @@ import Button from "../components/Button";
 
 function PasswordResetForm() {
   const navigate = useNavigate();
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const body = {
-      password,
+      email,
     };
 
     try {
@@ -33,25 +32,19 @@ function PasswordResetForm() {
     }
   };
   return (
-    <form onSubmit={handleSubmit} className="container_password_reset_form">
-      <h2 className="title_password_reset_form">Renseignez votre email</h2>
+    <form onSubmit={handleSubmit} className="container_forgottenpassword">
+      <h2 className="title_forgottenpassword">Renseignez votre email</h2>
 
-      <div className="password_reset_form_input_component">
+      <div className="forgottenpassword_input_component">
         <InputForm
-          state={password}
-          setter={setPassword}
-          type="password"
+          state={email}
+          setter={setEmail}
+          type="email"
           placeholder="mot de passe*"
-        />
-        <InputForm
-          state={passwordConfirm}
-          setter={setPasswordConfirm}
-          type="password"
-          placeholder="confirmer le mot de passe*"
         />
       </div>
 
-      <div className="password_reset_form_input_component_navigate">
+      <div className="forgottenpassword_input_component_navigate">
         <Button
           type="submit"
           className="primary-button"
