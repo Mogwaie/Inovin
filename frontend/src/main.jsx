@@ -2,6 +2,7 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import "./main.scss";
+import { ToastContainer } from "react-toastify";
 import Root from "./routes/Root";
 
 import MaxLengthProvider from "./context/MaxLengthContext";
@@ -21,6 +22,7 @@ import DegustationProfile from "./pages/DegustationProfile";
 import WineList from "./pages/admin/WineList";
 import DegustationProfil from "./pages/admin/DegustationProfil";
 import PasswordResetForm from "./pages/PasswordResetForm";
+import ForgottenPassword from "./pages/ForgottenPassword";
 import WineDescriptionModif from "./pages/admin/WineDescriptionModif";
 
 const router = createBrowserRouter([
@@ -87,8 +89,14 @@ const router = createBrowserRouter([
       {
         path: "/passwordresetform",
         element: <PasswordResetForm />,
+      },
+      {
         path: "/wine-list/:id",
         element: <WineDescriptionModif />,
+      },
+      {
+        path: "/forgottenpasswordform",
+        element: <ForgottenPassword />,
       },
     ],
   },
@@ -99,6 +107,7 @@ root.render(
   <React.StrictMode>
     <MaxLengthProvider>
       <RouterProvider router={router} />
+      <ToastContainer closeButton={false} />
     </MaxLengthProvider>
   </React.StrictMode>
 );
