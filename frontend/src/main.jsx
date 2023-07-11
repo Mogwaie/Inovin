@@ -26,6 +26,7 @@ import ForgottenPassword from "./pages/ForgottenPassword";
 import WineDescriptionModif from "./pages/admin/WineDescriptionModif";
 import CreateUser from "./pages/admin/CreateUser";
 import TastingSheetModif from "./pages/admin/TastingSheetModif";
+import HomeAdmin from "./pages/admin/HomeAdmin";
 
 const router = createBrowserRouter([
   {
@@ -103,6 +104,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/tasting-sheet",
         element: <TastingSheetModif />,
+      },
+      {
+        path: "/admin/home",
+        element: <HomeAdmin />,
       },
       {
         path: "/forgottenpasswordform",
