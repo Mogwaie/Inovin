@@ -16,7 +16,11 @@ function WineDescription() {
     <div className="wine-desciption-user-container">
       <h2>{selectedWine.name}</h2>
       <div className="pict-wine-and-description-user">
-        <img src={selectedWine.img_wine} alt="wine bottle to buy" />
+        <img
+          src={selectedWine.img_wine}
+          alt="wine bottle to buy"
+          className="wine-bottle-picture"
+        />
         <div className="description-line-container">
           <p>{selectedWine.description}</p>
           <div className="vertical-line-next-description-wine" />
