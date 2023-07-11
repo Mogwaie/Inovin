@@ -14,6 +14,7 @@ const cepageControllers = require("./controllers/cepageControllers");
 const reviewControllers = require("./controllers/reviewControllers");
 const tasteControllers = require("./controllers/tasteControllers");
 const wineControllers = require("./controllers/wineControllers");
+const profileTasteController = require("./controllers/profileTasteControllers");
 
 router.post("/users", hashPassword, userControllers.createUser);
 router.post(
@@ -49,6 +50,12 @@ router.get("/tastes/:id", tasteControllers.read);
 router.put("/tastes/:id", tasteControllers.edit);
 router.post("/tastes", tasteControllers.add);
 router.delete("/tastes/:id", tasteControllers.destroy);
+
+router.get("/profil-taste", profileTasteController.findAllTasteProfile);
+router.get("/profil-taste/:id", profileTasteController.findTasteProfileById);
+router.put("/profil-taste/:id", profileTasteController.editTasteProfile);
+router.post("/profil-taste", profileTasteController.createNewTasteProfile);
+router.delete("/profil-taste/:id", profileTasteController.deleteTasteProfile);
 
 router.post("/reviews", reviewControllers.createNewReview);
 
