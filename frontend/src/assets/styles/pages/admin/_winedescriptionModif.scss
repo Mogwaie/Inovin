@@ -1,0 +1,22 @@
+.wine-desciption-user-container {
+  .modif-title-wine {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+
+  .button-modif-and-pic-wine-bottle {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+
+  .button-modif-and-wine-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-top: 2rem;
+  }
+}

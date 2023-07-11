@@ -14,7 +14,7 @@
     align-items: center;
     padding-top: 2rem;
 
-    img {
+    .wine-bottle-picture {
       height: 16rem;
       width: 16rem;
     }
@@ -48,9 +48,9 @@
     .pict-wine-and-description-user {
       flex-direction: row;
       justify-content: space-around;
-      height: 70vh;
+      height: 65vh;
 
-      img {
+      .wine-bottle-picture {
         height: 16rem;
       }
 
