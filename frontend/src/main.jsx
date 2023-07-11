@@ -20,6 +20,7 @@ import UserList from "./pages/admin/UserList";
 import DegustationProfile from "./pages/DegustationProfile";
 import WineList from "./pages/admin/WineList";
 import DegustationProfil from "./pages/admin/DegustationProfil";
+import PasswordResetForm from "./pages/PasswordResetForm";
 import WineDescriptionModif from "./pages/admin/WineDescriptionModif";
 
 const router = createBrowserRouter([
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
       {
         path: "/degustation-profil",
         element: <DegustationProfil />,
+      },
+      {
+        path: "/passwordresetform",
+        element: <PasswordResetForm />,
       },
       {
         path: "/wine-list/:id",

@@ -85,7 +85,7 @@ const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
     .findUserByEmail(req.body)
     .then(([users]) => {
       if (users[0] != null) {
-      [req.user] = users;
+        [req.user] = users;
         next();
       } else {
         res.sendStatus(401);
