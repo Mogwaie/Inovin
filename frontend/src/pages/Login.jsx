@@ -22,7 +22,6 @@ export default function Login() {
         `${import.meta.env.VITE_BACKEND_URL}/api/login`,
         body
       );
-
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token);
         console.info(
