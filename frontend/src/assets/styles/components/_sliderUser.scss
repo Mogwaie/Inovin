@@ -49,10 +49,15 @@
 
   margin: 1% 0% 1%;
   padding: 3%;
-}
 
-.my-slider {
-  width: 100%;
+  .name-and-button-modif {
+    display: flex;
+    align-items: center;
+  }
+
+  .my-slider {
+    width: 100%;
+  }
 }
 
 .taste-info {
