@@ -8,6 +8,8 @@ const {
   verifyToken,
 } = require("./middlewares/auth");
 
+const { sendEmail } = require("./middlewares/sendEmail");
+
 const itemControllers = require("./controllers/itemControllers");
 const userControllers = require("./controllers/userControllers");
 const cepageControllers = require("./controllers/cepageControllers");
@@ -50,7 +52,7 @@ router.put("/tastes/:id", tasteControllers.edit);
 router.post("/tastes", tasteControllers.add);
 router.delete("/tastes/:id", tasteControllers.destroy);
 
-router.post("/reviews", reviewControllers.createNewReview);
+router.post("/reviews", sendEmail, reviewControllers.createNewReview);
 
 router.get("/wines", wineControllers.findAllWines);
 router.get("/wines/:id", wineControllers.findWineById);
