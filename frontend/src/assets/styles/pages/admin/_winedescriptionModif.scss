@@ -19,4 +19,23 @@
     align-items: flex-end;
     padding-top: 2rem;
   }
+
+  .buttons-delete-and-back {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .wine-desciption-user-container {
+    padding-bottom: 2rem;
+    .button-modif-and-wine-description {
+      padding-top: 0;
+    }
+  }
+
+  .buttons-delete-and-back {
+    .primary-button {
+      margin: 0 1.25rem;
+    }
+  }
 }

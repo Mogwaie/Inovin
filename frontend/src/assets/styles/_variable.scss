@@ -188,23 +188,6 @@ $font-size-list-burger-tablet: 38px;
   }
 }
 
-@mixin button-pen-modification($width, $height) {
-  background-color: $app-bg-color;
-  border-style: none;
-  margin-left: 1rem;
-  cursor: pointer;
-
-  .pen-img {
-    width: $width;
-    height: $height;
-  }
-
-  &:hover {
-    background-color: $app-bg-color-button;
-    border: solid 2px $app-bg-color-button;
-  }
-}
-
 /* search bar*/
 
 @mixin search-bar($width, $height, $font-size) {

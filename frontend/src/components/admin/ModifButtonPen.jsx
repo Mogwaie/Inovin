@@ -1,14 +1,35 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { useLocation } from "react-router-dom";
 import pen from "../../assets/images/pen.png";
 
 export default function ModifButton({ onClick, id }) {
+  const [showModifButton, setShowModifButton] = useState(true);
+  const location = useLocation();
+
+  // show moddif button if current url is admin/tasting sheet
+  const hideModifButtonUrl = ["/degustation"];
+
+  useEffect(() => {
+    if (
+      hideModifButtonUrl.find(
+        (urlModifButton) => urlModifButton === location.pathname
+      )
+    ) {
+      setShowModifButton(false);
+    } else {
+      setShowModifButton(true);
+    }
+  }, [showModifButton]);
+
   return (
     <button
-      className="modification-button"
+      className={`modification-button ${
+        showModifButton ? "" : "hide-button-modif"
+      }`}
       id={id}
       onClick={onClick}
-      type="submit"
+      type="button"
     >
       <img
         src={pen}

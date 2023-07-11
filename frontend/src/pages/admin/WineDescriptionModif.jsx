@@ -37,11 +37,16 @@ export default function WineDescriptionModif() {
           </div>
         </div>
       </div>
-      <Link to="/wine-list">
+      <div className="buttons-delete-and-back">
+        <Link to="/wine-list">
+          <button type="button" className="primary-button ">
+            Mettre à jour
+          </button>
+        </Link>
         <button type="button" className="primary-button ">
-          Revenir à la liste
+          Supprimer
         </button>
-      </Link>
+      </div>
     </div>
   );
 }

@@ -24,6 +24,8 @@ import DegustationProfil from "./pages/admin/DegustationProfil";
 import PasswordResetForm from "./pages/PasswordResetForm";
 import ForgottenPassword from "./pages/ForgottenPassword";
 import WineDescriptionModif from "./pages/admin/WineDescriptionModif";
+import CreateUser from "./pages/admin/CreateUser";
+import TastingSheetModif from "./pages/admin/TastingSheetModif";
 
 const router = createBrowserRouter([
   {
@@ -93,6 +95,14 @@ const router = createBrowserRouter([
       {
         path: "/wine-list/:id",
         element: <WineDescriptionModif />,
+      },
+      {
+        path: "/admin/create-user",
+        element: <CreateUser />,
+      },
+      {
+        path: "/admin/tasting-sheet",
+        element: <TastingSheetModif />,
       },
       {
         path: "/forgottenpasswordform",
