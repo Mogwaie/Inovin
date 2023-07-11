@@ -25,17 +25,10 @@ function SliderRating(props) {
         </div>
         <div className="taste-rating">{rating}</div>
       </div>
-
-      {Array.from(Array(maxRating).keys()).map((i) => (
-        <div
-          key={i}
-          className={`my-slider__item ${i < rating ? "--selected" : ""}`}
-        />
-      ))}
       <input
         type="range"
         min="0"
-        max={10}
+        max={maxRating}
         value={rating}
         onChange={handleSliderChange}
         className="my-slider"
