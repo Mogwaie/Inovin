@@ -78,7 +78,7 @@ const router = createBrowserRouter([
         element: <UserList />,
       },
       {
-        path: "/degustation-profile",
+        path: "/degustation-profile/:id",
         element: <DegustationProfile />,
       },
       {
