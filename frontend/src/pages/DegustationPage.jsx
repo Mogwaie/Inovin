@@ -30,7 +30,7 @@ function DegustationPage() {
           {wineListTasting.map((wine) => (
             <div className="taste-slider">
               <SliderUser
-                key={wine.taste_id}
+                id={wine.taste_id}
                 tasteName={wine.name}
                 maxRating={10}
               />

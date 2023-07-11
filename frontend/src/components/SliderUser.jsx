@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ModifButton from "./admin/ModifButtonPen";
 
 function SliderRating(props) {
-  const { maxRating, onChange, tasteName } = props;
+  const { maxRating, onChange, tasteName, id } = props;
   const [rating, setRating] = useState(0);
 
   const handleSliderChange = (event) => {
@@ -14,6 +14,8 @@ function SliderRating(props) {
 
   useEffect(() => {
     console.info("Rating :", rating);
+    console.info("id :", id);
+    console.info("tasteName :", tasteName);
   }, [rating]);
 
   return (
@@ -39,6 +41,7 @@ function SliderRating(props) {
 
 SliderRating.propTypes = {
   maxRating: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
   tasteName: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
