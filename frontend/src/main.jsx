@@ -27,6 +27,7 @@ import WineDescriptionModif from "./pages/admin/WineDescriptionModif";
 import CreateUser from "./pages/admin/CreateUser";
 import TastingSheetModif from "./pages/admin/TastingSheetModif";
 import HomeAdmin from "./pages/admin/HomeAdmin";
+import Page500 from "./pages/Page500";
 
 const router = createBrowserRouter([
   {
@@ -112,6 +113,10 @@ const router = createBrowserRouter([
       {
         path: "/forgottenpasswordform",
         element: <ForgottenPassword />,
+      },
+      {
+        path: "/page500",
+        element: <Page500 />,
       },
     ],
   },
