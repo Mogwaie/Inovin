@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Rating } from "primereact/rating";
-import { useNavigate, Link } from "react-router-dom";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import wineglass from "../assets/images/wineGlass.png";
 
 export default function Reviews() {
@@ -13,18 +13,40 @@ export default function Reviews() {
   const [message, setMessage] = useState("");
   const [rating, setRating] = useState(0);
 
+  useEffect(() => {
+    const fetchUserInformation = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const response = await axios({
+          method: "POST",
+          url: "http://www.localhost:4242/api/userinformation",
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (response.status === 200) {
+          const userInfo = response.data;
+          setFirstName(userInfo.name);
+          setLastName(userInfo.surname);
+          setEmail(userInfo.email);
+        } else {
+          console.error("User information not found");
+        }
+      } catch (error) {
+        console.error("Can not get user data", error);
+      }
+    };
+    fetchUserInformation();
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const body = { firstName, lastName, email, message, rating };
-    console.error(body);
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/reviews`,
         body
       );
       if (response.status === 201) {
-        console.info("yessssssss");
-        navigateTo("/workshop");
+        navigateTo("/wine-selection");
       }
     } catch (error) {
       console.error(error);
@@ -74,15 +96,9 @@ export default function Reviews() {
             onChange={(e) => setRating(e.target.value)}
           />
         </div>
-        <Link to="/wine-selection">
-          <button
-            className="primary-button"
-            id="reviewsPageButton"
-            type="submit"
-          >
-            Envoyer
-          </button>
-        </Link>
+        <button className="primary-button" id="reviewsPageButton" type="submit">
+          Envoyer
+        </button>
       </form>
       <img className="wineGlass" src={wineglass} alt="BackgroundImage" />
       <a href="/">
