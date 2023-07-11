@@ -164,6 +164,8 @@ En Back - Envoyer un mail pour réinitialiser mot de passe
 Créer le lien sécurisé pour réinitialiser le mot de passe
 
 
+Styliser le HTML des mails envoyés par les reviews
+
 
 
 
