@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 import InputForm from "../components/InputForm";
 import Button from "../components/Button";
+import "react-toastify/dist/ReactToastify.css";
 
 function Signup() {
   const navigate = useNavigate();
@@ -41,6 +43,16 @@ function Signup() {
         console.info(
           "Données enregistrées avec succès dans la base de données !"
         );
+        toast("Bravo ! Votre compte a bien été créé !", {
+          position: "bottom-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
         navigate("/degustation");
       }
     } catch (err) {
@@ -115,7 +127,12 @@ function Signup() {
         placeholder="Fonction"
       />
       <div className="form_navigate">
-        <Button type="submit" className="primary-button" text="Valider" />
+        <Button
+          // onClick={showToastMessage}
+          type="submit"
+          className="primary-button"
+          text="Valider"
+        />
         <Link to="/login">
           <p className="form_login_link">Déjà inscrit(e) ?</p>
         </Link>
