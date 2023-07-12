@@ -60,8 +60,25 @@ const editCepage = (req, res) => {
 };
 
 const deleteCepage = (req, res) => {
-  models.cepage
+  models.cepageList
     .delete(req.params.id)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const chooseCeapgesForAtelier = (req, res) => {
+  const cepagesForAtelier = req.body;
+  models.cepage
+    .updateCepageList(cepagesForAtelier)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
@@ -81,4 +98,5 @@ module.exports = {
   createNewCepage,
   editCepage,
   deleteCepage,
+  chooseCeapgesForAtelier,
 };

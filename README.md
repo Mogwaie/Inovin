@@ -1,71 +1,29 @@
--------------------------------------------------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------------------------------------------------
-
-
-Todo en vrac :
-
-MVP :
-
 -------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------
 
-Marine, Olesia, Arnaud, Cyril
-
-I want to secure some page with a login feature verification.
-give me a list of 5 name of title for git branch of this feature with underscore to seperate words.
+Todo :
 
 
-page-security
-authentication-system
-not_logged_in_redirect
-login_redirect_feature
-user_auth_redirect
-secure_page_redirect
-session_termination
-user_disconnect : Cyril
-logout_button : Cyril
-sign_out_functionality
-roles_hierarchy_feature
-permission_matrix_setup
-role_based_access_control
-multi_level_authorization
+@Marine BOULANGER // @Eric // @Олеся Тур et @Cyril Freeman // @Yoann Cantrelle // @Arnaud-CHANE (si disponible):
+Fonctionnalisées de toutes les autres pages
+À faire (par page) :
+
+1. - [ ] Votre Profil de degustation - admin (en cours par @Eric)
++ Votre Profil de degustation - user (@Eric)
+- [ ] Avoir toutes les images dans un dossier du back et les envoyer vers le front pour display
+Pouvoir envoyer des photos dans le back et le stocker dans le public (quete multer parce que firebase et cloudinary pas demander pour le titre)
 
 
 
+2. - [ ] Wine Description - admin (en cours par @Marine BOULANGER)
+- [ ] Avoir toutes les images dans un dossier du back et les envoyer vers le front pour display
+Pouvoir envoyer des photos dans le back et le stocker dans le public (quete multer parce que firebase et cloudinary pas demander pour le titre)
 
 
-protected_pages_if_not_logged
-Sécuriser les pages si pas login
-
-
-access_control_as_admin
-Sécuriser toutes les pages qui ont besoin d'une autorisation en tant qu'admin
-
-
-access_control_as_user
-Sécuriser toutes les pages qui ont besoin d'une autorisation en tant qu'user
-
-
-redirect_if_not_logged_in_as_admin
-Refaire des redirections sur les pages admin si pas autorisé
-
-
-logout_feature
-Faire la déconnexion (donc aussi effacer le token) : Cyril
-
-
-access_levels_system
-Système de hierarchie des roles
-https://code.pieces.app/blog/role-based-access-systems-in-nodejs
-
-
-
-
-
-
+3. - [ ] Fiche Dégustation - user
 Pour déterminer le profil à afficher dans la page de profil de dégustation :
 En Front - 
-Algo pour déterminer le nom du goût ayant la note la plus élevée
+- [ ] Algo pour déterminer le nom du goût ayant la note la plus élevée
 Si même note, on prend celui qui est le plus haut dansl a liste
 Envoyer dans le context le nom du goût ayant la note la plus élevée
 UseContext + useEffect pour récup ce nom et l'envoyer dans le back
@@ -74,30 +32,86 @@ En Back -
 Récuperer toutes les données du profil de dégustation selon l'id du gout reçu
 créer des routes comme pour sélection des vins avec url/:id pour afficher un profil particulier en params
 
-
-
-Pour déterminer les cépages en fonction du profil de dégustation :
-Une fois que toutes infos liées au profil de dégustation est récup en front, les stockés dans le context
-Quand le user est dans atelier de création :
-UseContext + useEffect pour envoyer dans le back
-Et depuis le back trier BDD pour select * cépages where id profil dégustation == ce que le back a reçu
++ Fiche Dégustation - admin
+- [ ] Page de fiche dégustation coté admin, modal pour demander si sûr pour masquer un gout
 
 
 
-Faire en sorte d'afficher les infos du user dans la page review 
-Faire en sorte d'afficher les infos du user dans la page profil membre
+4. - [ ] Atelier de creation - user
++ Atelier de creation - admin
+(je propose d’envoyer les recettes par email à users et admin pour eviter faire des pages en plus)
+
+5. - [ ] Profile - user (@cyrilFreeman)
++ Profile - admin
+Faire en sorte d'afficher les infos du user dans la page profil membre (regarder comment @Олеся Тур a fait avec la page review)
 
 
-Les petits crayons côté admin ne font rien >> c'est quand on clique sur le bouton de mise à jour que ca balance tout au back
+6. - [ ] Members - admin
+Admin :
+- [ ] Le toggle membre admin, utiliser un handletoggle pour envoyer post en back directement
+ou
+- [ ] Mettre modal pour demander si "êtes vous sûr de vouloir supprimer/rendre un membre admin ?" pas besoin de modal pour passer en user seulement
 
 
-Avoir toutes les images dans un dossier du back et les envoyer vers le front pour display
-Pouvoir envoyer des photos dans le back et le stocker dans le public (quete multer parce que firebase et cloudinary pas demander pour le titre)
+7. - [ ] Vins list - admin
+- [ ] Avoir toutes les images dans un dossier du back et les envoyer vers le front pour display
+- [ ] Pouvoir envoyer des photos dans le back et le stocker dans le public (quete multer parce que firebase et cloudinary pas demander pour le titre)
+
+
+
+
+8. - [ ] Profiles de degustation - admin (@Eric)
+Sur page admin profil de dégustation :
+- [ ] Enlever le Editée par "" et la date car pas d'info dans BDD
+- [ ] Mettre editée le (date)
 
 
 
 
 
+@Arnaud-CHANE :
+- [ ] Algo pour définir “votre profil de degustation”
+- [ ] Sécurité pour tout le site (pas de pression et oui, je sais q’il faut que on t’aide)
+
+protected_pages_if_not_logged
+Sécuriser les pages si pas login
+
+access_control_as_admin
+Sécuriser toutes les pages qui ont besoin d'une autorisation en tant qu'admin
+
+access_control_as_user
+Sécuriser toutes les pages qui ont besoin d'une autorisation en tant qu'user
+
+redirect_if_not_logged_in_as_admin
+Refaire des redirections sur les pages admin si pas autorisé
+
+access_levels_system
+Système de hierarchie des roles
+https://code.pieces.app/blog/role-based-access-systems-in-nodejs
+
+
+
+
+@Yoann Cantrelle :
+Forbidden Page (seulement le display)
+- [ ] Créer une page : "Vous n'avez pas les droits, veuillez contacter les administrateurs (trices) . Vous allez être redirigé(e)" Error 403
+
+
+
+@Cyril Freeman :
+Déconnexion
+logout_feature
+- [ ] Faire la déconnexion (donc aussi effacer le token)
+
+
+
+Bonus:
+Pop ups Les modals (toastify)
+Créer un compte  pour des users - admin
+Renseigner votre email & nouveau mot de passe - user 
+Envoyer un mail pour newsletter
+En Back - Envoyer un mail pour réinitialiser mot de passe 
+Créer le lien sécurisé pour réinitialiser le mot de passe
 
 -------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------
@@ -105,73 +119,55 @@ Pouvoir envoyer des photos dans le back et le stocker dans le public (quete mult
 
 Eric, Yoann
 
-Système de login opérationnelle qui permet de se login et de vérif si user existe ou pas (avoir une alerte si user n'existe pas)
-
-En Front - remettre à jour les import de url depuis le .env
-Mettre à jour toutes les pages du figma pour que chaque pages soient identiques qu'importe le format
-Refaire toutes les redirections si on clique sur des boutons dans le Front
-Styliser les slider de la page de dégustation
-Les modals (toastify)
-Faire redirection auto après 2s sur page 404 ou 500
-Mettre lien/link sur chaque element du menu burger
-
-Faire la page qui liste toutes les reviews
-Faire page qui liste tous les cépages
-
-
-Admin :
-Système de filtres pour retrouver avec une seule barre de recherche
-Le toggle membre admin, utiliser un handletoggle pour envoyer post en back directement
-ou
-Mettre modal pour demander si "êtes vous sûr de vouloir supprimer/rendre un membre admin ?" pas besoin de modal pour passer en user seulement
-Page de fiche dégustation coté admin, modal pour demander si sûr pour supp un gout
-
-
-
-
-Créer une page : "Vous n'avez pas les droits, veuillez contacter les administrateurs (trices) . Vous allez être redirigé(e)" Error 403
-Définir la couleur sur la liste des membres coté admin (toggle doit changer de couleur voir Marine)
-
-mettre alt pour chaque image avec backtick et $ pour référencement naturelle
-
-
-Sur page admin profil de dégustation :
-Enlever le Editée par "" et la date car pas d'info dans BDD
-Mettre editée le (date)
-
-Comment faire pour arriver sur page de conditions d'utilisations ?
-
-
-
-Changer routes en front pour que :
-toutes les pages admin puissent être accessibles via par exemple :
-http://localhost:3000/admin/degustation-profil
-http://localhost:3000/admin/user
-etc
-et faire les liens de redirection depuis le menu burger de Admin pour les pages admin
+- [ ] Système de login opérationnelle qui permet de se login et de vérif si user existe ou pas (avoir une alerte si user n'existe pas)
+- [ ] En Front - Système de login opérationnelle qui permet de se login et de vérif si user existe ou pas (avoir une alerte si user n'existe pas)
+- [ ] En Front - remettre à jour les import de url depuis le .env
+- [ ] Mettre à jour toutes les pages du figma pour que chaque pages soient identiques qu'importe le format
+- [ ] Refaire toutes les redirections si on clique sur des boutons dans le Front
+- [ ] Styliser les slider de la page de dégustation
+- [ ] Mettre lien/link sur chaque element du menu burger
+- [ ] Faire la page qui liste toutes les reviews
+- [ ] Faire page qui liste tous les cépages
+- [ ] Définir la couleur sur la liste des membres coté admin (toggle doit changer de couleur voir Marine)
+- [ ] Mettre alt pour chaque image avec backtick et $ pour référencement naturelle
+- [ ] Comment faire pour arriver sur page de conditions d'utilisations ?remettre à jour les import de url depuis le .env
+- [ ] Mettre à jour toutes les pages du figma pour que chaque pages soient identiques qu'importe le format
+- [ ] Refaire toutes les redirections si on clique sur des boutons dans le Front
+- [ ] Styliser les slider de la page de dégustation
+- [ ] Mettre lien/link sur chaque element du menu burger
+- [ ] Faire la page qui liste toutes les reviews
+- [ ] Faire page qui liste tous les cépages
+- [ ] Définir la couleur sur la liste des membres coté admin (toggle doit changer de couleur voir Marine)
+- [ ] Mettre alt pour chaque image avec backtick et $ pour référencement naturelle
+- [ ] Comment faire pour arriver sur page de conditions d'utilisations ?
 
 
 -------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------
 
+I want to secure some page with a login feature verification.
+give me a list of 5 name of title for git branch of this feature with underscore to seperate words.
+
+IDEAS :
+page-security
+authentication-system
+not_logged_in_redirect
+login_redirect_feature
+user_auth_redirect
+secure_page_redirect
+session_termination
+user_disconnect
+logout_button
+sign_out_functionality
+roles_hierarchy_feature
+permission_matrix_setup
+role_based_access_control
+multi_level_authorization
+IDEAS :
 
 
-En Front - 
-En Back - 
-
-Envoyer un mail pour newsletter
-En Back - Envoyer un mail pour réinitialiser mot de passe 
-Créer le lien sécurisé pour réinitialiser le mot de passe
-
-
-Styliser le HTML des mails envoyés par les reviews
-
-
-
-
--------------------------------------------------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------------------------------------------------
-
+-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 
 

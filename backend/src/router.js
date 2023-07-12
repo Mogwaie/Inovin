@@ -17,6 +17,7 @@ const reviewControllers = require("./controllers/reviewControllers");
 const tasteControllers = require("./controllers/tasteControllers");
 const wineControllers = require("./controllers/wineControllers");
 const tasteProfileControllers = require("./controllers/tasteProfileControllers");
+const cepageListControllers = require("./controllers/cepageListControllers");
 
 router.post("/users", hashPassword, userControllers.createUser);
 router.post(
@@ -40,6 +41,8 @@ router.post(
   verifyToken,
   userControllers.getUserInformation
 );
+
+router.put("/cepageList", cepageListControllers.chooseCeapgesForAtelier);
 
 router.get("/cepages", cepageControllers.findAllCepages);
 router.get("/cepages/:id", cepageControllers.findCepageById);
