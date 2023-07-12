@@ -8,7 +8,7 @@ function DegustationProfile() {
   const navigateTo = useNavigate();
 
   const buttonDirection = async () => {
-    navigateTo("/test");
+    navigateTo("/degustation");
   };
 
   return (
@@ -27,7 +27,7 @@ function DegustationProfile() {
       <div className="assemblez-vin">
         <h3 className="title-h3">Assemblez votre vin</h3>
         <div>
-          <a href="/test">
+          <a href="/workshop">
             <img src={Assemblage} alt="empty" />
             <p className="selection-text"> L'Atelier </p>
           </a>
@@ -35,7 +35,7 @@ function DegustationProfile() {
       </div>
       <div className="selection-vin">
         <h3 className="title-h3">Nous avons sélectionné pour vous</h3>
-        <a href="/test">
+        <a href="/wine-selection">
           <img src={ShopCave} alt="empty" />
           <p className="selection-text"> La Cave </p>
         </a>
