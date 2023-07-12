@@ -8,7 +8,7 @@ function DegustationPage() {
   const navigateTo = useNavigate();
 
   const navigateToDesgustationProfilePage = async () => {
-    navigateTo("/workshop");
+    navigateTo("/degustation-profile");
   };
   return (
     <div className="DegustationPage" id="DegustationPage">
