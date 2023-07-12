@@ -67,7 +67,7 @@ export default function Login() {
           </Link>
         </div>
 
-        <Link to="/password-reset-form">
+        <Link to="/forgotten-password-form">
           <p>Mot de passe oublié ?</p>
         </Link>
       </div>
