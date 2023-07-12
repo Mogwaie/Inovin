@@ -10,9 +10,11 @@ function DegustationProfil() {
 
   // call all taste profil from bd
   useEffect(() => {
-    axios.get(`http://localhost:4242/api/taste-profile`).then((response) => {
-      setTasteProfileList(response.data);
-    });
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/taste-profile`)
+      .then((response) => {
+        setTasteProfileList(response.data);
+      });
   }, []);
 
   // filter of the list of profils
