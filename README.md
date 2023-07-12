@@ -48,7 +48,6 @@ Faire en sorte d'afficher les infos du user dans la page profil membre (regarder
 
 6. - [ ] Members - admin
 Admin :
-- [ ] Système de filtres pour retrouver avec une seule barre de recherche
 - [ ] Le toggle membre admin, utiliser un handletoggle pour envoyer post en back directement
 ou
 - [ ] Mettre modal pour demander si "êtes vous sûr de vouloir supprimer/rendre un membre admin ?" pas besoin de modal pour passer en user seulement
