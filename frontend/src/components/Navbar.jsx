@@ -47,6 +47,7 @@ export default function Navbar() {
     "/admin/degustation-profil",
     "/admin/tasting-sheet",
     "/admin/degustation-profile",
+    "/admin/workshop",
   ];
 
   // compare current url with url array
