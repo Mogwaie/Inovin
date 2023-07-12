@@ -22,8 +22,8 @@ login_redirect_feature
 user_auth_redirect
 secure_page_redirect
 session_termination
-user_disconnect
-logout_button
+user_disconnect : Cyril
+logout_button : Cyril
 sign_out_functionality
 roles_hierarchy_feature
 permission_matrix_setup
@@ -51,7 +51,7 @@ Refaire des redirections sur les pages admin si pas autorisé
 
 
 logout_feature
-Faire la déconnexion (donc aussi effacer le token)
+Faire la déconnexion (donc aussi effacer le token) : Cyril
 
 
 access_levels_system
