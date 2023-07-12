@@ -1,33 +1,41 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+
 import Assemblage from "../assets/images/Assemblage.webp";
 import ShopCave from "../assets/images/ShopCave.png";
 import Button from "../components/Button";
 
 function DegustationProfile() {
+  const { id } = useParams();
+  const [profilTaste, setProfilTaste] = useState("");
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/profil-taste/${id}`)
+      .then((response) => {
+        setProfilTaste(response.data);
+      });
+  }, [id]);
+
   const navigateTo = useNavigate();
 
   const buttonDirection = async () => {
-    navigateTo("/test");
+    navigateTo("/degustation");
   };
 
   return (
     <div>
       <div className="degustation-header">
         <h2>Votre profil de dégustation</h2>
+        <h2>{profilTaste.name}</h2>
 
-        <p>
-          Depuis des siècles, l’Homme cultive la vigne pour produire du vin.
-          Aujourd’hui, on dénombre plus de 10 000 variétés de raisins à travers
-          le monde mais seule une douzaine est parvenue à une reconnaissance
-          générale et indiscutée. Parmi les cépages les plus réputés, on
-          retrouve le Cabernet Sauvignon...
-        </p>
+        <p>{profilTaste.description}</p>
       </div>
       <div className="assemblez-vin">
         <h3 className="title-h3">Assemblez votre vin</h3>
         <div>
-          <a href="/test">
+          <a href="/workshop">
             <img src={Assemblage} alt="empty" />
             <p className="selection-text"> L'Atelier </p>
           </a>
@@ -35,7 +43,7 @@ function DegustationProfile() {
       </div>
       <div className="selection-vin">
         <h3 className="title-h3">Nous avons sélectionné pour vous</h3>
-        <a href="/test">
+        <a href="/wine-selection">
           <img src={ShopCave} alt="empty" />
           <p className="selection-text"> La Cave </p>
         </a>
