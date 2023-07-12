@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function UserBurgerMenu({
@@ -13,12 +13,10 @@ export default function UserBurgerMenu({
   const urlPageListHideBurgerMenu = ["/login", "/sign-up", "/degustation"];
 
   const location = useLocation();
-  const navigate = useNavigate();
 
   const logout = () => {
     localStorage.removeItem("token");
     setShowLinks(false);
-    navigate("/");
   };
 
   useEffect(() => {
@@ -33,17 +31,24 @@ export default function UserBurgerMenu({
     <div className="container-burger-menu">
       <div className={`nav-links ${showLinks ? "show-nav" : ""}`}>
         <ul>
-          <li>Profil</li>
-          <li>Atelier</li>
-          <li>Boutique</li>
-          <button
-            href="#"
-            type="submit"
-            className="link-deconnection-admin"
-            onClick={logout}
-          >
-            Déconnexion
-          </button>
+          <a href="/profile">
+            <li>Profil</li>
+          </a>
+          <a href="/workshop">
+            <li>Atelier</li>
+          </a>
+          <a href="/wine-selection">
+            <li>Boutique</li>
+          </a>
+          <a href="/login">
+            <button
+              type="submit"
+              className="link-deconnection-admin"
+              onClick={logout}
+            >
+              Déconnexion
+            </button>
+          </a>
         </ul>
 
         <button

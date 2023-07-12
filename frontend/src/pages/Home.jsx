@@ -1,14 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logoInovin from "../assets/images/logo-inovin.svg";
 import vineyard from "../assets/images/vineyard.png";
 import Button from "../components/Button";
 
 export default function Home() {
-  const navigateTo = useNavigate();
-  const goToInscription = async () => {
-    await navigateTo("/sign-up");
-  };
-
   return (
     <div className="homePageDiv">
       <div className="homeBorderDiv">
@@ -23,11 +18,9 @@ export default function Home() {
               de votre vin dans notre base de données pour le reproduire à tout
               moment.
             </p>
-            <Button
-              id="homeButton"
-              text="Inscription"
-              onClick={goToInscription}
-            />
+            <Link to="/sign-up">
+              <Button id="homeButton" text="Inscription" />
+            </Link>
           </div>
         </div>
         <img className="vineyardImage" src={vineyard} alt="BackgroundImage" />

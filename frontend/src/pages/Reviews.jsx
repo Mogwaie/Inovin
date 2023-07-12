@@ -53,6 +53,10 @@ export default function Reviews() {
     }
   };
 
+  const goToWineSelection = async () => {
+    await navigateTo("/wine-selection");
+  };
+
   return (
     <div className="reviewsPageDiv">
       <h2 className="reviewsPageH2">Votre avis</h2>
@@ -96,7 +100,12 @@ export default function Reviews() {
             onChange={(e) => setRating(e.target.value)}
           />
         </div>
-        <button className="primary-button" id="reviewsPageButton" type="submit">
+        <button
+          className="primary-button"
+          id="reviewsPageButton"
+          type="submit"
+          onClick={goToWineSelection}
+        >
           Envoyer
         </button>
       </form>
