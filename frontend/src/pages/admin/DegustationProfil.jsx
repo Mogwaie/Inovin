@@ -10,7 +10,7 @@ function DegustationProfil() {
 
   // call all taste profil from bd
   useEffect(() => {
-    axios.get(`http://localhost:4242/api/taste_profile`).then((response) => {
+    axios.get(`http://localhost:4242/api/taste-profile`).then((response) => {
       setTasteProfileList(response.data);
     });
   }, []);
@@ -28,14 +28,11 @@ function DegustationProfil() {
     <div className="degustation-profil-list-container">
       <div className="search-bar-and-button-create">
         <SearchBar setSearchInput={setSearchInput} searchInput={searchInput} />
-        <button type="button" className="secondary-button">
-          Créer
-        </button>
       </div>
       <ul>
         {searchListFilter.map((profil) => {
           return (
-            <li key={profil.wine_id}>
+            <li key={profil.taste_profil_id}>
               <DisplayDegustationProfil profil={profil} />
             </li>
           );

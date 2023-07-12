@@ -7,13 +7,14 @@ export default function DisplayDegustationProfil({ profil }) {
     <div className="display-profil-container">
       <div className="name-and-edit-by">
         <p>{profil.name}</p>
-        <p>{profil.description}</p>
       </div>
-      <Link to={`/wine-list/${profil.taste_profil_id}`}>
-        <button type="button" className="modif-button">
-          <img src={modifButton} alt="button modify a user" />
-        </button>
-      </Link>
+      <div className="buttons-modif-container">
+        <Link to={`/degustation-profile-admin/${profil.taste_profil_id}`}>
+          <button type="button" className="modif-button">
+            <img src={modifButton} alt="button modify a user" />
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }

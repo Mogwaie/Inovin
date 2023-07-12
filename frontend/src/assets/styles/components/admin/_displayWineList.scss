@@ -24,7 +24,6 @@
         background-color: $app-bg-color;
         border: none;
         cursor: pointer;
-        margin-right: 3rem;
       }
     }
   }
@@ -42,10 +41,15 @@
 
     .date-and-icons-delete-modif {
       display: flex;
+
       .buttons-modif-and-delete {
         display: flex;
         align-items: center;
         padding-left: 0.5rem;
+
+        .modif-button {
+          margin-right: 3rem;
+        }
 
         img {
           width: 29px;

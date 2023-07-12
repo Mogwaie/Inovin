@@ -130,7 +130,7 @@ const router = createBrowserRouter([
         element: <Page500 />,
       },
       {
-        path: "/degustation-profile-admin",
+        path: "/degustation-profile-admin/:id",
         element: <AdminDegustationProfile />,
       },
     ],
