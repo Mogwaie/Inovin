@@ -55,6 +55,16 @@ CREATE TABLE `cepage_level` (
   `level` integer
 );
 
+DROP TABLE IF EXISTS `cepage_list`;
+CREATE TABLE `cepage_list` (
+  `cepage_list_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
+  `cepageOne` VARCHAR(255),
+  `cepageTwo` VARCHAR(255),
+  `cepageThree` VARCHAR(255),
+  `cepageFour` VARCHAR(255)
+);
+
+
 DROP TABLE IF EXISTS `cepage`;
 CREATE TABLE `cepage` (
   `cepage_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -112,6 +122,10 @@ VALUES
 ("frais et vifs", "Vous préférez les vins blancs, vous serez enchanté par ceux qui sont frais, vifs et dotés d'une belle acidité. Ces vins offrent des arômes délicats d'agrumes, de fleurs blanches et peuvent présenter une subtile minéralité. Ils sont particulièrement appréciés en apéritif, avec des fruits de mer ou des salades légères."),
 ("riches et complexes", "Vous recherchez des vins blancs plus riches et complexes, vous apprécierez ceux qui offrent une belle structure, des arômes de fruits exotiques, de miel et des nuances épicées. Ils sont parfaits pour accompagner des plats plus élaborés ou pour déguster en tant qu'expérience sensorielle à part entière."),
 ("doux et liquoreux", "Les vins doux et liquoreux vous séduiront par leur richesse et leur onctuosité. Ces vins offrent des arômes intenses de fruits confits, de miel et d'épices douces. Ils sont parfaits en accompagnement de desserts ou pour déguster avec un foie gras.");
+
+INSERT INTO cepage_list (cepageOne, cepageTwo, cepageThree, cepageFour)
+VALUES
+('CepageOne', 'CepageTwo', 'CepageThree', 'CepageFour');
 
 INSERT INTO cepage (name, taste_profile_id)
 VALUES

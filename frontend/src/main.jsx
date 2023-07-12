@@ -27,6 +27,7 @@ import WineDescriptionModif from "./pages/admin/WineDescriptionModif";
 import CreateUser from "./pages/admin/CreateUser";
 import TastingSheetModif from "./pages/admin/TastingSheetModif";
 import HomeAdmin from "./pages/admin/HomeAdmin";
+import AtelierCreation from "./pages/admin/AtelierCreation";
 import Page404 from "./pages/Page404";
 import Page500 from "./pages/Page500";
 import AdminDegustationProfile from "./pages/admin/AdminDegustationProfile";
@@ -103,6 +104,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/create-user",
         element: <CreateUser />,
+      },
+      {
+        path: "/admin/workshop",
+        element: <AtelierCreation />,
       },
       {
         path: "/admin/tasting-sheet",
