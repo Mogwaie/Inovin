@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { toast } from "react-toastify";
 import profileBottles from "../assets/images/profileBottles.png";
 import profilePicture from "../assets/images/profilePicture.png";
 
@@ -37,6 +38,16 @@ export default function Profile() {
       );
       if (response.status === 201) {
         console.info("yessssssss");
+        toast("Mise à jour ok", {
+          position: "bottom-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
       }
     } catch (error) {
       console.error(error);

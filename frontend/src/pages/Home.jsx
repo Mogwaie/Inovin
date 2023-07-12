@@ -8,6 +8,7 @@ export default function Home() {
   const goToInscription = async () => {
     await navigateTo("/sign-up");
   };
+
   return (
     <div className="homePageDiv">
       <div className="homeBorderDiv">
