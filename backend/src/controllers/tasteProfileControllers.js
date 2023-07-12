@@ -1,7 +1,7 @@
 const models = require("../models");
 
-const findAllCepages = (req, res) => {
-  models.cepage
+const findAllTasteProfile = (req, res) => {
+  models.taste_profile
     .findAll()
     .then(([rows]) => {
       res.send(rows);
@@ -12,8 +12,8 @@ const findAllCepages = (req, res) => {
     });
 };
 
-const findCepageById = (req, res) => {
-  models.cepage
+const findTasteProfileById = (req, res) => {
+  models.taste_profile
     .find(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
@@ -28,12 +28,12 @@ const findCepageById = (req, res) => {
     });
 };
 
-const createNewCepage = (req, res) => {
-  const cepage = req.body;
-  models.cepage
-    .insert(cepage)
+const createNewTasteProfile = (req, res) => {
+  const tasteProfile = req.body;
+  models.taste_profile
+    .insert(tasteProfile)
     .then(([result]) => {
-      res.location(`/cepages/${result.insertId}`).sendStatus(201);
+      res.location(`/tasteprofile/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
@@ -41,11 +41,11 @@ const createNewCepage = (req, res) => {
     });
 };
 
-const editCepage = (req, res) => {
-  const cepage = req.body;
-  cepage.cepage_id = parseInt(req.params.id, 10);
-  models.cepage
-    .update(cepage)
+const editTasteProfile = (req, res) => {
+  const tasteProfile = req.body;
+  tasteProfile.taste_profile_id = parseInt(req.params.id, 10);
+  models.taste_profile
+    .update(tasteProfile)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
@@ -59,8 +59,8 @@ const editCepage = (req, res) => {
     });
 };
 
-const deleteCepage = (req, res) => {
-  models.cepageList
+const deleteTasteProfile = (req, res) => {
+  models.taste_profile
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
@@ -75,28 +75,10 @@ const deleteCepage = (req, res) => {
     });
 };
 
-const chooseCeapgesForAtelier = (req, res) => {
-  const cepagesForAtelier = req.body;
-  models.cepage
-    .updateCepageList(cepagesForAtelier)
-    .then(([result]) => {
-      if (result.affectedRows === 0) {
-        res.sendStatus(404);
-      } else {
-        res.sendStatus(204);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
-
 module.exports = {
-  findAllCepages,
-  findCepageById,
-  createNewCepage,
-  editCepage,
-  deleteCepage,
-  chooseCeapgesForAtelier,
+  findAllTasteProfile,
+  findTasteProfileById,
+  createNewTasteProfile,
+  editTasteProfile,
+  deleteTasteProfile,
 };

@@ -41,14 +41,13 @@ créer des routes comme pour sélection des vins avec url/:id pour afficher un p
 + Atelier de creation - admin
 (je propose d’envoyer les recettes par email à users et admin pour eviter faire des pages en plus)
 
-5. - [ ] Profile - user
+5. - [ ] Profile - user (@cyrilFreeman)
 + Profile - admin
 Faire en sorte d'afficher les infos du user dans la page profil membre (regarder comment @Олеся Тур a fait avec la page review)
 
 
 6. - [ ] Members - admin
 Admin :
-- [ ] Système de filtres pour retrouver avec une seule barre de recherche
 - [ ] Le toggle membre admin, utiliser un handletoggle pour envoyer post en back directement
 ou
 - [ ] Mettre modal pour demander si "êtes vous sûr de vouloir supprimer/rendre un membre admin ?" pas besoin de modal pour passer en user seulement

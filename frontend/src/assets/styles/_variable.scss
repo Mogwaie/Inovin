@@ -70,14 +70,14 @@ $font-size-list-burger-tablet: 38px;
 }
 
 @mixin font-text-phone {
-  font-family: $font-family-title;
+  font-family: $app-primary-font;
   font-weight: normal;
   font-size: $font-size-text-phone;
   color: $app-supporting-color2;
 }
 
 @mixin font-text-tablet-desktop {
-  font-family: $font-family-title;
+  font-family: $app-primary-font;
   font-weight: normal;
   font-size: $font-size-text-tablet;
 }

@@ -9,12 +9,23 @@
     width: 11rem;
     p {
       margin: 0.25rem 0;
+      text-align: left;
     }
   }
 
   .date-and-icons-delete-modif {
     .buttons-modif-and-delete {
-      display: none;
+      .modif-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 29px;
+        height: 29px;
+        background-color: $app-bg-color;
+        border: none;
+        cursor: pointer;
+        margin-right: 3rem;
+      }
     }
   }
 }
@@ -39,7 +50,6 @@
         img {
           width: 29px;
           height: 29px;
-          margin-left: 1rem;
         }
       }
     }
