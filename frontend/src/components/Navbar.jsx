@@ -36,7 +36,17 @@ export default function Navbar() {
   };
 
   // url Admin
-  const urlPageListAdmin = ["/admin"];
+  const urlPageListAdmin = [
+    "/admin",
+    "/admin/home",
+    "/admin/user-list",
+    "/admin/create-user",
+    "/admin/wine-list",
+    "/admin/wine-list/:id",
+    "/admin/degustation-profil",
+    "/admin/tasting-sheet",
+    "/admin/degustation-profile",
+  ];
 
   // compare current url with url array
   const isUrlAdmin = urlPageListAdmin.find((urlPage) => urlPage === currentUrl);
