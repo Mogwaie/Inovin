@@ -1,5 +1,9 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import "./main.scss";
 import { ToastContainer } from "react-toastify";
@@ -22,7 +26,6 @@ import ForgottenPassword from "./pages/ForgottenPassword";
 import Page404 from "./pages/Page404";
 import Page500 from "./pages/Page500";
 
-import AdminTest from "./pages/Admintest";
 import HomeAdmin from "./pages/admin/HomeAdmin";
 import UserList from "./pages/admin/UserList";
 import CreateUser from "./pages/admin/CreateUser";
@@ -78,11 +81,11 @@ const router = createBrowserRouter([
         element: <WineDescription />,
       },
       {
-        path: "/passwordresetform",
+        path: "/password-reset-form",
         element: <PasswordResetForm />,
       },
       {
-        path: "/forgottenpasswordform",
+        path: "/forgotten-password-form",
         element: <ForgottenPassword />,
       },
       {
@@ -90,16 +93,18 @@ const router = createBrowserRouter([
         element: <Page404 />,
       },
       {
-        path: "/page500",
+        path: "/page-500",
         element: <Page500 />,
       },
-
       {
         path: "/admin",
-        element: <AdminTest />,
         children: [
           {
-            path: "/home",
+            index: true,
+            element: <Navigate to="/admin/home" replace />,
+          },
+          {
+            path: "home",
             element: <HomeAdmin />,
           },
           {
@@ -111,15 +116,15 @@ const router = createBrowserRouter([
             element: <CreateUser />,
           },
           {
-            path: "/wine-list",
+            path: "wine-list",
             element: <WineList />,
           },
           {
-            path: "/wine-list/:id",
+            path: "wine-list/:id",
             element: <WineDescriptionModif />,
           },
           {
-            path: "/degustation-profil",
+            path: "degustation-profil",
             element: <DegustationProfil />,
           },
           {
@@ -127,7 +132,7 @@ const router = createBrowserRouter([
             element: <TastingSheetModif />,
           },
           {
-            path: "/degustation-profile",
+            path: "degustation-profile",
             element: <AdminDegustationProfile />,
           },
         ],
