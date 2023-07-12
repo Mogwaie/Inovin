@@ -1,32 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import DisplayDegustationProfil from "../../components/admin/DisplayDegustationProfil";
 import SearchBar from "../../components/admin/SearchBar";
 
 function DegustationProfil() {
   // put the taste profil from the back in the useState
-  //   const [tasteProfileList, setTasteProfileList] = useState([]);
+  const [tasteProfileList, setTasteProfileList] = useState([]);
   const [searchInput, setSearchInput] = useState("");
 
-  const tasteProfiles = [
-    {
-      wine_id: 1,
-      name: "Vin Blanc",
-      description: "Profil de goût pour le vin blanc",
-    },
-    {
-      wine_id: 2,
-      name: "Vin Rouge",
-      description: "Profil de goût pour le vin rouge",
-    },
-    {
-      wine_id: 3,
-      name: "Vin Rosé",
-      description: "Profil de goût pour le vin rosé",
-    },
-  ];
+  // call all taste profil from bd
+  useEffect(() => {
+    axios.get(`http://localhost:4242/api/taste_profile`).then((response) => {
+      setTasteProfileList(response.data);
+    });
+  }, []);
 
   // filter of the list of profils
-  const searchListFilter = tasteProfiles.filter((element) => {
+  const searchListFilter = tasteProfileList.filter((element) => {
     if (searchInput.length > 0) {
       const propertyValue = element.name.toLowerCase();
       return propertyValue.includes(searchInput.toLowerCase());

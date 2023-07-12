@@ -1,13 +1,19 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import modifButton from "../../assets/images/modifButton.png";
 
 export default function DisplayDegustationProfil({ profil }) {
   return (
     <div className="display-profil-container">
       <div className="name-and-edit-by">
         <p>{profil.name}</p>
-        <p>Editée par: Cédric</p>
+        <p>{profil.description}</p>
       </div>
-      <p>21/03/2023</p>
+      <Link to={`/wine-list/${profil.taste_profil_id}`}>
+        <button type="button" className="modif-button">
+          <img src={modifButton} alt="button modify a user" />
+        </button>
+      </Link>
     </div>
   );
 }
@@ -15,5 +21,7 @@ export default function DisplayDegustationProfil({ profil }) {
 DisplayDegustationProfil.propTypes = {
   profil: PropTypes.shape({
     name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    taste_profil_id: PropTypes.number.isRequired,
   }).isRequired,
 };
