@@ -43,6 +43,7 @@
     .degustation-texte-admin {
       display: flex;
       justify-content: center;
+      margin-left: 17px;
 
       textarea {
         resize: none;
@@ -92,7 +93,7 @@
 
     .selection-text-admin {
       width: 7rem;
-      top: -86px;
+      bottom: 130px;
       left: 50%;
       transform: translate(-50%, -50%);
       color: $app-supporting-color;
@@ -120,7 +121,7 @@
       display: flex;
       width: 160px;
       height: 40px;
-      margin: -15px auto;
+      margin: -75px auto;
       align-items: center;
       justify-content: space-around;
       border: solid 2px #b19c71;
