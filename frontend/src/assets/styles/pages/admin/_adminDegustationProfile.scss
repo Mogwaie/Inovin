@@ -1,6 +1,6 @@
 .profile-degustation-ctn {
   width: 100%;
-  height: auto;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,6 +13,12 @@
     width: 100%;
     height: auto;
 
+    .degustation-title-admin-fix {
+      width: 100%;
+      height: auto;
+      text-align: center;
+    }
+
     .degustation-title-admin {
       display: flex;
       justify-content: center;
@@ -21,7 +27,7 @@
         border: none;
         resize: none;
         width: 300px;
-        height: 13vh;
+        height: 10vh;
         text-align: center;
         margin: 5px 0 10px 0;
         cursor: pointer;
@@ -30,7 +36,7 @@
       }
       img {
         width: 15px;
-        margin-bottom: 42px;
+        margin-bottom: 40px;
       }
     }
 
@@ -176,7 +182,7 @@
         }
         img {
           width: 22px;
-          margin-bottom: 85px;
+          margin-bottom: 98px;
         }
       }
 
@@ -189,7 +195,6 @@
           border-radius: 3px;
           border: 2px solid #b19c71;
           width: 490px;
-          height: 16vh;
           text-align: center;
           @include font-text-tablet-desktop;
           background: transparent;
@@ -227,14 +232,14 @@
 
       .selection-text-admin {
         width: 7rem;
-        top: -111px;
+        top: -158px;
         left: 50%;
       }
 
       .inputfile + label {
         width: 171px;
         height: 45px;
-        margin: -12px auto;
+        margin: -60px auto;
         font-size: 0.9em;
       }
     }
@@ -270,7 +275,7 @@
 
         img {
           width: 25px;
-          margin-bottom: 100px;
+          margin-bottom: 86px;
         }
       }
 
@@ -329,14 +334,14 @@
 
       .selection-text-admin {
         width: 7rem;
-        top: -130px;
+        top: -190px;
         left: 50%;
       }
 
       .inputfile + label {
         width: 171px;
         height: 45px;
-        margin: auto;
+        margin: -60px auto;
         font-size: 0.9em;
       }
     }

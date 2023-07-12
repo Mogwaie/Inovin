@@ -6,10 +6,10 @@ import SetPen from "../../assets/images/setpen.svg";
 
 function DegustationProfile() {
   const [profileTitle, setProfileTitle] = useState(
-    "-- Titre de Votre profil de dégustation --"
+    "- Entrée le type de profil ici -"
   );
   const [profileDescription, setProfileDescription] = useState(
-    "-- texte de description --"
+    "-- Entrée le texte de description ici --"
   );
   const [assembleImage, setAssembleImage] = useState(Assemblage);
   const [selectionImage, setSelectionImage] = useState(ShopCave);
@@ -85,6 +85,9 @@ function DegustationProfile() {
     <div>
       <div className="profile-degustation-ctn">
         <div className="degustation-header-admin">
+          <div className="degustation-title-admin-fix">
+            <h2>Votre profil de dégustation</h2>
+          </div>
           <div className="degustation-title-admin">
             <textarea
               name="Title"
