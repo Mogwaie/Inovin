@@ -11,7 +11,7 @@ function DisplayWineList({ wine }) {
       </div>
       <div className="date-and-icons-delete-modif">
         <div className="buttons-modif-and-delete">
-          <Link to={`/wine-list/${wine.wine_id}`}>
+          <Link to={`/admin/wine-list/${wine.wine_id}`}>
             <button type="button" className="modif-button">
               <img src={modifButton} alt="button modify a user" />
             </button>
