@@ -1,4 +1,5 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import Assemblage from "../../assets/images/Assemblage.webp";
 import ShopCave from "../../assets/images/ShopCave.png";
@@ -13,6 +14,8 @@ function DegustationProfile() {
   );
   const [assembleImage, setAssembleImage] = useState(Assemblage);
   const [selectionImage, setSelectionImage] = useState(ShopCave);
+  const { id } = useParams();
+  const [tasteProfileSelect, setTasteProfileSelect] = useState("");
 
   const handleImageUpload = (file, setImage) => {
     const reader = new FileReader();
@@ -63,7 +66,7 @@ function DegustationProfile() {
 
     axios
       .put(
-        "http://www.localhost:4242/api/taste-profile",
+        `http://localhost:4242/api/taste-profile/${id}`,
         degustationProfileData
       )
       .then(() => {
@@ -75,11 +78,22 @@ function DegustationProfile() {
   };
 
   const cancelChanges = () => {
-    setProfileTitle("-- Titre de Votre profil de dégustation --");
+    setProfileTitle("- titre du profil -");
     setProfileDescription("-- texte de déscription --");
     setAssembleImage(Assemblage);
     setSelectionImage(ShopCave);
   };
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:4242/api/taste-profile/${id}`)
+      .then((response) => {
+        setTasteProfileSelect(response.data);
+        setProfileTitle(response.data.name);
+        setProfileDescription(response.data.description);
+        console.info(tasteProfileSelect);
+      });
+  }, [id]);
 
   return (
     <div>

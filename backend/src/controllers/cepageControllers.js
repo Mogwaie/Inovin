@@ -60,7 +60,7 @@ const editCepage = (req, res) => {
 };
 
 const deleteCepage = (req, res) => {
-  models.cepage
+  models.cepageList
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {

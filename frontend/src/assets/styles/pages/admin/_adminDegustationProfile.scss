@@ -14,7 +14,7 @@
     height: auto;
 
     .degustation-title-admin-fix {
-      width: 100%;
+      width: auto;
       height: auto;
       text-align: center;
     }
@@ -24,12 +24,12 @@
       justify-content: center;
 
       textarea {
+        margin-left: 17px;
         border: none;
         resize: none;
         width: 300px;
-        height: 10vh;
+        height: 8vh;
         text-align: center;
-        margin: 5px 0 10px 0;
         cursor: pointer;
         @include font-title-phone;
         background: transparent;
@@ -171,12 +171,12 @@
         justify-content: center;
 
         textarea {
+          margin-left: 17px;
           border: none;
           resize: none;
           width: 490px;
-          height: 13vh;
+          height: 10vh;
           text-align: center;
-          margin: 10px 0 10px 0;
 
           @include font-title-tablet;
           background: transparent;
@@ -267,16 +267,16 @@
 
         textarea {
           width: 500px;
-          height: 15vh;
+          height: 13vh;
           margin: 20px 0 20px 0;
 
-          @include font-title-tablet;
+          @include font-title-desktop;
           background: transparent;
         }
 
         img {
           width: 25px;
-          margin-bottom: 86px;
+          margin-bottom: 50px;
         }
       }
 
@@ -289,7 +289,7 @@
           border-radius: 3px;
           border: 2px solid #b19c71;
           width: 630px;
-          height: 16vh;
+          height: 20vh;
           text-align: center;
           @include font-text-tablet-desktop;
           background: transparent;
