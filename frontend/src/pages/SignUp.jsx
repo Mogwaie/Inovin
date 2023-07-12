@@ -127,12 +127,7 @@ function Signup() {
         placeholder="Fonction"
       />
       <div className="form_navigate">
-        <Button
-          // onClick={showToastMessage}
-          type="submit"
-          className="primary-button"
-          text="Valider"
-        />
+        <Button type="submit" className="primary-button" text="Valider" />
         <Link to="/login">
           <p className="form_login_link">Déjà inscrit(e) ?</p>
         </Link>
