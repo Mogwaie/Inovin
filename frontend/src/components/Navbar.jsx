@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useParams, useLocation, Link } from "react-router-dom";
 import logoInovin from "../assets/images/logo-inovin.svg";
 import UserBurgerMenu from "./UserBurgerMenu";
 import AdminBurgerMenu from "./AdminBurgerMenu";
@@ -9,6 +9,7 @@ export default function Navbar() {
   const [currentUrl, setCurrentUrl] = useState("");
   const [showNav, setShowNav] = useState(true);
 
+  const { id } = useParams();
   const location = useLocation();
 
   const hideNavbarList = ["/"];
@@ -42,7 +43,7 @@ export default function Navbar() {
     "/admin/user-list",
     "/admin/create-user",
     "/admin/wine-list",
-    "/admin/wine-list/:id",
+    `/admin/wine-list/${id}`,
     "/admin/degustation-profil",
     "/admin/tasting-sheet",
     "/admin/degustation-profile",
