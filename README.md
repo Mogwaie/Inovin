@@ -8,19 +8,19 @@ Todo :
 Fonctionnalisées de toutes les autres pages
 À faire (par page) :
 
-- [ ] 1. Votre Profil de degustation - admin (en cours par @Eric)
+1. - [ ] Votre Profil de degustation - admin (en cours par @Eric)
 + Votre Profil de degustation - user (@Eric)
 - [ ] Avoir toutes les images dans un dossier du back et les envoyer vers le front pour display
 Pouvoir envoyer des photos dans le back et le stocker dans le public (quete multer parce que firebase et cloudinary pas demander pour le titre)
 
 
 
-- [ ] 2. Wine Description - admin (en cours par @Marine BOULANGER)
+2. - [ ] Wine Description - admin (en cours par @Marine BOULANGER)
 - [ ] Avoir toutes les images dans un dossier du back et les envoyer vers le front pour display
 Pouvoir envoyer des photos dans le back et le stocker dans le public (quete multer parce que firebase et cloudinary pas demander pour le titre)
 
 
-- [ ] 3. Fiche Dégustation - user
+3. - [ ] Fiche Dégustation - user
 Pour déterminer le profil à afficher dans la page de profil de dégustation :
 En Front - 
 - [ ] Algo pour déterminer le nom du goût ayant la note la plus élevée
@@ -37,16 +37,16 @@ créer des routes comme pour sélection des vins avec url/:id pour afficher un p
 
 
 
-- [ ] 4. Atelier de creation - user
+4. - [ ] Atelier de creation - user
 + Atelier de creation - admin
 (je propose d’envoyer les recettes par email à users et admin pour eviter faire des pages en plus)
 
-- [ ] 5. Profile - user
+5. - [ ] Profile - user
 + Profile - admin
 Faire en sorte d'afficher les infos du user dans la page profil membre (regarder comment @Олеся Тур a fait avec la page review)
 
 
-- [ ] 6. Members - admin
+6. - [ ] Members - admin
 Admin :
 - [ ] Système de filtres pour retrouver avec une seule barre de recherche
 - [ ] Le toggle membre admin, utiliser un handletoggle pour envoyer post en back directement
@@ -54,14 +54,14 @@ ou
 - [ ] Mettre modal pour demander si "êtes vous sûr de vouloir supprimer/rendre un membre admin ?" pas besoin de modal pour passer en user seulement
 
 
-- [ ] 7. Vins list - admin
+7. - [ ] Vins list - admin
 - [ ] Avoir toutes les images dans un dossier du back et les envoyer vers le front pour display
 - [ ] Pouvoir envoyer des photos dans le back et le stocker dans le public (quete multer parce que firebase et cloudinary pas demander pour le titre)
 
 
 
 
-- [ ] 8. Profiles de degustation - admin (@Eric)
+8. - [ ] Profiles de degustation - admin (@Eric)
 Sur page admin profil de dégustation :
 - [ ] Enlever le Editée par "" et la date car pas d'info dans BDD
 - [ ] Mettre editée le (date)
