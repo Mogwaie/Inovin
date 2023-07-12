@@ -7,6 +7,9 @@ function HomeAdmin() {
       <img className="profileImage" src={profilePicture} alt="Profile" />
       <div className="link-list-home-admin">
         <ul>
+          <Link to="/admin/workshop">
+            <li>Atelier Creation</li>
+          </Link>
           <Link to="/user-list">
             <li>Member</li>
           </Link>
