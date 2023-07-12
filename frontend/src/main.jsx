@@ -58,7 +58,7 @@ const router = createBrowserRouter([
         element: <DegustationPage />,
       },
       {
-        path: "/degustation-profile",
+        path: "/degustation-profile/:id",
         element: <DegustationProfile />,
       },
       {

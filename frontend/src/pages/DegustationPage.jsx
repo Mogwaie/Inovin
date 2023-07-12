@@ -4,6 +4,8 @@ import SliderUser from "../components/SliderUser";
 import Button from "../components/Button";
 
 function DegustationPage() {
+  const id = 1;
+  const urlDegustationProfile = `/degustation-profile/${id}`;
   const handleClick = async () => {
     console.info("test");
   };
@@ -46,7 +48,7 @@ function DegustationPage() {
       </div>
 
       <div className="btn-navigate">
-        <a href="/degustation-profile">
+        <a href={urlDegustationProfile}>
           <Button
             text="Terminer"
             onClick={handleClick}
