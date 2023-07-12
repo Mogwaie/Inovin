@@ -9,7 +9,7 @@ function DegustationProfile() {
     "-- Titre de Votre profil de dégustation --"
   );
   const [profileDescription, setProfileDescription] = useState(
-    "-- texte de déscription --"
+    "-- texte de description --"
   );
   const [assembleImage, setAssembleImage] = useState(Assemblage);
   const [selectionImage, setSelectionImage] = useState(ShopCave);
@@ -62,7 +62,10 @@ function DegustationProfile() {
     };
 
     axios
-      .post("/api/degustation-profile", degustationProfileData)
+      .put(
+        "http://www.localhost:4242/api/taste-profile",
+        degustationProfileData
+      )
       .then(() => {
         console.error("Profil enregistré avec succès !");
       })
