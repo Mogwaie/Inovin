@@ -8,7 +8,6 @@ import Root from "./routes/Root";
 import MaxLengthProvider from "./context/MaxLengthContext";
 
 import Home from "./pages/Home";
-import AdminTest from "./pages/Admintest";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import DegustationPage from "./pages/DegustationPage";
@@ -17,18 +16,20 @@ import Reviews from "./pages/Reviews";
 import Profil from "./pages/Profil";
 import WineSelection from "./pages/WineSelection";
 import WineDescription from "./pages/WineDescription";
-import UserList from "./pages/admin/UserList";
 import DegustationProfile from "./pages/DegustationProfile";
-import WineList from "./pages/admin/WineList";
-import DegustationProfil from "./pages/admin/DegustationProfil";
 import PasswordResetForm from "./pages/PasswordResetForm";
 import ForgottenPassword from "./pages/ForgottenPassword";
-import WineDescriptionModif from "./pages/admin/WineDescriptionModif";
-import CreateUser from "./pages/admin/CreateUser";
-import TastingSheetModif from "./pages/admin/TastingSheetModif";
-import HomeAdmin from "./pages/admin/HomeAdmin";
 import Page404 from "./pages/Page404";
 import Page500 from "./pages/Page500";
+
+import AdminTest from "./pages/Admintest";
+import HomeAdmin from "./pages/admin/HomeAdmin";
+import UserList from "./pages/admin/UserList";
+import CreateUser from "./pages/admin/CreateUser";
+import WineList from "./pages/admin/WineList";
+import WineDescriptionModif from "./pages/admin/WineDescriptionModif";
+import DegustationProfil from "./pages/admin/DegustationProfil";
+import TastingSheetModif from "./pages/admin/TastingSheetModif";
 import AdminDegustationProfile from "./pages/admin/AdminDegustationProfile";
 
 const router = createBrowserRouter([
@@ -41,10 +42,6 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/admin",
-        element: <AdminTest />,
-      },
-      {
         path: "/login",
         element: <Login />,
       },
@@ -55,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/degustation",
         element: <DegustationPage />,
+      },
+      {
+        path: "/degustation-profile",
+        element: <DegustationProfile />,
       },
       {
         path: "/workshop",
@@ -77,40 +78,8 @@ const router = createBrowserRouter([
         element: <WineDescription />,
       },
       {
-        path: "user-list",
-        element: <UserList />,
-      },
-      {
-        path: "/degustation-profile",
-        element: <DegustationProfile />,
-      },
-      {
-        path: "/wine-list",
-        element: <WineList />,
-      },
-      {
-        path: "/degustation-profil",
-        element: <DegustationProfil />,
-      },
-      {
         path: "/passwordresetform",
         element: <PasswordResetForm />,
-      },
-      {
-        path: "/wine-list/:id",
-        element: <WineDescriptionModif />,
-      },
-      {
-        path: "/admin/create-user",
-        element: <CreateUser />,
-      },
-      {
-        path: "/admin/tasting-sheet",
-        element: <TastingSheetModif />,
-      },
-      {
-        path: "/admin/home",
-        element: <HomeAdmin />,
       },
       {
         path: "/forgottenpasswordform",
@@ -124,9 +93,44 @@ const router = createBrowserRouter([
         path: "/page500",
         element: <Page500 />,
       },
+
       {
-        path: "/degustation-profile-admin",
-        element: <AdminDegustationProfile />,
+        path: "/admin",
+        element: <AdminTest />,
+        children: [
+          {
+            path: "/home",
+            element: <HomeAdmin />,
+          },
+          {
+            path: "user-list",
+            element: <UserList />,
+          },
+          {
+            path: "create-user",
+            element: <CreateUser />,
+          },
+          {
+            path: "/wine-list",
+            element: <WineList />,
+          },
+          {
+            path: "/wine-list/:id",
+            element: <WineDescriptionModif />,
+          },
+          {
+            path: "/degustation-profil",
+            element: <DegustationProfil />,
+          },
+          {
+            path: "tasting-sheet",
+            element: <TastingSheetModif />,
+          },
+          {
+            path: "/degustation-profile",
+            element: <AdminDegustationProfile />,
+          },
+        ],
       },
     ],
   },
