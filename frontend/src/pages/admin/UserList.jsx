@@ -1,9 +1,16 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SearchBar from "../../components/admin/SearchBar";
 import DisplayUserList from "../../components/admin/DisplayUserList";
 
 function UserList() {
   const [searchInput, setSearchInput] = useState("");
+
+  const navigate = useNavigate();
+
+  const goToCreateUser = async () => {
+    await navigate("/admin/create-user");
+  };
 
   const searchList = [
     {
@@ -80,7 +87,11 @@ function UserList() {
     <div className="user-list-page-container">
       <div className="search-bar-and-button-create">
         <SearchBar setSearchInput={setSearchInput} searchInput={searchInput} />
-        <button type="button" className="secondary-button">
+        <button
+          type="button"
+          className="secondary-button"
+          onClick={goToCreateUser}
+        >
           Créer
         </button>
       </div>

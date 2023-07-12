@@ -8,20 +8,22 @@ function HomeAdmin() {
       <div className="link-list-home-admin">
         <ul>
           <Link to="/admin/workshop">
-            <li>Atelier Creation</li>
+            <li>Atelier de création</li>
           </Link>
-          <Link to="/user-list">
+          <Link to="/admin/user-list">
             <li>Member</li>
           </Link>
-          <Link to="/degustation-profil">
+          <Link to="/admin/degustation-profil">
             <li>Profil de Dégustation</li>
           </Link>
-          <Link to="/wine-list">
+          <Link to="/admin/wine-list">
             <li>Fiches de Vins</li>
           </Link>
         </ul>
       </div>
-      <p className="link-deconnection-admin">Déconnexion</p>
+      <a href="/login">
+        <p className="link-deconnection-admin">Déconnexion</p>
+      </a>
     </div>
   );
 }

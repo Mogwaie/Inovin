@@ -1,14 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 import SliderUser from "../components/SliderUser";
 import Button from "../components/Button";
 
 function DegustationPage() {
-  const navigateTo = useNavigate();
-
-  const navigateToDesgustationProfilePage = async () => {
-    navigateTo("/workshop");
+  const handleClick = async () => {
+    console.info("test");
   };
   return (
     <div className="DegustationPage" id="DegustationPage">
@@ -49,11 +46,13 @@ function DegustationPage() {
       </div>
 
       <div className="btn-navigate">
-        <Button
-          text="Terminer"
-          onClick={navigateToDesgustationProfilePage}
-          id="degutation-page-btn"
-        />
+        <a href="/degustation-profile">
+          <Button
+            text="Terminer"
+            onClick={handleClick}
+            id="degutation-page-btn"
+          />
+        </a>
       </div>
     </div>
   );
