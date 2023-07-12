@@ -19,7 +19,7 @@ export default function AtelierCreation() {
         body
       );
       if (response.status === 204) {
-        navigateTo("/reviews");
+        navigateTo("/admin/home");
       }
     } catch (error) {
       console.error(error);
