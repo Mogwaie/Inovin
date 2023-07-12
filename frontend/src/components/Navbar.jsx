@@ -55,9 +55,15 @@ export default function Navbar() {
 
   return (
     <div className={`nav-container ${showNav ? "" : "hide-navbar"}`}>
-      <Link to="/">
-        <img src={logoInovin} alt="logo website inovin" />
-      </Link>
+      {isUrlAdmin ? (
+        <Link to="/admin">
+          <img src={logoInovin} alt="logo website inovin" />
+        </Link>
+      ) : (
+        <Link to="/">
+          <img src={logoInovin} alt="logo website inovin" />
+        </Link>
+      )}
 
       {isUrlAdmin ? (
         <AdminBurgerMenu
