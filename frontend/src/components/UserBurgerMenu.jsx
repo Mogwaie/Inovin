@@ -31,9 +31,15 @@ export default function UserBurgerMenu({
     <div className="container-burger-menu">
       <div className={`nav-links ${showLinks ? "show-nav" : ""}`}>
         <ul>
-          <li>Profil</li>
-          <li>Atelier</li>
-          <li>Boutique</li>
+          <a href="/profile">
+            <li>Profil</li>
+          </a>
+          <a href="/workshop">
+            <li>Atelier</li>
+          </a>
+          <a href="/wine-selection">
+            <li>Boutique</li>
+          </a>
           <a href="/login">
             <button
               type="submit"
