@@ -38,6 +38,8 @@
   .link-deconnection-admin {
     color: $app-primary-font-color;
     font-size: $font-size-text-tablet;
+    background-color: $app-bg-color;
+    outline: none;
   }
 
   .link-deconnection-admin:hover {
