@@ -56,6 +56,7 @@ export default function Navbar() {
         <UserBurgerMenu
           handleShowLinks={handleShowLinks}
           showLinks={showLinks}
+          setShowLinks={setShowLinks}
           currentUrl={currentUrl}
         />
       )}

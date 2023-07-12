@@ -1,14 +1,25 @@
 import PropTypes from "prop-types";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-export default function UserBurgerMenu({ handleShowLinks, showLinks }) {
+export default function UserBurgerMenu({
+  handleShowLinks,
+  showLinks,
+  setShowLinks,
+}) {
   // hide or show burger menu
   const [showBurger, setShowBurger] = useState(true);
 
   const urlPageListHideBurgerMenu = ["/login", "/sign-up", "/degustation"];
 
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setShowLinks(false);
+    navigate("/");
+  };
 
   useEffect(() => {
     if (urlPageListHideBurgerMenu.find((url) => url === location.pathname)) {
@@ -25,8 +36,16 @@ export default function UserBurgerMenu({ handleShowLinks, showLinks }) {
           <li>Profil</li>
           <li>Atelier</li>
           <li>Boutique</li>
-          <li className="link-deconnection-admin">Déconnexion</li>
+          <button
+            href="#"
+            type="submit"
+            className="link-deconnection-admin"
+            onClick={logout}
+          >
+            Déconnexion
+          </button>
         </ul>
+
         <button
           type="button"
           className={`menu-burger ${showBurger ? "" : "hide-burger-menu"}`}
@@ -42,4 +61,5 @@ export default function UserBurgerMenu({ handleShowLinks, showLinks }) {
 UserBurgerMenu.propTypes = {
   handleShowLinks: PropTypes.func.isRequired,
   showLinks: PropTypes.bool.isRequired,
+  setShowLinks: PropTypes.bool.isRequired,
 };

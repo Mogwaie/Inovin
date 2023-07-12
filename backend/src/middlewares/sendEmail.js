@@ -1,12 +1,18 @@
 const mailer = require("./mailer");
 
 const sendEmail = (req, res, next) => {
+  const review = req.body;
   const emailOptions = {
-    from: "olesia.tur@gmail.com",
-    to: "olesia.tur@wildcodeschool.com",
-    subject: "This is a test email",
-    text: "Hello world",
-    html: "<p>Hello <em>world</em></p>",
+    from: "atelierinovin@gmail.com",
+    to: "olesia.tur@gmail.com",
+    subject: "Nouvel avis sur l'atelier Inovin",
+    html: `
+    <p>Bonjour Cedric,</p>
+    <p>Vous avez reçu un nouvel avis de la part de ${review.firstName} ${review.lastName}.</p>
+    <p>Message : ${review.message}</p>
+    <p>Évaluation : ${review.rating} / 5</p>
+    <p>Si vous souhaitez contacter ${review.firstName}, envoyez-lui un mail à l'adresse suivante: ${review.email} </p>
+  `,
   };
 
   mailer.sendMail(emailOptions, (err, info) => {
