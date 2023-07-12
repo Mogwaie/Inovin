@@ -17,7 +17,9 @@ export default function AdminBurgerMenu({ handleShowLinks, showLinks }) {
           <a href="/admin/wine-list">
             <li>Fiches de vins</li>
           </a>
-          <li className="link-deconnection-admin">Déconnexion</li>
+          <a href="/login">
+            <li className="link-deconnection-admin">Déconnexion</li>
+          </a>
         </ul>
         <button type="button" className="menu-burger" onClick={handleShowLinks}>
           <div className="burger-bar" />

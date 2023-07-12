@@ -21,9 +21,9 @@ function HomeAdmin() {
           </Link>
         </ul>
       </div>
-      <Link to="/login">
+      <a href="/login">
         <p className="link-deconnection-admin">Déconnexion</p>
-      </Link>
+      </a>
     </div>
   );
 }
