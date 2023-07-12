@@ -100,9 +100,8 @@ const router = createBrowserRouter([
       {
         path: "/degustation-profile-admin/:id",
         element: <AdminDegustationProfile />,
-
-        
-        
+      }, 
+      {
         path: "/admin",
         children: [
           {
