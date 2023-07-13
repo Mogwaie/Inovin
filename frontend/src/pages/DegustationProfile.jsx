@@ -51,7 +51,7 @@ function DegustationProfile() {
       <h4 className="title-h4">Ce profil ne vous correspond pas ?</h4>
       <div className="button-deg">
         <Button
-          text="Revenir sur mes préférences "
+          text="Retour "
           onClick={buttonDirection}
           id="Degustation-profile-button"
         />

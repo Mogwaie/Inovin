@@ -1,8 +1,8 @@
 .user-display-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 0 1rem;
+  margin: 0 2rem;
   margin-bottom: 2rem;
   border-bottom: solid 2px $font-family-title-color;
 
@@ -61,7 +61,7 @@
         img {
           width: 29px;
           height: 29px;
-          margin: 0 2rem;
+          margin-left: 2rem;
         }
       }
     }

@@ -12,7 +12,7 @@ export default function AdminBurgerMenu({ handleShowLinks, showLinks }) {
             <li>Membres</li>
           </a>
           <a href="/admin/degustation-profil">
-            <li>Profil de degustation</li>
+            <li>Profils de dégustation</li>
           </a>
           <a href="/admin/wine-list">
             <li>Fiches de vins</li>

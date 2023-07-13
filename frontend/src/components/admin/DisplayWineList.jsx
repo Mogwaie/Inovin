@@ -7,7 +7,7 @@ function DisplayWineList({ wine }) {
     <div className="display-wine-container-for-admin">
       <div className="wine-and-origin">
         <p>{wine.name}</p>
-        <p>Origine: {wine.origin}</p>
+        <p>Origine : {wine.origin}</p>
       </div>
       <div className="date-and-icons-delete-modif">
         <div className="buttons-modif-and-delete">

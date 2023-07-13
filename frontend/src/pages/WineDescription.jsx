@@ -28,7 +28,7 @@ function WineDescription() {
       </div>
       <Link to="/wine-selection">
         <button type="button" className="primary-button ">
-          Revenir à la liste
+          Retour
         </button>
       </Link>
     </div>

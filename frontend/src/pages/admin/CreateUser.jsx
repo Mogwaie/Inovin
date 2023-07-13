@@ -43,7 +43,7 @@ export default function CreateUser() {
           state={email}
           setter={setEmail}
           type="email"
-          placeholder="email*"
+          placeholder="Email*"
         />
         <InputForm
           type="text"

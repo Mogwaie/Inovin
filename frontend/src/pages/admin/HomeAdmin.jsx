@@ -8,13 +8,13 @@ function HomeAdmin() {
       <div className="link-list-home-admin">
         <ul>
           <Link to="/admin/workshop">
-            <li>Atelier de création</li>
+            <li>Atelier de Création</li>
           </Link>
           <Link to="/admin/user-list">
-            <li>Member</li>
+            <li>Membres</li>
           </Link>
           <Link to="/admin/degustation-profil">
-            <li>Profil de Dégustation</li>
+            <li>Profils de Dégustation</li>
           </Link>
           <Link to="/admin/wine-list">
             <li>Fiches de Vins</li>
