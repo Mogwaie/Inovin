@@ -1,12 +1,13 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import profileBottles from "../assets/images/profileBottles.png";
 import profilePicture from "../assets/images/profilePicture.png";
 
 export default function Profile() {
   const navigateTo = useNavigate();
+  const { id } = useParams();
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -18,25 +19,47 @@ export default function Profile() {
   const [city, setCity] = useState("");
   const [fonction, setFonction] = useState("");
 
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`
+      ); // Remplacez l'URL par votre endpoint GET
+
+      const userData = response.data;
+
+      setFirstName(userData.firstname);
+      setLastName(userData.lastname);
+      setEmail(userData.email);
+      // Mettez à jour avec d'autres champs du formulaire si nécessaire
+    } catch (error) {
+      console.error("Erreur lors de la récupération des données :", error);
+      // Gérer l'erreur de récupération des données ici
+    }
+  };
+
+  useEffect(() => {
+    fetchData(); // Appel à la fonction fetchData dès l'ouverture de la page
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const body = {
-      firstName,
-      lastName,
+      firstname: firstName,
+      lastname: lastName,
       email,
       password,
       confirmedPassword,
       adress,
-      zip,
+      zip_code: zip,
       city,
       fonction,
     };
     try {
       const response = await axios.put(
-        "http://www.localhost:4242/api/user/:id",
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/:id`,
         body
       );
-      if (response.status === 201) {
+      if (response.status === 204) {
         console.info("yessssssss");
         toast("Mise à jour ok", {
           position: "bottom-right",
@@ -54,6 +77,7 @@ export default function Profile() {
     }
     navigateTo("/degustation");
   };
+
   return (
     <div className="profilePageDiv">
       <img className="profileBottles" src={profileBottles} alt="Bottles" />
