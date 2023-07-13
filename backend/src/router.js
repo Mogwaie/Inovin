@@ -2,11 +2,29 @@ const express = require("express");
 
 const router = express.Router();
 
+const {
+  hashPassword,
+  verifyPassword,
+  verifyToken,
+} = require("./middlewares/auth");
+
+const { sendEmail } = require("./middlewares/sendEmail");
+
 const itemControllers = require("./controllers/itemControllers");
 const userControllers = require("./controllers/userControllers");
 const cepageControllers = require("./controllers/cepageControllers");
 const reviewControllers = require("./controllers/reviewControllers");
 const tasteControllers = require("./controllers/tasteControllers");
+const wineControllers = require("./controllers/wineControllers");
+const tasteProfileControllers = require("./controllers/tasteProfileControllers");
+const cepageListControllers = require("./controllers/cepageListControllers");
+
+router.post("/users", hashPassword, userControllers.createUser);
+router.post(
+  "/login",
+  userControllers.getUserByEmailWithPasswordAndPassToNext,
+  verifyPassword
+);
 
 router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);
@@ -16,9 +34,15 @@ router.delete("/items/:id", itemControllers.destroy);
 
 router.get("/users", userControllers.getAllUsers);
 router.get("/users/:id", userControllers.getUserById);
-router.post("/users", userControllers.createUser);
 router.put("/users/:id", userControllers.updateUser);
 router.delete("/users/:id", userControllers.destroy);
+router.post(
+  "/userinformation",
+  verifyToken,
+  userControllers.getUserInformation
+);
+
+router.put("/cepageList", cepageListControllers.chooseCeapgesForAtelier);
 
 router.get("/cepages", cepageControllers.findAllCepages);
 router.get("/cepages/:id", cepageControllers.findCepageById);
@@ -32,7 +56,17 @@ router.put("/tastes/:id", tasteControllers.edit);
 router.post("/tastes", tasteControllers.add);
 router.delete("/tastes/:id", tasteControllers.destroy);
 
-router.get("/reviews", reviewControllers.getAllReviews);
-router.post("/reviews", reviewControllers.createNewReview);
+router.post("/reviews", sendEmail, reviewControllers.createNewReview);
+
+router.get("/wines", wineControllers.findAllWines);
+router.get("/wines/:id", wineControllers.findWineById);
+router.put("/wines/:id", wineControllers.editWine);
+router.post("/wines", wineControllers.createNewWine);
+router.delete("/wines/:id", wineControllers.deleteWine);
+
+router.get("/taste-profile", tasteProfileControllers.findAllTasteProfile);
+router.get("/taste-profile/:id", tasteProfileControllers.findTasteProfileById);
+router.put("/taste-profile/:id", tasteProfileControllers.editTasteProfile);
+router.delete("/taste-profile/:id", tasteProfileControllers.deleteTasteProfile);
 
 module.exports = router;

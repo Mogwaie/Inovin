@@ -1,0 +1,57 @@
+.error_message {
+  color: aqua;
+}
+
+.container_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50vw;
+  height: 85vh;
+  margin: auto;
+
+  .container_form_city {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+  }
+  input {
+    width: 45%;
+    margin-top: 35px;
+    border: none;
+    border-bottom: 1px solid $font-family-title-color;
+    background-color: $app-bg-color;
+    color: $font-family-title-color;
+    @media (min-width: $app-desktop) {
+      width: 50%;
+    }
+  }
+  input:focus {
+    outline: none;
+  }
+  .form_input_component {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    @media (min-width: $app-desktop) {
+      width: 50%;
+    }
+  }
+  .form_navigate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .primary-button {
+      margin-top: 30px;
+    }
+    .form_login_link {
+      text-decoration: none;
+      color: $font-family-title-color;
+      margin-top: 1em;
+      &:hover {
+        color: $app-supporting-color2;
+      }
+    }
+  }
+}

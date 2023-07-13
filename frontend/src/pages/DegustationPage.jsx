@@ -1,14 +1,13 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 import SliderUser from "../components/SliderUser";
 import Button from "../components/Button";
 
 function DegustationPage() {
-  const navigateTo = useNavigate();
-
-  const navigateToDesgustationProfilePage = async () => {
-    navigateTo("/workshop");
+  const id = 1;
+  const urlDegustationProfile = `/degustation-profile/${id}`;
+  const handleClick = async () => {
+    console.info("test");
   };
   return (
     <div className="DegustationPage" id="DegustationPage">
@@ -19,41 +18,43 @@ function DegustationPage() {
       <div className="taste-slider-main-ctn">
         <div className="taste-slider-ctn">
           <div className="taste-slider">
-            <SliderUser tasteName="Fruits Rouge" />
+            <SliderUser tasteName="Châteauneuf-du-Pape" />
           </div>
           <div className="taste-slider">
-            <SliderUser tasteName="Pêche" />
+            <SliderUser tasteName="Château Margaux" />
           </div>
           <div className="taste-slider">
-            <SliderUser tasteName="Thé" />
+            <SliderUser tasteName="Beaujolais Nouveau" />
           </div>
           <div className="taste-slider">
-            <SliderUser tasteName="Café" />
+            <SliderUser tasteName="Domaine de la Romanée-Conti" />
           </div>
         </div>
 
         <div className="taste-slider-ctn">
           <div className="taste-slider">
-            <SliderUser tasteName="Amertume" />
+            <SliderUser tasteName="Le Sancerre Blanc" />
           </div>
           <div className="taste-slider">
-            <SliderUser tasteName="Sucre" />
+            <SliderUser tasteName="Pouilly-Fuissé" />
           </div>
           <div className="taste-slider">
-            <SliderUser tasteName="Miel" />
+            <SliderUser tasteName="Châteauneuf-du-Pape Blanc" />
           </div>
           <div className="taste-slider">
-            <SliderUser tasteName="Terre" />
+            <SliderUser tasteName="Château Yquem" />
           </div>
         </div>
       </div>
 
       <div className="btn-navigate">
-        <Button
-          text="Terminer"
-          onClick={navigateToDesgustationProfilePage}
-          id="degutation-page-btn"
-        />
+        <a href={urlDegustationProfile}>
+          <Button
+            text="Terminer"
+            onClick={handleClick}
+            id="degutation-page-btn"
+          />
+        </a>
       </div>
     </div>
   );

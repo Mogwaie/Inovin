@@ -12,6 +12,7 @@ CREATE TABLE `user` (
   `zip_code` integer,
   `city` varchar(255),
   `job` varchar(255),
+  `hashedPassword` varchar(255) NOT NULL,
   `is_admin` integer,
   `taste_profile_id` integer,
   `receipe_id` integer
@@ -54,6 +55,16 @@ CREATE TABLE `cepage_level` (
   `level` integer
 );
 
+DROP TABLE IF EXISTS `cepage_list`;
+CREATE TABLE `cepage_list` (
+  `cepage_list_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
+  `cepageOne` VARCHAR(255),
+  `cepageTwo` VARCHAR(255),
+  `cepageThree` VARCHAR(255),
+  `cepageFour` VARCHAR(255)
+);
+
+
 DROP TABLE IF EXISTS `cepage`;
 CREATE TABLE `cepage` (
   `cepage_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -64,9 +75,9 @@ CREATE TABLE `cepage` (
 DROP TABLE IF EXISTS `review`;
 CREATE TABLE `review` (
   `review_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(255),
-  `user_last_name` varchar(255),
-  `user_email` varchar(255),
+  `firstName` varchar(255),
+  `lastName` varchar(255),
+  `email` varchar(255),
   `message` TEXT,
   `rating` integer
 );
@@ -88,18 +99,18 @@ ALTER TABLE `cepage` ADD FOREIGN KEY (`taste_profile_id`) REFERENCES `taste_prof
 INSERT INTO taste (name) 
 VALUES ('Châteauneuf-du-Pape'), ('Château Margaux'), ('Beaujolais Nouveau'), ('Domaine de la Romanée-Conti'), ('Le Sancerre Blanc'), ('Pouilly-Fuissé'), ('Châteauneuf-du-Pape Blanc'), ('Château Yquem');
 
-INSERT INTO user (firstname, lastname, email, address, zip_code, city, job, is_admin)
+INSERT INTO user (firstname, lastname, email, address, zip_code, city, job, hashedPassword, is_admin)
 VALUES 
-  ('Valeriy', 'Appius', 'valeriy.appius@example.com', '4 rue react', '33300', 'bordeaux', "dev", "0"),
-  ('Alice', 'Johnson', 'alice.johnson@example.com', '10 rue du Paradis', '75001', 'Paris', 'Ingénieur', '0'),
-  ('Robert', 'Brown', 'robert.brown@example.com', '15 rue vue', '10001', 'New York', 'Architecte', '0'),
-  ('Sophie', 'Garcia', 'sophie.garcia@example.com', '22 Avenue de la Liberté', '69002', 'Lyon', 'Avocate', '0'),
-  ('Maxime', 'Dubois', 'maxime.dubois@example.com', '5 Calle Principal', '28001', 'Madrid', 'Consultant', '0'),
-  ('Julia', 'Lee', 'julia.lee@example.com', '7 Elm Street', '90001', 'Los Angeles', 'Designer', '0'),
-  ('Alexandre', 'Moreau', 'alexandre.moreau@example.com', '27 Rue de la Paix', '75008', 'Paris', 'Comptable', '0'),
-  ('Laura', 'Sanchez', 'laura.sanchez@example.com', '14 Calle del Sol', '28002', 'Madrid', 'Infirmière', '0'),
-  ('Thomas', 'Rousseau', 'thomas.rousseau@example.com', '3 Avenue des Champs-Élysées', '75009', 'Paris', 'Journaliste', '0'),
-  ('john', 'doe', 'j.do@example.com', '3 Avenue angular', '75009', 'Paris', 'Journaliste', '0');
+  ('Valeriy', 'Appius', 'valeriy.appius@example.com', '4 rue react', '33300', 'bordeaux', "dev", "$argon2id$v=19$m=16,t=2,p=1$emVmZXpmemZlemVmZWR6ZXplZg$rqZkhxu5YbqCGHPNrjJZpQ", "0"),
+  ('Alice', 'Johnson', 'alice.johnson@example.com', '10 rue du Paradis', '75001', 'Paris', 'Ingénieur', '$argon2id$v=19$m=16,t=2,p=1$emVmemVmemZlemZ6ZnpmZQ$eSetR6KPUNAGW+q+wDadcw', '0'),
+  ('Robert', 'Brown', 'robert.brown@example.com', '15 rue vue', '10001', 'New York', 'Architecte', '$argon2id$v=19$m=16,t=2,p=1$emVmemVmemZlemZ6ZnpmZXphZGF6ZGQ$a0bg5DZB6H6v3jjQC81DXg', '0'),
+  ('Sophie', 'Garcia', 'sophie.garcia@example.com', '22 Avenue de la Liberté', '69002', 'Lyon', 'Avocate', '$argon2id$v=19$m=16,t=2,p=1$emVmemVmemZlenplZHpkZnpmemZlemFkYXpkZA$V1qAnJDyMuuWG7g9yoGYXA', '0'),
+  ('Maxime', 'Dubois', 'maxime.dubois@example.com', '5 Calle Principal', '28001', 'Madrid', 'Consultant', '$argon2id$v=19$m=16,t=2,p=1$emVmemVmemZlenplZHpkZGZ6ZnpmZXphZGF6ZGQ$VCzq45PL9t8khtc44Kk5iw', '0'),
+  ('Julia', 'Lee', 'julia.lee@example.com', '7 Elm Street', '90001', 'Los Angeles', 'Designer', '$argon2id$v=19$m=16,t=2,p=1$emVmemVmemVmemZlenplZHpkZGZ6ZnpmZXphZGF6ZGQ$UKaGZ9hGFn/S5SBQDMe/Uw','0'),
+  ('Alexandre', 'Moreau', 'alexandre.moreau@example.com', '27 Rue de la Paix', '75008', 'Paris', 'Comptable', '$argon2id$v=19$m=65536,t=5,p=1$6F4WFjpSx9bSq9k4lp2fiQ$cjVgCHF/voka5bZI9YAainiaT+LkaQxfNN638b/h4fQ','0'),
+  ('Laura', 'Sanchez', 'laura.sanchez@example.com', '14 Calle del Sol', '28002', 'Madrid', 'Infirmière', '$argon2id$v=19$m=65536,t=5,p=1$6F4WFjpSx9bSq9k4lp2fiQ$cjVgCHF/voka5bZI9YAainiaT+LkaQxfNN638b/h4fQ','0'),
+  ('Thomas', 'Rousseau', 'thomas.rousseau@example.com', '3 Avenue des Champs-Élysées', '75009', 'Paris', 'Journaliste', '$argon2id$v=19$m=65536,t=5,p=1$6F4WFjpSx9bSq9k4lp2fiQ$cjVgCHF/voka5bZI9YAainiaT+LkaQxfNN638b/h4fQ', '0'),
+  ('john', 'doe', 'j.do@example.com', '3 Avenue angular', '75009', 'Paris', 'Journaliste', '$argon2id$v=19$m=65536,t=5,p=1$6F4WFjpSx9bSq9k4lp2fiQ$cjVgCHF/voka5bZI9YAainiaT+LkaQxfNN638b/h4fQ','0');
 
 INSERT INTO taste_profile (name, description) 
 VALUES 
@@ -111,6 +122,10 @@ VALUES
 ("frais et vifs", "Vous préférez les vins blancs, vous serez enchanté par ceux qui sont frais, vifs et dotés d'une belle acidité. Ces vins offrent des arômes délicats d'agrumes, de fleurs blanches et peuvent présenter une subtile minéralité. Ils sont particulièrement appréciés en apéritif, avec des fruits de mer ou des salades légères."),
 ("riches et complexes", "Vous recherchez des vins blancs plus riches et complexes, vous apprécierez ceux qui offrent une belle structure, des arômes de fruits exotiques, de miel et des nuances épicées. Ils sont parfaits pour accompagner des plats plus élaborés ou pour déguster en tant qu'expérience sensorielle à part entière."),
 ("doux et liquoreux", "Les vins doux et liquoreux vous séduiront par leur richesse et leur onctuosité. Ces vins offrent des arômes intenses de fruits confits, de miel et d'épices douces. Ils sont parfaits en accompagnement de desserts ou pour déguster avec un foie gras.");
+
+INSERT INTO cepage_list (cepageOne, cepageTwo, cepageThree, cepageFour)
+VALUES
+('CepageOne', 'CepageTwo', 'CepageThree', 'CepageFour');
 
 INSERT INTO cepage (name, taste_profile_id)
 VALUES

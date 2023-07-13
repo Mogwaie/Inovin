@@ -1,0 +1,23 @@
+.page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    margin-top: 5%;
+  }
+}
+
+.scrolling-container {
+  height: 60vh;
+  position: relative;
+  width: 80%;
+  padding: 0 0 0 0;
+  margin: 10% 0 0 0;
+  overflow-y: scroll;
+
+  p {
+    font-family: $app-primary-font;
+  }
+}

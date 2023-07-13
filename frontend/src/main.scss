@@ -4,15 +4,57 @@
 @import "./assets/styles/pages/workshop.scss";
 @import "./assets/styles/pages/reviewsPage.scss";
 @import "./assets/styles/pages/degustationPage.scss";
+@import "./assets/styles/pages/profilePage";
 @import "./assets/styles/pages/login";
 
 @import "./assets/styles/components/navbar.scss";
 @import "./assets/styles/components/burgerMenu.scss";
-@import "./assets/styles/components/signUp.scss";
-@import "./assets/styles/components/inputPassword";
-@import "./assets/styles/components/inputEmail";
+@import "./assets/styles/pages/signUp.scss";
+@import "./assets/styles/pages/passwordResetForm";
+@import "./assets/styles/components/inputForm";
+@import "./assets/styles/pages/degustation-profile";
+@import "./assets/styles/pages/leagalNotice";
 @import "./assets/styles/components/sliderUser.scss";
+@import "./assets/styles/components/cardWine";
+@import "./assets/styles/pages/wineSelection";
+@import "./assets/styles/pages/wineDescription";
+@import "./assets/styles/pages/degustation-profile";
+@import "./assets/styles/pages/forgottenpassword";
+@import "./assets/styles/pages/page404";
+@import "./assets/styles/pages/page500";
+@import "./assets/styles/components/modalPopup";
 
+//admin
+@import "./assets/styles/components/admin/searchBar";
+@import "./assets/styles/components/admin/sliderAdmin";
+@import "./assets//styles/components/admin/displayUserList";
+@import "./assets/styles/pages/admin/userList";
+@import "./assets/styles/components/admin/displayWineList";
+@import "./assets//styles/pages/admin/wineList";
+@import "./assets/styles/components/admin/displayDegustationProfil";
+@import "./assets/styles/pages/admin/tasteProfil";
+@import "./assets/styles/pages/admin/winedescriptionModif";
+@import "./assets/styles/pages/admin/createUser";
+@import "./assets/styles/components/admin/ModifButton";
+@import "./assets/styles/pages/admin/tastingSheetModif";
+@import "./assets/styles/pages/admin/homeAdmin";
+@import "./assets/styles/pages/admin/atelierCreation";
+@import "./assets/styles/pages/admin/adminDegustationProfile";
+
+:root {
+  .Toastify__toast-theme--colored.Toastify__toast--default {
+    background: $app-primary-font-color;
+    color: #444c63;
+    text-align: left;
+  }
+  .Toastify__toast-body {
+    font-size: 19px;
+    line-height: 20px;
+    width: 70%;
+    font-weight: 600;
+    margin-left: 25px;
+  }
+}
 *,
 *::before,
 *::after {
@@ -52,6 +94,14 @@ p {
   @include primary-button-phone;
 }
 
+.secondary-button {
+  @include secondary-button-phone;
+}
+
+.modification-button {
+  @include button-pen-modification(2rem, 2rem);
+}
+
 /* search bar */
 .search-bar-phone {
   @include search-bar(10rem, 3rem, $font-size-text-phone);
@@ -77,6 +127,10 @@ p {
   .primary-button {
     @include primary-button-tablet;
   }
+
+  .secondary-button {
+    @include primary-secondary-tablet-desktop;
+  }
 }
 
 @media screen and (min-width: $app-desktop) {
@@ -94,5 +148,9 @@ p {
 
   .primary-button {
     @include primary-button-desktop;
+  }
+
+  .secondary-button {
+    @include primary-secondary-tablet-desktop;
   }
 }

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
+import ModifButton from "./admin/ModifButtonPen";
 
 function SliderRating(props) {
   const { maxRating, onChange, tasteName } = props;
@@ -14,7 +15,10 @@ function SliderRating(props) {
   return (
     <div className="SliderRating">
       <div className="taste-info">
-        <div className="taste-name">{tasteName}</div>
+        <div className="name-and-button-modif">
+          <div className="taste-name">{tasteName}</div>
+          <ModifButton />
+        </div>
         <div className="taste-rating">{rating}</div>
       </div>
 

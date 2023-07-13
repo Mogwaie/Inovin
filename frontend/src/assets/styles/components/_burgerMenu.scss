@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: space-around;
     position: fixed;
-    height: 90vh;
+    height: 93vh;
     right: -100vw;
     bottom: 0;
     top: 4rem;
@@ -38,6 +38,8 @@
   .link-deconnection-admin {
     color: $app-primary-font-color;
     font-size: $font-size-text-tablet;
+    background-color: $app-bg-color;
+    outline: none;
   }
 
   .link-deconnection-admin:hover {

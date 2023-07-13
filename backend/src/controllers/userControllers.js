@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 const models = require("../models");
 
 const getAllUsers = (req, res) => {
@@ -30,6 +31,7 @@ const getUserById = (req, res) => {
 
 const createUser = (req, res) => {
   const user = req.body;
+  user.is_admin = 0;
 
   models.user
     .addUser(user)
@@ -78,10 +80,53 @@ const destroy = (req, res) => {
     });
 };
 
+const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
+  models.user
+    .findUserByEmail(req.body)
+    .then(([users]) => {
+      if (users[0] != null) {
+        [req.user] = users;
+        next();
+      } else {
+        res.sendStatus(401);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error retrieving data from database");
+    });
+};
+
+const getUserInformation = (req, res) => {
+  const userId = req.user_id;
+
+  models.user
+    .find(userId)
+    .then(([user]) => {
+      if (user) {
+        const userInfo = {
+          name: user[0].firstname,
+          surname: user[0].lastname,
+          email: user[0].email,
+        };
+        res.status(200).json(userInfo);
+      } else {
+        res.sendStatus(404);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+
 module.exports = {
   getAllUsers,
   getUserById,
   createUser,
   updateUser,
   destroy,
+  getUserByEmailWithPasswordAndPassToNext,
+  getUserInformation,
 };

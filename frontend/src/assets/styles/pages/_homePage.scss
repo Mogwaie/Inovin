@@ -30,11 +30,11 @@
       background-color: transparent;
       cursor: pointer;
 
-    &:hover {
-      background-color: $app-primary-font-color;
-      color: $app-bg-color;
-      border: solid 2px $app-primary-font-color;
-  }
+      &:hover {
+        background-color: $app-primary-font-color;
+        color: $app-bg-color;
+        border: solid 2px $app-primary-font-color;
+      }
     }
   }
 
@@ -92,23 +92,19 @@
       height: 100vh;
       width: 100vw;
     }
-    }
   }
-
-
-@media screen and (min-width: $app-desktop) {
- .homeBorderDiv {
-  height: 80vh;
-  width: 85vw;
- }
- .homeContentDiv {
-  padding-top: 10vh;
-  padding-bottom: 10vh;
- }
- #homeButton {
-  margin-top: 10vh !important;
- }
 }
 
-
-
+@media screen and (min-width: $app-desktop) {
+  .homeBorderDiv {
+    height: 80vh;
+    width: 85vw;
+  }
+  .homeContentDiv {
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+  }
+  #homeButton {
+    margin-top: 10vh !important;
+  }
+}

@@ -7,7 +7,7 @@ class UserManager extends AbstractManager {
 
   addUser(user) {
     return this.database.query(
-      `insert into ${this.table} (firstname, lastname, email, address, zip_code, city, job, is_admin ) values (?, ?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (firstname, lastname, email, address, zip_code, city, job, hashedPassword, is_admin ) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         user.firstname,
         user.lastname,
@@ -16,6 +16,7 @@ class UserManager extends AbstractManager {
         user.zip_code,
         user.city,
         user.job,
+        user.hashedPassword,
         user.is_admin,
       ]
     );
@@ -37,5 +38,12 @@ class UserManager extends AbstractManager {
       ]
     );
   }
+
+  findUserByEmail(user) {
+    return this.database.query(`select * from ${this.table} where email = ?`, [
+      user.email,
+    ]);
+  }
 }
+
 module.exports = UserManager;
