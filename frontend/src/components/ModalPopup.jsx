@@ -20,7 +20,7 @@ function ModalPopup({ message, onClose }) {
     setTimeout(() => {
       setConfirmationMessage("Confirmation message from backend");
       setTimeout(handleClose, 3000); // Close the popup after 3 seconds
-    }, 1500); // Simulating backend response delay
+    }, 1000); // Simulating backend response delay
     // You can make an actual API call here to fetch the confirmation message
     // and handle the response accordingly
   };
