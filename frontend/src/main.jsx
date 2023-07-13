@@ -114,9 +114,6 @@ const router = createBrowserRouter([
         element: <Page500 />,
       },
       {
-
-        
-
         path: "/admin",
         children: [
           {
@@ -159,12 +156,11 @@ const router = createBrowserRouter([
             path: "workshop",
             element: <AtelierCreation />,
           },
-          {path: "/degustation-profile-admin/:id",
-        element: <AdminDegustationProfile />
+          {
+            path: "/degustation-profile-admin/:id",
+            element: <AdminDegustationProfile />,
           },
-           
         ],
-
       },
     ],
   },
