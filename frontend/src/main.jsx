@@ -142,7 +142,7 @@ const router = createBrowserRouter([
           },
           {
             path: "/degustation-profile-admin/:id",
-            element: <AdminDegustationProfile />
+            element: <AdminDegustationProfile />,
           },    
         ],
       },
