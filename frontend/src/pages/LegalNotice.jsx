@@ -17,23 +17,33 @@ function LeagalNoticePage() {
         </p>
         <br />
         <p>
-          ARTICLE 2 : Un mec complètement bourré vient sonner avec insistance
-          chez des gens en pleine nuit. L' homme de la maison se lève et demande
-          furieux : " Qu'est-ce que tu veux ?" L' autre lui répond : "Viens me
-          pousser !!! Il faut que tu viennes me pousser !!!!" Excédé le
-          propriétaire de la maison lui dit : "Je ne te connais pas, et en plus
-          il est 4 heures du matin, tu me réveilles pour me dire de te pousser
-          et j'en ai pas envie, alors dégage d'ici et ne me dérange plus !!!" De
-          retour dans la chambre, il se remet au lit, mais sa femme qui a tout
-          entendu, le sermonne : "Quand même tu exagères, cela t'est déjà arrivé
-          d'être en panne la nuit, tu aurais pu le pousser ce pauvre type ! -
-          Ouais, mais il fait froid et en plus il est bourré !!! - Raison de
-          plus pour l'aider, il ne va pas y parvenir tout seul. Non ? Vraiment,
-          je ne te reconnais pas, je suis très déçue de ton attitude...!!!" Son
-          mari, pris de remords, se rhabille et descend. Il ouvre la porte et
-          crie : "Hé mec !!! C'est d' accord, je me suis habillé exprès pour
-          venir te pousser !!! Tu es où ?" Et le mec bourré répond : "Là , sur
-          la balançoire !!!!!!!!"
+          Nom de la société : [Nom de la société] Forme juridique : [Forme
+          juridique de la société] Adresse : [Adresse de la société] Téléphone :
+          [Numéro de téléphone de la société] Email : [Adresse e-mail de la
+          société] Directeur de publication : Nom du directeur de publication :
+          [Nom du directeur de publication] Adresse : [Adresse du directeur de
+          publication] Téléphone : [Numéro de téléphone du directeur de
+          publication] Email : [Adresse e-mail du directeur de publication]
+          Hébergeur du site : Nom de l'hébergeur : [Nom de l'hébergeur] Adresse
+          : [Adresse de l'hébergeur] Téléphone : [Numéro de téléphone de
+          l'hébergeur] Email : [Adresse e-mail de l'hébergeur] Protection des
+          données personnelles : Conformément à la loi [mentionner la loi
+          applicable en matière de protection des données personnelles], les
+          informations recueillies via ce site sont destinées à [Nom de la
+          société] et ne seront utilisées que dans le cadre de la finalité pour
+          laquelle elles ont été collectées. Vous disposez d'un droit d'accès,
+          de rectification et de suppression des données vous concernant. Pour
+          exercer ces droits, veuillez nous contacter à l'adresse [Adresse
+          e-mail de contact]. Propriété intellectuelle : L'ensemble du contenu
+          de ce site, y compris les textes, images, vidéos, logos, etc., est
+          protégé par les lois sur la propriété intellectuelle. Toute
+          reproduction, distribution ou utilisation sans autorisation préalable
+          de [Nom de la société] est strictement interdite. Responsabilité :
+          Nous nous efforçons de maintenir les informations de ce site à jour et
+          exactes. Cependant, nous ne pouvons pas garantir l'exactitude,
+          l'exhaustivité ou la pertinence des informations fournies. En
+          conséquence, nous déclinons toute responsabilité quant aux éventuelles
+          erreurs, omissions ou dommages résultant de l'utilisation de ce site.
         </p>
       </div>
     </div>
