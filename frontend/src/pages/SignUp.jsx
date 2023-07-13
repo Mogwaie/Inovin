@@ -53,7 +53,7 @@ function Signup() {
           progress: undefined,
           theme: "colored",
         });
-        navigate("/degustation");
+        navigate("/login");
       }
     } catch (err) {
       console.error(err);

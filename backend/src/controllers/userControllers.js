@@ -108,6 +108,10 @@ const getUserInformation = (req, res) => {
           name: user[0].firstname,
           surname: user[0].lastname,
           email: user[0].email,
+          adress: user[0].address,
+          zip: user[0].zip_code,
+          city: user[0].city,
+          fonction: user[0].job,
         };
         res.status(200).json(userInfo);
       } else {
@@ -119,7 +123,6 @@ const getUserInformation = (req, res) => {
       res.sendStatus(500);
     });
 };
-
 
 module.exports = {
   getAllUsers,

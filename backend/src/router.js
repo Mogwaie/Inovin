@@ -20,6 +20,7 @@ const tasteProfileControllers = require("./controllers/tasteProfileControllers")
 const cepageListControllers = require("./controllers/cepageListControllers");
 
 router.post("/users", hashPassword, userControllers.createUser);
+
 router.post(
   "/login",
   userControllers.getUserByEmailWithPasswordAndPassToNext,

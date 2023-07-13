@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import profileBottles from "../assets/images/profileBottles.png";
 import profilePicture from "../assets/images/profilePicture.png";
@@ -11,12 +11,39 @@ export default function Profile() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmedPassword, setConfirmedPassword] = useState("");
   const [adress, setAdress] = useState("");
   const [zip, setZip] = useState("");
   const [city, setCity] = useState("");
   const [fonction, setFonction] = useState("");
+
+  useEffect(() => {
+    const fetchUserInformation = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const response = await axios({
+          method: "POST",
+          url: "http://www.localhost:4242/api/userinformation",
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (response.status === 200) {
+          const userInfo = response.data;
+          console.error(response.data);
+          setFirstName(userInfo.name);
+          setLastName(userInfo.surname);
+          setEmail(userInfo.email);
+          setAdress(userInfo.adress);
+          setZip(userInfo.zip);
+          setCity(userInfo.city);
+          setFonction(userInfo.fonction);
+        } else {
+          console.error("User information not found");
+        }
+      } catch (error) {
+        console.error("Can not get user data", error);
+      }
+    };
+    fetchUserInformation();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,8 +51,6 @@ export default function Profile() {
       firstName,
       lastName,
       email,
-      password,
-      confirmedPassword,
       adress,
       zip,
       city,
@@ -83,20 +108,6 @@ export default function Profile() {
             placeholder="Email *"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            className="longInput"
-            type="text"
-            placeholder="Mot de passe *"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <input
-            className="longInput"
-            type="text"
-            placeholder="Confirmer mot de passe *"
-            value={confirmedPassword}
-            onChange={(e) => setConfirmedPassword(e.target.value)}
           />
           <input
             className="longInput"
