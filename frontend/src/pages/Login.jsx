@@ -36,14 +36,14 @@ export default function Login() {
 
   return (
     <div className="login-container-page">
-      <h2>Accéder à notre compte</h2>
+      <h2>Accéder à votre compte</h2>
 
       <form onSubmit={handleSubmit}>
         <InputForm
           state={emailLogin}
           setter={setEmailLogin}
           type="email"
-          placeholder="email*"
+          placeholder="Email*"
         />
         <InputForm
           state={passwordLogin}

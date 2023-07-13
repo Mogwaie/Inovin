@@ -46,13 +46,20 @@
   @include flex-vertical;
   @include center;
   width: 100%;
-
   margin: 1% 0% 1%;
   padding: 3%;
+
+  .taste-name {
+    margin-right: 1rem;
+  }
 
   .name-and-button-modif {
     display: flex;
     align-items: center;
+
+    .hide-button-modif {
+      display: none;
+    }
   }
 
   .my-slider {

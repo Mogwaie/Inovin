@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import SliderAdmin from "./SliderAdmin";
-import deleteButton from "../../assets/images/deleteButton.svg";
 import modifButton from "../../assets/images/modifButton.png";
 
 function DisplayUserList({ user }) {
@@ -19,7 +18,6 @@ function DisplayUserList({ user }) {
           <SliderAdmin />
         </div>
         <div className="buttons-modif-and-delete">
-          <img src={deleteButton} alt="button delete a user" />
           <img src={modifButton} alt="button modify a user" />
         </div>
       </div>

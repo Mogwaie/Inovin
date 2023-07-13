@@ -112,7 +112,7 @@ export default function WineDescriptionModif() {
 
         <div className="buttons-delete-and-back">
           <button type="submit" className="primary-button ">
-            Mettre à jour
+            Valider
           </button>
 
           <button
