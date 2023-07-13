@@ -6,7 +6,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  object-fit:cover;
+  object-fit: cover;
 }
 
 .page-border {
@@ -27,7 +27,7 @@
       height: 50px;
     }
     p {
-      font-family:$app-primary-font;
+      font-family: $app-primary-font;
     }
   }
 }
@@ -39,11 +39,10 @@
   .page-ctn {
     H2 {
       margin: 2rem;
-
     }
     p {
-      font-family:$app-primary-font;
-        margin: 1rem;
+      font-family: $app-primary-font;
+      margin: 1rem;
     }
   }
 }
@@ -52,11 +51,10 @@
   .page-ctn {
     H2 {
       margin: 2rem;
-
     }
     p {
-      font-family:$app-primary-font;
-        margin: 1rem;
+      font-family: $app-primary-font;
+      margin: 1rem;
     }
   }
 }

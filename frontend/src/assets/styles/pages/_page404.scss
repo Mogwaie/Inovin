@@ -31,16 +31,15 @@
 }
 
 @media screen and (min-width: $app-tablet) {
-
   .back-img {
-  height: 85vh;
-  width: 88vw;
+    height: 85vh;
+    width: 88vw;
   }
 
   .page-border {
-  border: 3px solid $app-primary-font-color;
-  width: 90vw;
-  height: 88vh;
+    border: 3px solid $app-primary-font-color;
+    width: 90vw;
+    height: 88vh;
   }
   .page-ctn {
     H2 {

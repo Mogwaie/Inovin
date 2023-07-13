@@ -1,16 +1,16 @@
 .cepageInput {
-    background-color: transparent;
-    border-right: none;
-    border-top: none;
-    margin-bottom: 5vh;
-    width: 40vw;
-    font-size: 14px;
-    color: $font-family-title-color;
-    text-align: center;
+  background-color: transparent;
+  border-right: none;
+  border-top: none;
+  margin-bottom: 5vh;
+  width: 40vw;
+  font-size: 14px;
+  color: $font-family-title-color;
+  text-align: center;
 }
 
 @media screen and (min-width: $app-desktop) {
-    .cepageInput {
-      width: 15vw !important;
-    }
+  .cepageInput {
+    width: 15vw !important;
   }
+}

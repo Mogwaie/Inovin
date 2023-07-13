@@ -22,7 +22,7 @@ export default function Profile() {
         const token = localStorage.getItem("token");
         const response = await axios({
           method: "POST",
-          url: "http://www.localhost:4242/api/userinformation",
+          url: `${import.meta.env.VITE_BACKEND_URL}/api/userinformation`,
           headers: { Authorization: `Bearer ${token}` },
         });
         if (response.status === 200) {
@@ -48,20 +48,20 @@ export default function Profile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const body = {
-      firstName,
-      lastName,
+      firstname: firstName,
+      lastname: lastName,
+      address: adress,
+      zip_code: zip,
       email,
-      adress,
-      zip,
       city,
-      fonction,
+      job: fonction,
     };
     try {
       const response = await axios.put(
-        "http://www.localhost:4242/api/user/:id",
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/:id`,
         body
       );
-      if (response.status === 201) {
+      if (response.status === 204) {
         console.info("yessssssss");
         toast("Mise à jour ok", {
           position: "bottom-right",
