@@ -141,7 +141,7 @@ const router = createBrowserRouter([
             element: <AtelierCreation />,
           },
           {
-            path: "/degustation-profile-admin/:id",
+            path: "degustation-profile-admin/:id",
             element: <AdminDegustationProfile />,
           },
         ],
