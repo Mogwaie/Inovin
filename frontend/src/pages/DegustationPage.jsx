@@ -7,7 +7,6 @@ import { DegustationProfilContext } from "../context/DegustationProfilContext";
 
 function DegustationPage() {
   const { tasteIdRating } = useContext(DegustationProfilContext);
-  let highestRating = 0;
   const [id, setId] = useState(1);
   const urlDegustationProfile = `/degustation-profile/${id}`;
 
@@ -22,16 +21,13 @@ function DegustationPage() {
   }, []);
 
   useEffect(() => {
-    for (let i = 0; i < tasteIdRating.length; i += 1) {
-      if (tasteIdRating[i].rating >= highestRating) {
-        highestRating = tasteIdRating[i].rating;
-      }
-    }
-    for (let i = 0; i < tasteIdRating.length; i += 1) {
-      if (tasteIdRating[i].rating === highestRating) {
-        setId(tasteIdRating[i].id);
-      }
-    }
+    setId(
+      tasteIdRating.find(
+        (element) =>
+          element.rating ===
+          Math.max(...tasteIdRating.map((item) => item.rating))
+      ).id
+    );
   }, [tasteIdRating]);
 
   return (
