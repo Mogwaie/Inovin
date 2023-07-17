@@ -1,6 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import Button from "../components/Button";
 
 function LeagalNoticePage() {
+  const navigate = useNavigate();
+
+  const backToHome = () => {
+    navigate("/sign-up");
+  };
+
   return (
     <div className="page-content">
       <h2>Conditions d’utilisation</h2>
@@ -45,6 +53,9 @@ function LeagalNoticePage() {
           conséquence, nous déclinons toute responsabilité quant aux éventuelles
           erreurs, omissions ou dommages résultant de l'utilisation de ce site.
         </p>
+      </div>
+      <div className="btn-home">
+        <Button text="Retour" onClick={backToHome} id="error-page-btn" />
       </div>
     </div>
   );

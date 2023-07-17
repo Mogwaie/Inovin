@@ -25,6 +25,7 @@ import PasswordResetForm from "./pages/PasswordResetForm";
 import ForgottenPassword from "./pages/ForgottenPassword";
 import Page404 from "./pages/Page404";
 import Page500 from "./pages/Page500";
+import LegalNoticePage from "./pages/LegalNotice";
 
 import HomeAdmin from "./pages/admin/HomeAdmin";
 import UserList from "./pages/admin/UserList";
@@ -119,8 +120,8 @@ const router = createBrowserRouter([
         element: <AdminTest />,
       },
       {
-        path: "/page-500",
-        element: <Page500 />,
+        path: "/mentions-legales",
+        element: <LegalNoticePage />,
       },
 
       {
