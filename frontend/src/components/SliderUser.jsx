@@ -5,11 +5,13 @@ import pen from "../assets/images/pen.png";
 import { DegustationProfilContext } from "../context/DegustationProfilContext";
 
 function SliderRating(props) {
-  const { maxRating, onChange, tasteName } = props;
+  const { maxRating, onChange, tasteName, id } = props;
   const [rating, setRating] = useState(0);
   const [showModifImg, setShowModifImg] = useState(true);
 
-  const { tasteIdRating } = useContext(DegustationProfilContext);
+  const { tasteIdRating, setTasteIdRating } = useContext(
+    DegustationProfilContext
+  );
 
   const location = useLocation();
   const hideModifImgUrl = ["/degustation"];
@@ -29,6 +31,16 @@ function SliderRating(props) {
     setRating(newRating);
     onChange(newRating);
   };
+
+  useEffect(() => {
+    const tasteIdRatingCopy = [...tasteIdRating];
+    for (let i = 0; i < tasteIdRatingCopy.length; i + 1) {
+      if (tasteIdRatingCopy[i].id === id) {
+        tasteIdRatingCopy[i].rating = rating;
+      }
+    }
+    setTasteIdRating(tasteIdRatingCopy);
+  }, [rating]);
 
   useEffect(() => {
     console.info(tasteIdRating);
@@ -63,7 +75,7 @@ function SliderRating(props) {
 
 SliderRating.propTypes = {
   maxRating: PropTypes.number.isRequired,
-  // id: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
   tasteName: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
