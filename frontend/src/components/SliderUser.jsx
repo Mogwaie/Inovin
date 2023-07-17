@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import ModifButton from "./admin/ModifButtonPen";
+import { useLocation } from "react-router-dom";
+import pen from "../assets/images/pen.png";
 
 function SliderRating(props) {
   const { maxRating, onChange, tasteName, id } = props;
   const [rating, setRating] = useState(0);
+  const [showModifImg, setShowModifImg] = useState(true);
+
+  const location = useLocation();
 
   const handleSliderChange = (event) => {
     const newRating = parseInt(event.target.value, 10);
@@ -18,12 +22,30 @@ function SliderRating(props) {
     console.info("tasteName :", tasteName);
   }, [rating]);
 
+  const hideModifImgUrl = ["/degustation"];
+
+  useEffect(() => {
+    if (
+      hideModifImgUrl.find((urlModifImg) => urlModifImg === location.pathname)
+    ) {
+      setShowModifImg(false);
+    } else {
+      setShowModifImg(true);
+    }
+  }, [showModifImg]);
+
   return (
     <div className="SliderRating">
       <div className="taste-info">
         <div className="name-and-button-modif">
           <div className="taste-name">{tasteName}</div>
-          <ModifButton />
+          <img
+            src={pen}
+            alt="pic of a pen to modify the taste name"
+            className={`modification-img ${
+              showModifImg ? "" : "hide-button-modif"
+            }`}
+          />
         </div>
         <div className="taste-rating">{rating}</div>
       </div>

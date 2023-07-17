@@ -8,6 +8,8 @@ const {
   verifyToken,
 } = require("./middlewares/auth");
 
+const { sendEmail } = require("./middlewares/sendEmail");
+
 const itemControllers = require("./controllers/itemControllers");
 const userControllers = require("./controllers/userControllers");
 const cepageControllers = require("./controllers/cepageControllers");
@@ -15,6 +17,7 @@ const reviewControllers = require("./controllers/reviewControllers");
 const tasteControllers = require("./controllers/tasteControllers");
 const wineControllers = require("./controllers/wineControllers");
 const profileTasteController = require("./controllers/profileTasteControllers");
+const cepageListControllers = require("./controllers/cepageListControllers");
 
 router.post("/users", hashPassword, userControllers.createUser);
 router.post(
@@ -39,6 +42,8 @@ router.post(
   userControllers.getUserInformation
 );
 
+router.put("/cepageList", cepageListControllers.chooseCeapgesForAtelier);
+
 router.get("/cepages", cepageControllers.findAllCepages);
 router.get("/cepages/:id", cepageControllers.findCepageById);
 router.post("/cepages", cepageControllers.createNewCepage);
@@ -57,7 +62,7 @@ router.put("/profil-taste/:id", profileTasteController.editTasteProfile);
 router.post("/profil-taste", profileTasteController.createNewTasteProfile);
 router.delete("/profil-taste/:id", profileTasteController.deleteTasteProfile);
 
-router.post("/reviews", reviewControllers.createNewReview);
+router.post("/reviews", sendEmail, reviewControllers.createNewReview);
 
 router.get("/wines", wineControllers.findAllWines);
 router.get("/wines/:id", wineControllers.findWineById);

@@ -7,18 +7,23 @@ function HomeAdmin() {
       <img className="profileImage" src={profilePicture} alt="Profile" />
       <div className="link-list-home-admin">
         <ul>
-          <Link to="/user-list">
-            <li>Member</li>
+          <Link to="/admin/workshop">
+            <li>Atelier de Création</li>
           </Link>
-          <Link to="/degustation-profil">
-            <li>Profil de Dégustation</li>
+          <Link to="/admin/user-list">
+            <li>Membres</li>
           </Link>
-          <Link to="/wine-list">
+          <Link to="/admin/degustation-profil">
+            <li>Profils de Dégustation</li>
+          </Link>
+          <Link to="/admin/wine-list">
             <li>Fiches de Vins</li>
           </Link>
         </ul>
       </div>
-      <p className="link-deconnection-admin">Déconnexion</p>
+      <a href="/login">
+        <p className="link-deconnection-admin">Déconnexion</p>
+      </a>
     </div>
   );
 }

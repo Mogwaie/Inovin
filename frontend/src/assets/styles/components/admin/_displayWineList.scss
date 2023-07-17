@@ -1,7 +1,7 @@
 .display-wine-container-for-admin {
   display: flex;
   justify-content: space-between;
-  padding: 0 1rem;
+  margin: 0 2rem;
   align-items: center;
   border-bottom: solid 2px $font-family-title-color;
 
@@ -9,12 +9,22 @@
     width: 11rem;
     p {
       margin: 0.25rem 0;
+      text-align: left;
     }
   }
 
   .date-and-icons-delete-modif {
     .buttons-modif-and-delete {
-      display: none;
+      .modif-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 29px;
+        height: 29px;
+        background-color: $app-bg-color;
+        border: none;
+        cursor: pointer;
+      }
     }
   }
 }
@@ -31,15 +41,19 @@
 
     .date-and-icons-delete-modif {
       display: flex;
+
       .buttons-modif-and-delete {
         display: flex;
         align-items: center;
         padding-left: 0.5rem;
 
+        .modif-button {
+          margin-right: 3rem;
+        }
+
         img {
           width: 29px;
           height: 29px;
-          margin-left: 1rem;
         }
       }
     }

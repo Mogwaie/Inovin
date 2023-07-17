@@ -50,7 +50,7 @@
   }
   .selection-text {
     width: 7rem;
-    top: -86px;
+    bottom: 130px;
     left: 50%;
     transform: translate(-50%, -50%);
     color: $app-supporting-color;
@@ -68,7 +68,7 @@
 
 h4 {
   text-align: center;
-  margin: 3% auto 0% auto;
+  margin: 0 auto 0 auto;
   color: $font-family-title-color;
   font-weight: lighter;
   font-size: 1rem;
@@ -77,10 +77,6 @@ h4 {
 .button-deg {
   text-align: center;
   margin: 5% auto 5% auto;
-
-  Button {
-    width: 12rem;
-  }
 }
 
 @media screen and (min-width: $app-tablet) {
@@ -97,17 +93,12 @@ h4 {
 
     .selection-text {
       width: 8rem;
-      top: -95px;
+      bottom: 144px;
     }
   }
 
   h4 {
     font-size: 1.2rem;
-  }
-  .button-deg {
-    Button {
-      width: 13rem;
-    }
   }
 }
 
@@ -125,7 +116,7 @@ h4 {
 
     .selection-text {
       width: 9rem;
-      top: -145px;
+      bottom: 215px;
       font-size: 32px;
     }
   }

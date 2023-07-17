@@ -24,7 +24,8 @@ $app-desktop-large: 1680px;
 /* Website Font Size */
 $font-size-text-phone: 14px;
 $font-size-text-phone-home: 18px;
-$font-size-text-tablet: 23px;
+$font-size-text-tablet: 20px;
+// $font-size-text-desktop: 20px;
 $font-size-list-burger-tablet: 38px;
 
 @mixin font-title-phone {
@@ -70,14 +71,14 @@ $font-size-list-burger-tablet: 38px;
 }
 
 @mixin font-text-phone {
-  font-family: $font-family-title;
+  font-family: $app-primary-font;
   font-weight: normal;
   font-size: $font-size-text-phone;
   color: $app-supporting-color2;
 }
 
 @mixin font-text-tablet-desktop {
-  font-family: $font-family-title;
+  font-family: $app-primary-font;
   font-weight: normal;
   font-size: $font-size-text-tablet;
 }
@@ -110,9 +111,9 @@ $font-size-list-burger-tablet: 38px;
   border-style: none;
   border: solid 2px $app-primary-font-color;
   border-radius: 6px;
-  width: 11rem;
-  height: 4rem;
-  font-size: 18px;
+  width: 8rem;
+  height: 3rem;
+  font-size: $font-size-text-tablet;
   font-family: $app-primary-font;
 
   cursor: pointer;
@@ -130,8 +131,8 @@ $font-size-list-burger-tablet: 38px;
   border-style: none;
   border: solid 2px $app-primary-font-color;
   border-radius: 6px;
-  width: 15rem;
-  height: 4rem;
+  width: 8rem;
+  height: 3rem;
   font: {
     size: $font-size-text-tablet;
     family: $app-primary-font;

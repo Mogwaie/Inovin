@@ -32,10 +32,11 @@ const models = {};
 const ItemManager = require("./ItemManager");
 const UserManager = require("./UserManager");
 const CepagesManager = require("./CepagesManager");
-const ProfileTasteManager = require("./ProfileTasteManager");
+const ProfileTasteManager = require("./TasteProfileManager");
 const TasteManager = require("./TasteManager");
 const ReviewManager = require("./ReviewManager");
 const WineManager = require("./WineManager");
+const CepageListManager = require("./CepageListManager");
 
 models.item = new ItemManager();
 models.item.setDatabase(pool);
@@ -45,6 +46,9 @@ models.user.setDatabase(pool);
 
 models.cepage = new CepagesManager();
 models.cepage.setDatabase(pool);
+
+models.cepageList = new CepageListManager();
+models.cepageList.setDatabase(pool);
 
 models.taste_profile = new ProfileTasteManager();
 models.taste_profile.setDatabase(pool);

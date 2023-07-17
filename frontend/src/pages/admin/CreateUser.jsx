@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SliderAdmin from "../../components/admin/SliderAdmin";
 import InputForm from "../../components/InputForm";
 import Button from "../../components/Button";
@@ -11,6 +12,11 @@ export default function CreateUser() {
   const [postalCode, setPostalCode] = useState();
   const [city, setCity] = useState("");
   const [job, setJob] = useState("");
+
+  const navigateTo = useNavigate();
+  const goToUserList = async () => {
+    await navigateTo("/admin/user-list");
+  };
 
   return (
     <div className="create-user-container">
@@ -37,7 +43,7 @@ export default function CreateUser() {
           state={email}
           setter={setEmail}
           type="email"
-          placeholder="email*"
+          placeholder="Email*"
         />
         <InputForm
           type="text"
@@ -72,7 +78,12 @@ export default function CreateUser() {
         />
       </form>
 
-      <Button type="submit" className="primary-button" text="Valider" />
+      <Button
+        type="submit"
+        className="primary-button"
+        text="Valider"
+        onClick={goToUserList}
+      />
     </div>
   );
 }

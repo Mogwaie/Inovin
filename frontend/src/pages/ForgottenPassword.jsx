@@ -40,7 +40,7 @@ function PasswordResetForm() {
           state={email}
           setter={setEmail}
           type="email"
-          placeholder="mot de passe*"
+          placeholder="Email*"
         />
       </div>
 

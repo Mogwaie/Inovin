@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import SliderUser from "../components/SliderUser";
 import Button from "../components/Button";
 
 function DegustationPage() {
-  const navigateTo = useNavigate();
+  const id = 1;
+  const urlDegustationProfile = `/degustation-profile/${id}`;
 
   const [wineListTasting, setWineListTasting] = useState([]);
 
@@ -16,9 +16,6 @@ function DegustationPage() {
     });
   }, []);
 
-  const navigateToDesgustationProfilePage = async () => {
-    navigateTo("/workshop");
-  };
   return (
     <div className="DegustationPage" id="DegustationPage">
       <h1 className="title-page">Fiche de Dégustation</h1>
@@ -40,11 +37,9 @@ function DegustationPage() {
       </div>
 
       <div className="btn-navigate">
-        <Button
-          text="Terminer"
-          onClick={navigateToDesgustationProfilePage}
-          id="degutation-page-btn"
-        />
+        <a href={urlDegustationProfile}>
+          <Button text="Valider" id="degutation-page-btn" />
+        </a>
       </div>
     </div>
   );
