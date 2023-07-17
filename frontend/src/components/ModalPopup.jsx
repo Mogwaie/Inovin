@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-function ModalPopup({ message, onClose }) {
+function ModalPopup({ message, onClose, onConfirm, confirmationMessage }) {
   const [isOpen, setIsOpen] = useState(true);
-  const [confirmationMessage, setConfirmationMessage] = useState("");
+  // const [confirmationMessage, setConfirmationMessage] = useState("");
   const [showButtons, setShowButtons] = useState(true);
 
   const handleClose = () => {
@@ -17,8 +17,8 @@ function ModalPopup({ message, onClose }) {
 
   const handleConfirmation = () => {
     setShowButtons(false);
+    onConfirm();
     setTimeout(() => {
-      setConfirmationMessage("Confirmation message from backend");
       setTimeout(handleClose, 3000); // Close the popup after 3 seconds
     }, 1000); // Simulating backend response delay
     // You can make an actual API call here to fetch the confirmation message
@@ -28,7 +28,7 @@ function ModalPopup({ message, onClose }) {
   return (
     <div className={`popup ${isOpen ? "open" : ""}`}>
       <div className="popup-content">
-        <p className="message">{message}</p>
+        <p className="message-title">{message}</p>
         {showButtons && (
           <>
             <button
@@ -47,7 +47,9 @@ function ModalPopup({ message, onClose }) {
             </button>
           </>
         )}
-        <p className="message">{confirmationMessage}</p>
+        {!showButtons && (
+          <p className="message-confirm">{confirmationMessage}</p>
+        )}
       </div>
     </div>
   );
@@ -56,6 +58,8 @@ function ModalPopup({ message, onClose }) {
 ModalPopup.propTypes = {
   message: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
+  onConfirm: PropTypes.func.isRequired,
+  confirmationMessage: PropTypes.string.isRequired,
 };
 
 export default ModalPopup;

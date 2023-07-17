@@ -13,6 +13,7 @@ export default function WineDescriptionModif() {
   const [description, setDescription] = useState("");
   const [imgWine, setImgWine] = useState(null);
   const [showConfirmationPopup, setShowConfirmationPopup] = useState(false);
+  const [confirmationMessage, setConfirmationMessage] = useState("");
 
   const wineImgRef = useRef(null);
 
@@ -40,46 +41,37 @@ export default function WineDescriptionModif() {
     e.preventDefault();
     const body = { name, description };
     try {
-      const reponse = await axios.put(
+      const response = await axios.put(
         `http://localhost:4242/api/wines/${id}`,
         body
       );
-      if (reponse.status === 204) {
-        navigateTo("/wine-list");
+      if (response.status === 204) {
+        navigateTo("/admin/wine-list");
       }
     } catch (error) {
       console.error(error);
     }
   };
 
-  const handleOpenConfirmationPopup = () => {
-    setShowConfirmationPopup(true);
-  };
-
-  const handleCloseConfirmationPopup = () => {
-    setShowConfirmationPopup(false);
-  };
-
   const handleOnClickSupp = () => {
-    handleOpenConfirmationPopup();
+    setShowConfirmationPopup(true);
   };
 
   const handleConfirmationDelete = async () => {
     try {
       await axios.delete(`http://localhost:4242/api/wines/${id}`);
+      setConfirmationMessage("Votre sélection de vin a bien été supprimé");
+      setTimeout(() => {
+        navigateTo("/admin/wine-list");
+      }, 3000);
     } catch (error) {
       console.error(error);
     }
   };
 
-  useEffect(() => {
-    if (showConfirmationPopup) {
-      handleConfirmationDelete();
-      setTimeout(() => {
-        navigateTo("/admin/wine-list");
-      }, 3000);
-    }
-  }, [showConfirmationPopup]);
+  const handleCloseConfirmationPopup = () => {
+    setShowConfirmationPopup(false);
+  };
 
   return (
     <div className="wine-desciption-user-container">
@@ -100,7 +92,7 @@ export default function WineDescriptionModif() {
             <img
               src={imgWine !== null ? imgWine : selectedWine.img_wine}
               alt="wine bottle to buy"
-              className="wine-bottle-picture"
+              className="wine-bottle-picture-admin"
               ref={wineImgRef}
             />
             <input
@@ -128,7 +120,7 @@ export default function WineDescriptionModif() {
 
         <div className="buttons-delete-and-back">
           <button type="submit" className="primary-button">
-            Mettre à jour
+            Valider
           </button>
 
           <button
@@ -146,6 +138,7 @@ export default function WineDescriptionModif() {
           message="Êtes-vous sûr(e) de vouloir supprimer ?"
           onClose={handleCloseConfirmationPopup}
           onConfirm={handleConfirmationDelete}
+          confirmationMessage={confirmationMessage}
         />
       )}
     </div>
