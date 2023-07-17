@@ -33,8 +33,8 @@ function SliderRating(props) {
   };
 
   useEffect(() => {
-    const tasteIdRatingCopy = [...tasteIdRating];
-    for (let i = 0; i < tasteIdRatingCopy.length; i + 1) {
+    let tasteIdRatingCopy = [...tasteIdRating]; // eslint-disable-line
+    for (let i = 0; i < tasteIdRatingCopy.length; i += 1) {
       if (tasteIdRatingCopy[i].id === id) {
         tasteIdRatingCopy[i].rating = rating;
       }
