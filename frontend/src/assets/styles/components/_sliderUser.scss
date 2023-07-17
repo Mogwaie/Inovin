@@ -1,131 +1,46 @@
-@mixin flex-vertical {
-  display: flex;
-  flex-direction: column;
-}
-
-@mixin center {
-  justify-content: center;
-  align-items: center;
-}
-
-.DegustationPage {
-  margin: 2%;
-  height: 100%;
-}
-
-.title-page {
-  @include font-title-phone;
-  margin-top: 4%;
-}
-
-.title-content {
-  @include font-subheading-phone;
-
-  margin: 5%;
-}
-
-.taste-slider-main-ctn {
-  @include flex-vertical;
-  @include center;
-
-  margin: 0% 7%;
-  padding: 5%;
-}
-
-.taste-slider-ctn {
-  @include flex-vertical;
-  @include center;
-}
-
-.taste-slider {
-  @include flex-vertical;
-  @include center;
-}
-
-.SliderRating {
-  @include flex-vertical;
-  @include center;
-  width: 100%;
-  margin: 1% 0% 1%;
-  padding: 3%;
-
-  .taste-name {
-    margin-right: 1rem;
-  }
-
-  .name-and-button-modif {
+.sliderRating {
+  padding-top: 2rem;
+  .taste-info {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 
-    .hide-button-modif {
-      display: none;
+    .taste-name,
+    .taste-rating {
+      color: $font-family-title-color;
     }
   }
 
-  .my-slider {
-    width: 100%;
-  }
-}
-
-.taste-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  @include font-text-phone;
-  margin: 2%;
-}
-
-.btn-navigate {
-  margin: 4% 0%;
-}
-
-@media only screen and (min-width: $app-tablet) {
-  .title-page {
-    @include font-title-tablet;
-    margin-top: 4%;
-  }
-
-  .title-content {
-    @include font-subheading-tablet;
-
-    margin: 5%;
-  }
-
-  .taste-info {
-    @include font-text-tablet-desktop;
-  }
-}
-
-@media only screen and (min-width: $app-desktop) {
-  .title-page {
-    @include font-title-desktop;
-    margin-top: 4%;
-  }
-
-  .title-content {
-    @include font-subheading-desktop;
-
-    margin: 5%;
-  }
-
-  .taste-info {
-    @include font-text-tablet-desktop;
-  }
-
-  .taste-slider-main-ctn {
-    @include flex-vertical;
-    flex-direction: row;
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
     width: 100%;
   }
 
-  .taste-slider-ctn {
-    @include flex-vertical;
-    flex-direction: row;
-    @include center;
-    flex-wrap: wrap;
-    margin: 0 5%;
-    padding: 0;
-    height: 100%;
+  /***** Chrome, Safari, Opera, and Edge Chromium *****/
+  input[type="range"]::-webkit-slider-runnable-track {
+    background: $font-family-title-color;
+    height: 0.1rem;
+  }
+
+  /******** Firefox ********/
+  input[type="range"]::-moz-range-track {
+    background: $font-family-title-color;
+    height: 0.1rem;
+  }
+
+  /***** Thumb Styles *****/
+  /***** Chrome, Safari, Opera, and Edge Chromium *****/
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -7px;
+    background-color: #f1dba0;
+    border-radius: 35px;
+    border: 2px solid $font-family-title-color;
+    height: 1rem;
+    width: 2rem;
   }
 }
