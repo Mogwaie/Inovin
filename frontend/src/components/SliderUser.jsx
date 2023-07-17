@@ -9,6 +9,17 @@ function SliderRating(props) {
   const [showModifImg, setShowModifImg] = useState(true);
 
   const location = useLocation();
+  const hideModifImgUrl = ["/degustation"];
+
+  useEffect(() => {
+    if (
+      hideModifImgUrl.find((urlModifImg) => urlModifImg === location.pathname)
+    ) {
+      setShowModifImg(false);
+    } else {
+      setShowModifImg(true);
+    }
+  }, [showModifImg]);
 
   const handleSliderChange = (event) => {
     const newRating = parseInt(event.target.value, 10);
@@ -21,18 +32,6 @@ function SliderRating(props) {
     console.info("id :", id);
     console.info("tasteName :", tasteName);
   }, [rating]);
-
-  const hideModifImgUrl = ["/degustation"];
-
-  useEffect(() => {
-    if (
-      hideModifImgUrl.find((urlModifImg) => urlModifImg === location.pathname)
-    ) {
-      setShowModifImg(false);
-    } else {
-      setShowModifImg(true);
-    }
-  }, [showModifImg]);
 
   return (
     <div className="SliderRating">
