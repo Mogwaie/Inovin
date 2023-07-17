@@ -31,7 +31,9 @@ const getUserById = (req, res) => {
 
 const createUser = (req, res) => {
   const user = req.body;
+  console.error(req.body);
   user.is_admin = 0;
+  console.error("scrogneuneu:", req.body);
 
   models.user
     .addUser(user)
@@ -46,11 +48,31 @@ const createUser = (req, res) => {
 
 const updateUser = (req, res) => {
   const user = req.body;
-
+  console.error("scrogneuneu ?:", req.body);
   user.user_id = parseInt(req.params.id, 10);
 
   models.user
     .updateUser(user)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const patchUser = (req, res) => {
+  const user = req.body;
+  console.error("scrogneuneu:", req.body);
+  user.user_id = parseInt(req.params.id, 10);
+
+  models.user
+    .patchUser(user)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
@@ -129,6 +151,7 @@ module.exports = {
   getUserById,
   createUser,
   updateUser,
+  patchUser,
   destroy,
   getUserByEmailWithPasswordAndPassToNext,
   getUserInformation,

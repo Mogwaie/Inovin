@@ -57,7 +57,7 @@ export default function Profile() {
       job: fonction,
     };
     try {
-      const response = await axios.put(
+      const response = await axios.patch(
         `${import.meta.env.VITE_BACKEND_URL}/api/user/:id`,
         body
       );

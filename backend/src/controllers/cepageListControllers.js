@@ -1,6 +1,7 @@
 const models = require("../models");
 
 const chooseCeapgesForAtelier = (req, res) => {
+  console.error(req.body);
   const cepagesForAtelier = req.body;
   models.cepageList
     .updateCepageList(cepagesForAtelier)

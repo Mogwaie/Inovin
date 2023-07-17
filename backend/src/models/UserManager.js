@@ -24,7 +24,7 @@ class UserManager extends AbstractManager {
 
   updateUser(user) {
     return this.database.query(
-      `update ${this.table} set firstname = ?, lastname = ?,   email = ?, address = ?, zip_code = ?, city = ?, job = ?, is_admin =? where user_id = ?`,
+      `update ${this.table} set firstname = ?, lastname = ?, email = ?, address = ?, zip_code = ?, city = ?, job = ?, is_admin =? where user_id = ?`,
       [
         user.firstname,
         user.lastname,
@@ -34,6 +34,21 @@ class UserManager extends AbstractManager {
         user.city,
         user.job,
         user.is_admin,
+        user.user_id,
+      ]
+    );
+  }
+
+  patchUser(user) {
+    return this.database.query(
+      `UPDATE ${this.table} SET firstname = ?, lastname = ?, address = ?, zip_code = ?, city = ?, job = ? WHERE user_id = ?`,
+      [
+        user.firstname,
+        user.lastname,
+        user.address,
+        user.zip_code,
+        user.city,
+        user.job,
         user.user_id,
       ]
     );
