@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import modifButton from "../../assets/images/modifButton.png";
+import ToggleAdmin from "./ToggleAdmin";
 
 function DisplayUserList({ user }) {
   return (
@@ -14,6 +15,7 @@ function DisplayUserList({ user }) {
       <div className="icons-and-admin">
         <div className="member-admin-switch">
           <p>Admin</p>
+          <ToggleAdmin />
         </div>
         <div className="buttons-modif-and-delete">
           <img src={modifButton} alt="button modify a user" />
