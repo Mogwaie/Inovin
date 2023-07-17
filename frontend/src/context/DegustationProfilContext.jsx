@@ -1,19 +1,28 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useMemo, useState } from "react";
 import PropTypes from "prop-types";
 
 export const DegustationProfilContext = createContext({});
 
 function DegustationProfilProvider({ children }) {
-  const [tasteName, setTasteName] = useState({ tasteName: "" });
+  const [tasteName, setTasteName] = useState([
+    { id: 1, rating: 0 },
+    { id: 2, rating: 0 },
+    { id: 3, rating: 0 },
+    { id: 4, rating: 0 },
+  ]);
 
-  useEffect(() => {
-    setTasteName(tasteName);
-  }, []);
+  const contextTasteNameAndRating = useMemo(
+    () => ({
+      tasteName,
+      setTasteName,
+    }),
+    [tasteName]
+  );
 
   // useMemo
 
   return (
-    <DegustationProfilContext.Provider value={tasteName}>
+    <DegustationProfilContext.Provider value={contextTasteNameAndRating}>
       {children}
     </DegustationProfilContext.Provider>
   );
