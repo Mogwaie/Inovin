@@ -63,7 +63,7 @@ export default function ProfileAdnim() {
       );
       if (response.status === 200) {
         console.info("yessssssss");
-        navigateTo("/adnim/user-list");
+        navigateTo("/admin/user-list");
       }
     } catch (error) {
       console.error(error);
@@ -77,7 +77,7 @@ export default function ProfileAdnim() {
         `${import.meta.env.VITE_BACKEND_URL}/api/userinformation/${id}`
       );
       if (reponse.status === 204) {
-        navigateTo("/adnim/user-list");
+        navigateTo("/admin/user-list");
       }
     } catch (error) {
       console.error(error);
