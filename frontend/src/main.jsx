@@ -87,7 +87,23 @@ const router = createBrowserRouter([
         element: <PasswordResetForm />,
       },
       {
-        path: "/forgotten-password-form",
+        path: "/wine-list/:id",
+        element: <WineDescriptionModif />,
+      },
+      {
+        path: "/admin/create-user",
+        element: <CreateUser />,
+      },
+      {
+        path: "/admin/tasting-sheet",
+        element: <TastingSheetModif />,
+      },
+      {
+        path: "/admin/home",
+        element: <HomeAdmin />,
+      },
+      {
+        path: "/forgottenpasswordform",
         element: <ForgottenPassword />,
       },
       {

@@ -7,6 +7,7 @@
     background-color: $app-bg-color;
     color: $font-family-title-color;
     width: 100%;
+    font-size: $font-size-text-phone;
   }
 
   input::placeholder {
@@ -19,10 +20,18 @@
   }
 }
 
-@media screen and (min-width: $app-desktop) {
+@media screen and (min-width: $app-tablet) {
   .input-Form-container {
     .input-Form {
       font-size: $font-size-text-tablet;
     }
   }
 }
+
+// @media screen and (min-width: $app-desktop) {
+//   .input-Form-container {
+//     .input-Form {
+//       font-size: $font-size-text-desktop;
+//     }
+//   }
+// }

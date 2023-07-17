@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50vw;
+  width: 70vw;
   height: 85vh;
   margin: auto;
 
@@ -53,5 +53,11 @@
         color: $app-supporting-color2;
       }
     }
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .container_form {
+    width: 50vw;
   }
 }

@@ -10,7 +10,7 @@ export default function Home() {
         <div className="homeContentDiv">
           <img className="logoImage" src={logoInovin} alt="Logo" />
           <div className="homeTextDiv">
-            <p className="homeP">Bienvenue,</p>
+            <p className="homeP">Bienvenue</p>
             <p className="homeP">
               Notre atelier Inovin est unique en son genre : vous apprendrez à
               créer votre propre vin en sélectionnant les arômes et les saveurs

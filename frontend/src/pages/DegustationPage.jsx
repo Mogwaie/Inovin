@@ -50,7 +50,7 @@ function DegustationPage() {
       <div className="btn-navigate">
         <a href={urlDegustationProfile}>
           <Button
-            text="Terminer"
+            text="Valider"
             onClick={handleClick}
             id="degutation-page-btn"
           />
