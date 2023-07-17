@@ -111,6 +111,7 @@ VALUES
   ('Laura', 'Sanchez', 'laura.sanchez@example.com', '14 Calle del Sol', '28002', 'Madrid', 'Infirmière', '$argon2id$v=19$m=65536,t=5,p=1$6F4WFjpSx9bSq9k4lp2fiQ$cjVgCHF/voka5bZI9YAainiaT+LkaQxfNN638b/h4fQ','0'),
   ('Thomas', 'Rousseau', 'thomas.rousseau@example.com', '3 Avenue des Champs-Élysées', '75009', 'Paris', 'Journaliste', '$argon2id$v=19$m=65536,t=5,p=1$6F4WFjpSx9bSq9k4lp2fiQ$cjVgCHF/voka5bZI9YAainiaT+LkaQxfNN638b/h4fQ', '0'),
   ('john', 'doe', 'j.do@example.com', '3 Avenue angular', '75009', 'Paris', 'Journaliste', '$argon2id$v=19$m=65536,t=5,p=1$6F4WFjpSx9bSq9k4lp2fiQ$cjVgCHF/voka5bZI9YAainiaT+LkaQxfNN638b/h4fQ','0');
+  ('admin', 'admin', 'ced@mail.com', '10 Place de la bouteille', '33000', 'Bordeaux', 'Entrepreneur','$argon2id$v=19$m=65536,t=5,p=1$ND/BfCKLe3UcML87pLWgfg$nzvg7t7uxGUfkhyAsKlt4w0dC84HtzlYhoWBBhQl0wY','1')
 
 INSERT INTO taste_profile (name, description) 
 VALUES 
