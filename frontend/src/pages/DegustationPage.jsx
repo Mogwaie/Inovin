@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
 import SliderUser from "../components/SliderUser";
 import Button from "../components/Button";
+import { DegustationProfilContext } from "../context/DegustationProfilContext";
 
 function DegustationPage() {
-  const [tasteIdRating, setTasteIdRating] = useState([
-    { id: 1, rating: 0 },
-    { id: 2, rating: 0 },
-    { id: 3, rating: 0 },
-    { id: 4, rating: 0 },
-  ]);
-
-  const id = 1;
+  const { tasteIdRating } = useContext(DegustationProfilContext);
+  let highestRating = 0;
+  const [id, setId] = useState(1);
   const urlDegustationProfile = `/degustation-profile/${id}`;
 
   const [wineListTasting, setWineListTasting] = useState([]);
@@ -24,6 +20,19 @@ function DegustationPage() {
         setWineListTasting(response.data);
       });
   }, []);
+
+  useEffect(() => {
+    for (let i = 0; i < tasteIdRating.length; i += 1) {
+      if (tasteIdRating[i].rating >= highestRating) {
+        highestRating = tasteIdRating[i].rating;
+      }
+    }
+    for (let i = 0; i < tasteIdRating.length; i += 1) {
+      if (tasteIdRating[i].rating === highestRating) {
+        setId(tasteIdRating[i].id);
+      }
+    }
+  }, [tasteIdRating]);
 
   return (
     <div className="DegustationPage" id="DegustationPage">
@@ -39,8 +48,6 @@ function DegustationPage() {
                 id={wine.taste_id}
                 tasteName={wine.name}
                 maxRating={10}
-                tasteIdRating={tasteIdRating}
-                setTasteIdRating={setTasteIdRating}
               />
             </div>
           ))}

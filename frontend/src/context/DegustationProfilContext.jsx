@@ -11,8 +11,6 @@ function DegustationProfilProvider({ children }) {
     { id: 4, rating: 0 },
   ]);
 
-  console.info("provider context", tasteIdRating);
-
   const contextTasteNameAndRating = useMemo(
     () => ({
       tasteIdRating,

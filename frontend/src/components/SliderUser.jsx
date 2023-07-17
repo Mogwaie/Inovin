@@ -42,10 +42,6 @@ function SliderRating(props) {
     setTasteIdRating(tasteIdRatingCopy);
   }, [rating]);
 
-  useEffect(() => {
-    console.info(tasteIdRating);
-  }, []);
-
   return (
     <div className="SliderRating">
       <div className="taste-info">
