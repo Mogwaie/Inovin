@@ -19,7 +19,7 @@ function WineDescription() {
         <img
           src={selectedWine.img_wine}
           alt="wine bottle to buy"
-          className="wine-bottle-picture"
+          className="wine-bottle-picture-user"
         />
         <div className="description-line-container">
           <p>{selectedWine.description}</p>
