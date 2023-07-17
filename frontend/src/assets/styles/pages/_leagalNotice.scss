@@ -16,7 +16,8 @@
   padding: 0 0 0 0;
   margin: 10% 0 0 0;
   overflow-y: scroll;
-
+  text-justify: auto;
+  
   p {
     font-family: $app-primary-font;
   }

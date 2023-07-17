@@ -8,10 +8,10 @@ function UserList() {
   const [searchInput, setSearchInput] = useState("");
   const [searchList, setSearchList] = useState([]);
 
-  const navigate = useNavigate();
+  const navigateTo = useNavigate();
 
   const goToCreateUser = async () => {
-    await navigate("/admin/create-user");
+    await navigateTo("/admin/create-user");
   };
 
   useEffect(() => {
@@ -19,6 +19,10 @@ function UserList() {
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/users`)
       .then((response) => {
         setSearchList(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+        navigateTo("/page-500");
       });
   }, []);
 

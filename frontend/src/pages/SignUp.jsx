@@ -50,6 +50,7 @@ function Signup() {
       }
     } catch (err) {
       console.error(err);
+      navigate("/page-500");
     }
   };
 

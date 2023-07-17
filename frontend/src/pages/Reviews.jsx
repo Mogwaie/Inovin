@@ -32,6 +32,7 @@ export default function Reviews() {
         }
       } catch (error) {
         console.error("Can not get user data", error);
+        navigateTo("/page-500");
       }
     };
     fetchUserInformation();
