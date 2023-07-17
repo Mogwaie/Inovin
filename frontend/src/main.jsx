@@ -149,7 +149,7 @@ const router = createBrowserRouter([
             element: <DegustationProfil />,
           },
           {
-            path: "tasting-sheet",
+            path: "degustation",
             element: <TastingSheetModif />,
           },
           {

@@ -9,7 +9,7 @@ function SliderRating(props) {
   const [showModifImg, setShowModifImg] = useState(true);
 
   const location = useLocation();
-  const hideModifImgUrl = ["/degustation"];
+  const hideModifImgUrl = ["/degustation/"];
 
   useEffect(() => {
     if (
