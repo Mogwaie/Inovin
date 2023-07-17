@@ -6,44 +6,45 @@ function LeagalNoticePage() {
       <h2>Conditions d’utilisation</h2>
       <div className="scrolling-container">
         <p>
-          ARTICLE 1 : Objet Les présentes « conditions générales d’utilisation »
-          ont pour objet l’encadrement juridique des modalités de mise à
-          disposition des services du site odyssey.wildcodeschool.com et leur
-          utilisation par « l’Utilisateur ». Les conditions générales
-          d’utilisation doivent être acceptées par tout Utilisateur souhaitant
-          accéder au site. Elles constituent le contrat entre le site
-          etl’Utilisateur. L’accès au site par l’Utilisateur signifie son
-          acceptation des présentes conditions générales d’utilisation.
+          ARTICLE 1 : Les présentes Conditions Générales d’Utilisation ont pour
+          objet l’encadrement juridique des modalités de mise à disposition des
+          services du site www.inovin.fr et leur utilisation par « l’Utilisateur
+          ». Les conditions générales d’utilisation doivent être acceptées par
+          tout Utilisateur souhaitant accéder au site. Elles constituent le
+          contrat entre le site et l’Utilisateur. L’accès au site par
+          l’Utilisateur signifie son acceptation des présentes conditions
+          générales d’utilisation.
         </p>
         <br />
         <p>
-          Nom de la société : [Nom de la société] Forme juridique : [Forme
-          juridique de la société] Adresse : [Adresse de la société] Téléphone :
-          [Numéro de téléphone de la société] Email : [Adresse e-mail de la
-          société] Directeur de publication : Nom du directeur de publication :
-          [Nom du directeur de publication] Adresse : [Adresse du directeur de
-          publication] Téléphone : [Numéro de téléphone du directeur de
-          publication] Email : [Adresse e-mail du directeur de publication]
-          Hébergeur du site : Nom de l'hébergeur : [Nom de l'hébergeur] Adresse
-          : [Adresse de l'hébergeur] Téléphone : [Numéro de téléphone de
-          l'hébergeur] Email : [Adresse e-mail de l'hébergeur] Protection des
-          données personnelles : Conformément à la loi [mentionner la loi
-          applicable en matière de protection des données personnelles], les
-          informations recueillies via ce site sont destinées à [Nom de la
-          société] et ne seront utilisées que dans le cadre de la finalité pour
-          laquelle elles ont été collectées. Vous disposez d'un droit d'accès,
-          de rectification et de suppression des données vous concernant. Pour
-          exercer ces droits, veuillez nous contacter à l'adresse [Adresse
-          e-mail de contact]. Propriété intellectuelle : L'ensemble du contenu
-          de ce site, y compris les textes, images, vidéos, logos, etc., est
-          protégé par les lois sur la propriété intellectuelle. Toute
-          reproduction, distribution ou utilisation sans autorisation préalable
-          de [Nom de la société] est strictement interdite. Responsabilité :
-          Nous nous efforçons de maintenir les informations de ce site à jour et
-          exactes. Cependant, nous ne pouvons pas garantir l'exactitude,
-          l'exhaustivité ou la pertinence des informations fournies. En
-          conséquence, nous déclinons toute responsabilité quant aux éventuelles
-          erreurs, omissions ou dommages résultant de l'utilisation de ce site.
+          ARTICLE 2 : Objet des Conditions Générales d’Utilisation & acceptation
+          <br />
+          Les présentes conditions générales d’utilisation (ci-après les « CGU
+          ») ont pour objet de fixer les conditions d’utilisation des services
+          proposés par le site www.inovin.fr (ci-après le « Site »). Les CGU
+          s’appliquent à toute déclinaison ou extension sur les réseaux sociaux
+          existants et à venir. Toute personne ayant accès au Site, quels qu’en
+          soient sa qualité (particulier ou professionnel), l’objet et la
+          finalité et son accès et/ou l’utilisation des services proposés est un
+          utilisateur. Le "membre" est présumé connaître et accepter, sans
+          réserve, l’ensemble des CGU qui lui sont applicables du seul fait de
+          sa connexion au Site. Les CGU s’appliquent concomitamment à la Charte
+          de protection des données personnelles.
+        </p>
+        <br />
+        <p>
+          ARTICLE 3 : Objet du site
+          <br />
+          Ce Site est une application à destination des "membres" et de
+          l"administrateur" leur permettant de participer à l'atelier "Atelier
+          je crée mon vin", animé par l'entreprise Inovin, dont le représentant
+          légal est Monsieur Cédric Boriat. Le but de l'application est
+          d'accompagner la dégustation, suggérer des préférences gustatives
+          autour du vin, proposer une recette d'assemblage de cépages,
+          enregistrer la-dite recette et mettre à disposition des fiches de vins
+          existants dans le commerce. Il est réalisé conformément aux
+          dispositions des articles L. 5122-1 et suivants du Code de la
+          consommation.
         </p>
       </div>
     </div>
