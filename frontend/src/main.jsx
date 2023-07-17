@@ -8,6 +8,7 @@ import ReactDOM from "react-dom/client";
 import "./main.scss";
 import { ToastContainer } from "react-toastify";
 import Root from "./routes/Root";
+import PrivateRoutes from "./utils/PrivateRoutes";
 
 import MaxLengthProvider from "./context/MaxLengthContext";
 
@@ -55,54 +56,78 @@ const router = createBrowserRouter([
       },
       {
         path: "/degustation",
-        element: <DegustationPage />,
+        element: (
+          <PrivateRoutes>
+            <DegustationPage />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/degustation-profile/:id",
-        element: <DegustationProfile />,
+        element: (
+          <PrivateRoutes>
+            <DegustationProfile />{" "}
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/workshop",
-        element: <Workshop />,
+        element: (
+          <PrivateRoutes>
+            <Workshop />{" "}
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/reviews",
-        element: <Reviews />,
+        element: (
+          <PrivateRoutes>
+            <Reviews />{" "}
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/profile",
-        element: <Profil />,
+        element: (
+          <PrivateRoutes>
+            <Profil />{" "}
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/wine-selection",
-        element: <WineSelection />,
+        element: (
+          <PrivateRoutes>
+            <WineSelection />{" "}
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/wine/:id",
-        element: <WineDescription />,
+        element: (
+          <PrivateRoutes>
+            <WineDescription />{" "}
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/password-reset-form",
-        element: <PasswordResetForm />,
+        element: (
+          <PrivateRoutes>
+            <PasswordResetForm />{" "}
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/wine-list/:id",
-        element: <WineDescriptionModif />,
+        element: (
+          <PrivateRoutes>
+            <WineDescriptionModif />{" "}
+          </PrivateRoutes>
+        ),
       },
       {
-        path: "/admin/create-user",
-        element: <CreateUser />,
-      },
-      {
-        path: "/admin/tasting-sheet",
-        element: <TastingSheetModif />,
-      },
-      {
-        path: "/admin/home",
-        element: <HomeAdmin />,
-      },
-      {
-        path: "/forgottenpasswordform",
+        path: "/forgotten-password-form",
         element: <ForgottenPassword />,
       },
       {
@@ -122,43 +147,83 @@ const router = createBrowserRouter([
           },
           {
             path: "home",
-            element: <HomeAdmin />,
+            element: (
+              <PrivateRoutes>
+                <HomeAdmin />{" "}
+              </PrivateRoutes>
+            ),
           },
           {
             path: "user-list",
-            element: <UserList />,
+            element: (
+              <PrivateRoutes>
+                <UserList />{" "}
+              </PrivateRoutes>
+            ),
           },
           {
             path: "create-user",
-            element: <CreateUser />,
+            element: (
+              <PrivateRoutes>
+                <CreateUser />{" "}
+              </PrivateRoutes>
+            ),
           },
           {
             path: "wine-list",
-            element: <WineList />,
+            element: (
+              <PrivateRoutes>
+                <WineList />{" "}
+              </PrivateRoutes>
+            ),
           },
           {
             path: "wine-list/:id",
-            element: <WineDescriptionModif />,
+            element: (
+              <PrivateRoutes>
+                <WineDescriptionModif />{" "}
+              </PrivateRoutes>
+            ),
           },
           {
             path: "degustation-profil",
-            element: <DegustationProfil />,
+            element: (
+              <PrivateRoutes>
+                <DegustationProfil />{" "}
+              </PrivateRoutes>
+            ),
           },
           {
             path: "tasting-sheet",
-            element: <TastingSheetModif />,
+            element: (
+              <PrivateRoutes>
+                <TastingSheetModif />{" "}
+              </PrivateRoutes>
+            ),
           },
           {
             path: "degustation-profile",
-            element: <AdminDegustationProfile />,
+            element: (
+              <PrivateRoutes>
+                <AdminDegustationProfile />{" "}
+              </PrivateRoutes>
+            ),
           },
           {
             path: "workshop",
-            element: <AtelierCreation />,
+            element: (
+              <PrivateRoutes>
+                <AtelierCreation />{" "}
+              </PrivateRoutes>
+            ),
           },
           {
             path: "degustation-profile-admin/:id",
-            element: <AdminDegustationProfile />,
+            element: (
+              <PrivateRoutes>
+                <AdminDegustationProfile />{" "}
+              </PrivateRoutes>
+            ),
           },
         ],
       },
