@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import modifButton from "../../assets/images/modifButton.png";
 import ToggleAdmin from "./ToggleAdmin";
+import modifButton from "../../assets/images/modifButton.png";
 
 function DisplayUserList({ user }) {
   return (

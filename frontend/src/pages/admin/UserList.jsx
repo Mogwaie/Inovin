@@ -15,11 +15,17 @@ function UserList() {
   };
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/users`)
-      .then((response) => {
+    const fetchUser = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/users`
+        );
         setSearchList(response.data);
-      });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchUser();
   }, []);
 
   const searchListFilter = searchList.filter((element) => {
