@@ -9,6 +9,7 @@ import "./main.scss";
 import { ToastContainer } from "react-toastify";
 import Root from "./routes/Root";
 
+import DegustationProfilProvider from "./context/DegustationProfilContext";
 import MaxLengthProvider from "./context/MaxLengthContext";
 
 import Home from "./pages/Home";
@@ -173,9 +174,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <MaxLengthProvider>
-      <RouterProvider router={router} />
-      <ToastContainer closeButton={false} />
-    </MaxLengthProvider>
+    <DegustationProfilProvider>
+      <MaxLengthProvider>
+        <RouterProvider router={router} />
+        <ToastContainer closeButton={false} />
+      </MaxLengthProvider>
+    </DegustationProfilProvider>
   </React.StrictMode>
 );

@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import pen from "../assets/images/pen.png";
+import { DegustationProfilContext } from "../context/DegustationProfilContext";
 
 function SliderRating(props) {
-  const { maxRating, onChange, tasteName, id } = props;
+  const { maxRating, onChange, tasteName } = props;
   const [rating, setRating] = useState(0);
   const [showModifImg, setShowModifImg] = useState(true);
 
+  const { tasteIdRating } = useContext(DegustationProfilContext);
+
   const location = useLocation();
-  const hideModifImgUrl = ["/degustation/"];
+  const hideModifImgUrl = ["/degustation"];
 
   useEffect(() => {
     if (
@@ -28,10 +31,8 @@ function SliderRating(props) {
   };
 
   useEffect(() => {
-    console.info("Rating :", rating);
-    console.info("id :", id);
-    console.info("tasteName :", tasteName);
-  }, [rating]);
+    console.info(tasteIdRating);
+  }, []);
 
   return (
     <div className="SliderRating">
@@ -62,7 +63,7 @@ function SliderRating(props) {
 
 SliderRating.propTypes = {
   maxRating: PropTypes.number.isRequired,
-  id: PropTypes.number.isRequired,
+  // id: PropTypes.number.isRequired,
   tasteName: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };

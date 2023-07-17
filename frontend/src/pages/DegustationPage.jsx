@@ -5,6 +5,13 @@ import SliderUser from "../components/SliderUser";
 import Button from "../components/Button";
 
 function DegustationPage() {
+  const [tasteIdRating, setTasteIdRating] = useState([
+    { id: 1, rating: 0 },
+    { id: 2, rating: 0 },
+    { id: 3, rating: 0 },
+    { id: 4, rating: 0 },
+  ]);
+
   const id = 1;
   const urlDegustationProfile = `/degustation-profile/${id}`;
 
@@ -32,6 +39,8 @@ function DegustationPage() {
                 id={wine.taste_id}
                 tasteName={wine.name}
                 maxRating={10}
+                tasteIdRating={tasteIdRating}
+                setTasteIdRating={setTasteIdRating}
               />
             </div>
           ))}

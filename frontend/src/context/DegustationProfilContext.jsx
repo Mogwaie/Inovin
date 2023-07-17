@@ -4,22 +4,22 @@ import PropTypes from "prop-types";
 export const DegustationProfilContext = createContext({});
 
 function DegustationProfilProvider({ children }) {
-  const [tasteName, setTasteName] = useState([
+  const [tasteIdRating, setTasteIdRating] = useState([
     { id: 1, rating: 0 },
     { id: 2, rating: 0 },
     { id: 3, rating: 0 },
     { id: 4, rating: 0 },
   ]);
 
+  console.info("provider context", tasteIdRating);
+
   const contextTasteNameAndRating = useMemo(
     () => ({
-      tasteName,
-      setTasteName,
+      tasteIdRating,
+      setTasteIdRating,
     }),
-    [tasteName]
+    [tasteIdRating]
   );
-
-  // useMemo
 
   return (
     <DegustationProfilContext.Provider value={contextTasteNameAndRating}>

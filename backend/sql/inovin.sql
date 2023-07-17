@@ -97,7 +97,7 @@ ALTER TABLE `cepage_level` ADD FOREIGN KEY (`cepage_id`) REFERENCES `cepage` (`c
 ALTER TABLE `cepage` ADD FOREIGN KEY (`taste_profile_id`) REFERENCES `taste_profile` (`taste_profile_id`);
 
 INSERT INTO taste (name) 
-VALUES ('Châteauneuf-du-Pape'), ('Château Margaux'), ('Beaujolais Nouveau'), ('Domaine de la Romanée-Conti'), ('Le Sancerre Blanc'), ('Pouilly-Fuissé'), ('Châteauneuf-du-Pape Blanc'), ('Château Yquem');
+VALUES ('Châteauneuf-du-Pape'), ('Château Margaux'), ('Beaujolais Nouveau'), ('Domaine de la Romanée-Conti');
 
 INSERT INTO user (firstname, lastname, email, address, zip_code, city, job, hashedPassword, is_admin)
 VALUES 
@@ -144,27 +144,7 @@ VALUES
     ('Nebbiolo', 4),
     ('Sangiovese', 4),
     ('Mazuelo', 4),
-    ('Tempranillo', 4),
-    ('Sancerre Blanc', 5),
-    ('Tenlo Blanc', 5),
-    ('Vermentino (Rolle)', 5),
-    ('Grüner Veltliner', 5),
-    ('Albariño', 5),
-    ('Chardonnay', 6),
-    ('Viognier', 6),
-    ('Riesling', 6),
-    ('Chenin Blanc', 6),
-    ('Gewürztraminer', 6),
-    ('Picpoul', 7),
-    ('Folle Blanche', 7),
-    ('Trebbiano Ugni Blanc', 7),
-    ('Melon de Bourgogne', 7),
-    ('Muscon', 7),
-    ('Sémillon', 8),
-    ('Muscadelle', 8),
-    ('Furmint', 8),
-    ('Palomino', 8),
-    ('Colombard', 8);
+    ('Tempranillo', 4);
 
 INSERT INTO wine (name, origin, img_wine, description)
 VALUES
