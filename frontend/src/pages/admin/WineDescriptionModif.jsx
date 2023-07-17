@@ -42,7 +42,7 @@ export default function WineDescriptionModif() {
     const body = { name, description };
     try {
       const reponse = await axios.put(
-        `http://localhost:4242/api/wines/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/wines/${id}`,
         body
       );
       if (reponse.status === 204) {
@@ -57,7 +57,7 @@ export default function WineDescriptionModif() {
     e.preventDefault();
     try {
       const reponse = await axios.delete(
-        `http://localhost:4242/api/wines/${id}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/wines/${id}`
       );
       if (reponse.status === 204) {
         navigateTo("/wine-list");

@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { toast } from "react-toastify";
 import profileBottles from "../../assets/images/profileBottles.png";
 import profilePicture from "../../assets/images/profilePicture.png";
 
@@ -64,17 +63,21 @@ export default function ProfileAdnim() {
       );
       if (response.status === 200) {
         console.info("yessssssss");
-        toast("Mise à jour ok", {
-          position: "bottom-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-        navigateTo("/degustation");
+        navigateTo("/adnim/user-list");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleOnClickSupp = async (e) => {
+    e.preventDefault();
+    try {
+      const reponse = await axios.delete(
+        `${import.meta.env.VITE_BACKEND_URL}/api/userinformation/${id}`
+      );
+      if (reponse.status === 204) {
+        navigateTo("/adnim/user-list");
       }
     } catch (error) {
       console.error(error);
@@ -141,13 +144,19 @@ export default function ProfileAdnim() {
             value={fonction}
             onChange={(e) => setFonction(e.target.value)}
           />
-          <button
-            className="primary-button"
-            id="reviewsPageButton"
-            type="submit"
-          >
-            Mettre à jour
-          </button>
+          <div className="buttons-delete-and-back">
+            <button type="submit" className="primary-button ">
+              Mettre à jour
+            </button>
+
+            <button
+              type="button"
+              onClick={handleOnClickSupp}
+              className="primary-button "
+            >
+              Supprimer
+            </button>
+          </div>
         </form>
       </div>
     </div>
