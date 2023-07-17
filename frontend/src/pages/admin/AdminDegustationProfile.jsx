@@ -66,7 +66,7 @@ function DegustationProfile() {
 
     axios
       .put(
-        `http://localhost:4242/api/taste-profile/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/taste-profile/${id}`,
         degustationProfileData
       )
       .then(() => {

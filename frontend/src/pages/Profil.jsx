@@ -86,7 +86,7 @@ export default function Profile() {
       <img className="profileBottles" src={profileBottles} alt="Bottles" />
       <div className="profilePartTwo">
         <img className="profileImage" src={profilePicture} alt="Profile" />
-        <h2>Profile</h2>
+        <h2>Profil</h2>
         <form onSubmit={(e) => handleSubmit(e)} className="profilePageForm">
           <div className="nameDiv">
             <input

@@ -14,9 +14,11 @@ function TastingSheetModif() {
   const [wineListTasting, setWineListTasting] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:4242/api/tastes`).then((response) => {
-      setWineListTasting(response.data);
-    });
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/tastes`)
+      .then((response) => {
+        setWineListTasting(response.data);
+      });
   }, []);
 
   return (
