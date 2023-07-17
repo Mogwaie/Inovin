@@ -41,11 +41,18 @@ export default function WineDescriptionModif() {
     e.preventDefault();
     const body = { name, description };
     try {
-      const response = await axios.put(
+      if (body.name === null || body.name === "") {
+        body.name = selectedWine.name;
+      }
+      if (body.description === null || body.description === "") {
+        body.description = selectedWine.description;
+      }
+      const reponse = await axios.put(
         `http://localhost:4242/api/wines/${id}`,
         body
       );
-      if (response.status === 204) {
+      if (reponse.status === 204) {
+
         navigateTo("/admin/wine-list");
       }
     } catch (error) {
