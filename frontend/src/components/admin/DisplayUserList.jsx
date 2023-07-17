@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import SliderAdmin from "./SliderAdmin";
 import modifButton from "../../assets/images/modifButton.png";
 
 function DisplayUserList({ user }) {
@@ -15,7 +14,6 @@ function DisplayUserList({ user }) {
       <div className="icons-and-admin">
         <div className="member-admin-switch">
           <p>Admin</p>
-          <SliderAdmin />
         </div>
         <div className="buttons-modif-and-delete">
           <img src={modifButton} alt="button modify a user" />

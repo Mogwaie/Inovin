@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 function SliderRating(props) {
-  const { maxRating, onChange, tasteName } = props;
+  const { onChange, tasteName } = props;
   const [rating, setRating] = useState(0);
 
   const handleSliderChange = (event) => {
@@ -18,12 +18,6 @@ function SliderRating(props) {
         <div className="taste-rating">{rating}</div>
       </div>
 
-      {Array.from(Array(maxRating).keys()).map((i) => (
-        <div
-          key={i}
-          className={`my-slider__item ${i < rating ? "--selected" : ""}`}
-        />
-      ))}
       <input
         type="range"
         min="0"
@@ -37,7 +31,6 @@ function SliderRating(props) {
 }
 
 SliderRating.propTypes = {
-  maxRating: PropTypes.number.isRequired,
   tasteName: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
