@@ -14,7 +14,7 @@
     flex-direction: column;
     padding-top: 2rem;
 
-    .wine-bottle-picture {
+    .wine-bottle-picture-user {
       height: 16rem;
       width: 16rem;
     }
@@ -25,7 +25,7 @@
       align-items: center;
 
       p {
-        padding-top: 2rem;
+        // padding-top: 2rem;
         text-align: left;
       }
 
@@ -49,12 +49,13 @@
     .pict-wine-and-description-user {
       flex-direction: row;
       justify-content: space-around;
-      align-items: flex-start;
-      height: 69vh;
+      // align-items: flex-start;
+      height: 65vh;
+      padding-top: 0;
 
-      .wine-bottle-picture {
+      .wine-bottle-picture-user {
         height: 16rem;
-        margin-top: 4rem;
+        // margin-top: 4rem;
       }
 
       .description-line-container {
@@ -72,6 +73,7 @@
     margin: auto;
 
     .pict-wine-and-description-user {
+      height: 60vh;
       .wine-bottle-picture {
         height: 16rem;
         margin-top: 2rem;
