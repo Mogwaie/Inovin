@@ -16,7 +16,7 @@ function Page404() {
         <p> Veuillez réessayer ultérieurement.</p>{" "}
         <p>Merci de votre compréhension.</p>
         <div className="btn-home">
-          <Button text="Acceuil" onClick={backToHome} id="error-page-btn" />
+          <Button text="Accueil" onClick={backToHome} id="error-page-btn" />
         </div>
       </div>
       <img className="back-img" src={Background} alt="backgroundimage" />

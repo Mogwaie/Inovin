@@ -25,6 +25,7 @@ import PasswordResetForm from "./pages/PasswordResetForm";
 import ForgottenPassword from "./pages/ForgottenPassword";
 import Page404 from "./pages/Page404";
 import Page500 from "./pages/Page500";
+import LegalNotice from "./pages/LegalNotice";
 
 import HomeAdmin from "./pages/admin/HomeAdmin";
 import UserList from "./pages/admin/UserList";
@@ -87,7 +88,23 @@ const router = createBrowserRouter([
         element: <PasswordResetForm />,
       },
       {
-        path: "/forgotten-password-form",
+        path: "/wine-list/:id",
+        element: <WineDescriptionModif />,
+      },
+      {
+        path: "/admin/create-user",
+        element: <CreateUser />,
+      },
+      {
+        path: "/admin/tasting-sheet",
+        element: <TastingSheetModif />,
+      },
+      {
+        path: "/admin/home",
+        element: <HomeAdmin />,
+      },
+      {
+        path: "/forgottenpasswordform",
         element: <ForgottenPassword />,
       },
       {
@@ -97,6 +114,10 @@ const router = createBrowserRouter([
       {
         path: "/page-500",
         element: <Page500 />,
+      },
+      {
+        path: "/legal-notice",
+        element: <LegalNotice />,
       },
       {
         path: "/admin",

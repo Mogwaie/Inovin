@@ -86,7 +86,7 @@ export default function WineDescriptionModif() {
             <img
               src={imgWine !== null ? imgWine : selectedWine.img_wine}
               alt="wine bottle to buy"
-              className="wine-bottle-picture"
+              className="wine-bottle-picture-admin"
               ref={wineImgRef}
             />
             <input
@@ -114,7 +114,7 @@ export default function WineDescriptionModif() {
 
         <div className="buttons-delete-and-back">
           <button type="submit" className="primary-button ">
-            Mettre à jour
+            Valider
           </button>
 
           <button

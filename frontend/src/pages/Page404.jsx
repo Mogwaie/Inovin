@@ -11,10 +11,10 @@ function Page404() {
   return (
     <div className="page-border">
       <div className="page-ctn">
-        <h2>404</h2>
+        <h2>Erreur 404</h2>
         <h2>C’est bouchonné ?</h2>
         <div className="btn-home">
-          <Button text="Acceuil" onClick={backToHome} id="error-page-btn" />
+          <Button text="Accueil" onClick={backToHome} id="error-page-btn" />
         </div>
       </div>
       <img className="back-img" src={Background} alt="backgroundimage" />
