@@ -19,6 +19,8 @@ const wineControllers = require("./controllers/wineControllers");
 const tasteProfileControllers = require("./controllers/tasteProfileControllers");
 const cepageListControllers = require("./controllers/cepageListControllers");
 
+console.error(userControllers.patchUser);
+
 router.post("/users", hashPassword, userControllers.createUser);
 
 router.post(
@@ -36,7 +38,7 @@ router.delete("/items/:id", itemControllers.destroy);
 router.get("/users", userControllers.getAllUsers);
 router.get("/users/:id", userControllers.getUserById);
 router.put("/users/:id", userControllers.updateUser);
-router.patch("/users/:id", userControllers.patchUser);
+router.post("/userinformation/:id", userControllers.patchUser);
 router.delete("/users/:id", userControllers.destroy);
 router.post(
   "/userinformation",

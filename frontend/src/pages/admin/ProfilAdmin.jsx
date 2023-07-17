@@ -2,10 +2,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import profileBottles from "../assets/images/profileBottles.png";
-import profilePicture from "../assets/images/profilePicture.png";
+import profileBottles from "../../assets/images/profileBottles.png";
+import profilePicture from "../../assets/images/profilePicture.png";
 
-export default function Profile() {
+export default function ProfileAdnim() {
   const navigateTo = useNavigate();
 
   const [firstName, setFirstName] = useState("");

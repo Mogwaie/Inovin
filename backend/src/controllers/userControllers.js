@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable prettier/prettier */
 const models = require("../models");
 
@@ -33,7 +34,6 @@ const createUser = (req, res) => {
   const user = req.body;
   console.error(req.body);
   user.is_admin = 0;
-  console.error("scrogneuneu:", req.body);
 
   models.user
     .addUser(user)
@@ -48,7 +48,6 @@ const createUser = (req, res) => {
 
 const updateUser = (req, res) => {
   const user = req.body;
-  console.error("scrogneuneu ?:", req.body);
   user.user_id = parseInt(req.params.id, 10);
 
   models.user
@@ -67,17 +66,26 @@ const updateUser = (req, res) => {
 };
 
 const patchUser = (req, res) => {
-  const user = req.body;
-  console.error("scrogneuneu:", req.body);
-  user.user_id = parseInt(req.params.id, 10);
+  const { id } = req.params;
+  const { firstname, lastname, address, zip_code, city, job } = req.body;
+
+  const user = {
+    firstname,
+    lastname,
+    address,
+    zip_code,
+    city,
+    job,
+    user_id: id,
+  };
 
   models.user
     .patchUser(user)
-    .then(([result]) => {
-      if (result.affectedRows === 0) {
-        res.sendStatus(404);
+    .then((data) => {
+      if (data[0].affectedRows === 1) {
+        res.status(200).json("patch succesful");
       } else {
-        res.sendStatus(204);
+        res.sendStatus(404);
       }
     })
     .catch((err) => {
@@ -127,6 +135,7 @@ const getUserInformation = (req, res) => {
     .then(([user]) => {
       if (user) {
         const userInfo = {
+          userId: user[0].user_id,
           name: user[0].firstname,
           surname: user[0].lastname,
           email: user[0].email,
