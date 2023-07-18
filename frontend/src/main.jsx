@@ -25,6 +25,7 @@ import PasswordResetForm from "./pages/PasswordResetForm";
 import ForgottenPassword from "./pages/ForgottenPassword";
 import Page404 from "./pages/Page404";
 import Page500 from "./pages/Page500";
+import LegalNotice from "./pages/LegalNotice";
 
 import HomeAdmin from "./pages/admin/HomeAdmin";
 import UserList from "./pages/admin/UserList";
@@ -35,6 +36,7 @@ import DegustationProfil from "./pages/admin/DegustationProfil";
 import TastingSheetModif from "./pages/admin/TastingSheetModif";
 import AdminDegustationProfile from "./pages/admin/AdminDegustationProfile";
 import AtelierCreation from "./pages/admin/AtelierCreation";
+import AdminTest from "./pages/Admintest";
 
 const router = createBrowserRouter([
   {
@@ -86,7 +88,23 @@ const router = createBrowserRouter([
         element: <PasswordResetForm />,
       },
       {
-        path: "/forgotten-password-form",
+        path: "/wine-list/:id",
+        element: <WineDescriptionModif />,
+      },
+      {
+        path: "/admin/create-user",
+        element: <CreateUser />,
+      },
+      {
+        path: "/admin/tasting-sheet",
+        element: <TastingSheetModif />,
+      },
+      {
+        path: "/admin/home",
+        element: <HomeAdmin />,
+      },
+      {
+        path: "/forgottenpasswordform",
         element: <ForgottenPassword />,
       },
       {
@@ -96,6 +114,19 @@ const router = createBrowserRouter([
       {
         path: "/page-500",
         element: <Page500 />,
+      },
+      {
+        path: "/test",
+        element: <AdminTest />,
+      },
+      {
+        path: "/page-500",
+        element: <Page500 />,
+      },
+
+      {
+        path: "/legal-notice",
+        element: <LegalNotice />,
       },
       {
         path: "/admin",
@@ -141,7 +172,11 @@ const router = createBrowserRouter([
             element: <AtelierCreation />,
           },
           {
+<<<<<<< HEAD
             path: "degustation-profile-admin/:id",
+=======
+            path: "degustation-profile/:id",
+>>>>>>> c66c890edfac40a2320d32f0f78cb944c939c0c3
             element: <AdminDegustationProfile />,
           },
         ],

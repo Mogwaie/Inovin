@@ -6,34 +6,45 @@ function LeagalNoticePage() {
       <h2>Conditions d’utilisation</h2>
       <div className="scrolling-container">
         <p>
-          ARTICLE 1 : Objet Les présentes « conditions générales d’utilisation »
-          ont pour objet l’encadrement juridique des modalités de mise à
-          disposition des services du site odyssey.wildcodeschool.com et leur
-          utilisation par « l’Utilisateur ». Les conditions générales
-          d’utilisation doivent être acceptées par tout Utilisateur souhaitant
-          accéder au site. Elles constituent le contrat entre le site
-          etl’Utilisateur. L’accès au site par l’Utilisateur signifie son
-          acceptation des présentes conditions générales d’utilisation.
+          ARTICLE 1 : Les présentes Conditions Générales d’Utilisation ont pour
+          objet l’encadrement juridique des modalités de mise à disposition des
+          services du site www.inovin.fr et leur utilisation par « l’Utilisateur
+          ». Les conditions générales d’utilisation doivent être acceptées par
+          tout Utilisateur souhaitant accéder au site. Elles constituent le
+          contrat entre le site et l’Utilisateur. L’accès au site par
+          l’Utilisateur signifie son acceptation des présentes conditions
+          générales d’utilisation.
         </p>
         <br />
         <p>
-          ARTICLE 2 : Un mec complètement bourré vient sonner avec insistance
-          chez des gens en pleine nuit. L' homme de la maison se lève et demande
-          furieux : " Qu'est-ce que tu veux ?" L' autre lui répond : "Viens me
-          pousser !!! Il faut que tu viennes me pousser !!!!" Excédé le
-          propriétaire de la maison lui dit : "Je ne te connais pas, et en plus
-          il est 4 heures du matin, tu me réveilles pour me dire de te pousser
-          et j'en ai pas envie, alors dégage d'ici et ne me dérange plus !!!" De
-          retour dans la chambre, il se remet au lit, mais sa femme qui a tout
-          entendu, le sermonne : "Quand même tu exagères, cela t'est déjà arrivé
-          d'être en panne la nuit, tu aurais pu le pousser ce pauvre type ! -
-          Ouais, mais il fait froid et en plus il est bourré !!! - Raison de
-          plus pour l'aider, il ne va pas y parvenir tout seul. Non ? Vraiment,
-          je ne te reconnais pas, je suis très déçue de ton attitude...!!!" Son
-          mari, pris de remords, se rhabille et descend. Il ouvre la porte et
-          crie : "Hé mec !!! C'est d' accord, je me suis habillé exprès pour
-          venir te pousser !!! Tu es où ?" Et le mec bourré répond : "Là , sur
-          la balançoire !!!!!!!!"
+          ARTICLE 2 : Objet des Conditions Générales d’Utilisation & acceptation
+          <br />
+          Les présentes conditions générales d’utilisation (ci-après les « CGU
+          ») ont pour objet de fixer les conditions d’utilisation des services
+          proposés par le site www.inovin.fr (ci-après le « Site »). Les CGU
+          s’appliquent à toute déclinaison ou extension sur les réseaux sociaux
+          existants et à venir. Toute personne ayant accès au Site, quels qu’en
+          soient sa qualité (particulier ou professionnel), l’objet et la
+          finalité et son accès et/ou l’utilisation des services proposés est un
+          utilisateur. Le "membre" est présumé connaître et accepter, sans
+          réserve, l’ensemble des CGU qui lui sont applicables du seul fait de
+          sa connexion au Site. Les CGU s’appliquent concomitamment à la Charte
+          de protection des données personnelles.
+        </p>
+        <br />
+        <p>
+          ARTICLE 3 : Objet du site
+          <br />
+          Ce Site est une application à destination des "membres" et de
+          l"administrateur" leur permettant de participer à l'atelier "Atelier
+          je crée mon vin", animé par l'entreprise Inovin, dont le représentant
+          légal est Monsieur Cédric Boriat. Le but de l'application est
+          d'accompagner la dégustation, suggérer des préférences gustatives
+          autour du vin, proposer une recette d'assemblage de cépages,
+          enregistrer la-dite recette et mettre à disposition des fiches de vins
+          existants dans le commerce. Il est réalisé conformément aux
+          dispositions des articles L. 5122-1 et suivants du Code de la
+          consommation.
         </p>
       </div>
     </div>

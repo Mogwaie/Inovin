@@ -29,7 +29,7 @@ export default function AtelierCreation() {
     <div className="reviewsPageDiv">
       <h2 className="reviewsPageH2">Atelier de création</h2>
       <p className="reviewsPageP">
-        Choisissez 4 cépages pour votre prochain atelier.
+        Choisissez 4 cépages pour votre prochain atelier
       </p>
       <form onSubmit={(e) => handleSubmit(e)} className="reviewsPageDiv">
         <input

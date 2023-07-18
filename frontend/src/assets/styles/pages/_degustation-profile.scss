@@ -77,10 +77,6 @@ h4 {
 .button-deg {
   text-align: center;
   margin: 5% auto 5% auto;
-
-  Button {
-    width: 12rem;
-  }
 }
 
 @media screen and (min-width: $app-tablet) {
@@ -103,12 +99,6 @@ h4 {
 
   h4 {
     font-size: 1.2rem;
-  }
-
-  .button-deg {
-    Button {
-      width: 13rem;
-    }
   }
 }
 

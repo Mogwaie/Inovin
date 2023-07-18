@@ -9,12 +9,12 @@ import "react-toastify/dist/ReactToastify.css";
 function Signup() {
   const navigate = useNavigate();
 
-  const [firstName, setFirstName] = useState("toto");
-  const [lastName, setLastName] = useState("tata");
-  const [address, setAddress] = useState("ffffff");
-  const [postalCode, setPostalCode] = useState(35695);
-  const [city, setCity] = useState("fffffgh");
-  const [job, setJob] = useState("hhhhhhhh");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [address, setAddress] = useState("");
+  const [postalCode, setPostalCode] = useState();
+  const [city, setCity] = useState("");
+  const [job, setJob] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -82,7 +82,7 @@ function Signup() {
         state={email}
         setter={setEmail}
         type="email"
-        placeholder="email*"
+        placeholder="Email*"
       />
 
       <InputForm

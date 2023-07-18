@@ -29,6 +29,11 @@
     justify-content: flex-start;
     align-items: flex-end;
 
+    .wine-bottle-picture-admin {
+      height: 16rem;
+      width: 16rem;
+    }
+
     .file-upload {
       margin-top: 2rem;
       color: $font-family-title-color;
@@ -88,11 +93,12 @@
       .description-wine {
         width: 20rem;
         height: 15rem;
+        font-size: 18px;
       }
     }
 
     .pict-wine-and-description-user {
-      .wine-bottle-picture {
+      .wine-bottle-picture-admin {
         margin-top: 1rem;
       }
     }
