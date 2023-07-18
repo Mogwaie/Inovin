@@ -36,6 +36,7 @@ import DegustationProfil from "./pages/admin/DegustationProfil";
 import TastingSheetModif from "./pages/admin/TastingSheetModif";
 import AdminDegustationProfile from "./pages/admin/AdminDegustationProfile";
 import AtelierCreation from "./pages/admin/AtelierCreation";
+import AdminProfile from "./pages/admin/AdminProfile";
 import AdminTest from "./pages/Admintest";
 
 const router = createBrowserRouter([
@@ -174,6 +175,10 @@ const router = createBrowserRouter([
           {
             path: "degustation-profile/:id",
             element: <AdminDegustationProfile />,
+          },
+          {
+            path: "adminprofile",
+            element: <AdminProfile />,
           },
         ],
       },

@@ -12,7 +12,7 @@ function WineList() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4242/api/wines`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/wines`)
       .then((response) => {
         setWineList(response.data);
       })

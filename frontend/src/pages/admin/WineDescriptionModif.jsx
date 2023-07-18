@@ -13,7 +13,7 @@ export default function WineDescriptionModif() {
   const [description, setDescription] = useState("");
   const [imgWine, setImgWine] = useState(null);
   const [showConfirmationPopup, setShowConfirmationPopup] = useState(false);
-  const [confirmationMessage, setConfirmationMessage] = useState("");
+  const [confirmationMessage] = useState("");
 
   const wineImgRef = useRef(null);
 
@@ -68,11 +68,12 @@ export default function WineDescriptionModif() {
 
   const handleConfirmationDelete = async () => {
     try {
-      await axios.delete(`http://localhost:4242/api/wines/${id}`);
-      setConfirmationMessage("Votre sélection de vin a bien été supprimé");
-      setTimeout(() => {
-        navigateTo("/admin/wine-list");
-      }, 3000);
+      const reponse = await axios.delete(
+        `${import.meta.env.VITE_BACKEND_URL}/api/wines/${id}`
+      );
+      if (reponse.status === 204) {
+        navigateTo("/wine-list");
+      }
     } catch (error) {
       console.error(error);
       navigateTo("/page-500");
