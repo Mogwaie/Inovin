@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 import SliderUser from "../components/SliderUser";
 import Button from "../components/Button";
@@ -21,14 +22,37 @@ function DegustationPage() {
   }, []);
 
   useEffect(() => {
-    setId(
-      tasteIdRating.find(
+    if (
+      tasteIdRating.filter(
         (element) =>
           element.rating ===
           Math.max(...tasteIdRating.map((item) => item.rating))
-      ).id
-    );
+      ).length > 1
+    ) {
+      setId(0);
+    } else {
+      setId(
+        tasteIdRating.find(
+          (element) =>
+            element.rating ===
+            Math.max(...tasteIdRating.map((item) => item.rating))
+        ).id
+      );
+    }
   }, [tasteIdRating]);
+
+  const handleClick = () => {
+    toast("Il n'est pas possible d'avoir plusieurs goûts au même niveau.", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
 
   return (
     <div className="DegustationPage" id="DegustationPage">
@@ -50,11 +74,21 @@ function DegustationPage() {
         </div>
       </div>
 
-      <div className="btn-navigate">
-        <a href={urlDegustationProfile}>
-          <Button text="Valider" id="degutation-page-btn" />
-        </a>
-      </div>
+      {id === 0 ? (
+        <div className="btn-navigate">
+          <Button
+            text="Valider"
+            id="degutation-page-btn"
+            onClick={handleClick}
+          />
+        </div>
+      ) : (
+        <div className="btn-navigate">
+          <a href={urlDegustationProfile}>
+            <Button text="Valider" id="degutation-page-btn" />
+          </a>
+        </div>
+      )}
     </div>
   );
 }
