@@ -13,7 +13,7 @@ CREATE TABLE `user` (
   `city` varchar(255),
   `job` varchar(255),
   `hashedPassword` varchar(255) NOT NULL,
-  `is_admin` varchar(255) NOT NULL,
+  `is_admin` integer,
   `taste_profile_id` integer,
   `receipe_id` integer
 );
