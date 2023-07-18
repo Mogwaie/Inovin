@@ -32,9 +32,11 @@ export default function WineDescriptionModif() {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:4242/api/wines/${id}`).then((response) => {
-      setSelectedWine(response.data);
-    });
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/wines/${id}`)
+      .then((response) => {
+        setSelectedWine(response.data);
+      });
   }, [id]);
 
   const handleSubmit = async (e) => {
@@ -48,7 +50,7 @@ export default function WineDescriptionModif() {
         body.description = selectedWine.description;
       }
       const reponse = await axios.put(
-        `http://localhost:4242/api/wines/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/wines/${id}`,
         body
       );
       if (reponse.status === 204) {
