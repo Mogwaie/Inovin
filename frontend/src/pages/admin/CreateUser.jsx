@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 import InputForm from "../../components/InputForm";
 import Button from "../../components/Button";
 import ToggleAdmin from "../../components/admin/ToggleAdmin";
@@ -12,10 +14,52 @@ export default function CreateUser() {
   const [postalCode, setPostalCode] = useState();
   const [city, setCity] = useState("");
   const [job, setJob] = useState("");
+  const password = "test";
 
   const navigateTo = useNavigate();
   const goToUserList = async () => {
     await navigateTo("/admin/user-list");
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const body = {
+      firstname: firstName,
+      lastname: lastName,
+      address,
+      zip_code: postalCode,
+      email,
+      city,
+      job,
+      password,
+    };
+
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/users`,
+        body
+      );
+      if (response.status === 201) {
+        console.info(
+          "Données enregistrées avec succès dans la base de données !"
+        );
+        toast("Bravo ! Le compte a bien été créé !", {
+          position: "bottom-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        goToUserList();
+      }
+    } catch (err) {
+      console.error(err);
+      navigateTo("/page-500");
+    }
   };
 
   return (
@@ -82,7 +126,7 @@ export default function CreateUser() {
         type="submit"
         className="primary-button"
         text="Valider"
-        onClick={goToUserList}
+        onClick={handleSubmit}
       />
     </div>
   );
