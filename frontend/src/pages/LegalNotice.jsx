@@ -1,6 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import Button from "../components/Button";
 
 function LeagalNoticePage() {
+  const navigate = useNavigate();
+
+  const backToHome = () => {
+    navigate("/sign-up");
+  };
+
   return (
     <div className="page-content">
       <h2>Conditions d’utilisation</h2>
@@ -46,6 +54,9 @@ function LeagalNoticePage() {
           dispositions des articles L. 5122-1 et suivants du Code de la
           consommation.
         </p>
+      </div>
+      <div className="btn-home">
+        <Button text="Retour" onClick={backToHome} id="error-page-btn" />
       </div>
     </div>
   );

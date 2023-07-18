@@ -58,6 +58,7 @@ export default function WineDescriptionModif() {
       }
     } catch (error) {
       console.error(error);
+      navigateTo("/page-500");
     }
   };
 
@@ -74,6 +75,7 @@ export default function WineDescriptionModif() {
       }, 3000);
     } catch (error) {
       console.error(error);
+      navigateTo("/page-500");
     }
   };
 

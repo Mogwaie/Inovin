@@ -20,6 +20,10 @@ function TastingSheetModif() {
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/tastes`)
       .then((response) => {
         setWineListTasting(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+        navigateTo("/page-500");
       });
   }, []);
 
