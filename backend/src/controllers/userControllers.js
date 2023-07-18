@@ -64,6 +64,26 @@ const updateUser = (req, res) => {
     });
 };
 
+const updateIsAdmin = (req, res) => {
+  const user = req.body;
+
+  user.user_id = parseInt(req.params.id, 10);
+
+  models.user
+    .updateAdmin(user)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const destroy = (req, res) => {
   models.user
     .delete(req.params.id)
@@ -120,7 +140,6 @@ const getUserInformation = (req, res) => {
     });
 };
 
-
 module.exports = {
   getAllUsers,
   getUserById,
@@ -129,4 +148,5 @@ module.exports = {
   destroy,
   getUserByEmailWithPasswordAndPassToNext,
   getUserInformation,
+  updateIsAdmin,
 };

@@ -38,6 +38,7 @@ function UserList() {
 
   return (
     <div className="user-list-page-container">
+      <h2>Membres</h2>
       <div className="search-bar-and-button-create">
         <SearchBar setSearchInput={setSearchInput} searchInput={searchInput} />
         <button
