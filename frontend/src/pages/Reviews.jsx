@@ -2,6 +2,7 @@ import axios from "axios";
 import { Rating } from "primereact/rating";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import wineglass from "../assets/images/wineGlass.png";
 
 export default function Reviews() {
@@ -19,7 +20,7 @@ export default function Reviews() {
         const token = localStorage.getItem("token");
         const response = await axios({
           method: "POST",
-          url: "http://www.localhost:4242/api/userinformation",
+          url: `${import.meta.env.VITE_BACKEND_URL}/api/userinformation`,
           headers: { Authorization: `Bearer ${token}` },
         });
         if (response.status === 200) {
@@ -56,6 +57,16 @@ export default function Reviews() {
 
   const goToWineSelection = async () => {
     await navigateTo("/wine-selection");
+    toast("Votre message a bien été transmis !", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   };
 
   return (
