@@ -17,6 +17,9 @@ export default function AdminBurgerMenu({ handleShowLinks, showLinks }) {
           <a href="/admin/wine-list">
             <li>Fiches de vins</li>
           </a>
+          <a href="/admin/tasting-sheet">
+            <li>Fiches de dégustation</li>
+          </a>
           <a href="/login">
             <li className="link-deconnection-admin">Déconnexion</li>
           </a>
