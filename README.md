@@ -3,6 +3,8 @@
 
 Todo :
 
+coté admin dans le profil de l'utilisateur rajouter les rectettes de cette utilisateur. Donc aller chercher la recette dans la base de donées.
+
 
 @Marine BOULANGER // @Eric // @Олеся Тур et @Cyril Freeman // @Yoann Cantrelle // @Arnaud-CHANE (si disponible):
 Fonctionnalisées de toutes les autres pages

@@ -1,11 +1,10 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { toast } from "react-toastify";
-import profileBottles from "../assets/images/profileBottles.png";
-import profilePicture from "../assets/images/profilePicture.png";
+import profileBottles from "../../assets/images/profileBottles.png";
+import profilePicture from "../../assets/images/profilePicture.png";
 
-export default function Profile() {
+export default function ProfileAdnim() {
   const navigateTo = useNavigate();
 
   const [firstName, setFirstName] = useState("");
@@ -46,28 +45,6 @@ export default function Profile() {
     fetchUserInformation();
   }, []);
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`
-      ); // Remplacez l'URL par votre endpoint GET
-
-      const userData = response.data;
-
-      setFirstName(userData.firstname);
-      setLastName(userData.lastname);
-      setEmail(userData.email);
-      // Mettez à jour avec d'autres champs du formulaire si nécessaire
-    } catch (error) {
-      console.error("Erreur lors de la récupération des données :", error);
-      // Gérer l'erreur de récupération des données ici
-    }
-  };
-
-  useEffect(() => {
-    fetchData(); // Appel à la fonction fetchData dès l'ouverture de la page
-  }, []);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const body = {
@@ -86,21 +63,24 @@ export default function Profile() {
       );
       if (response.status === 200) {
         console.info("yessssssss");
-        toast("Mise à jour ok", {
-          position: "bottom-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-        navigateTo("/degustation");
+        navigateTo("/admin/user-list");
       }
     } catch (error) {
       console.error(error);
-      navigateTo("/page-500");
+    }
+  };
+
+  const handleOnClickSupp = async (e) => {
+    e.preventDefault();
+    try {
+      const reponse = await axios.delete(
+        `${import.meta.env.VITE_BACKEND_URL}/api/userinformation/${id}`
+      );
+      if (reponse.status === 204) {
+        navigateTo("/admin/user-list");
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -164,13 +144,19 @@ export default function Profile() {
             value={fonction}
             onChange={(e) => setFonction(e.target.value)}
           />
-          <button
-            className="primary-button"
-            id="reviewsPageButton"
-            type="submit"
-          >
-            Mettre à jour
-          </button>
+          <div className="buttons-delete-and-back">
+            <button type="submit" className="primary-button ">
+              Mettre à jour
+            </button>
+
+            <button
+              type="button"
+              onClick={handleOnClickSupp}
+              className="primary-button "
+            >
+              Supprimer
+            </button>
+          </div>
         </form>
       </div>
     </div>

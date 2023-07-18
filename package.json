@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "axios": "^1.4.0",
+    "cloudinary": "^1.37.3",
     "dotenv": "^16.3.1",
     "nodemailer": "^6.9.3",
     "primereact": "^9.5.0",

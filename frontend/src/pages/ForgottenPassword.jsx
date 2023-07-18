@@ -5,7 +5,7 @@ import InputForm from "../components/InputForm";
 import Button from "../components/Button";
 
 function PasswordResetForm() {
-  const navigate = useNavigate();
+  const navigateTo = useNavigate();
   const [email, setEmail] = useState("");
 
   const handleSubmit = async (e) => {
@@ -17,7 +17,7 @@ function PasswordResetForm() {
 
     try {
       const response = await axios.post(
-        "http://localhost:4242/api/users",
+        `${import.meta.env.VITE_BACKEND_URL}/api/users`,
         body
       );
 
@@ -25,10 +25,11 @@ function PasswordResetForm() {
         console.info(
           "Données enregistrées avec succès dans la base de données !"
         );
-        navigate("/login");
+        navigateTo("/login");
       }
     } catch (err) {
       console.error(err);
+      navigateTo("/page-500");
     }
   };
   return (
