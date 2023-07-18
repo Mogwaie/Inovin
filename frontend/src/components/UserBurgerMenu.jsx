@@ -66,5 +66,5 @@ export default function UserBurgerMenu({
 UserBurgerMenu.propTypes = {
   handleShowLinks: PropTypes.func.isRequired,
   showLinks: PropTypes.bool.isRequired,
-  setShowLinks: PropTypes.bool.isRequired,
+  setShowLinks: PropTypes.func.isRequired,
 };

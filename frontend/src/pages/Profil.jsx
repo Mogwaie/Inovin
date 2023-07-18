@@ -46,6 +46,28 @@ export default function Profile() {
     fetchUserInformation();
   }, []);
 
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`
+      ); // Remplacez l'URL par votre endpoint GET
+
+      const userData = response.data;
+
+      setFirstName(userData.firstname);
+      setLastName(userData.lastname);
+      setEmail(userData.email);
+      // Mettez à jour avec d'autres champs du formulaire si nécessaire
+    } catch (error) {
+      console.error("Erreur lors de la récupération des données :", error);
+      // Gérer l'erreur de récupération des données ici
+    }
+  };
+
+  useEffect(() => {
+    fetchData(); // Appel à la fonction fetchData dès l'ouverture de la page
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const body = {
