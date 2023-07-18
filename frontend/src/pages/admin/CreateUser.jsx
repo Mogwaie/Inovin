@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SliderAdmin from "../../components/admin/SliderAdmin";
 import InputForm from "../../components/InputForm";
 import Button from "../../components/Button";
+import ToggleAdmin from "../../components/admin/ToggleAdmin";
 
 export default function CreateUser() {
   const [firstName, setFirstName] = useState("");
@@ -23,7 +23,7 @@ export default function CreateUser() {
       <h2>Créer un compte</h2>
       <div className="slider-admin-user">
         <p>Admin</p>
-        <SliderAdmin />
+        <ToggleAdmin />
         <p>Membre</p>
       </div>
       <form>
