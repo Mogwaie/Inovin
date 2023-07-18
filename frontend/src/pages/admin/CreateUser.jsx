@@ -14,6 +14,7 @@ export default function CreateUser() {
   const [postalCode, setPostalCode] = useState();
   const [city, setCity] = useState("");
   const [job, setJob] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -46,6 +47,7 @@ export default function CreateUser() {
       city,
       job,
       password,
+      is_admin: isAdmin,
     };
 
     try {
@@ -84,13 +86,19 @@ export default function CreateUser() {
     }
   };
 
+  const handleChangeAdmin = async (event) => {
+    event.preventDefault();
+    const { checked } = event.target;
+    setIsAdmin(checked);
+  };
+
   return (
     <div className="create-user-container">
       <h2>Créer un compte</h2>
       <div className="slider-admin-user">
-        <p>Admin</p>
-        <ToggleAdmin />
         <p>Membre</p>
+        <ToggleAdmin isAdmin={isAdmin} handleChangeAdmin={handleChangeAdmin} />
+        <p>Admin</p>
       </div>
       <form>
         <InputForm
