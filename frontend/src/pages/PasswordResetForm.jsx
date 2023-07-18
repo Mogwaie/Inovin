@@ -30,6 +30,7 @@ function PasswordResetForm() {
       }
     } catch (err) {
       console.error(err);
+      navigate("/page-500");
     }
   };
   return (

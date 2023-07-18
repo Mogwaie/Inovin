@@ -31,6 +31,7 @@ export default function Login() {
       }
     } catch (err) {
       console.error(err);
+      navigate("/page-500");
     }
   };
 

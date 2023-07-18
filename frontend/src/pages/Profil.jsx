@@ -51,6 +51,7 @@ export default function Profile() {
       }
     } catch (error) {
       console.error(error);
+      navigateTo("/page-500");
     }
     navigateTo("/degustation");
   };
