@@ -54,7 +54,7 @@ SliderAdmin.propTypes = {
   tasteName: PropTypes.string.isRequired,
   setNameListTaste: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
-  nameListTaste: PropTypes.node({
+  nameListTaste: PropTypes.shape({
     name: PropTypes.string.isRequired,
     taste_id: PropTypes.number.isRequired,
   }).isRequired,

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Assemblage from "../../assets/images/Assemblage.webp";
 import ShopCave from "../../assets/images/ShopCave.png";
@@ -15,6 +15,7 @@ function DegustationProfile() {
   const [assembleImage, setAssembleImage] = useState(Assemblage);
   const [selectionImage, setSelectionImage] = useState(ShopCave);
   const { id } = useParams();
+  const navigateTo = useNavigate();
   const [tasteProfileSelect, setTasteProfileSelect] = useState("");
 
   const handleImageUpload = (file, setImage) => {
@@ -74,6 +75,7 @@ function DegustationProfile() {
       })
       .catch((error) => {
         console.error("Erreur lors de l'enregistrement du profil :", error);
+        navigateTo("/page-500");
       });
   };
 
@@ -92,6 +94,10 @@ function DegustationProfile() {
         setProfileTitle(response.data.name);
         setProfileDescription(response.data.description);
         console.info(tasteProfileSelect);
+      })
+      .catch((error) => {
+        console.error(error);
+        navigateTo("/page-500");
       });
   }, [id]);
 

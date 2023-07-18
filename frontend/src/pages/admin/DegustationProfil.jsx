@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import DisplayDegustationProfil from "../../components/admin/DisplayDegustationProfil";
 import SearchBar from "../../components/admin/SearchBar";
 
@@ -7,6 +8,7 @@ function DegustationProfil() {
   // put the taste profil from the back in the useState
   const [tasteProfileList, setTasteProfileList] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+  const navigateTo = useNavigate();
 
   // call all taste profil from bd
   useEffect(() => {
@@ -14,6 +16,10 @@ function DegustationProfil() {
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/taste-profile`)
       .then((response) => {
         setTasteProfileList(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+        navigateTo("/page-500");
       });
   }, []);
 
