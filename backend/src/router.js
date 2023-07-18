@@ -16,7 +16,7 @@ const cepageControllers = require("./controllers/cepageControllers");
 const reviewControllers = require("./controllers/reviewControllers");
 const tasteControllers = require("./controllers/tasteControllers");
 const wineControllers = require("./controllers/wineControllers");
-const tasteProfileControllers = require("./controllers/tasteProfileControllers");
+const profileTasteController = require("./controllers/profileTasteControllers");
 const cepageListControllers = require("./controllers/cepageListControllers");
 
 console.error(userControllers.patchUser);
@@ -61,6 +61,12 @@ router.put("/tastes/:id", tasteControllers.edit);
 router.post("/tastes", tasteControllers.add);
 router.delete("/tastes/:id", tasteControllers.destroy);
 
+router.get("/profil-taste", profileTasteController.findAllTasteProfile);
+router.get("/profil-taste/:id", profileTasteController.findTasteProfileById);
+router.put("/profil-taste/:id", profileTasteController.editTasteProfile);
+router.post("/profil-taste", profileTasteController.createNewTasteProfile);
+router.delete("/profil-taste/:id", profileTasteController.deleteTasteProfile);
+
 router.post("/reviews", sendEmail, reviewControllers.createNewReview);
 
 router.get("/wines", wineControllers.findAllWines);
@@ -68,10 +74,5 @@ router.get("/wines/:id", wineControllers.findWineById);
 router.put("/wines/:id", wineControllers.editWine);
 router.post("/wines", wineControllers.createNewWine);
 router.delete("/wines/:id", wineControllers.deleteWine);
-
-router.get("/taste-profile", tasteProfileControllers.findAllTasteProfile);
-router.get("/taste-profile/:id", tasteProfileControllers.findTasteProfileById);
-router.put("/taste-profile/:id", tasteProfileControllers.editTasteProfile);
-router.delete("/taste-profile/:id", tasteProfileControllers.deleteTasteProfile);
 
 module.exports = router;

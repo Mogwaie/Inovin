@@ -9,6 +9,7 @@ import "./main.scss";
 import { ToastContainer } from "react-toastify";
 import Root from "./routes/Root";
 
+import DegustationProfilProvider from "./context/DegustationProfilContext";
 import MaxLengthProvider from "./context/MaxLengthContext";
 
 import Home from "./pages/Home";
@@ -85,6 +86,22 @@ const router = createBrowserRouter([
         element: <WineDescription />,
       },
       {
+        path: "user-list",
+        element: <UserList />,
+      },
+      {
+        path: "/degustation-profile/:id",
+        element: <DegustationProfile />,
+      },
+      {
+        path: "/wine-list",
+        element: <WineList />,
+      },
+      {
+        path: "/degustation-profil",
+        element: <DegustationProfil />,
+      },
+      {
         path: "/password-reset-form",
         element: <PasswordResetForm />,
       },
@@ -93,19 +110,7 @@ const router = createBrowserRouter([
         element: <WineDescriptionModif />,
       },
       {
-        path: "/admin/create-user",
-        element: <CreateUser />,
-      },
-      {
-        path: "/admin/tasting-sheet",
-        element: <TastingSheetModif />,
-      },
-      {
-        path: "/admin/home",
-        element: <HomeAdmin />,
-      },
-      {
-        path: "/forgottenpasswordform",
+        path: "/forgotten-password-form",
         element: <ForgottenPassword />,
       },
       {
@@ -161,7 +166,7 @@ const router = createBrowserRouter([
             element: <DegustationProfil />,
           },
           {
-            path: "tasting-sheet",
+            path: "degustation",
             element: <TastingSheetModif />,
           },
           {
@@ -189,9 +194,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <MaxLengthProvider>
-      <RouterProvider router={router} />
-      <ToastContainer closeButton={false} />
-    </MaxLengthProvider>
+    <DegustationProfilProvider>
+      <MaxLengthProvider>
+        <RouterProvider router={router} />
+        <ToastContainer closeButton={false} />
+      </MaxLengthProvider>
+    </DegustationProfilProvider>
   </React.StrictMode>
 );
