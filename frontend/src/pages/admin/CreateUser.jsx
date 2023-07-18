@@ -71,7 +71,16 @@ export default function CreateUser() {
       }
     } catch (err) {
       console.error(err);
-      navigateTo("/page-500");
+      toast("Certains champs ne sont pas valides. Veuillez les modifier.", {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     }
   };
 
