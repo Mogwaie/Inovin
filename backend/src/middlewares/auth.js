@@ -93,8 +93,6 @@ const verifyTokenForProtectedRoutes = (req, res) => {
 
     const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
     if (decodedToken) {
-      console.info(decodedToken);
-      req.user_id = decodedToken.user_id;
       res.sendStatus(200);
     }
   } catch (err) {

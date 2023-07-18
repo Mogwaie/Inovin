@@ -31,7 +31,7 @@ function PrivateRoutes({ children }) {
     fetchUserInformation();
   }, []);
 
-  return auth.token ? children : <Navigate to="/login" />;
+  return auth.token ? <Navigate to="/login" /> : children;
 
   // return auth.token ? children : children;
 }
