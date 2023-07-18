@@ -10,16 +10,19 @@ import Button from "../components/Button";
 function DegustationProfile() {
   const { id } = useParams();
   const [profilTaste, setProfilTaste] = useState("");
+  const navigateTo = useNavigate();
 
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/profil-taste/${id}`)
       .then((response) => {
         setProfilTaste(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+        navigateTo("/page-500");
       });
   }, [id]);
-
-  const navigateTo = useNavigate();
 
   const buttonDirection = async () => {
     toast("Bravo ! Vous avez créé votre recette!", {

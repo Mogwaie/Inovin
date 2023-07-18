@@ -1,16 +1,20 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 function WineDescription() {
   const { id } = useParams();
   const [selectedWine, setSelectedWine] = useState("");
+  const navigateTo = useNavigate();
 
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/wines/${id}`)
       .then((response) => {
         setSelectedWine(response.data);
+      .catch((error) => {
+        console.error(error);
+        navigateTo("/page-500");
       });
   }, [id]);
 
