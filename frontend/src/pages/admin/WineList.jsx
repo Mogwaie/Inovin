@@ -24,6 +24,7 @@ function WineList() {
 
   return (
     <div className="wine-list-page-container">
+      <h2>Vins</h2>
       <div className="search-bar-and-button-create">
         <SearchBar setSearchInput={setSearchInput} searchInput={searchInput} />
         <button type="button" className="secondary-button">
