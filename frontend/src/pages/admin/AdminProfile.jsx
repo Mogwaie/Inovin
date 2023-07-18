@@ -56,6 +56,7 @@ export default function ProfileAdnim() {
       city,
       job: fonction,
     };
+    console.error(body);
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/userinformation/${id}`,
@@ -81,6 +82,7 @@ export default function ProfileAdnim() {
       }
     } catch (error) {
       console.error(error);
+      navigateTo("/page-500");
     }
   };
 
