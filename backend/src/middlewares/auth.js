@@ -77,33 +77,8 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-const verifyTokenForProtectedRoutes = (req, res) => {
-  try {
-    const authorizationHeader = req.get("Authorization");
-
-    if (authorizationHeader == null) {
-      throw new Error("Authorization header is missing");
-    }
-
-    const [type, token] = authorizationHeader.split(" ");
-
-    if (type !== "Bearer") {
-      throw new Error("Authorization header has not the 'Bearer' type");
-    }
-
-    const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
-    if (decodedToken) {
-      res.status(200).send(decodedToken);
-    }
-  } catch (err) {
-    console.error(err);
-    res.sendStatus(401);
-  }
-};
-
 module.exports = {
   hashPassword,
   verifyPassword,
   verifyToken,
-  verifyTokenForProtectedRoutes,
 };
