@@ -9,7 +9,7 @@ function WineDescription() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4242/api/wines/${id}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/wines/${id}`)
       .then((response) => {
         setSelectedWine(response.data);
       })
