@@ -33,7 +33,6 @@ const verifyPassword = (req, res) => {
       if (isVerified) {
         const payload = {
           user_id: req.user.user_id,
-          role: req.user.is_admin,
         };
 
         const token = jwt.sign(payload, process.env.JWT_SECRET, {

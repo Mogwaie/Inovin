@@ -1,29 +1,33 @@
-import { useState } from "react";
-// import axios from "axios";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { Navigate } from "react-router-dom";
 import PropTypes from "prop-types";
-import userRoles from "./constantRoles";
 
 function PrivateRoutes({ expectedRoles, children }) {
   const [currentUser, setCurrentUser] = useState(undefined);
+  const [role, setRole] = useState(undefined);
 
-  // useEffect(() => {
-  // const token = localStorage.getItem("token");
-  // try {
-  //   const response = await axios.post(
-  //     `${import.meta.env.VITE_BACKEND_URL}/api/users`,
-  //     body
-  //   );
-
-  //   if (response.status === 201) {
-  //     console.info(
-  //       "Données enregistrées avec succès dans la base de données !"
-  //     );
-  //   }
-  // } catch (err) {
-  //   console.error(err);
-  // }
-  // }, []);
+  useEffect(() => {
+    const fetchUserInformation = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const response = await axios({
+          method: "POST",
+          url: `${import.meta.env.VITE_BACKEND_URL}/api/userinformation`,
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (response.status === 200) {
+          const userInfo = response.data;
+          setRole(userInfo.role);
+        } else {
+          console.error("User information not found");
+        }
+      } catch (error) {
+        console.error("Can not get user data", error);
+      }
+    };
+    fetchUserInformation();
+  }, []);
 
   setTimeout(() => {
     if (localStorage.getItem("token")) {
@@ -43,7 +47,7 @@ function PrivateRoutes({ expectedRoles, children }) {
 
   const isAuthorized = true;
   const areRolesRequired = !!expectedRoles?.length;
-  const roles = [userRoles.user];
+  const roles = [role];
 
   const rolesMatch = areRolesRequired
     ? expectedRoles.some((r) => roles.indexOf(r) >= 0)

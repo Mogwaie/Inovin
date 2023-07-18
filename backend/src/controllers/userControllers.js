@@ -108,6 +108,7 @@ const getUserInformation = (req, res) => {
           name: user[0].firstname,
           surname: user[0].lastname,
           email: user[0].email,
+          role: user[0].is_admin,
         };
         res.status(200).json(userInfo);
       } else {
