@@ -25,6 +25,7 @@ import PasswordResetForm from "./pages/PasswordResetForm";
 import ForgottenPassword from "./pages/ForgottenPassword";
 import Page404 from "./pages/Page404";
 import Page500 from "./pages/Page500";
+import LegalNotice from "./pages/LegalNotice";
 
 import HomeAdmin from "./pages/admin/HomeAdmin";
 import UserList from "./pages/admin/UserList";
@@ -35,6 +36,7 @@ import DegustationProfil from "./pages/admin/DegustationProfil";
 import TastingSheetModif from "./pages/admin/TastingSheetModif";
 import AdminDegustationProfile from "./pages/admin/AdminDegustationProfile";
 import AtelierCreation from "./pages/admin/AtelierCreation";
+import AdminTest from "./pages/Admintest";
 
 const router = createBrowserRouter([
   {
@@ -114,6 +116,19 @@ const router = createBrowserRouter([
         element: <Page500 />,
       },
       {
+        path: "/test",
+        element: <AdminTest />,
+      },
+      {
+        path: "/page-500",
+        element: <Page500 />,
+      },
+
+      {
+        path: "/legal-notice",
+        element: <LegalNotice />,
+      },
+      {
         path: "/admin",
         children: [
           {
@@ -157,7 +172,7 @@ const router = createBrowserRouter([
             element: <AtelierCreation />,
           },
           {
-            path: "degustation-profile-admin/:id",
+            path: "degustation-profile/:id",
             element: <AdminDegustationProfile />,
           },
         ],

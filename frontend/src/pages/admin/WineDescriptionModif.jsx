@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import pen from "../../assets/images/pen.png";
+import ModalPopup from "../../components/ModalPopup";
 
 export default function WineDescriptionModif() {
   const { id } = useParams();
@@ -11,10 +12,11 @@ export default function WineDescriptionModif() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [imgWine, setImgWine] = useState(null);
+  const [showConfirmationPopup, setShowConfirmationPopup] = useState(false);
+  const [confirmationMessage, setConfirmationMessage] = useState("");
 
   const wineImgRef = useRef(null);
 
-  // TODO
   const handleImgUpload = (file) => {
     const reader = new FileReader();
     reader.onload = () => {
@@ -59,18 +61,24 @@ export default function WineDescriptionModif() {
     }
   };
 
-  const handleOnClickSupp = async (e) => {
-    e.preventDefault();
+  const handleOnClickSupp = () => {
+    setShowConfirmationPopup(true);
+  };
+
+  const handleConfirmationDelete = async () => {
     try {
-      const reponse = await axios.delete(
-        `${import.meta.env.VITE_BACKEND_URL}/api/wines/${id}`
-      );
-      if (reponse.status === 204) {
-        navigateTo("/wine-list");
-      }
+      await axios.delete(`http://localhost:4242/api/wines/${id}`);
+      setConfirmationMessage("Votre sélection de vin a bien été supprimé");
+      setTimeout(() => {
+        navigateTo("/admin/wine-list");
+      }, 3000);
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handleCloseConfirmationPopup = () => {
+    setShowConfirmationPopup(false);
   };
 
   return (
@@ -126,12 +134,21 @@ export default function WineDescriptionModif() {
           <button
             type="button"
             onClick={handleOnClickSupp}
-            className="primary-button "
+            className="primary-button"
           >
             Supprimer
           </button>
         </div>
       </form>
+
+      {showConfirmationPopup && (
+        <ModalPopup
+          message="Êtes-vous sûr(e) de vouloir supprimer ?"
+          onClose={handleCloseConfirmationPopup}
+          onConfirm={handleConfirmationDelete}
+          confirmationMessage={confirmationMessage}
+        />
+      )}
     </div>
   );
 }
