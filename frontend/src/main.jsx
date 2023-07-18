@@ -8,6 +8,8 @@ import ReactDOM from "react-dom/client";
 import "./main.scss";
 import { ToastContainer } from "react-toastify";
 import Root from "./routes/Root";
+import PrivateRoutes from "./utils/PrivateRoutes";
+import userRoles from "./utils/constantRoles";
 
 import DegustationProfilProvider from "./context/DegustationProfilContext";
 import MaxLengthProvider from "./context/MaxLengthContext";
@@ -50,68 +52,76 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/login",
-        element: <Login />,
-      },
-      {
         path: "/sign-up",
         element: <SignUp />,
       },
       {
-        path: "/degustation",
-        element: <DegustationPage />,
-      },
-      {
-        path: "/degustation-profile/:id",
-        element: <DegustationProfile />,
-      },
-      {
-        path: "/workshop",
-        element: <Workshop />,
-      },
-      {
-        path: "/reviews",
-        element: <Reviews />,
-      },
-      {
-        path: "/profile",
-        element: <Profil />,
-      },
-      {
-        path: "/wine-selection",
-        element: <WineSelection />,
-      },
-      {
-        path: "/wine/:id",
-        element: <WineDescription />,
-      },
-      {
-        path: "user-list",
-        element: <UserList />,
-      },
-      {
-        path: "/degustation-profile/:id",
-        element: <DegustationProfile />,
-      },
-      {
-        path: "/wine-list",
-        element: <WineList />,
-      },
-      {
-        path: "/degustation-profil",
-        element: <DegustationProfil />,
+        path: "/login",
+        element: <Login />,
       },
       {
         path: "/password-reset-form",
         element: <PasswordResetForm />,
       },
       {
-        path: "/wine-list/:id",
-        element: <WineDescriptionModif />,
+          path: "/forgotten-password-form",
+        element: <ForgottenPassword />,
       },
       {
-        path: "/forgotten-password-form",
-        element: <ForgottenPassword />,
+        path: "/degustation",
+        element: (
+          <PrivateRoutes expectedRoles={[userRoles.admin, userRoles.user]}>
+            <DegustationPage />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/degustation-profile/:id",
+        element: (
+          <PrivateRoutes expectedRoles={[userRoles.admin, userRoles.user]}>
+            <DegustationProfile />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/workshop",
+        element: (
+          <PrivateRoutes expectedRoles={[userRoles.admin, userRoles.user]}>
+            <Workshop />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/reviews",
+        element: (
+          <PrivateRoutes expectedRoles={[userRoles.admin, userRoles.user]}>
+            <Reviews />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/wine-selection",
+        element: (
+          <PrivateRoutes expectedRoles={[userRoles.admin, userRoles.user]}>
+            <WineSelection />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/wine/:id",
+        element: (
+          <PrivateRoutes expectedRoles={[userRoles.admin, userRoles.user]}>
+            <WineDescription />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoutes expectedRoles={[userRoles.admin, userRoles.user]}>
+            <Profil />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "*",
@@ -122,17 +132,12 @@ const router = createBrowserRouter([
         element: <Page500 />,
       },
       {
-        path: "/test",
-        element: <AdminTest />,
-      },
-      {
         path: "/mentions-legales",
         element: <LegalNotice />,
-      },
-
+      }, 
       {
-        path: "/legal-notice",
-        element: <LegalNotice />,
+        path: "/test",
+        element: <AdminTest />,
       },
       {
         path: "/admin",
@@ -143,11 +148,19 @@ const router = createBrowserRouter([
           },
           {
             path: "home",
-            element: <HomeAdmin />,
+            element: (
+              <PrivateRoutes expectedRoles={[userRoles.admin]}>
+                <HomeAdmin />
+              </PrivateRoutes>
+            ),
           },
           {
             path: "user-list",
-            element: <UserList />,
+            element: (
+              <PrivateRoutes expectedRoles={[userRoles.admin]}>
+                <UserList />
+              </PrivateRoutes>
+            ),
           },
           {
             path: "user-list/:id",
@@ -155,35 +168,59 @@ const router = createBrowserRouter([
           },
           {
             path: "create-user",
-            element: <CreateUser />,
+            element: (
+              <PrivateRoutes expectedRoles={[userRoles.admin]}>
+                <CreateUser />
+              </PrivateRoutes>
+            ),
           },
           {
             path: "wine-list",
-            element: <WineList />,
+            element: (
+              <PrivateRoutes expectedRoles={[userRoles.admin]}>
+                <WineList />
+              </PrivateRoutes>
+            ),
           },
           {
             path: "wine-list/:id",
-            element: <WineDescriptionModif />,
+            element: (
+              <PrivateRoutes expectedRoles={[userRoles.admin]}>
+                <WineDescriptionModif />
+              </PrivateRoutes>
+            ),
           },
           {
-            path: "degustation-profil",
-            element: <DegustationProfil />,
+            path: "degustation-profil-list",
+            element: (
+              <PrivateRoutes expectedRoles={[userRoles.admin]}>
+                <DegustationProfil />
+              </PrivateRoutes>
+            ),
+          },
+          {
+            path: "degustation-profile-admin/:id",
+            element: (
+              <PrivateRoutes expectedRoles={[userRoles.admin]}>
+                <AdminDegustationProfile />
+              </PrivateRoutes>
+            ),
           },
           {
             path: "degustation",
-            element: <TastingSheetModif />,
-          },
-          {
-            path: "degustation-profile",
-            element: <AdminDegustationProfile />,
+            element: (
+              <PrivateRoutes expectedRoles={[userRoles.admin]}>
+                <TastingSheetModif />
+              </PrivateRoutes>
+            ),
           },
           {
             path: "workshop",
-            element: <AtelierCreation />,
-          },
-          {
-            path: "degustation-profile/:id",
-            element: <AdminDegustationProfile />,
+            element: (
+              <PrivateRoutes expectedRoles={[userRoles.admin]}>
+                <AtelierCreation />
+              </PrivateRoutes>
+            ),
           },
         ],
       },

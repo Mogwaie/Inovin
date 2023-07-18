@@ -158,6 +158,7 @@ const getUserInformation = (req, res) => {
           name: user[0].firstname,
           surname: user[0].lastname,
           email: user[0].email,
+          role: user[0].is_admin,
           adress: user[0].address,
           zip: user[0].zip_code,
           city: user[0].city,

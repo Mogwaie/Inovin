@@ -77,4 +77,8 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-module.exports = { hashPassword, verifyPassword, verifyToken };
+module.exports = {
+  hashPassword,
+  verifyPassword,
+  verifyToken,
+};
