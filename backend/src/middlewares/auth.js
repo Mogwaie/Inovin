@@ -33,6 +33,7 @@ const verifyPassword = (req, res) => {
       if (isVerified) {
         const payload = {
           user_id: req.user.user_id,
+          role: req.user.is_admin,
         };
 
         const token = jwt.sign(payload, process.env.JWT_SECRET, {
@@ -93,7 +94,7 @@ const verifyTokenForProtectedRoutes = (req, res) => {
 
     const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
     if (decodedToken) {
-      res.sendStatus(200);
+      res.status(200).send(decodedToken);
     }
   } catch (err) {
     console.error(err);
