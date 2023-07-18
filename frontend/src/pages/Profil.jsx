@@ -56,7 +56,7 @@ export default function Profile() {
     };
     try {
       const response = await axios.put(
-        `${import.meta.env.VITE_BACKEND_URL}/api/users/:id`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/:id`,
         body
       );
       if (response.status === 204) {
@@ -74,6 +74,7 @@ export default function Profile() {
       }
     } catch (error) {
       console.error(error);
+      navigateTo("/page-500");
     }
     navigateTo("/degustation");
   };

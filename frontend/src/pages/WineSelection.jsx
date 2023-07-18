@@ -1,15 +1,22 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CardWine from "../components/CardWine";
 
 export default function WineSelection() {
   const [wineListShop, setwineListShop] = useState([]);
+  const navigateTo = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:4242/api/wines`).then((response) => {
-      setwineListShop(response.data);
-    });
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/wines`)
+      .then((response) => {
+        setwineListShop(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+        navigateTo("/page-500");
+      });
   }, []);
 
   return (

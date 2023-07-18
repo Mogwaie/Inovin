@@ -120,8 +120,8 @@ const router = createBrowserRouter([
         element: <AdminTest />,
       },
       {
-        path: "/page-500",
-        element: <Page500 />,
+        path: "/mentions-legales",
+        element: <LegalNotice />,
       },
 
       {
