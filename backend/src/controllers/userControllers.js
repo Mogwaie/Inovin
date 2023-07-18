@@ -120,7 +120,6 @@ const getUserInformation = (req, res) => {
     });
 };
 
-
 module.exports = {
   getAllUsers,
   getUserById,
