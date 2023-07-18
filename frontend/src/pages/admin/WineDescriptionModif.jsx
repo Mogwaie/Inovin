@@ -52,7 +52,6 @@ export default function WineDescriptionModif() {
         body
       );
       if (reponse.status === 204) {
-
         navigateTo("/admin/wine-list");
       }
     } catch (error) {

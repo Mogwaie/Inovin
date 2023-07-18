@@ -33,7 +33,7 @@ export default function Profile() {
     };
     try {
       const response = await axios.put(
-        "http://www.localhost:4242/api/user/:id",
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/:id`,
         body
       );
       if (response.status === 201) {

@@ -7,9 +7,11 @@ function WineDescription() {
   const [selectedWine, setSelectedWine] = useState("");
 
   useEffect(() => {
-    axios.get(`http://localhost:4242/api/wines/${id}`).then((response) => {
-      setSelectedWine(response.data);
-    });
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/wines/${id}`)
+      .then((response) => {
+        setSelectedWine(response.data);
+      });
   }, [id]);
 
   return (

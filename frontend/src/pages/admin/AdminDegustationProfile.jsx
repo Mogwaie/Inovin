@@ -66,7 +66,7 @@ function DegustationProfile() {
 
     axios
       .put(
-        `http://localhost:4242/api/taste-profile/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/taste-profile/${id}`,
         degustationProfileData
       )
       .then(() => {
@@ -86,7 +86,7 @@ function DegustationProfile() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4242/api/taste-profile/${id}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/taste-profile/${id}`)
       .then((response) => {
         setTasteProfileSelect(response.data);
         setProfileTitle(response.data.name);
