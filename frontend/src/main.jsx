@@ -40,7 +40,6 @@ import TastingSheetModif from "./pages/admin/TastingSheetModif";
 import AdminDegustationProfile from "./pages/admin/AdminDegustationProfile";
 import AtelierCreation from "./pages/admin/AtelierCreation";
 import AdminProfile from "./pages/admin/AdminProfile";
-import AdminTest from "./pages/Admintest";
 
 const router = createBrowserRouter([
   {
@@ -64,7 +63,7 @@ const router = createBrowserRouter([
         element: <PasswordResetForm />,
       },
       {
-          path: "/forgotten-password-form",
+        path: "/forgotten-password-form",
         element: <ForgottenPassword />,
       },
       {
@@ -134,10 +133,6 @@ const router = createBrowserRouter([
       {
         path: "/mentions-legales",
         element: <LegalNotice />,
-      }, 
-      {
-        path: "/test",
-        element: <AdminTest />,
       },
       {
         path: "/admin",
@@ -164,7 +159,11 @@ const router = createBrowserRouter([
           },
           {
             path: "user-list/:id",
-            element: <AdminProfile />,
+            element: (
+              <PrivateRoutes expectedRoles={[userRoles.admin]}>
+                <AdminProfile />
+              </PrivateRoutes>
+            ),
           },
           {
             path: "create-user",
