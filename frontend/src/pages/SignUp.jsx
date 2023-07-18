@@ -17,9 +17,16 @@ function Signup() {
   const [job, setJob] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [acceptLegalMentions, setAcceptLegalMentions] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!acceptLegalMentions) {
+      toast.error("Vous devez accepter les mentions légales !");
+      return;
+    }
+
     const body = {
       firstname: firstName,
       lastname: lastName,
@@ -31,8 +38,6 @@ function Signup() {
       password,
     };
 
-    console.info(body);
-
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/users`,
@@ -40,23 +45,12 @@ function Signup() {
       );
 
       if (response.status === 201) {
-        console.info(
-          "Données enregistrées avec succès dans la base de données !"
-        );
-        toast("Bravo ! Votre compte a bien été créé !", {
-          position: "bottom-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
+        toast.success("Bravo ! Votre compte a bien été créé !");
         navigate("/degustation");
       }
     } catch (err) {
       console.error(err);
+      navigate("/page-500");
     }
   };
 
@@ -126,6 +120,21 @@ function Signup() {
         setter={setJob}
         placeholder="Fonction"
       />
+
+      <div className="legal-mentions-ctn">
+        <input
+          type="checkbox"
+          id="legalMentions"
+          checked={acceptLegalMentions}
+          onChange={(e) => setAcceptLegalMentions(e.target.checked)}
+        />
+        <label htmlFor="legalMentions">
+          <Link to="/mentions-legales" className="legal-mentions-link">
+            J'accepte les conditions d'utilisation
+          </Link>
+        </label>
+      </div>
+
       <div className="form_navigate">
         <Button type="submit" className="primary-button" text="Valider" />
         <Link to="/login">

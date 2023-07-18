@@ -23,6 +23,7 @@ export default function AtelierCreation() {
       }
     } catch (error) {
       console.error(error);
+      navigateTo("/page-500");
     }
   };
   return (
