@@ -1,43 +1,26 @@
-import { useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import PropTypes from "prop-types";
-import axios from "axios";
+import userRoles from "./constantRoles";
 
-function PrivateRoutes({ children }) {
-  let auth = { token: false };
+function PrivateRoutes({ expectedRoles, children }) {
+  const isAuthorized = true;
+  const areRolesRequired = !!expectedRoles?.length;
+  const roles = [userRoles.editor];
 
-  useEffect(() => {
-    const fetchUserInformation = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        const response = await axios({
-          method: "POST",
-          url: `${
-            import.meta.env.VITE_BACKEND_URL
-          }/api/verify-token-for-protected-routes`,
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        if (response.status === 200) {
-          auth = { token: true };
-          console.info(auth);
-          console.info(response);
-        } else {
-          console.error("User information not found");
-        }
-      } catch (error) {
-        console.error("Can not get user data", error);
-      }
-    };
-    fetchUserInformation();
-  }, []);
+  const rolesMatch = areRolesRequired
+    ? expectedRoles.some((r) => roles.indexOf(r) >= 0)
+    : true;
 
-  return auth.token ? <Navigate to="/login" /> : children;
+  if (!isAuthorized || !rolesMatch) {
+    return <Navigate to="/login" replace />;
+  }
 
-  // return auth.token ? children : children;
+  return children;
 }
 
 PrivateRoutes.propTypes = {
   children: PropTypes.node.isRequired,
+  expectedRoles: PropTypes.node.isRequired,
 };
 
 export default PrivateRoutes;
