@@ -65,27 +65,18 @@ const updateUser = (req, res) => {
     });
 };
 
-const patchUser = (req, res) => {
-  const { id } = req.params;
-  const { firstname, lastname, address, zip_code, city, job } = req.body;
+const updateIsAdmin = (req, res) => {
+  const user = req.body;
 
-  const user = {
-    firstname,
-    lastname,
-    address,
-    zip_code,
-    city,
-    job,
-    user_id: id,
-  };
+  user.user_id = parseInt(req.params.id, 10);
 
   models.user
-    .patchUser(user)
-    .then((data) => {
-      if (data[0].affectedRows === 1) {
-        res.status(200).json("patch succesful");
-      } else {
+    .updateAdmin(user)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
         res.sendStatus(404);
+      } else {
+        res.sendStatus(204);
       }
     })
     .catch((err) => {
@@ -160,8 +151,8 @@ module.exports = {
   getUserById,
   createUser,
   updateUser,
-  patchUser,
   destroy,
   getUserByEmailWithPasswordAndPassToNext,
   getUserInformation,
+  updateIsAdmin,
 };
