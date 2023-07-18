@@ -6,6 +6,7 @@ const {
   hashPassword,
   verifyPassword,
   verifyToken,
+  verifyTokenForProtectedRoutes,
 } = require("./middlewares/auth");
 
 const { sendEmail } = require("./middlewares/sendEmail");
@@ -68,5 +69,10 @@ router.get("/taste-profile", tasteProfileControllers.findAllTasteProfile);
 router.get("/taste-profile/:id", tasteProfileControllers.findTasteProfileById);
 router.put("/taste-profile/:id", tasteProfileControllers.editTasteProfile);
 router.delete("/taste-profile/:id", tasteProfileControllers.deleteTasteProfile);
+
+router.post(
+  "/verify-token-for-protected-routes",
+  verifyTokenForProtectedRoutes
+);
 
 module.exports = router;

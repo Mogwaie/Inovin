@@ -77,4 +77,35 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-module.exports = { hashPassword, verifyPassword, verifyToken };
+const verifyTokenForProtectedRoutes = (req, res) => {
+  try {
+    const authorizationHeader = req.get("Authorization");
+
+    if (authorizationHeader == null) {
+      throw new Error("Authorization header is missing");
+    }
+
+    const [type, token] = authorizationHeader.split(" ");
+
+    if (type !== "Bearer") {
+      throw new Error("Authorization header has not the 'Bearer' type");
+    }
+
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+    if (decodedToken) {
+      console.info(decodedToken);
+      req.user_id = decodedToken.user_id;
+      res.sendStatus(200);
+    }
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(401);
+  }
+};
+
+module.exports = {
+  hashPassword,
+  verifyPassword,
+  verifyToken,
+  verifyTokenForProtectedRoutes,
+};
