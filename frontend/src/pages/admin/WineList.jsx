@@ -11,6 +11,7 @@ function WineList() {
   const navigateTo = useNavigate();
 
   useEffect(() => {
+    axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/wines`)
       .then((response) => {
         setWineList(response.data);
