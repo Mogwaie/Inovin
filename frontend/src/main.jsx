@@ -150,6 +150,10 @@ const router = createBrowserRouter([
             element: <UserList />,
           },
           {
+            path: "user-list/:id",
+            element: <AdminProfile />,
+          },
+          {
             path: "create-user",
             element: <CreateUser />,
           },
@@ -180,10 +184,6 @@ const router = createBrowserRouter([
           {
             path: "degustation-profile/:id",
             element: <AdminDegustationProfile />,
-          },
-          {
-            path: "adminprofile",
-            element: <AdminProfile />,
           },
         ],
       },
