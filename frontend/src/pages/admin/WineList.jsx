@@ -12,7 +12,7 @@ function WineList() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4242/api/wines`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/wines`)
       .then((response) => {
         setWineList(response.data);
       })
@@ -32,6 +32,7 @@ function WineList() {
 
   return (
     <div className="wine-list-page-container">
+      <h2>Vins</h2>
       <div className="search-bar-and-button-create">
         <SearchBar setSearchInput={setSearchInput} searchInput={searchInput} />
         <button type="button" className="secondary-button">

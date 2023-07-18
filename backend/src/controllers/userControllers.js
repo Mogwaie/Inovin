@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable prettier/prettier */
 const models = require("../models");
 
@@ -31,6 +32,7 @@ const getUserById = (req, res) => {
 
 const createUser = (req, res) => {
   const user = req.body;
+  console.error(req.body);
   user.is_admin = 0;
 
   models.user
@@ -46,11 +48,30 @@ const createUser = (req, res) => {
 
 const updateUser = (req, res) => {
   const user = req.body;
-
   user.user_id = parseInt(req.params.id, 10);
 
   models.user
     .updateUser(user)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const updateIsAdmin = (req, res) => {
+  const user = req.body;
+
+  user.user_id = parseInt(req.params.id, 10);
+
+  models.user
+    .updateAdmin(user)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
@@ -105,9 +126,14 @@ const getUserInformation = (req, res) => {
     .then(([user]) => {
       if (user) {
         const userInfo = {
+          userId: user[0].user_id,
           name: user[0].firstname,
           surname: user[0].lastname,
           email: user[0].email,
+          adress: user[0].address,
+          zip: user[0].zip_code,
+          city: user[0].city,
+          fonction: user[0].job,
         };
         res.status(200).json(userInfo);
       } else {
@@ -120,7 +146,6 @@ const getUserInformation = (req, res) => {
     });
 };
 
-
 module.exports = {
   getAllUsers,
   getUserById,
@@ -129,4 +154,5 @@ module.exports = {
   destroy,
   getUserByEmailWithPasswordAndPassToNext,
   getUserInformation,
+  updateIsAdmin,
 };
