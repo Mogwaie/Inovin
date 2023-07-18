@@ -85,6 +85,34 @@ const updateIsAdmin = (req, res) => {
     });
 };
 
+const modifyUser = (req, res) => {
+  const { id } = req.params;
+  const { firstname, lastname, address, zip_code, city, job } = req.body;
+
+  const user = {
+    firstname,
+    lastname,
+    address,
+    zip_code,
+    city,
+    job,
+    user_id: id,
+  };
+
+  models.user
+    .modifyUser(user)
+    .then((data) => {
+      if (data[0].affectedRows === 1) {
+        res.status(200).json("patch succesful");
+      } else {
+        res.sendStatus(404);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
 const destroy = (req, res) => {
   models.user
     .delete(req.params.id)
@@ -151,6 +179,7 @@ module.exports = {
   getUserById,
   createUser,
   updateUser,
+  modifyUser,
   destroy,
   getUserByEmailWithPasswordAndPassToNext,
   getUserInformation,

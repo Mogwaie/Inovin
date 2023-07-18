@@ -27,7 +27,11 @@
 }
 
 @media screen and (min-width: $app-desktop-medium) {
-  .search-bar-and-button-create {
+  .degustation-profil-list-container {
     width: 65%;
+
+    .search-bar-and-button-create {
+      width: 65%;
+    }
   }
 }
