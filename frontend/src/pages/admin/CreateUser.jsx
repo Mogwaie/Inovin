@@ -14,7 +14,20 @@ export default function CreateUser() {
   const [postalCode, setPostalCode] = useState();
   const [city, setCity] = useState("");
   const [job, setJob] = useState("");
-  const password = "test";
+
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  function generateString(length) {
+    let result = " ";
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i += 1) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+
+    return result;
+  }
+  const password = generateString(10);
 
   const navigateTo = useNavigate();
   const goToUserList = async () => {
