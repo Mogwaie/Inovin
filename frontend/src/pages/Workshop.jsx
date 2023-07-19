@@ -19,6 +19,18 @@ function Workshop() {
   ]);
 
   useEffect(() => {
+    if (userId !== null) {
+      let levelListCepageCopy = [...levelListCepage]; //eslint-disable-line
+      for (let i = 0; i < levelListCepageCopy.length; i += 1) {
+        if (levelListCepageCopy[i].user_id === null) {
+          levelListCepageCopy[i].user_id = userId;
+        }
+      }
+      setLevelListCepage(levelListCepage);
+    }
+  }, [userId]);
+
+  useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/cepages`)
       .then((response) => {
@@ -53,25 +65,23 @@ function Workshop() {
 
   const handleSubmitLevel = async (e) => {
     e.preventDefault();
+    const myArray = levelListCepage.filter((element) => element.level !== "");
+    const requests = myArray.map((element) => {
+      return axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/recipes`,
+        element
+      );
+    });
 
-    for (let i = 0; i < levelListCepage.length; i += 1) {
-      if (!(levelListCepage[i].level === "")) {
-        const body = levelListCepage[i];
-        console.info(body);
-        try {
-          const response = axios.post(
-            `${import.meta.env.VITE_BACKEND_URL}/api/recipes`,
-            body
-          );
-          if (response.status === 201) {
-            // navigateTo("/reviews");
-            console.info("well done");
-          }
-        } catch (error) {
-          console.error(error);
+    Promise.all(requests)
+      .then((responses) => {
+        if (responses[0].status === 201) {
+          navigateTo("/reviews");
         }
-      }
-    }
+      })
+      .catch((error) => {
+        console.error("Au moins une requête a échoué", error);
+      });
   };
 
   return (
