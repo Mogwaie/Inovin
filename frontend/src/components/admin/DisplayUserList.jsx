@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import modifButton from "../../assets/images/modifButton.png";
 import ToggleAdmin from "./ToggleAdmin";
@@ -51,7 +52,11 @@ function DisplayUserList({ user }) {
           />
         </div>
         <div className="buttons-modif-and-delete">
-          <img src={modifButton} alt="button modify a user" />
+          <Link to={`/admin/user-list/${user.user_id}`}>
+            <button type="button" className="modif-button">
+              <img src={modifButton} alt="button modify a user" />
+            </button>
+          </Link>
         </div>
       </div>
     </div>
