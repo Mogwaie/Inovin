@@ -45,8 +45,6 @@ function Signup() {
       );
 
       if (response.status === 201) {
-        localStorage.setItem("token", response.data.token);
-
         console.info(
           "Données enregistrées avec succès dans la base de données !"
         );
