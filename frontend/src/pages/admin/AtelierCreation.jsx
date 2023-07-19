@@ -12,20 +12,40 @@ export default function AtelierCreation() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const body = { cepageOne, cepageTwo, cepageThree, cepageFour };
-    try {
-      const response = await axios.put(
-        `${import.meta.env.VITE_BACKEND_URL}/api/cepageList`,
-        body
-      );
-      if (response.status === 204) {
-        navigateTo("/admin/home");
-      }
-    } catch (error) {
-      console.error(error);
-      navigateTo("/page-500");
+
+    const ListToSendToBack = [];
+    if (cepageOne !== "") {
+      ListToSendToBack.push({ 1: cepageOne });
     }
+    if (cepageTwo !== "") {
+      ListToSendToBack.push({ 2: cepageTwo });
+    }
+    if (cepageThree !== "") {
+      ListToSendToBack.push({ 3: cepageThree });
+    }
+    if (cepageFour !== "") {
+      ListToSendToBack.push({ 4: cepageFour });
+    }
+
+    ListToSendToBack.map(async (el) => {
+      const [nameOfCepage] = Object.values(el);
+      const body = { name: nameOfCepage };
+
+      try {
+        const response = await axios.put(
+          `${import.meta.env.VITE_BACKEND_URL}/api/cepages/${Object.keys(el)}`,
+          body
+        );
+        if (response.status === 204) {
+          navigateTo("/admin/home");
+        }
+      } catch (error) {
+        console.error(error);
+        navigateTo("/page-500");
+      }
+    });
   };
+
   return (
     <div className="reviewsPageDiv">
       <h2 className="reviewsPageH2">Atelier de création</h2>

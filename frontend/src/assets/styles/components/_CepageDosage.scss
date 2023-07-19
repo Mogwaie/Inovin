@@ -1,0 +1,20 @@
+.cepage-dosage-container {
+  display: flex;
+
+  .cepage-input {
+    display: flex;
+
+    input::placeholder {
+      color: $font-family-title-color;
+    }
+
+    .input-dosage {
+      height: 1.5rem;
+    }
+
+    .input-dosage:focus {
+      outline: none;
+      border-bottom: solid 2px $font-family-title-color;
+    }
+  }
+}
