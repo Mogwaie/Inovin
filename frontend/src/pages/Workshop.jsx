@@ -4,17 +4,31 @@ import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import wireframe from "../assets/images/imageAtelier.svg";
 import CepageDosage from "../components/CepageDosage";
+import getDate from "../utils/getDate";
 
 function Workshop() {
+  const navigateTo = useNavigate();
+
   const [cepageList, setCepageList] = useState([]);
+  const [userId, setUserId] = useState(null);
   const [levelListCepage, setLevelListCepage] = useState([
-    { cepage_id: 1, level: "" },
-    { cepage_id: 2, level: "" },
-    { cepage_id: 3, level: "" },
-    { cepage_id: 4, level: "" },
+    { cepage_id: 1, level: "", user_id: userId, session_date: getDate() },
+    { cepage_id: 2, level: "", user_id: userId, session_date: getDate() },
+    { cepage_id: 3, level: "", user_id: userId, session_date: getDate() },
+    { cepage_id: 4, level: "", user_id: userId, session_date: getDate() },
   ]);
 
-  const navigateTo = useNavigate();
+  useEffect(() => {
+    if (userId !== null) {
+      let levelListCepageCopy = [...levelListCepage]; //eslint-disable-line
+      for (let i = 0; i < levelListCepageCopy.length; i += 1) {
+        if (levelListCepageCopy[i].user_id === null) {
+          levelListCepageCopy[i].user_id = userId;
+        }
+      }
+      setLevelListCepage(levelListCepage);
+    }
+  }, [userId]);
 
   useEffect(() => {
     axios
@@ -26,28 +40,48 @@ function Workshop() {
         console.error(error);
         navigateTo("/page-500");
       });
+
+    const fetchUserInformation = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const response = await axios({
+          method: "POST",
+          url: `${import.meta.env.VITE_BACKEND_URL}/api/userinformation`,
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (response.status === 200) {
+          const userInfo = response.data;
+          setUserId(userInfo.userId);
+        } else {
+          console.error("User information not found");
+        }
+      } catch (error) {
+        console.error("Can not get user data", error);
+        navigateTo("/page-500");
+      }
+    };
+    fetchUserInformation();
   }, []);
 
   const handleSubmitLevel = async (e) => {
     e.preventDefault();
-    for (let i = 0; i < levelListCepage.length; i += 1) {
-      if (!(levelListCepage[i].level === "")) {
-        const body = levelListCepage[i];
-        console.info(body);
-        try {
-          const response = axios.post(
-            `${import.meta.env.VITE_BACKEND_URL}/api/recipes`,
-            body
-          );
-          if (response.status === 201) {
-            // navigateTo("/reviews");
-            console.info("well done");
-          }
-        } catch (error) {
-          console.error(error);
+    const myArray = levelListCepage.filter((element) => element.level !== "");
+    const requests = myArray.map((element) => {
+      return axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/recipes`,
+        element
+      );
+    });
+
+    Promise.all(requests)
+      .then((responses) => {
+        if (responses[0].status === 201) {
+          navigateTo("/reviews");
         }
-      }
-    }
+      })
+      .catch((error) => {
+        console.error("Au moins une requête a échoué", error);
+      });
   };
 
   return (
