@@ -7,13 +7,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(5px); /* Add the backdrop filter */
+  backdrop-filter: blur(5px);
 }
 
 .popup-content {
   border-radius: 8px;
-  width: 60%;
-  height: 50%;
+  width: 225px;
+  height: 265px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -22,14 +22,63 @@
   background-color: #504d4d;
   border: 3px solid $app-primary-font-color;
   line-height: 1.7rem;
-}
 
-.message-title {
-  font-weight: 500;
-  margin: 10px 0 30px 0;
-}
+  .message-title {
+    font-weight: 500;
+    margin: 10px 0 25px 0;
+  }
+  .message-confirm {
+    width: 220px;
+    margin-top: 1rem;
+  }
 
-.message-confirm {
-  font-weight: 500;
-  margin-bottom: 200px;
+  .modal-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 112px;
+    height: 200px;
+
+    button {
+      margin-top: 10px;
+    }
+  }
+}
+@media screen and (min-width: $app-tablet) {
+  .popup-content {
+    width: 360px;
+    height: 335px;
+
+    .message-confirm {
+      width: 350px;
+      margin-top: 3rem;
+    }
+
+    .modal-btn {
+      width: 112px;
+      height: 200px;
+      margin-top: 25px;
+      button {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+@media screen and (min-width: $app-desktop) {
+  .popup-content {
+    width: 450px;
+    height: 330px;
+
+    .message-confirm {
+      width: 430px;
+      margin-top: 4rem;
+    }
+
+    .modal-btn {
+      margin-top: 38px;
+      button {
+        margin-top: 17px;
+      }
+    }
+  }
 }
