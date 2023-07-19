@@ -1,6 +1,6 @@
 const models = require("../models");
 
-const findAllCepages = (req, res) => {
+const findAllCepagesLevel = (req, res) => {
   models.cepage_level
     .findAll()
     .then(([rows]) => {
@@ -12,7 +12,7 @@ const findAllCepages = (req, res) => {
     });
 };
 
-const findCepageById = (req, res) => {
+const findCepageLevelById = (req, res) => {
   models.cepage_level
     .find(req.params.id)
     .then(([rows]) => {
@@ -28,7 +28,7 @@ const findCepageById = (req, res) => {
     });
 };
 
-const editCepage = (req, res) => {
+const editCepageLevel = (req, res) => {
   const cepageLevel = req.body;
   cepageLevel.cepage_level = parseInt(req.params.id, 10);
   models.cepage_level
@@ -47,7 +47,7 @@ const editCepage = (req, res) => {
 };
 
 module.exports = {
-  findAllCepages,
-  findCepageById,
-  editCepage,
+  findAllCepagesLevel,
+  findCepageLevelById,
+  editCepageLevel,
 };
