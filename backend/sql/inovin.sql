@@ -46,7 +46,9 @@ DROP TABLE IF EXISTS `recipe`;
 CREATE TABLE `recipe` (
   `recipe_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `cepage_id` integer,
-  `cepage_level` integer
+  `cepage_level` integer,
+  `user_id` integer,
+  `session_date` integer
 );
 
 DROP TABLE IF EXISTS `cepage`;
@@ -74,6 +76,9 @@ ALTER TABLE `taste_profile` ADD FOREIGN KEY (`wine_id`) REFERENCES `wine` (`wine
 ALTER TABLE `user` ADD FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`recipe_id`);
 
 ALTER TABLE `recipe` ADD FOREIGN KEY (`cepage_id`) REFERENCES `cepage` (`cepage_id`);
+
+ALTER TABLE `recipe` ADD FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
+
 
 INSERT INTO taste (name) 
 VALUES ('Châteauneuf-du-Pape'), ('Château Margaux'), ('Beaujolais Nouveau'), ('Domaine de la Romanée-Conti');
