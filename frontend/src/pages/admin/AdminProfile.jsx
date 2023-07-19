@@ -1,11 +1,13 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import profileBottles from "../../assets/images/profileBottles.png";
 import profilePicture from "../../assets/images/profilePicture.png";
 
 export default function ProfileAdnim() {
   const navigateTo = useNavigate();
+
+  const { id } = useParams();
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -14,27 +16,23 @@ export default function ProfileAdnim() {
   const [zip, setZip] = useState("");
   const [city, setCity] = useState("");
   const [fonction, setFonction] = useState("");
-  const [id, setId] = useState("");
 
   useEffect(() => {
     const fetchUserInformation = async () => {
       try {
-        const token = localStorage.getItem("token");
         const response = await axios({
-          method: "POST",
-          url: `${import.meta.env.VITE_BACKEND_URL}/api/userinformation`,
-          headers: { Authorization: `Bearer ${token}` },
+          method: "GET",
+          url: `${import.meta.env.VITE_BACKEND_URL}/api/users/${id}`,
         });
         if (response.status === 200) {
           const userInfo = response.data;
-          setFirstName(userInfo.name);
-          setLastName(userInfo.surname);
+          setFirstName(userInfo.firstname);
+          setLastName(userInfo.lastname);
           setEmail(userInfo.email);
-          setAdress(userInfo.adress);
-          setZip(userInfo.zip);
+          setAdress(userInfo.address);
+          setZip(userInfo.zip_code);
           setCity(userInfo.city);
-          setFonction(userInfo.fonction);
-          setId(userInfo.userId);
+          setFonction(userInfo.job);
         } else {
           console.error("User information not found");
         }
@@ -43,7 +41,7 @@ export default function ProfileAdnim() {
       }
     };
     fetchUserInformation();
-  }, []);
+  }, [id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,7 +54,6 @@ export default function ProfileAdnim() {
       city,
       job: fonction,
     };
-    console.error(body);
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/userinformation/${id}`,
@@ -82,7 +79,6 @@ export default function ProfileAdnim() {
       }
     } catch (error) {
       console.error(error);
-      navigateTo("/page-500");
     }
   };
 
