@@ -21,7 +21,7 @@ function CepageDosage({ cepageName, levelListCepage, setLevelListCepage, id }) {
 
   return (
     <div className="cepage-dosage-container">
-      <p>{cepageName}</p>
+      <p className="name-cepage-title">{cepageName}</p>
       <div className="cepage-input">
         <input
           className="input-dosage"
@@ -39,7 +39,7 @@ export default CepageDosage;
 
 CepageDosage.propTypes = {
   cepageName: PropTypes.string.isRequired,
-  setLevelListCepage: PropTypes.string.isRequired,
+  setLevelListCepage: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   levelListCepage: PropTypes.shape({
     level: PropTypes.number.isRequired,

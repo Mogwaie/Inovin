@@ -51,12 +51,14 @@ function Workshop() {
   };
 
   return (
-    <form className="Workshop" onSubmit={(e) => handleSubmitLevel(e)}>
-      <h1 className="title-page">Atelier</h1>
-      <h1 className="title-page">de création</h1>
-
-      {cepageList.map((cepage) => (
-        <div>
+    <form className="workshop" onSubmit={(e) => handleSubmitLevel(e)}>
+      <h2 className="title-page-workshop">Atelier de création</h2>
+      <div className="name-level-cepage">
+        <h3>Cépage : </h3>
+        <h3>Dosage : </h3>
+      </div>
+      <div className="cepage-level-container">
+        {cepageList.map((cepage) => (
           <CepageDosage
             key={cepage.cepage_id}
             id={cepage.cepage_id}
@@ -64,16 +66,13 @@ function Workshop() {
             levelListCepage={levelListCepage}
             setLevelListCepage={setLevelListCepage}
           />
-        </div>
-      ))}
+        ))}
+      </div>
 
-      <div className="title-guide-ctn">Guide :</div>
+      <h3 className="title-guide-ctn">Guide :</h3>
       <div className="guide-ctn">
-        <div className="img-guide-ctn">
-          <img src={wireframe} alt="img-guide" className="img-guide" />
-          <img src={wireframe} alt="img-guide" className="img-guide" />
-          <img src={wireframe} alt="img-guide" className="img-guide" />
-        </div>
+        <img src={wireframe} alt="img-guide" className="img-guide" />
+
         <div className="content-guide-ctn">
           <ul>
             <li>

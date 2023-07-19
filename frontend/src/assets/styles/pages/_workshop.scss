@@ -1,104 +1,72 @@
-@mixin center {
+.workshop {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-}
 
-.Workshop {
-  @include center;
-  margin: 5%;
-  padding: 2%;
-}
+  .title-page-workshop {
+    width: 12rem;
+    text-align: center;
+  }
 
-.title-page {
-  @include font-title-phone;
-}
+  .name-level-cepage {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 4rem;
+  }
 
-.cepage-dosage-ctn {
-  @include center;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin: 5%;
-  padding: 5%;
-}
-
-.title-cepage-ctn,
-.title-dosage-ctn,
-.title-guide-ctn {
-  @include font-subheading-phone;
-}
-
-.title-cepage-ctn {
-  padding: 0 0 4% 0;
-}
-
-.cepage-ctn {
-  width: 40%;
-}
-
-.cepage-name {
-  @include font-text-phone;
-  padding: 3% 0 0 0;
-}
-
-.dosage-ctn {
-  width: 40%;
-
-  .input-dosage {
-    border: none;
-    border-bottom: 1px solid $font-family-title-color;
-    background-color: $app-bg-color;
-    color: $font-family-title-color;
+  .cepage-level-container {
     width: 70%;
-    padding: 0% 2%;
-    margin: 0% 5% 0% 0%;
   }
 
-  input::placeholder {
-    color: $font-family-title-color;
+  .title-guide-ctn {
+    margin-top: 5rem;
   }
 
-  .input-dosage:focus {
-    outline: none;
-    border-bottom: solid 2px $font-family-title-color;
+  .guide-ctn {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 75%;
+    margin-top: 1rem;
+
+    .img-guide {
+      width: 8rem;
+      margin-top: 1rem;
+    }
+
+    .content-guide-ctn {
+      li {
+        color: white;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  .btn-workshop {
+    margin-top: 2rem;
   }
 }
 
-.dosage-input-ctn {
-  margin: 5%;
+@media screen and (min-width: $app-tablet) {
+  .workshop {
+    .cepage-level-container {
+      width: 58%;
+    }
+
+    .guide-ctn {
+      width: 58%;
+    }
+  }
 }
 
-.dosage-input {
-  display: flex;
-}
+@media screen and (min-width: $app-desktop) {
+  .workshop {
+    width: 70%;
+    margin: auto;
 
-.guide-ctn {
-  @include center;
-  flex-direction: row;
-  flex: 1;
-  width: 100%;
-}
-
-.img-guide-ctn {
-  @include center;
-  padding: 5%;
-  margin: 5%;
-  width: 100%;
-}
-
-.img-guide {
-  @include center;
-  width: 100%;
-  margin: 10%;
-}
-
-.content-guide-ctn {
-  @include center;
-  padding: 5%;
-  margin: 5%;
-  ul li {
-    @include font-text-phone;
+    .title-page-workshop {
+      width: 22rem;
+    }
   }
 }
