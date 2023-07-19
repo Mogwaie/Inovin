@@ -7,17 +7,16 @@ import CepageDosage from "../components/CepageDosage";
 import getDate from "../utils/getDate";
 
 function Workshop() {
-  const [cepageList, setCepageList] = useState([]);
-  const [levelListCepage, setLevelListCepage] = useState([
-    { cepage_id: 1, level: "" },
-    { cepage_id: 2, level: "" },
-    { cepage_id: 3, level: "" },
-    { cepage_id: 4, level: "" },
-  ]);
-
-  console.info(getDate());
-
   const navigateTo = useNavigate();
+
+  const [cepageList, setCepageList] = useState([]);
+  const [userId, setUserId] = useState(null);
+  const [levelListCepage, setLevelListCepage] = useState([
+    { cepage_id: 1, level: "", user_id: userId, session_date: getDate() },
+    { cepage_id: 2, level: "", user_id: userId, session_date: getDate() },
+    { cepage_id: 3, level: "", user_id: userId, session_date: getDate() },
+    { cepage_id: 4, level: "", user_id: userId, session_date: getDate() },
+  ]);
 
   useEffect(() => {
     axios
@@ -29,10 +28,32 @@ function Workshop() {
         console.error(error);
         navigateTo("/page-500");
       });
+
+    const fetchUserInformation = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const response = await axios({
+          method: "POST",
+          url: `${import.meta.env.VITE_BACKEND_URL}/api/userinformation`,
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (response.status === 200) {
+          const userInfo = response.data;
+          setUserId(userInfo.userId);
+        } else {
+          console.error("User information not found");
+        }
+      } catch (error) {
+        console.error("Can not get user data", error);
+        navigateTo("/page-500");
+      }
+    };
+    fetchUserInformation();
   }, []);
 
   const handleSubmitLevel = async (e) => {
     e.preventDefault();
+
     for (let i = 0; i < levelListCepage.length; i += 1) {
       if (!(levelListCepage[i].level === "")) {
         const body = levelListCepage[i];
