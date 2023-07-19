@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { toast } from "react-toastify";
 import wineglass from "../../assets/images/wineGlass.png";
 
 export default function AtelierCreation() {
@@ -37,6 +38,16 @@ export default function AtelierCreation() {
           body
         );
         if (response.status === 204) {
+          toast(`Le cépage "${nameOfCepage}" a bien été mis à jour.`, {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
           navigateTo("/admin/home");
         }
       } catch (error) {

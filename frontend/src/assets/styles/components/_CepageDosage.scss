@@ -3,6 +3,7 @@
 
   .cepage-input {
     display: flex;
+    align-items: flex-end;
 
     input::placeholder {
       color: $font-family-title-color;
