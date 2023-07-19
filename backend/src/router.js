@@ -17,7 +17,7 @@ const reviewControllers = require("./controllers/reviewControllers");
 const tasteControllers = require("./controllers/tasteControllers");
 const wineControllers = require("./controllers/wineControllers");
 const profileTasteController = require("./controllers/profileTasteControllers");
-const cepageLevelControllers = require("./controllers/cepageLevelControllers");
+const recipeControllers = require("./controllers/recipeControllers");
 
 console.error(userControllers.patchUser);
 
@@ -54,9 +54,9 @@ router.post("/cepages", cepageControllers.createNewCepage);
 router.put("/cepages/:id", cepageControllers.editCepage);
 router.delete("/cepages/:id", cepageControllers.deleteCepage);
 
-router.get("/cepages-level", cepageLevelControllers.findAllCepagesLevel);
-router.get("/cepages-level/:id", cepageLevelControllers.findCepageLevelById);
-router.put("/cepages-level/:id", cepageLevelControllers.editCepageLevel);
+router.get("/recipes", recipeControllers.findAllRecipes);
+router.get("/recipes/:id", recipeControllers.findRecipeById);
+router.post("/recipes", recipeControllers.createRecipe);
 
 router.get("/tastes", tasteControllers.tasteBrowse);
 router.get("/tastes/:id", tasteControllers.read);

@@ -1,7 +1,7 @@
 const models = require("../models");
 
-const findAllCepagesLevel = (req, res) => {
-  models.cepage_level
+const findAllRecipes = (req, res) => {
+  models.recipe
     .findAll()
     .then(([rows]) => {
       res.send(rows);
@@ -12,8 +12,8 @@ const findAllCepagesLevel = (req, res) => {
     });
 };
 
-const findCepageLevelById = (req, res) => {
-  models.cepage_level
+const findRecipeById = (req, res) => {
+  models.recipe
     .find(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
@@ -28,17 +28,13 @@ const findCepageLevelById = (req, res) => {
     });
 };
 
-const editCepageLevel = (req, res) => {
-  const cepageLevel = req.body;
-  cepageLevel.cepage_level = parseInt(req.params.id, 10);
-  models.cepage_level
-    .update(cepageLevel)
+const createRecipe = (req, res) => {
+  const recipe = req.body;
+  models.recipe
+    .addRecipe(recipe)
     .then(([result]) => {
-      if (result.affectedRows === 0) {
-        res.sendStatus(404);
-      } else {
-        res.sendStatus(204);
-      }
+      res.status(200);
+      res.location(`/recipes/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
@@ -47,7 +43,7 @@ const editCepageLevel = (req, res) => {
 };
 
 module.exports = {
-  findAllCepagesLevel,
-  findCepageLevelById,
-  editCepageLevel,
+  findAllRecipes,
+  findRecipeById,
+  createRecipe,
 };

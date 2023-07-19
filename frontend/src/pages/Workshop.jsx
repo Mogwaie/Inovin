@@ -6,12 +6,15 @@ import wireframe from "../assets/images/imageAtelier.svg";
 import CepageDosage from "../components/CepageDosage";
 
 function Workshop() {
-  const [dosage, setDosage] = useState(0);
   const [cepageList, setCepageList] = useState([]);
+  const [levelListCepage, setLevelListCepage] = useState([
+    { cepage_id: 1, level: "" },
+    { cepage_id: 2, level: "" },
+    { cepage_id: 3, level: "" },
+    { cepage_id: 4, level: "" },
+  ]);
+
   const navigateTo = useNavigate();
-  const goToReview = async () => {
-    await navigateTo("/reviews");
-  };
 
   useEffect(() => {
     axios
@@ -25,17 +28,41 @@ function Workshop() {
       });
   }, []);
 
+  const handleSubmitLevel = async (e) => {
+    e.preventDefault();
+    for (let i = 0; i < levelListCepage.length; i += 1) {
+      if (!(levelListCepage[i].level === "")) {
+        const body = levelListCepage[i];
+        console.info(body);
+        try {
+          const response = axios.post(
+            `${import.meta.env.VITE_BACKEND_URL}/api/recipes`,
+            body
+          );
+          if (response.status === 201) {
+            // navigateTo("/reviews");
+            console.info("well done");
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    }
+  };
+
   return (
-    <div className="Workshop">
+    <form className="Workshop" onSubmit={(e) => handleSubmitLevel(e)}>
       <h1 className="title-page">Atelier</h1>
       <h1 className="title-page">de création</h1>
 
       {cepageList.map((cepage) => (
         <div>
           <CepageDosage
+            key={cepage.cepage_id}
+            id={cepage.cepage_id}
             cepageName={cepage.name}
-            dosage={dosage}
-            setDosage={setDosage}
+            levelListCepage={levelListCepage}
+            setLevelListCepage={setLevelListCepage}
           />
         </div>
       ))}
@@ -75,9 +102,9 @@ function Workshop() {
       </div>
 
       <div className="btn-workshop">
-        <Button id="btn-to-go-review" text="Enregistrer" onClick={goToReview} />
+        <Button id="btn-to-go-review" text="Enregistrer" type="submit" />
       </div>
-    </div>
+    </form>
   );
 }
 

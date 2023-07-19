@@ -15,7 +15,7 @@ CREATE TABLE `user` (
   `hashedPassword` varchar(255) NOT NULL,
   `is_admin` integer,
   `taste_profile_id` integer,
-  `receipe_id` integer
+  `recipe_id` integer
 );
 
 DROP TABLE IF EXISTS `taste_profile`;
@@ -42,17 +42,11 @@ CREATE TABLE `taste` (
   `name` varchar(255)
 );
 
-DROP TABLE IF EXISTS `receipe`;
-CREATE TABLE `receipe` (
-  `receipe_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `cepage_level_id` integer
-);
-
-DROP TABLE IF EXISTS `cepage_level`;
-CREATE TABLE `cepage_level` (
-  `cepage_level_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `recipe`;
+CREATE TABLE `recipe` (
+  `recipe_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `cepage_id` integer,
-  `level` integer
+  `cepage_level` integer
 );
 
 DROP TABLE IF EXISTS `cepage`;
@@ -77,11 +71,9 @@ ALTER TABLE `taste_profile` ADD FOREIGN KEY (`taste_id`) REFERENCES `taste` (`ta
 
 ALTER TABLE `taste_profile` ADD FOREIGN KEY (`wine_id`) REFERENCES `wine` (`wine_id`);
 
-ALTER TABLE `user` ADD FOREIGN KEY (`receipe_id`) REFERENCES `receipe` (`receipe_id`);
+ALTER TABLE `user` ADD FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`recipe_id`);
 
-ALTER TABLE `receipe` ADD FOREIGN KEY (`cepage_level_id`) REFERENCES `cepage_level` (`cepage_level_id`);
-
-ALTER TABLE `cepage_level` ADD FOREIGN KEY (`cepage_id`) REFERENCES `cepage` (`cepage_id`);
+ALTER TABLE `recipe` ADD FOREIGN KEY (`cepage_id`) REFERENCES `cepage` (`cepage_id`);
 
 INSERT INTO taste (name) 
 VALUES ('Châteauneuf-du-Pape'), ('Château Margaux'), ('Beaujolais Nouveau'), ('Domaine de la Romanée-Conti');
