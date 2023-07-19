@@ -1,23 +1,29 @@
-@mixin center {
+.DegustationPage {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+
+  .taste-slider-main-ctn {
+    width: 75%;
+  }
+
+  .btn-navigate {
+    margin-top: 3rem;
+  }
 }
 
-.DegustationPage {
-  @include center;
+@media screen and (min-width: $app-tablet) {
+  .DegustationPage {
+    .taste-slider-main-ctn {
+      width: 57%;
+    }
+  }
 }
 
-.taste-slider-ctn {
-  @include center;
-  width: 75vw;
-}
-
-.taste-slider {
-  width: 100%;
-}
-
-#desgutation-page-btn {
-  @include primary-button-phone;
+@media screen and (min-width: $app-desktop) {
+  .DegustationPage {
+    .taste-slider-main-ctn {
+      width: 40%;
+    }
+  }
 }
