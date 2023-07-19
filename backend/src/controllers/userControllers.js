@@ -33,7 +33,13 @@ const getUserById = (req, res) => {
 const createUser = (req, res) => {
   const user = req.body;
   console.error(req.body);
-  user.is_admin = 0;
+  if(user.is_admin === true) {
+    user.is_admin = 1;
+  } else {
+    user.is_admin = 0;
+  }
+  console.error(user);
+
 
   models.user
     .addUser(user)
