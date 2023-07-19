@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import Button from "../components/Button";
 import wireframe from "../assets/images/imageAtelier.svg";
+import CepageDosage from "../components/CepageDosage";
 
 function Workshop() {
   const navigateTo = useNavigate();
@@ -10,43 +11,31 @@ function Workshop() {
     await navigateTo("/reviews");
   };
 
-  const [dosage1, setDosage1] = useState(0);
-  const [dosage2, setDosage2] = useState(0);
-  const [dosage3, setDosage3] = useState(0);
-  const [dosage4, setDosage4] = useState(0);
-  const [dosage5, setDosage5] = useState(0);
+  const cepageList = [
+    { name: "cepage1" },
+    { name: "cepage2" },
+    { name: "cepage3" },
+    { name: "cepage4" },
+  ];
 
-  const handleChangeDosage1 = (e) => {
-    e.preventDefault();
-    setDosage1(e.target.value);
-  };
-
-  const handleChangeDosage2 = (e) => {
-    e.preventDefault();
-    setDosage2(e.target.value);
-  };
-
-  const handleChangeDosage3 = (e) => {
-    e.preventDefault();
-    setDosage3(e.target.value);
-  };
-
-  const handleChangeDosage4 = (e) => {
-    e.preventDefault();
-    setDosage4(e.target.value);
-  };
-
-  const handleChangeDosage5 = (e) => {
-    e.preventDefault();
-    setDosage5(e.target.value);
-  };
+  const [dosage, setDosage] = useState(0);
 
   return (
     <div className="Workshop">
       <h1 className="title-page">Atelier</h1>
       <h1 className="title-page">de création</h1>
 
-      <div className="cepage-dosage-ctn">
+      {cepageList.map((cepage) => (
+        <div>
+          <CepageDosage
+            cepageName={cepage.name}
+            dosage={dosage}
+            setDosage={setDosage}
+          />
+        </div>
+      ))}
+
+      {/* <div className="cepage-dosage-ctn">
         <div className="cepage-ctn">
           <div className="title-cepage-ctn">Cépages :</div>
           <div className="cepage-name-ctn">
@@ -113,7 +102,7 @@ function Workshop() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="title-guide-ctn">Guide :</div>
       <div className="guide-ctn">
