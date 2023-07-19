@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-
 import SliderUser from "../components/SliderUser";
 import Button from "../components/Button";
 import { DegustationProfilContext } from "../context/DegustationProfilContext";
