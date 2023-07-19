@@ -1,24 +1,29 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
 import Button from "../components/Button";
 import wireframe from "../assets/images/imageAtelier.svg";
 import CepageDosage from "../components/CepageDosage";
 
 function Workshop() {
+  const [dosage, setDosage] = useState(0);
+  const [cepageList, setCepageList] = useState([]);
   const navigateTo = useNavigate();
   const goToReview = async () => {
     await navigateTo("/reviews");
   };
 
-  const cepageList = [
-    { name: "cepage1" },
-    { name: "cepage2" },
-    { name: "cepage3" },
-    { name: "cepage4" },
-  ];
-
-  const [dosage, setDosage] = useState(0);
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/cepages`)
+      .then((response) => {
+        setCepageList(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+        navigateTo("/page-500");
+      });
+  }, []);
 
   return (
     <div className="Workshop">
@@ -34,75 +39,6 @@ function Workshop() {
           />
         </div>
       ))}
-
-      {/* <div className="cepage-dosage-ctn">
-        <div className="cepage-ctn">
-          <div className="title-cepage-ctn">Cépages :</div>
-          <div className="cepage-name-ctn">
-            <div className="cepage-name">Grenache</div>
-            <div className="cepage-name">Syrah</div>
-            <div className="cepage-name">Merlot</div>
-            <div className="cepage-name">Malbec</div>
-            <div className="cepage-name">Cabernet Sauvignon</div>
-          </div>
-        </div>
-
-        <div className="dosage-ctn">
-          <div className="title-dosage-ctn">Dosage :</div>
-          <div className="dosage-input-ctn">
-            <div className="dosage-input">
-              <input
-                className="input-dosage"
-                type="number"
-                value={dosage1}
-                onChange={handleChangeDosage1}
-                placeholder="0"
-              />
-              <div className="dosage-unite">ml</div>
-            </div>
-            <div className="dosage-input">
-              <input
-                className="input-dosage"
-                type="number"
-                value={dosage2}
-                onChange={handleChangeDosage2}
-                placeholder="0"
-              />
-              <div className="dosage-unite">ml</div>
-            </div>
-            <div className="dosage-input">
-              <input
-                className="input-dosage"
-                type="number"
-                value={dosage3}
-                onChange={handleChangeDosage3}
-                placeholder="0"
-              />
-              <div className="dosage-unite">ml</div>
-            </div>
-            <div className="dosage-input">
-              <input
-                className="input-dosage"
-                type="number"
-                value={dosage4}
-                onChange={handleChangeDosage4}
-                placeholder="0"
-              />
-              <div className="dosage-unite">ml</div>
-            </div>
-            <div className="dosage-input">
-              <input
-                className="input-dosage"
-                type="number"
-                value={dosage5}
-                onChange={handleChangeDosage5}
-                placeholder="0"
-              />
-              <div className="dosage-unite">ml</div>
-            </div>
-          </div>
-        </div>
-      </div> */}
 
       <div className="title-guide-ctn">Guide :</div>
       <div className="guide-ctn">
