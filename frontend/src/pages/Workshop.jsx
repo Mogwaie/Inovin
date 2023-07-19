@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import wireframe from "../assets/images/imageAtelier.svg";
 import CepageDosage from "../components/CepageDosage";
+import getDate from "../utils/getDate";
 
 function Workshop() {
   const [cepageList, setCepageList] = useState([]);
@@ -13,6 +14,8 @@ function Workshop() {
     { cepage_id: 3, level: "" },
     { cepage_id: 4, level: "" },
   ]);
+
+  console.info(getDate());
 
   const navigateTo = useNavigate();
 
