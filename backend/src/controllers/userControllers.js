@@ -33,7 +33,13 @@ const getUserById = (req, res) => {
 const createUser = (req, res) => {
   const user = req.body;
   console.error(req.body);
-  user.is_admin = 0;
+  if(user.is_admin === true) {
+    user.is_admin = 1;
+  } else {
+    user.is_admin = 0;
+  }
+  console.error(user);
+
 
   models.user
     .addUser(user)
@@ -158,6 +164,7 @@ const getUserInformation = (req, res) => {
           name: user[0].firstname,
           surname: user[0].lastname,
           email: user[0].email,
+          role: user[0].is_admin,
           adress: user[0].address,
           zip: user[0].zip_code,
           city: user[0].city,
