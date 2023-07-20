@@ -14,10 +14,10 @@ function Workshop() {
   const [cepageList, setCepageList] = useState([]);
   const [userId, setUserId] = useState(null);
   const [levelListCepage, setLevelListCepage] = useState([
-    { cepage: 1, level: "", user_id: userId, session_date: getDate() },
-    { cepage: 2, level: "", user_id: userId, session_date: getDate() },
-    { cepage: 3, level: "", user_id: userId, session_date: getDate() },
-    { cepage: 4, level: "", user_id: userId, session_date: getDate() },
+    { cepage: 1, level: 0, user_id: userId, session_date: getDate() },
+    { cepage: 2, level: 0, user_id: userId, session_date: getDate() },
+    { cepage: 3, level: 0, user_id: userId, session_date: getDate() },
+    { cepage: 4, level: 0, user_id: userId, session_date: getDate() },
   ]);
 
   useEffect(() => {
