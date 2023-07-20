@@ -17,16 +17,17 @@ export default function ProfileAdnim() {
   const [city, setCity] = useState("");
   const [fonction, setFonction] = useState("");
   const [recipeUser, setRecipeUser] = useState([]);
-  // const [finalListRecipeUser, setFinalListRecipeUser] = useState([]);
+  const [finalListRecipeUser, setFinalListRecipeUser] = useState([]);
 
-  // useEffect(() => {
-  //   let sessionDate = recipeUser[0].session_date;
-  //   console.log(sessionDate);
-  //   // recipeUser.map((recipe) => {
+  useEffect(() => {
+    setFinalListRecipeUser(recipeUser);
+    // let sessionDate = recipeUser[0].session_date;
+    // console.log(sessionDate);
+    // recipeUser.map((recipe) => {
 
-  //   // });
-  //   // const recipeOfUserBySessionDate = recipeUser.filter((element) => element.session_date));
-  // }, [recipeUser]);
+    // });
+    // const recipeOfUserBySessionDate = recipeUser.filter((element) => element.session_date));
+  }, [recipeUser]);
 
   useEffect(() => {
     const fetchUserInformation = async () => {
@@ -180,14 +181,18 @@ export default function ProfileAdnim() {
         <div className="recipe-container">
           <h3>Recettes:</h3>
           <ul>
-            {recipeUser.map((recipes) => {
-              return (
-                <li key={recipes.recipe_id}>
-                  {recipes.cepage_name} : {recipes.cepage_level} ml -
-                  {recipes.session_date}
-                </li>
-              );
-            })}
+            {finalListRecipeUser !== null ? (
+              finalListRecipeUser.map((recipes) => {
+                return (
+                  <li key={recipes.recipe_id}>
+                    {recipes.cepage_name} : {recipes.cepage_level} ml -
+                    {recipes.session_date}
+                  </li>
+                );
+              })
+            ) : (
+              <>Loading</>
+            )}
           </ul>
         </div>
       </div>
