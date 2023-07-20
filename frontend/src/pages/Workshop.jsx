@@ -1,116 +1,112 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
 import Button from "../components/Button";
 import wireframe from "../assets/images/imageAtelier.svg";
 import CepageDosage from "../components/CepageDosage";
+import getDate from "../utils/getDate";
 
 function Workshop() {
   const navigateTo = useNavigate();
-  const goToReview = async () => {
-    await navigateTo("/reviews");
+
+  const [cepageList, setCepageList] = useState([]);
+  const [userId, setUserId] = useState(null);
+  const [levelListCepage, setLevelListCepage] = useState([
+    { cepage_id: 1, level: "", user_id: userId, session_date: getDate() },
+    { cepage_id: 2, level: "", user_id: userId, session_date: getDate() },
+    { cepage_id: 3, level: "", user_id: userId, session_date: getDate() },
+    { cepage_id: 4, level: "", user_id: userId, session_date: getDate() },
+  ]);
+
+  useEffect(() => {
+    if (userId !== null) {
+      let levelListCepageCopy = [...levelListCepage]; //eslint-disable-line
+      for (let i = 0; i < levelListCepageCopy.length; i += 1) {
+        if (levelListCepageCopy[i].user_id === null) {
+          levelListCepageCopy[i].user_id = userId;
+        }
+      }
+      setLevelListCepage(levelListCepage);
+    }
+  }, [userId]);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/cepages`)
+      .then((response) => {
+        setCepageList(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+        navigateTo("/page-500");
+      });
+
+    const fetchUserInformation = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const response = await axios({
+          method: "POST",
+          url: `${import.meta.env.VITE_BACKEND_URL}/api/userinformation`,
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (response.status === 200) {
+          const userInfo = response.data;
+          setUserId(userInfo.userId);
+        } else {
+          console.error("User information not found");
+        }
+      } catch (error) {
+        console.error("Can not get user data", error);
+        navigateTo("/page-500");
+      }
+    };
+    fetchUserInformation();
+  }, []);
+
+  const handleSubmitLevel = async (e) => {
+    e.preventDefault();
+    const myArray = levelListCepage.filter((element) => element.level !== "");
+    const requests = myArray.map((element) => {
+      return axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/recipes`,
+        element
+      );
+    });
+
+    Promise.all(requests)
+      .then((responses) => {
+        if (responses[0].status === 201) {
+          navigateTo("/reviews");
+        }
+      })
+      .catch((error) => {
+        console.error("Au moins une requête a échoué", error);
+      });
   };
 
-  const cepageList = [
-    { name: "cepage1" },
-    { name: "cepage2" },
-    { name: "cepage3" },
-    { name: "cepage4" },
-  ];
-
-  const [dosage, setDosage] = useState(0);
-
   return (
-    <div className="Workshop">
-      <h1 className="title-page">Atelier</h1>
-      <h1 className="title-page">de création</h1>
-
-      {cepageList.map((cepage) => (
-        <div>
+    <form className="workshop" onSubmit={(e) => handleSubmitLevel(e)}>
+      <h2 className="title-page-workshop">Atelier de création</h2>
+      <div className="name-level-cepage">
+        <h3>Cépage : </h3>
+        <h3>Dosage : </h3>
+      </div>
+      <div className="cepage-level-container">
+        {cepageList.map((cepage) => (
           <CepageDosage
+            key={cepage.cepage_id}
+            id={cepage.cepage_id}
             cepageName={cepage.name}
-            dosage={dosage}
-            setDosage={setDosage}
+            levelListCepage={levelListCepage}
+            setLevelListCepage={setLevelListCepage}
           />
-        </div>
-      ))}
+        ))}
+      </div>
 
-      {/* <div className="cepage-dosage-ctn">
-        <div className="cepage-ctn">
-          <div className="title-cepage-ctn">Cépages :</div>
-          <div className="cepage-name-ctn">
-            <div className="cepage-name">Grenache</div>
-            <div className="cepage-name">Syrah</div>
-            <div className="cepage-name">Merlot</div>
-            <div className="cepage-name">Malbec</div>
-            <div className="cepage-name">Cabernet Sauvignon</div>
-          </div>
-        </div>
-
-        <div className="dosage-ctn">
-          <div className="title-dosage-ctn">Dosage :</div>
-          <div className="dosage-input-ctn">
-            <div className="dosage-input">
-              <input
-                className="input-dosage"
-                type="number"
-                value={dosage1}
-                onChange={handleChangeDosage1}
-                placeholder="0"
-              />
-              <div className="dosage-unite">ml</div>
-            </div>
-            <div className="dosage-input">
-              <input
-                className="input-dosage"
-                type="number"
-                value={dosage2}
-                onChange={handleChangeDosage2}
-                placeholder="0"
-              />
-              <div className="dosage-unite">ml</div>
-            </div>
-            <div className="dosage-input">
-              <input
-                className="input-dosage"
-                type="number"
-                value={dosage3}
-                onChange={handleChangeDosage3}
-                placeholder="0"
-              />
-              <div className="dosage-unite">ml</div>
-            </div>
-            <div className="dosage-input">
-              <input
-                className="input-dosage"
-                type="number"
-                value={dosage4}
-                onChange={handleChangeDosage4}
-                placeholder="0"
-              />
-              <div className="dosage-unite">ml</div>
-            </div>
-            <div className="dosage-input">
-              <input
-                className="input-dosage"
-                type="number"
-                value={dosage5}
-                onChange={handleChangeDosage5}
-                placeholder="0"
-              />
-              <div className="dosage-unite">ml</div>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
-      <div className="title-guide-ctn">Guide :</div>
+      <h3 className="title-guide-ctn">Guide :</h3>
       <div className="guide-ctn">
-        <div className="img-guide-ctn">
-          <img src={wireframe} alt="img-guide" className="img-guide" />
-          <img src={wireframe} alt="img-guide" className="img-guide" />
-          <img src={wireframe} alt="img-guide" className="img-guide" />
-        </div>
+        <img src={wireframe} alt="img-guide" className="img-guide" />
+
         <div className="content-guide-ctn">
           <ul>
             <li>
@@ -139,9 +135,9 @@ function Workshop() {
       </div>
 
       <div className="btn-workshop">
-        <Button id="btn-to-go-review" text="Enregistrer" onClick={goToReview} />
+        <Button id="btn-to-go-review" text="Enregistrer" type="submit" />
       </div>
-    </div>
+    </form>
   );
 }
 

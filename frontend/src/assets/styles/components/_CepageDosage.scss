@@ -1,8 +1,18 @@
 .cepage-dosage-container {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  .name-cepage-title {
+    word-break: break-word;
+    width: 6rem;
+    text-align: left;
+  }
 
   .cepage-input {
     display: flex;
+    align-items: flex-end;
 
     input::placeholder {
       color: $font-family-title-color;
@@ -10,6 +20,16 @@
 
     .input-dosage {
       height: 1.5rem;
+      width: 4rem;
+      margin-right: 0.5rem;
+      text-indent: 3rem;
+      background-color: #232222;
+      border: none;
+      border-bottom: 2px solid $font-family-title-color;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
     }
 
     .input-dosage:focus {
