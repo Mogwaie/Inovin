@@ -24,7 +24,7 @@ export default function ProfileAdnim() {
       let sessionDate = await recipeUser[0].session_date;
       const myFinalArray = [];
       let myArray = [];
-      recipeUser.map((recipe) => {
+      recipeUser.forEach((recipe) => {
         if (recipe.session_date === sessionDate) {
           myArray.push(recipe);
         } else {
@@ -33,24 +33,11 @@ export default function ProfileAdnim() {
           sessionDate = recipe.session_date;
           myArray.push(recipe);
         }
-        return recipe;
       });
-
-      // for (let i = 0; i < recipeUser.length; i += 1) {
-      //   if (recipeUser[i].session_date === sessionDate) {
-      //     myArray.push(recipeUser[i]);
-      //   } else {
-      //     myFinalArray.push(myArray);
-      //     myArray = [];
-      //     sessionDate = recipeUser[i].session_date;
-      //     myArray.push(recipeUser[i]);
-      //   }
-      // }
-
+      myFinalArray.push(myArray);
       setFinalListRecipeUser(myFinalArray);
     };
     test();
-    // const recipeOfUserBySessionDate = recipeUser.filter((element) => element.session_date));
   }, [recipeUser]);
 
   useEffect(() => {
