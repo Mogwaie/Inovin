@@ -95,6 +95,29 @@ VALUES
   ('john', 'doe', 'j.do@example.com', '3 Avenue angular', '75009', 'Paris', 'Journaliste', '$argon2id$v=19$m=65536,t=5,p=1$6F4WFjpSx9bSq9k4lp2fiQ$cjVgCHF/voka5bZI9YAainiaT+LkaQxfNN638b/h4fQ','0'),
   ('test', 'test', 'test@gmail.com', 'test', '90000', 'test', 'test', '$argon2id$v=19$m=65536,t=5,p=1$7y5DipbF2biofOLgY38Eyg$WZ8mz2svq5bYZOjVsoYgFXkapyifGXdR7tplz+tOlnw', '1');
 
+INSERT INTO recipe (cepage_name, cepage_level, user_id, session_date) 
+VALUES 
+('CepageName 1', 25, 1, 10072023),
+('CepageName 2', 26, 1, 10072023),
+('CepageName 3', 23, 1, 10072023),
+('CepageName 4', 29, 1, 10072023),
+('CepageName 1', 25, 1, 11072023),
+('CepageName 2', 26, 1, 11072023),
+('CepageName 3', 23, 1, 11072023),
+('CepageName 4', 29, 1, 11072023),
+('CepageName 1', 25, 1, 12072023),
+('CepageName 2', 26, 1, 12072023),
+('CepageName 3', 23, 1, 12072023),
+('CepageName 4', 29, 1, 12072023),
+('CepageName 1', 25, 11, 12072023),
+('CepageName 2', 26, 11, 12072023),
+('CepageName 3', 23, 11, 12072023),
+('CepageName 4', 29, 11, 12072023),
+('CepageName 1', 25, 11, 20072023),
+('CepageName 2', 26, 11, 20072023),
+('CepageName 3', 23, 11, 20072023),
+('CepageName 4', 29, 11, 20072023);
+
 INSERT INTO taste_profile (name, description) 
 VALUES 
 ("Riches et corsés", "Vous apprécierez certainement les vins rouges riches et corsés, avec des tanins prononcés et une belle longueur en bouche. Ces vins offrent des arômes intenses de fruits mûrs, d'épices et parfois une subtile touche de boisé. Ils sont parfaits pour accompagner des plats savoureux tels que des viandes grillées, des plats mijotés ou des fromages affinés."),
