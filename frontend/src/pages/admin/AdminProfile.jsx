@@ -20,12 +20,34 @@ export default function ProfileAdnim() {
   const [finalListRecipeUser, setFinalListRecipeUser] = useState([]);
 
   useEffect(() => {
-    setFinalListRecipeUser(recipeUser);
-    // let sessionDate = recipeUser[0].session_date;
-    // console.log(sessionDate);
-    // recipeUser.map((recipe) => {
+    const test = async () => {
+      let sessionDate = await recipeUser[0].session_date;
+      const myFinalArray = [];
+      let myArray = [];
+      // recipeUser.map((recipe) => {
+      //   if (recipe.session_date === sessionDate) {
+      //     myArray.push(recipe);
+      //   } else {
+      //     myFinalArray.push(myArray);
+      //     myArray = [];
+      //     sessionDate = recipe.session_date;
+      //     myArray.push(recipe);
+      //   }
+      // });
+      for (let i = 0; i < recipeUser.length; i += 1) {
+        if (recipeUser[i].session_date === sessionDate) {
+          myArray.push(recipeUser[i]);
+        } else {
+          myFinalArray.push(myArray);
+          myArray = [];
+          sessionDate = recipeUser[i].session_date;
+          myArray.push(recipeUser[i]);
+        }
+      }
 
-    // });
+      setFinalListRecipeUser(myFinalArray);
+    };
+    test();
     // const recipeOfUserBySessionDate = recipeUser.filter((element) => element.session_date));
   }, [recipeUser]);
 
@@ -57,7 +79,6 @@ export default function ProfileAdnim() {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/recipes-by-user/${id}`)
       .then((response) => {
-        console.info(response.data);
         setRecipeUser(response.data);
       })
       .catch((error) => {
@@ -182,12 +203,18 @@ export default function ProfileAdnim() {
           <h3>Recettes:</h3>
           <ul>
             {finalListRecipeUser !== null ? (
-              finalListRecipeUser.map((recipes) => {
+              finalListRecipeUser.map((recipesUser, idRecipe) => {
                 return (
-                  <li key={recipes.recipe_id}>
-                    {recipes.cepage_name} : {recipes.cepage_level} ml -
-                    {recipes.session_date}
-                  </li>
+                  <ul>
+                    {recipesUser.map((recipes) => {
+                      return (
+                        <li key={[idRecipe]}>
+                          {recipes.cepage_name} : {recipes.cepage_level} ml -
+                          {recipes.session_date}
+                        </li>
+                      );
+                    })}
+                  </ul>
                 );
               })
             ) : (

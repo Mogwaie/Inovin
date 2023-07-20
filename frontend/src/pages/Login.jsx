@@ -15,8 +15,6 @@ export default function Login() {
       password: passwordLogin,
     };
 
-    console.info(body);
-
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/login`,
