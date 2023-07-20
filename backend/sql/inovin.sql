@@ -45,7 +45,7 @@ CREATE TABLE `taste` (
 DROP TABLE IF EXISTS `recipe`;
 CREATE TABLE `recipe` (
   `recipe_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `cepage_id` integer,
+  `cepage_name` varchar(255),
   `cepage_level` integer,
   `user_id` integer,
   `session_date` integer
@@ -75,8 +75,6 @@ ALTER TABLE `taste_profile` ADD FOREIGN KEY (`wine_id`) REFERENCES `wine` (`wine
 
 ALTER TABLE `user` ADD FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`recipe_id`);
 
-ALTER TABLE `recipe` ADD FOREIGN KEY (`cepage_id`) REFERENCES `cepage` (`cepage_id`);
-
 ALTER TABLE `recipe` ADD FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
 
 
@@ -96,6 +94,29 @@ VALUES
   ('Thomas', 'Rousseau', 'thomas.rousseau@example.com', '3 Avenue des Champs-Élysées', '75009', 'Paris', 'Journaliste', '$argon2id$v=19$m=65536,t=5,p=1$6F4WFjpSx9bSq9k4lp2fiQ$cjVgCHF/voka5bZI9YAainiaT+LkaQxfNN638b/h4fQ', '0'),
   ('john', 'doe', 'j.do@example.com', '3 Avenue angular', '75009', 'Paris', 'Journaliste', '$argon2id$v=19$m=65536,t=5,p=1$6F4WFjpSx9bSq9k4lp2fiQ$cjVgCHF/voka5bZI9YAainiaT+LkaQxfNN638b/h4fQ','0'),
   ('test', 'test', 'test@gmail.com', 'test', '90000', 'test', 'test', '$argon2id$v=19$m=65536,t=5,p=1$7y5DipbF2biofOLgY38Eyg$WZ8mz2svq5bYZOjVsoYgFXkapyifGXdR7tplz+tOlnw', '1');
+
+INSERT INTO recipe (cepage_name, cepage_level, user_id, session_date) 
+VALUES 
+('CepageName 1', 25, 1, 10072023),
+('CepageName 2', 26, 1, 10072023),
+('CepageName 3', 23, 1, 10072023),
+('CepageName 4', 29, 1, 10072023),
+('CepageName 1', 25, 1, 11072023),
+('CepageName 2', 26, 1, 11072023),
+('CepageName 3', 23, 1, 11072023),
+('CepageName 4', 29, 1, 11072023),
+('CepageName 1', 25, 1, 12072023),
+('CepageName 2', 26, 1, 12072023),
+('CepageName 3', 23, 1, 12072023),
+('CepageName 4', 29, 1, 12072023),
+('CepageName 1', 25, 11, 12072023),
+('CepageName 2', 26, 11, 12072023),
+('CepageName 3', 23, 11, 12072023),
+('CepageName 4', 29, 11, 12072023),
+('CepageName 1', 25, 11, 19072023),
+('CepageName 2', 26, 11, 19072023),
+('CepageName 3', 23, 11, 19072023),
+('CepageName 4', 29, 11, 19072023);
 
 INSERT INTO taste_profile (name, description) 
 VALUES 

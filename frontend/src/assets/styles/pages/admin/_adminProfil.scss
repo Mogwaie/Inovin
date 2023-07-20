@@ -1,0 +1,37 @@
+.profilePageDiv {
+  .recipe-container {
+    margin: 2rem 0;
+
+    h3 {
+      color: $app-primary-font-color;
+    }
+
+    ul {
+      li {
+        list-style-type: none;
+        color: $font-family-title-color;
+        line-height: 2rem;
+      }
+    }
+    .recipe-ctn {
+      .recipe-by-session {
+        margin-bottom: 3rem;
+
+        .recipe-p {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .profilePageDiv {
+    .recipe-container {
+      ul {
+        margin-left: 1rem;
+      }
+      width: 100%;
+    }
+  }
+}
