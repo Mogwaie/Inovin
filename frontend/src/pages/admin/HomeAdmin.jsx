@@ -14,7 +14,7 @@ function HomeAdmin() {
           <Link to="/admin/wine-list">
             <li>Fiches de Vins</li>
           </Link>
-          <Link to="degustation-profil-list">
+          <Link to="/admin/degustation-profil-list">
             <li>Profils de Dégustation</li>
           </Link>
           <Link to="/admin/degustation">
