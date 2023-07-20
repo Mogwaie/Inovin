@@ -11,6 +11,10 @@ class RecipeManager extends AbstractManager {
       [recipe.cepage, recipe.level, recipe.user_id, recipe.session_date]
     );
   }
+
+  // getRecipeByUserIdAndSessionDate(recipe) {
+
+  // }
 }
 
 module.exports = RecipeManager;
