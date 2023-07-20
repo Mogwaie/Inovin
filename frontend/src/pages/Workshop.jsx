@@ -14,10 +14,10 @@ function Workshop() {
   const [cepageList, setCepageList] = useState([]);
   const [userId, setUserId] = useState(null);
   const [levelListCepage, setLevelListCepage] = useState([
-    { cepage_id: 1, level: "", user_id: userId, session_date: getDate() },
-    { cepage_id: 2, level: "", user_id: userId, session_date: getDate() },
-    { cepage_id: 3, level: "", user_id: userId, session_date: getDate() },
-    { cepage_id: 4, level: "", user_id: userId, session_date: getDate() },
+    { cepage: 1, level: "", user_id: userId, session_date: getDate() },
+    { cepage: 2, level: "", user_id: userId, session_date: getDate() },
+    { cepage: 3, level: "", user_id: userId, session_date: getDate() },
+    { cepage: 4, level: "", user_id: userId, session_date: getDate() },
   ]);
 
   useEffect(() => {
@@ -26,6 +26,7 @@ function Workshop() {
       for (let i = 0; i < levelListCepageCopy.length; i += 1) {
         if (levelListCepageCopy[i].user_id === null) {
           levelListCepageCopy[i].user_id = userId;
+          levelListCepageCopy[i].cepage = cepageList[i].name;
         }
       }
       setLevelListCepage(levelListCepage);
