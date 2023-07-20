@@ -16,7 +16,17 @@ export default function ProfileAdnim() {
   const [zip, setZip] = useState("");
   const [city, setCity] = useState("");
   const [fonction, setFonction] = useState("");
-  // const [recipeUser, setRecipeUser] = useState("");
+  const [recipeUser, setRecipeUser] = useState([]);
+  // const [finalListRecipeUser, setFinalListRecipeUser] = useState([]);
+
+  // useEffect(() => {
+  //   let sessionDate = recipeUser[0].session_date;
+  //   console.log(sessionDate);
+  //   // recipeUser.map((recipe) => {
+
+  //   // });
+  //   // const recipeOfUserBySessionDate = recipeUser.filter((element) => element.session_date));
+  // }, [recipeUser]);
 
   useEffect(() => {
     const fetchUserInformation = async () => {
@@ -42,6 +52,17 @@ export default function ProfileAdnim() {
       }
     };
     fetchUserInformation();
+
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/recipes-by-user/${id}`)
+      .then((response) => {
+        console.info(response.data);
+        setRecipeUser(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+        navigateTo("/page-500");
+      });
   }, [id]);
 
   const handleSubmit = async (e) => {
@@ -61,7 +82,6 @@ export default function ProfileAdnim() {
         body
       );
       if (response.status === 200) {
-        console.info("yessssssss");
         navigateTo("/admin/user-list");
       }
     } catch (error) {
@@ -82,26 +102,6 @@ export default function ProfileAdnim() {
       console.error(error);
     }
   };
-
-  const recipeUser = [
-    { recipe_id: 1, cepage: "blabla", level: 2, date: 12 },
-    { recipe_id: 1, cepage: "okokoko", level: 3 },
-    { recipe_id: 1, cepage: "okokoko", level: 3 },
-    { recipe_id: 1, cepage: "okokoko", level: 3 },
-  ];
-
-  useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/recipes-by-user/${id}`)
-      .then((response) => {
-        console.info(response);
-        // setRecipeUser(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-        navigateTo("/page-500");
-      });
-  }, [id]);
 
   return (
     <div className="profilePageDiv">
@@ -183,7 +183,8 @@ export default function ProfileAdnim() {
             {recipeUser.map((recipes) => {
               return (
                 <li key={recipes.recipe_id}>
-                  {recipes.cepage} : {recipes.level} ml
+                  {recipes.cepage_name} : {recipes.cepage_level} ml -
+                  {recipes.session_date}
                 </li>
               );
             })}
