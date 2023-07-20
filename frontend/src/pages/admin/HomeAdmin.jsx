@@ -18,7 +18,7 @@ function HomeAdmin() {
             <li>Profils de Dégustation</li>
           </Link>
           <Link to="/admin/degustation">
-            <li>Fiche de dégustation</li>
+            <li>Fiche de Dégustation</li>
           </Link>
           <Link to="/admin/workshop">
             <li>Atelier de Création</li>

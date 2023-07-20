@@ -13,7 +13,7 @@ function DegustationProfil() {
   // call all taste profil from bd
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/taste-profile`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/profil-taste`)
       .then((response) => {
         setTasteProfileList(response.data);
       })
