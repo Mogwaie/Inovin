@@ -79,7 +79,7 @@ ALTER TABLE `recipe` ADD FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
 
 
 INSERT INTO taste (name) 
-VALUES ('Châteauneuf-du-Pape'), ('Château Margaux'), ('Beaujolais Nouveau'), ('Domaine de la Romanée-Conti');
+VALUES ('Barsac'), ('Château Margaux'), ('Beaujolais Nouveau'), ('Bergerac');
 
 INSERT INTO user (firstname, lastname, email, address, zip_code, city, job, hashedPassword, is_admin)
 VALUES 
@@ -128,7 +128,7 @@ VALUES
 INSERT INTO cepage (name)
 VALUES
     ('Grenache'),
-    ('Cabernet Sauvignon'),
+    ('Sultanine'),
     ('Syrah'),
     ('Malbec');
 
