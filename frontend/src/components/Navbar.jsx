@@ -38,14 +38,6 @@ export default function Navbar() {
 
   // url Admin
   const urlPageListAdmin = [
-    "/degustation",
-    `/degustation-profile/${id}`,
-    "/workshop",
-    "/reviews",
-    "/wine-selection",
-    `/wine/${id}`,
-    "/profile",
-
     "/admin/home",
     "/admin/user-list",
     `/admin/user-list/${id}`,
@@ -56,15 +48,6 @@ export default function Navbar() {
     `/admin/degustation-profile-admin/${id}`,
     "/admin/degustation",
     "/admin/workshop",
-
-    "/",
-    "/sign-up",
-    "/login",
-    "/password-reset-form",
-    "/forgotten-password-form",
-    "*",
-    "/page-500",
-    "/mentions-legales",
   ];
 
   // compare current url with url array

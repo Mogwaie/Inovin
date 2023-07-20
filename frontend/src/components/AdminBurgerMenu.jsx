@@ -1,6 +1,10 @@
 import PropTypes from "prop-types";
 
 export default function AdminBurgerMenu({ handleShowLinks, showLinks }) {
+  const logout = () => {
+    localStorage.removeItem("token");
+  };
+
   return (
     <div className="container-burger-menu">
       <div className={`nav-links ${showLinks ? "show-nav" : ""}`}>
@@ -21,7 +25,16 @@ export default function AdminBurgerMenu({ handleShowLinks, showLinks }) {
             <li>Fiches de dégustation</li>
           </a>
           <a href="/login">
-            <li className="link-deconnection-admin">Déconnexion</li>
+            <li className="link-deconnection-admin">
+              {" "}
+              <button
+                type="submit"
+                className="link-deconnection-admin"
+                onClick={logout}
+              >
+                Déconnexion
+              </button>
+            </li>
           </a>
         </ul>
         <button type="button" className="menu-burger" onClick={handleShowLinks}>
