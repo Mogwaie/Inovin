@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Button from "../components/Button";
 import wireframe from "../assets/images/imageAtelier.svg";
 import CepageDosage from "../components/CepageDosage";
@@ -12,10 +14,10 @@ function Workshop() {
   const [cepageList, setCepageList] = useState([]);
   const [userId, setUserId] = useState(null);
   const [levelListCepage, setLevelListCepage] = useState([
-    { cepage_id: 1, level: "", user_id: userId, session_date: getDate() },
-    { cepage_id: 2, level: "", user_id: userId, session_date: getDate() },
-    { cepage_id: 3, level: "", user_id: userId, session_date: getDate() },
-    { cepage_id: 4, level: "", user_id: userId, session_date: getDate() },
+    { cepage: 1, level: 0, user_id: userId, session_date: getDate() },
+    { cepage: 2, level: 0, user_id: userId, session_date: getDate() },
+    { cepage: 3, level: 0, user_id: userId, session_date: getDate() },
+    { cepage: 4, level: 0, user_id: userId, session_date: getDate() },
   ]);
 
   useEffect(() => {
@@ -24,6 +26,7 @@ function Workshop() {
       for (let i = 0; i < levelListCepageCopy.length; i += 1) {
         if (levelListCepageCopy[i].user_id === null) {
           levelListCepageCopy[i].user_id = userId;
+          levelListCepageCopy[i].cepage = cepageList[i].name;
         }
       }
       setLevelListCepage(levelListCepage);
@@ -81,6 +84,19 @@ function Workshop() {
       })
       .catch((error) => {
         console.error("Au moins une requête a échoué", error);
+        toast(
+          "Oups ! Il y a eu un problème. Veuillez bien vérifier les valeurs de votre recette.",
+          {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          }
+        );
       });
   };
 
