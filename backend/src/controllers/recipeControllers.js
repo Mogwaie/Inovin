@@ -42,8 +42,37 @@ const createRecipe = (req, res) => {
     });
 };
 
+const findAllRecipesByUser = (req, res) => {
+  req.body.user_id = req.params.id;
+  const recipe = req.body;
+  models.recipe
+    .getRecipeByUserId(recipe)
+    .then(([rows]) => {
+      res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const findAllRecipesByUserAndBySessionDate = (req, res) => {
+  const recipe = req.body;
+  models.recipe
+    .getRecipeByUserIdAndSessionDate(recipe)
+    .then(([rows]) => {
+      res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   findAllRecipes,
   findRecipeById,
   createRecipe,
+  findAllRecipesByUser,
+  findAllRecipesByUserAndBySessionDate,
 };

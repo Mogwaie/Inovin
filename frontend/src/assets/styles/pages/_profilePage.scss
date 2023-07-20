@@ -79,6 +79,12 @@
     margin-top: -5vh;
     margin-bottom: 2vh;
   }
+
+  .buttons-delete-and-back {
+    button {
+      margin: 0 0.5rem;
+    }
+  }
 }
 
 @media screen and (min-width: $app-tablet) {

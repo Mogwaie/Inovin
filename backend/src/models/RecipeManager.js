@@ -7,8 +7,22 @@ class RecipeManager extends AbstractManager {
 
   addRecipe(recipe) {
     return this.database.query(
-      `insert into ${this.table} (cepage_id, cepage_level, user_id, session_date) values (?, ?, ?, ?)`,
-      [recipe.cepage_id, recipe.level, recipe.user_id, recipe.session_date]
+      `insert into ${this.table} (cepage_name, cepage_level, user_id, session_date) values (?, ?, ?, ?)`,
+      [recipe.cepage, recipe.level, recipe.user_id, recipe.session_date]
+    );
+  }
+
+  getRecipeByUserId(recipe) {
+    return this.database.query(
+      `select * from ${this.table} where user_id = ?`,
+      [recipe.user_id]
+    );
+  }
+
+  getRecipeByUserIdAndSessionDate(recipe) {
+    return this.database.query(
+      `select * from ${this.table} where user_id = ? and session_date = ?`,
+      [recipe.user_id, recipe.session_date]
     );
   }
 }

@@ -9,13 +9,36 @@ export default function Login() {
   const [emailLogin, setEmailLogin] = useState("");
   const [passwordLogin, setPasswordLogin] = useState("");
 
+  const fetchUserInformation = async () => {
+    let role = 0;
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios({
+        method: "POST",
+        url: `${import.meta.env.VITE_BACKEND_URL}/api/userinformation`,
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (response.status === 200) {
+        const userInfo = response.data;
+        role = userInfo.role;
+        if (role === 1) {
+          navigate("/admin");
+        } else {
+          navigate("/degustation");
+        }
+      } else {
+        console.error("User information not found");
+      }
+    } catch (error) {
+      console.error("Can not get user data", error);
+    }
+  };
+
   const handleSubmit = async () => {
     const body = {
       email: emailLogin,
       password: passwordLogin,
     };
-
-    console.info(body);
 
     try {
       const response = await axios.post(
@@ -24,10 +47,7 @@ export default function Login() {
       );
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token);
-        console.info(
-          "Données vérifiées avec succès ! User checked successfully."
-        );
-        navigate("/degustation");
+        fetchUserInformation();
       }
     } catch (err) {
       console.error(err);

@@ -19,6 +19,29 @@ export default function ProfileAdmin() {
   const [fonction, setFonction] = useState("");
   const [showConfirmationPopup, setShowConfirmationPopup] = useState(false);
   const [confirmationMessage, setConfirmationMessage] = useState("");
+  const [recipeUser, setRecipeUser] = useState([]);
+  const [finalListRecipeUser, setFinalListRecipeUser] = useState([]);
+
+  useEffect(() => {
+    const test = async () => {
+      let sessionDate = await recipeUser[0].session_date;
+      const myFinalArray = [];
+      let myArray = [];
+      recipeUser.forEach((recipe) => {
+        if (recipe.session_date === sessionDate) {
+          myArray.push(recipe);
+        } else {
+          myFinalArray.push(myArray);
+          myArray = [];
+          sessionDate = recipe.session_date;
+          myArray.push(recipe);
+        }
+      });
+      myFinalArray.push(myArray);
+      setFinalListRecipeUser(myFinalArray);
+    };
+    test();
+  }, [recipeUser]);
 
   useEffect(() => {
     const fetchUserInformation = async () => {
@@ -44,6 +67,16 @@ export default function ProfileAdmin() {
       }
     };
     fetchUserInformation();
+
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/recipes-by-user/${id}`)
+      .then((response) => {
+        setRecipeUser(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+        navigateTo("/page-500");
+      });
   }, [id]);
 
   const handleSubmit = async (e) => {
@@ -63,7 +96,6 @@ export default function ProfileAdmin() {
         body
       );
       if (response.status === 200) {
-        console.info("yessssssss");
         navigateTo("/admin/user-list");
       }
     } catch (error) {
@@ -183,6 +215,33 @@ export default function ProfileAdmin() {
             confirmationMessage={confirmationMessage}
           />
         )}
+
+        <div className="recipe-container">
+          <h3>Recettes :</h3>
+          <ul className="recipe-ctn">
+            {finalListRecipeUser !== null ? (
+              finalListRecipeUser.map((recipesUser, idRecipe) => {
+                return (
+                  <ul className="recipe-by-session" key={[idRecipe]}>
+                    <p className="recipe-p">Recette {idRecipe + 1} :</p>;
+                    {recipesUser.map((recipes, idRecipeUser) => {
+                      return (
+                        <li
+                          key={[idRecipeUser]}
+                          className="recipe-by-cepage-and-level"
+                        >
+                          {recipes.cepage_name} : {recipes.cepage_level} ml
+                        </li>
+                      );
+                    })}
+                  </ul>
+                );
+              })
+            ) : (
+              <>Loading</>
+            )}
+          </ul>
+        </div>
       </div>
     </div>
   );
