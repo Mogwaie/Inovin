@@ -201,14 +201,17 @@ export default function ProfileAdnim() {
         </form>
         <div className="recipe-container">
           <h3>Recettes:</h3>
-          <ul>
+          <ul className="recipe-ctn">
             {finalListRecipeUser !== null ? (
               finalListRecipeUser.map((recipesUser, idRecipe) => {
                 return (
-                  <ul>
+                  <ul className="recipe-by-session">
                     {recipesUser.map((recipes) => {
                       return (
-                        <li key={[idRecipe]}>
+                        <li
+                          key={[idRecipe]}
+                          className="recipe-by-cepage-and-level"
+                        >
                           {recipes.cepage_name} : {recipes.cepage_level} ml -
                           {recipes.session_date}
                         </li>
