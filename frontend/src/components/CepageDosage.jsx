@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
-function CepageDosage({ cepageName, levelListCepage, setLevelListCepage, id }) {
+function CepageDosage({ cepageName, levelListCepage, setLevelListCepage }) {
   const [level, setLevel] = useState("");
 
   const handleChangeDosage = (e) => {
@@ -12,7 +12,7 @@ function CepageDosage({ cepageName, levelListCepage, setLevelListCepage, id }) {
   useEffect(() => {
     let levelListCepageCopy = [...levelListCepage]; //eslint-disable-line
     for (let i = 0; i < levelListCepageCopy.length; i += 1) {
-      if (levelListCepageCopy[i].cepage_id === id) {
+      if (levelListCepageCopy[i].cepage === cepageName) {
         levelListCepageCopy[i].level = level;
       }
     }
@@ -40,7 +40,6 @@ export default CepageDosage;
 CepageDosage.propTypes = {
   cepageName: PropTypes.string.isRequired,
   setLevelListCepage: PropTypes.func.isRequired,
-  id: PropTypes.number.isRequired,
   levelListCepage: PropTypes.shape({
     level: PropTypes.number.isRequired,
     cepage_id: PropTypes.number.isRequired,
