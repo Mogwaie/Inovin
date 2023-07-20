@@ -113,10 +113,10 @@ VALUES
 ('CepageName 2', 26, 11, 12072023),
 ('CepageName 3', 23, 11, 12072023),
 ('CepageName 4', 29, 11, 12072023),
-('CepageName 1', 25, 11, 20072023),
-('CepageName 2', 26, 11, 20072023),
-('CepageName 3', 23, 11, 20072023),
-('CepageName 4', 29, 11, 20072023);
+('CepageName 1', 25, 11, 19072023),
+('CepageName 2', 26, 11, 19072023),
+('CepageName 3', 23, 11, 19072023),
+('CepageName 4', 29, 11, 19072023);
 
 INSERT INTO taste_profile (name, description) 
 VALUES 
