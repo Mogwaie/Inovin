@@ -38,6 +38,16 @@
 
   .buttons-modif-and-delete {
     display: none;
+    .modif-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 29px;
+      height: 29px;
+      background-color: $app-bg-color;
+      border: none;
+      cursor: pointer;
+    }
   }
 }
 
@@ -57,11 +67,12 @@
       .buttons-modif-and-delete {
         display: flex;
         align-items: center;
+        margin-left: 1rem;
 
         img {
           width: 29px;
           height: 29px;
-          margin-left: 2rem;
+          margin-top: 0.5rem;
         }
       }
     }

@@ -1,0 +1,23 @@
+.profilePageDiv {
+  .recipe-container {
+    margin: 2rem 0;
+    ul {
+      li {
+        list-style-type: none;
+        color: $font-family-title-color;
+        line-height: 2rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .profilePageDiv {
+    .recipe-container {
+      ul {
+        margin-left: 1rem;
+      }
+      width: 100%;
+    }
+  }
+}

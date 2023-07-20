@@ -16,6 +16,7 @@ export default function ProfileAdnim() {
   const [zip, setZip] = useState("");
   const [city, setCity] = useState("");
   const [fonction, setFonction] = useState("");
+  // const [recipeUser, setRecipeUser] = useState("");
 
   useEffect(() => {
     const fetchUserInformation = async () => {
@@ -81,6 +82,25 @@ export default function ProfileAdnim() {
       console.error(error);
     }
   };
+
+  const recipeUser = [
+    { recipe_id: 1, cepage: "blabla", level: 2, date: 12 },
+    { recipe_id: 1, cepage: "okokoko", level: 3 },
+    { recipe_id: 1, cepage: "okokoko", level: 3 },
+    { recipe_id: 1, cepage: "okokoko", level: 3 },
+  ];
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`${import.meta.env.VITE_BACKEND_URL}/api/recipes`)
+  //     .then((response) => {
+  //       setRecipeUser(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       navigateTo("/page-500");
+  //     });
+  // }, []);
 
   return (
     <div className="profilePageDiv">
@@ -156,6 +176,18 @@ export default function ProfileAdnim() {
             </button>
           </div>
         </form>
+        <div className="recipe-container">
+          <h3>Recettes:</h3>
+          <ul>
+            {recipeUser.map((recipes) => {
+              return (
+                <li key={recipes.recipe_id}>
+                  {recipes.cepage} : {recipes.level} ml
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </div>
   );
