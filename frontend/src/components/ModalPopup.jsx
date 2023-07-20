@@ -29,27 +29,29 @@ function ModalPopup({ message, onClose, onConfirm, confirmationMessage }) {
     <div className={`popup ${isOpen ? "open" : ""}`}>
       <div className="popup-content">
         <p className="message-title">{message}</p>
-        {showButtons && (
-          <>
-            <button
-              className="primary-button"
-              type="submit"
-              onClick={handleConfirmation}
-            >
-              Oui
-            </button>
-            <button
-              className="primary-button"
-              type="submit"
-              onClick={handleCancel}
-            >
-              Non
-            </button>
-          </>
-        )}
         {!showButtons && (
           <p className="message-confirm">{confirmationMessage}</p>
         )}
+        <div className="modal-btn">
+          {showButtons && (
+            <>
+              <button
+                className="primary-button"
+                type="submit"
+                onClick={handleConfirmation}
+              >
+                Oui
+              </button>
+              <button
+                className="primary-button"
+                type="submit"
+                onClick={handleCancel}
+              >
+                Non
+              </button>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

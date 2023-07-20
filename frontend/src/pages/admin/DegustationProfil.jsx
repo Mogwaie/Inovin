@@ -34,7 +34,6 @@ function DegustationProfil() {
 
   return (
     <div className="degustation-profil-list-container">
-      <h2>Profil de dégustation</h2>
       <div className="search-bar-and-button-create">
         <SearchBar setSearchInput={setSearchInput} searchInput={searchInput} />
       </div>

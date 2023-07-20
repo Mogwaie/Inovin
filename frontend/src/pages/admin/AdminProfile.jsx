@@ -3,8 +3,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import profileBottles from "../../assets/images/profileBottles.png";
 import profilePicture from "../../assets/images/profilePicture.png";
+import ModalPopup from "../../components/ModalPopup";
 
-export default function ProfileAdnim() {
+export default function ProfileAdmin() {
   const navigateTo = useNavigate();
 
   const { id } = useParams();
@@ -16,6 +17,8 @@ export default function ProfileAdnim() {
   const [zip, setZip] = useState("");
   const [city, setCity] = useState("");
   const [fonction, setFonction] = useState("");
+  const [showConfirmationPopup, setShowConfirmationPopup] = useState(false);
+  const [confirmationMessage, setConfirmationMessage] = useState("");
   const [recipeUser, setRecipeUser] = useState([]);
   const [finalListRecipeUser, setFinalListRecipeUser] = useState([]);
 
@@ -100,14 +103,29 @@ export default function ProfileAdnim() {
     }
   };
 
+  const handleOpenConfirmationPopup = () => {
+    setShowConfirmationPopup(true);
+  };
+
+  const handleCloseConfirmationPopup = () => {
+    setShowConfirmationPopup(false);
+  };
+
   const handleOnClickSupp = async (e) => {
     e.preventDefault();
+    handleOpenConfirmationPopup();
+  };
+
+  const handleConfirmationDelete = async () => {
     try {
-      const reponse = await axios.delete(
+      const response = await axios.delete(
         `${import.meta.env.VITE_BACKEND_URL}/api/userinformation/${id}`
       );
-      if (reponse.status === 204) {
-        navigateTo("/admin/user-list");
+      if (response.status === 204) {
+        setConfirmationMessage(" Le profil a bien été supprimé.");
+        setTimeout(() => {
+          navigateTo("/admin/user-list");
+        }, 3000);
       }
     } catch (error) {
       console.error(error);
@@ -120,7 +138,7 @@ export default function ProfileAdnim() {
       <div className="profilePartTwo">
         <img className="profileImage" src={profilePicture} alt="Profile" />
         <h2>Profil</h2>
-        <form onSubmit={(e) => handleSubmit(e)} className="profilePageForm">
+        <form onSubmit={handleSubmit} className="profilePageForm">
           <div className="nameDiv">
             <input
               className="reviewsInput nameInput"
@@ -175,19 +193,29 @@ export default function ProfileAdnim() {
             onChange={(e) => setFonction(e.target.value)}
           />
           <div className="buttons-delete-and-back">
-            <button type="submit" className="primary-button ">
+            <button type="submit" className="primary-button">
               Mettre à jour
             </button>
 
             <button
               type="button"
               onClick={handleOnClickSupp}
-              className="primary-button "
+              className="primary-button"
             >
               Supprimer
             </button>
           </div>
         </form>
+
+        {showConfirmationPopup && (
+          <ModalPopup
+            message="Êtes-vous sûr(e) de vouloir supprimer ?"
+            onClose={handleCloseConfirmationPopup}
+            onConfirm={handleConfirmationDelete}
+            confirmationMessage={confirmationMessage}
+          />
+        )}
+
         <div className="recipe-container">
           <h3>Recettes :</h3>
           <ul className="recipe-ctn">
