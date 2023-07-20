@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Button from "../components/Button";
 import wireframe from "../assets/images/imageAtelier.svg";
 import CepageDosage from "../components/CepageDosage";
@@ -81,6 +83,19 @@ function Workshop() {
       })
       .catch((error) => {
         console.error("Au moins une requête a échoué", error);
+        toast(
+          "Oups ! Il y a eu un problème. Veuillez bien vérifier les valeurs de votre recette.",
+          {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          }
+        );
       });
   };
 
