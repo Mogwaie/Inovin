@@ -90,17 +90,18 @@ export default function ProfileAdnim() {
     { recipe_id: 1, cepage: "okokoko", level: 3 },
   ];
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`${import.meta.env.VITE_BACKEND_URL}/api/recipes`)
-  //     .then((response) => {
-  //       setRecipeUser(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //       navigateTo("/page-500");
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/recipes-by-user/${id}`)
+      .then((response) => {
+        console.info(response);
+        // setRecipeUser(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+        navigateTo("/page-500");
+      });
+  }, [id]);
 
   return (
     <div className="profilePageDiv">

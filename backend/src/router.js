@@ -55,7 +55,7 @@ router.put("/cepages/:id", cepageControllers.editCepage);
 router.delete("/cepages/:id", cepageControllers.deleteCepage);
 
 router.get("/recipes", recipeControllers.findAllRecipes);
-router.get("/recipes-by-user", recipeControllers.findAllRecipesByUser);
+router.get("/recipes-by-user/:id", recipeControllers.findAllRecipesByUser);
 router.get(
   "/recipes-by-user-and-session-date",
   recipeControllers.findAllRecipesByUserAndBySessionDate

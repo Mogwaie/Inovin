@@ -43,6 +43,7 @@ const createRecipe = (req, res) => {
 };
 
 const findAllRecipesByUser = (req, res) => {
+  req.body.user_id = req.params.id;
   const recipe = req.body;
   models.recipe
     .getRecipeByUserId(recipe)
