@@ -11,13 +11,13 @@ export default function AdminBurgerMenu({ handleShowLinks, showLinks }) {
           <a href="/admin/user-list">
             <li>Membres</li>
           </a>
-          <a href="/admin/degustation-profil">
+          <a href="/admin/degustation-profil-list">
             <li>Profils de dégustation</li>
           </a>
           <a href="/admin/wine-list">
             <li>Fiches de vins</li>
           </a>
-          <a href="/admin/tasting-sheet">
+          <a href="/admin/degustation">
             <li>Fiches de dégustation</li>
           </a>
           <a href="/login">
