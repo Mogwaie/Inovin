@@ -30,9 +30,7 @@ function ModalPopup({ message, onClose, onConfirm, confirmationMessage }) {
       <div className="popup-content">
         <p className="message-title">{message}</p>
         {!showButtons && (
-          <p className="message-confirm">
-            votre suppresssion a bien etett effectuer{confirmationMessage}
-          </p>
+          <p className="message-confirm">{confirmationMessage}</p>
         )}
         <div className="modal-btn">
           {showButtons && (

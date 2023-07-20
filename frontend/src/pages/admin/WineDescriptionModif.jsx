@@ -72,7 +72,7 @@ export default function WineDescriptionModif() {
         `${import.meta.env.VITE_BACKEND_URL}/api/wines/${id}`
       );
       if (response.status === 204) {
-        setConfirmationMessage("Votre sélection de vin a bien été supprimé");
+        setConfirmationMessage("Votre sélection de vin a bien été supprimée");
         setTimeout(() => {
           navigateTo("/admin/wine-list");
         }, 3000);

@@ -90,15 +90,13 @@ export default function ProfileAdmin() {
         `${import.meta.env.VITE_BACKEND_URL}/api/userinformation/${id}`
       );
       if (response.status === 204) {
-        setConfirmationMessage("La suppression a été confirmée.");
+        setConfirmationMessage(" Le profil a bien été supprimé.");
         setTimeout(() => {
-          setConfirmationMessage(""); // Réinitialise le message après quelques secondes
           navigateTo("/admin/user-list");
         }, 3000);
       }
     } catch (error) {
       console.error(error);
-      setConfirmationMessage("La suppression a échoué.");
     }
   };
 
@@ -182,11 +180,8 @@ export default function ProfileAdmin() {
             message="Êtes-vous sûr(e) de vouloir supprimer ?"
             onClose={handleCloseConfirmationPopup}
             onConfirm={handleConfirmationDelete}
+            confirmationMessage={confirmationMessage}
           />
-        )}
-
-        {confirmationMessage && (
-          <div className="confirmation-message">{confirmationMessage}</div>
         )}
       </div>
     </div>
