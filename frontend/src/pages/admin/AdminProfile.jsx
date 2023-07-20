@@ -207,11 +207,11 @@ export default function ProfileAdnim() {
             {finalListRecipeUser !== null ? (
               finalListRecipeUser.map((recipesUser, idRecipe) => {
                 return (
-                  <ul className="recipe-by-session">
-                    {recipesUser.map((recipes) => {
+                  <ul className="recipe-by-session" key={[idRecipe]}>
+                    {recipesUser.map((recipes, idRecipeUser) => {
                       return (
                         <li
-                          key={[idRecipe]}
+                          key={[idRecipeUser]}
                           className="recipe-by-cepage-and-level"
                         >
                           {recipes.cepage_name} : {recipes.cepage_level} ml -
