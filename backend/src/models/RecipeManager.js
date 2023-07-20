@@ -12,9 +12,19 @@ class RecipeManager extends AbstractManager {
     );
   }
 
-  // getRecipeByUserIdAndSessionDate(recipe) {
+  getRecipeByUserId(recipe) {
+    return this.database.query(
+      `select * from ${this.table} where user_id = ?`,
+      [recipe.user_id]
+    );
+  }
 
-  // }
+  getRecipeByUserIdAndSessionDate(recipe) {
+    return this.database.query(
+      `select * from ${this.table} where user_id = ? and session_date = ?`,
+      [recipe.user_id, recipe.session_date]
+    );
+  }
 }
 
 module.exports = RecipeManager;
