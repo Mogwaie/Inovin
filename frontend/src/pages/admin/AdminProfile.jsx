@@ -24,26 +24,28 @@ export default function ProfileAdnim() {
       let sessionDate = await recipeUser[0].session_date;
       const myFinalArray = [];
       let myArray = [];
-      // recipeUser.map((recipe) => {
-      //   if (recipe.session_date === sessionDate) {
-      //     myArray.push(recipe);
-      //   } else {
-      //     myFinalArray.push(myArray);
-      //     myArray = [];
-      //     sessionDate = recipe.session_date;
-      //     myArray.push(recipe);
-      //   }
-      // });
-      for (let i = 0; i < recipeUser.length; i += 1) {
-        if (recipeUser[i].session_date === sessionDate) {
-          myArray.push(recipeUser[i]);
+      recipeUser.map((recipe) => {
+        if (recipe.session_date === sessionDate) {
+          myArray.push(recipe);
         } else {
           myFinalArray.push(myArray);
           myArray = [];
-          sessionDate = recipeUser[i].session_date;
-          myArray.push(recipeUser[i]);
+          sessionDate = recipe.session_date;
+          myArray.push(recipe);
         }
-      }
+        return recipe;
+      });
+
+      // for (let i = 0; i < recipeUser.length; i += 1) {
+      //   if (recipeUser[i].session_date === sessionDate) {
+      //     myArray.push(recipeUser[i]);
+      //   } else {
+      //     myFinalArray.push(myArray);
+      //     myArray = [];
+      //     sessionDate = recipeUser[i].session_date;
+      //     myArray.push(recipeUser[i]);
+      //   }
+      // }
 
       setFinalListRecipeUser(myFinalArray);
     };
