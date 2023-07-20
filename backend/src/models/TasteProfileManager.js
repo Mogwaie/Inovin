@@ -13,7 +13,6 @@ class TasteProfileManager extends AbstractManager {
   }
 
   update(tasteProfile) {
-    console.info(tasteProfile.taste_profile_id);
     return this.database.query(
       `update ${this.table} set name = ?, description = ?  where taste_profile_id = ?`,
       [
