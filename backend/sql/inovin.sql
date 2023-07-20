@@ -55,21 +55,10 @@ CREATE TABLE `cepage_level` (
   `level` integer
 );
 
-DROP TABLE IF EXISTS `cepage_list`;
-CREATE TABLE `cepage_list` (
-  `cepage_list_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-  `cepageOne` VARCHAR(255),
-  `cepageTwo` VARCHAR(255),
-  `cepageThree` VARCHAR(255),
-  `cepageFour` VARCHAR(255)
-);
-
-
 DROP TABLE IF EXISTS `cepage`;
 CREATE TABLE `cepage` (
   `cepage_id` integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `name` varchar(255),
-  `taste_profile_id` integer
+  `name` varchar(255)
 );
 
 DROP TABLE IF EXISTS `review`;
@@ -93,8 +82,6 @@ ALTER TABLE `user` ADD FOREIGN KEY (`receipe_id`) REFERENCES `receipe` (`receipe
 ALTER TABLE `receipe` ADD FOREIGN KEY (`cepage_level_id`) REFERENCES `cepage_level` (`cepage_level_id`);
 
 ALTER TABLE `cepage_level` ADD FOREIGN KEY (`cepage_id`) REFERENCES `cepage` (`cepage_id`);
-
-ALTER TABLE `cepage` ADD FOREIGN KEY (`taste_profile_id`) REFERENCES `taste_profile` (`taste_profile_id`);
 
 INSERT INTO taste (name) 
 VALUES ('Châteauneuf-du-Pape'), ('Château Margaux'), ('Beaujolais Nouveau'), ('Domaine de la Romanée-Conti');
@@ -120,32 +107,12 @@ VALUES
 ("Légers et fruités", "Vous recherchez des vins rouges plus légers et fruités, vous serez attiré par ceux qui offrent des arômes croquants de fruits rouges, des notes florales et une fraîcheur agréable. Ils sont parfaits pour une dégustation conviviale entre amis ou pour accompagner des plats légers et savoureux."),
 ("Élégants et raffinés", "Vous appréciez les vins rouges élégants et raffinés, vous serez conquis par ceux qui offrent une subtile complexité, des arômes délicats de fruits rouges, de fleurs et une fine note de sous-bois. Ces vins, souvent issus de cépages délicats tels que le Pinot Noir, se distinguent par leur finesse, leur équilibre et leur délicatesse en bouche. Ils sont parfaits pour accompagner des plats délicats tels que des volailles rôties, des plats à base de champignons ou des fromages à pâte molle.");
 
-INSERT INTO cepage_list (cepageOne, cepageTwo, cepageThree, cepageFour)
+INSERT INTO cepage (name)
 VALUES
-('CepageOne', 'CepageTwo', 'CepageThree', 'CepageFour');
-
-INSERT INTO cepage (name, taste_profile_id)
-VALUES
-    ('Grenache', 1),
-    ('Cabernet Sauvignon', 1),
-    ('Syrah', 1),
-    ('Merlot', 1),
-    ('Malbec', 1),
-    ('Petit Verdot', 2),
-    ('Carmenère', 2),
-    ('Tannat', 2),
-    ('Petit Syrah', 2),
-    ('Alicante Bouschet', 2),
-    ('Gamay', 3),
-    ('Cinsault', 3),
-    ('Dolcetto', 3),
-    ('Zweigelt', 3),
-    ('Blauer Portugieser', 3),
-    ('Pinot Noir', 4),
-    ('Nebbiolo', 4),
-    ('Sangiovese', 4),
-    ('Mazuelo', 4),
-    ('Tempranillo', 4);
+    ('Grenache'),
+    ('Cabernet Sauvignon'),
+    ('Syrah'),
+    ('Malbec');
 
 INSERT INTO wine (name, origin, img_wine, description)
 VALUES
