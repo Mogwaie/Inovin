@@ -55,7 +55,11 @@ router.put("/cepages/:id", cepageControllers.editCepage);
 router.delete("/cepages/:id", cepageControllers.deleteCepage);
 
 router.get("/recipes", recipeControllers.findAllRecipes);
-router.get("/recipes/:id", recipeControllers.findRecipeById);
+router.get("/recipes-by-user", recipeControllers.findAllRecipesByUser);
+router.get(
+  "/recipes-by-user-and-session-date",
+  recipeControllers.findAllRecipesByUserAndBySessionDate
+);
 router.post("/recipes", recipeControllers.createRecipe);
 
 router.get("/tastes", tasteControllers.tasteBrowse);
