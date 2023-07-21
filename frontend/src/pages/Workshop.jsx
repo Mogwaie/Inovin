@@ -43,7 +43,9 @@ function Workshop() {
         console.error(error);
         navigateTo("/page-500");
       });
+  }, []);
 
+  useEffect(() => {
     const fetchUserInformation = async () => {
       try {
         const token = localStorage.getItem("token");
