@@ -38,15 +38,15 @@ export default function Navbar() {
 
   // url Admin
   const urlPageListAdmin = [
-    "/admin",
     "/admin/home",
     "/admin/user-list",
+    `/admin/user-list/${id}`,
     "/admin/create-user",
     "/admin/wine-list",
     `/admin/wine-list/${id}`,
-    "/admin/degustation-profil",
-    "/admin/tasting-sheet",
-    "/admin/degustation-profile",
+    "/admin/degustation-profil-list",
+    `/admin/degustation-profile-admin/${id}`,
+    "/admin/degustation",
     "/admin/workshop",
   ];
 

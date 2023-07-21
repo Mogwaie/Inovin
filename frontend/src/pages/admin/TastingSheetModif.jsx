@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import axios from "axios";
 import Button from "../../components/Button";
 import SliderAdmin from "../../components/admin/SliderAdmin";
@@ -40,6 +41,16 @@ function TastingSheetModif() {
             body
           );
           if (response) {
+            toast("Les modifications ont été prises en compte !", {
+              position: "bottom-right",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
             navigateTo("/admin");
           }
         } catch (error) {

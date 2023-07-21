@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify";
-
 import Assemblage from "../assets/images/Assemblage.webp";
 import ShopCave from "../assets/images/ShopCave.png";
 import Button from "../components/Button";
@@ -25,16 +23,6 @@ function DegustationProfile() {
   }, [id]);
 
   const buttonDirection = async () => {
-    toast("Bravo ! Vous avez créé votre recette!", {
-      position: "bottom-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
     navigateTo("/degustation");
   };
 

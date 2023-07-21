@@ -26,6 +26,7 @@
       background-color: #232222;
       border: none;
       border-bottom: 2px solid $font-family-title-color;
+      color: $font-family-title-color;
     }
 
     input[type="number"]::-webkit-inner-spin-button {
@@ -35,6 +36,14 @@
     .input-dosage:focus {
       outline: none;
       border-bottom: solid 2px $font-family-title-color;
+    }
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .cepage-dosage-container {
+    .name-cepage-title {
+      width: 16rem;
     }
   }
 }

@@ -9,6 +9,10 @@
   text-align: center;
 }
 
+.cepageInput:focus {
+  outline: none;
+}
+
 @media screen and (min-width: $app-tablet) {
   .cepageInput {
     font-size: $font-size-text-tablet;

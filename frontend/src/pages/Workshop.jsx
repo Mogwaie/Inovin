@@ -79,6 +79,19 @@ function Workshop() {
     Promise.all(requests)
       .then((responses) => {
         if (responses[0].status === 201) {
+          toast(
+            "Bravo ! Vous avez créé votre recette ! Pourquoi ne pas laisser un avis ?",
+            {
+              position: "bottom-right",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            }
+          );
           navigateTo("/reviews");
         }
       })

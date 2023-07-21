@@ -30,7 +30,7 @@ function CepageDosage({ cepageName, levelListCepage, setLevelListCepage }) {
           onChange={handleChangeDosage}
           placeholder="0"
         />
-        <p>ml</p>
+        <p>cl</p>
       </div>
     </div>
   );

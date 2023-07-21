@@ -13,7 +13,7 @@ function DegustationProfil() {
   // call all taste profil from bd
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/taste-profile`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/profil-taste`)
       .then((response) => {
         setTasteProfileList(response.data);
       })
@@ -34,6 +34,7 @@ function DegustationProfil() {
 
   return (
     <div className="degustation-profil-list-container">
+      <h2>Profils de Dégustation</h2>
       <div className="search-bar-and-button-create">
         <SearchBar setSearchInput={setSearchInput} searchInput={searchInput} />
       </div>
