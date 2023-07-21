@@ -1,12 +1,8 @@
-import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 export default function AdminBurgerMenu({ handleShowLinks, showLinks }) {
-  const navigateTo = useNavigate();
-
   const logout = () => {
     localStorage.removeItem("token");
-    navigateTo("/");
   };
 
   return (
@@ -32,7 +28,7 @@ export default function AdminBurgerMenu({ handleShowLinks, showLinks }) {
             <li>Atelier de création</li>
           </a>
 
-          <a href="/login">
+          <a href="/">
             <li className="link-deconnection-admin">
               <button
                 type="submit"

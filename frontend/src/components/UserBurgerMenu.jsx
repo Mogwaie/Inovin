@@ -40,7 +40,7 @@ export default function UserBurgerMenu({
           <a href="/wine-selection">
             <li>Boutique</li>
           </a>
-          <a href="/login">
+          <a href="/">
             <button
               type="submit"
               className="link-deconnection-admin"
