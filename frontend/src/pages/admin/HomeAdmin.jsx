@@ -24,19 +24,6 @@ function HomeAdmin() {
             <li>Atelier de Création</li>
           </Link>
         </ul>
-
-        <ul>
-          <h2>Partie utilisateur</h2>
-          <Link to="/degustation">
-            <li>Fiche de dégustation</li>
-          </Link>
-          <Link to="/workshop">
-            <li>Atelier de Création</li>
-          </Link>
-          <Link to="wine-selection">
-            <li>Sélection des vins</li>
-          </Link>
-        </ul>
       </div>
     </div>
   );
