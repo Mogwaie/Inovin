@@ -35,9 +35,6 @@ function WineList() {
       <h2>Vins</h2>
       <div className="search-bar-and-button-create">
         <SearchBar setSearchInput={setSearchInput} searchInput={searchInput} />
-        <button type="button" className="secondary-button">
-          Créer
-        </button>
       </div>
       <ul>
         {searchListFilter.map((wine) => {

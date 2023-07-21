@@ -88,12 +88,15 @@ svg {
   }
   .reviewsInput {
     width: 30vw !important;
+    font-size: $font-size-text-tablet !important;
   }
+
   .nameInput {
     margin-right: 10vw !important;
   }
   .longInput {
     width: 70vw !important;
+    font-size: $font-size-text-tablet !important;
   }
 }
 

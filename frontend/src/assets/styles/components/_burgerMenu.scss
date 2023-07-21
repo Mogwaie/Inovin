@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: space-around;
     position: fixed;
-    height: 93vh;
+    height: 100vh;
     right: -100vw;
     bottom: 0;
     top: 4rem;
@@ -27,7 +27,7 @@
     text-decoration: none;
     color: $font-family-title-color;
     font-family: $font-family-title;
-    font-size: $font-size-list-burger-tablet;
+    font-size: $font-size-text-tablet;
   }
 
   li:hover {
@@ -105,6 +105,23 @@
 
   .hide-burger-menu {
     visibility: hidden;
+  }
+
+  button {
+    width: 225px;
+    font-family: $font-family-title;
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .container-burger-menu {
+    .link-deconnection-admin {
+      font-size: $font-size-list-burger-tablet;
+    }
+
+    li {
+      font-size: $font-size-list-burger-tablet;
+    }
   }
 }
 
