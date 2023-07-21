@@ -75,9 +75,6 @@ ALTER TABLE `taste_profile` ADD FOREIGN KEY (`wine_id`) REFERENCES `wine` (`wine
 
 ALTER TABLE `user` ADD FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`recipe_id`);
 
-ALTER TABLE `recipe` ADD FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
-
-
 INSERT INTO taste (name) 
 VALUES ('Barsac'), ('Château Margaux'), ('Beaujolais Nouveau'), ('Bergerac');
 
