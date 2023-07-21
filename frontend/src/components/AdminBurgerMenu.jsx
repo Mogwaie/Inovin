@@ -1,8 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 export default function AdminBurgerMenu({ handleShowLinks, showLinks }) {
+  const navigateTo = useNavigate();
+
   const logout = () => {
     localStorage.removeItem("token");
+    navigateTo("/");
   };
 
   return (
