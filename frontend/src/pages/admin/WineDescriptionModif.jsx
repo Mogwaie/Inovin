@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
+import { toast } from "react-toastify";
 import axios from "axios";
 import pen from "../../assets/images/pen.png";
 import ModalPopup from "../../components/ModalPopup";
@@ -55,6 +56,16 @@ export default function WineDescriptionModif() {
       );
       if (response.status === 204) {
         navigateTo("/admin/wine-list");
+        toast("Mise à jour ok", {
+          position: "bottom-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
       }
     } catch (error) {
       console.error(error);
