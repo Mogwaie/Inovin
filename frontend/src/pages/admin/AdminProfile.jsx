@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import profileBottles from "../../assets/images/profileBottles.png";
 import profilePicture from "../../assets/images/profilePicture.png";
 import ModalPopup from "../../components/ModalPopup";
@@ -97,6 +98,16 @@ export default function ProfileAdmin() {
       );
       if (response.status === 200) {
         navigateTo("/admin/user-list");
+        toast("Mise à jour ok", {
+          position: "bottom-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
       }
     } catch (error) {
       console.error(error);
