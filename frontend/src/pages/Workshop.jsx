@@ -11,7 +11,12 @@ import getDate from "../utils/getDate";
 function Workshop() {
   const navigateTo = useNavigate();
 
-  const [cepageList, setCepageList] = useState([]);
+  const [cepageList, setCepageList] = useState([
+    { name: "Loading", cepage_id: 1 },
+    { name: "Loading", cepage_id: 2 },
+    { name: "Loading", cepage_id: 3 },
+    { name: "Loading", cepage_id: 4 },
+  ]);
   const [userId, setUserId] = useState(null);
   const [levelListCepage, setLevelListCepage] = useState([
     { cepage: 1, level: 0, user_id: userId, session_date: getDate() },
@@ -21,7 +26,7 @@ function Workshop() {
   ]);
 
   useEffect(() => {
-    if (userId !== null) {
+    if (userId !== null && cepageList[0].name !== null) {
       let levelListCepageCopy = [...levelListCepage]; //eslint-disable-line
       for (let i = 0; i < levelListCepageCopy.length; i += 1) {
         if (levelListCepageCopy[i].user_id === null) {
@@ -43,7 +48,9 @@ function Workshop() {
         console.error(error);
         navigateTo("/page-500");
       });
+  }, []);
 
+  useEffect(() => {
     const fetchUserInformation = async () => {
       try {
         const token = localStorage.getItem("token");
