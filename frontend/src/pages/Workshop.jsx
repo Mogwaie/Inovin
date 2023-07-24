@@ -124,19 +124,21 @@ function Workshop() {
     <form className="workshop" onSubmit={(e) => handleSubmitLevel(e)}>
       <h2 className="title-page-workshop">Atelier de création</h2>
       <div className="name-level-cepage">
-        <h3>Cépage : </h3>
-        <h3>Dosage : </h3>
-      </div>
-      <div className="cepage-level-container">
-        {cepageList.map((cepage) => (
-          <CepageDosage
-            key={cepage.cepage_id}
-            id={cepage.cepage_id}
-            cepageName={cepage.name}
-            levelListCepage={levelListCepage}
-            setLevelListCepage={setLevelListCepage}
-          />
-        ))}
+        <div className="cepageAndDosage">
+          <h3>Cépage : </h3>
+          <h3>Dosage : </h3>
+        </div>
+        <div className="cepage-level-container">
+          {cepageList.map((cepage) => (
+            <CepageDosage
+              key={cepage.cepage_id}
+              id={cepage.cepage_id}
+              cepageName={cepage.name}
+              levelListCepage={levelListCepage}
+              setLevelListCepage={setLevelListCepage}
+            />
+          ))}
+        </div>
       </div>
 
       <h3 className="title-guide-ctn">Guide :</h3>
@@ -144,27 +146,31 @@ function Workshop() {
         <img src={wireframe} alt="img-guide" className="img-guide" />
 
         <div className="content-guide-ctn">
-          <ul>
-            <li>
-              Et consequat anim officia fugiat dolor aute excepteur deserunt
-              sint aute anim aliqua est.
+          <ul className="workShopList">
+            <li className="workshopGuide">Etape 1 :</li>
+            <li className="workshopGuide">
+              Préparez quatre échantillons de cépages différents dans des
+              récipients séparés.
             </li>
-            <li>
-              Et consequat anim officia fugiat dolor aute excepteur deserunt
-              sint aute anim aliqua est.
+            <li className="workshopGuide">Etape 2 :</li>
+            <li className="workshopGuide">
+              Utilisez une pipette propre pour prélever une petite quantité de
+              chaque échantillon et déposez-les dans un récipient de mélange.
             </li>
-
-            <li>
-              Et consequat anim officia fugiat dolor aute excepteur deserunt
-              sint aute anim aliqua est.
+            <li className="workshopGuide">Etape 3 :</li>
+            <li className="workshopGuide">
+              Mélangez délicatement les échantillons en utilisant la pipette
+              pour obtenir un mélange homogène.
             </li>
-            <li>
-              Et consequat anim officia fugiat dolor aute excepteur deserunt
-              sint aute anim aliqua est.
+            <li className="workshopGuide">Etape 4 :</li>
+            <li className="workshopGuide">
+              Goûtez régulièrement le mélange pour ajuster les proportions des
+              cépages selon votre préférence.
             </li>
-            <li>
-              Et consequat anim officia fugiat dolor aute excepteur deserunt
-              sint aute anim aliqua est.
+            <li className="workshopGuide">Etape 5:</li>
+            <li className="workshopGuide">
+              Une fois satisfait du résultat, transférez le vin assemblé dans
+              une bouteille propre à l'aide de la pipette pour le déguster.
             </li>
           </ul>
         </div>
