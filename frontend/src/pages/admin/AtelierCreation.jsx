@@ -38,22 +38,22 @@ export default function AtelierCreation() {
           body
         );
         if (response.status === 204) {
-          toast(`Le cépage "${nameOfCepage}" a bien été mis à jour.`, {
-            position: "bottom-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
           navigateTo("/admin/home");
         }
       } catch (error) {
         console.error(error);
         navigateTo("/page-500");
       }
+    });
+    toast(`Mise à jour ok`, {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
     });
   };
 

@@ -59,7 +59,7 @@ export default function CreateUser() {
         console.info(
           "Données enregistrées avec succès dans la base de données !"
         );
-        toast("Bravo ! Le compte a bien été créé !", {
+        toast("Le compte a bien été créé !", {
           position: "bottom-right",
           autoClose: 3000,
           hideProgressBar: false,
