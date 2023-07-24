@@ -7,7 +7,7 @@
   .name-cepage-title {
     word-break: break-word;
     width: 6rem;
-    text-align: left;
+    display: flex;
   }
 
   .cepage-input {
@@ -26,7 +26,8 @@
       background-color: #232222;
       border: none;
       border-bottom: 2px solid $font-family-title-color;
-      color: $font-family-title-color;
+      color: white;
+      font-size: 20px;
     }
 
     input[type="number"]::-webkit-inner-spin-button {
