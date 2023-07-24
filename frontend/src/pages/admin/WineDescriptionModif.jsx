@@ -56,7 +56,7 @@ export default function WineDescriptionModif() {
       );
       if (response.status === 204) {
         navigateTo("/admin/wine-list");
-        toast("Mise à jour ok", {
+        toast("Modifications enregistrées.", {
           position: "bottom-right",
           autoClose: 3000,
           hideProgressBar: false,

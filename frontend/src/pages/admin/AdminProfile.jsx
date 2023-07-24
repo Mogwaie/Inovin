@@ -98,7 +98,7 @@ export default function ProfileAdmin() {
       );
       if (response.status === 200) {
         navigateTo("/admin/user-list");
-        toast("Mise à jour ok", {
+        toast("Modifications enregistrées.", {
           position: "bottom-right",
           autoClose: 3000,
           hideProgressBar: false,
