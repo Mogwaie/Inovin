@@ -41,7 +41,7 @@ function DegustationProfil() {
       <ul>
         {searchListFilter.map((profil) => {
           return (
-            <li key={profil.taste_profil_id}>
+            <li key={profil.taste_profile_id}>
               <DisplayDegustationProfil profil={profil} />
             </li>
           );

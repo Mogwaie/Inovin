@@ -4,7 +4,7 @@ const sendEmail = (req, res, next) => {
   const review = req.body;
   const emailOptions = {
     from: "atelierinovin@gmail.com",
-    to: "olesia.tur@gmail.com",
+    to: "atelierinovin@gmail.com",
     subject: "Nouvel avis sur l'atelier Inovin",
     html: `
     <p>Bonjour Cedric,</p>

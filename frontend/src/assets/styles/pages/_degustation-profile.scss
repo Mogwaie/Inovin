@@ -15,6 +15,11 @@
     object-fit: cover;
   }
 
+  .profileTitle {
+    margin: 1% auto 0% auto;
+    color: $app-primary-font-color;
+  }
+
   .degustation-header {
     display: flex;
     flex-direction: column;
@@ -86,32 +91,32 @@
     text-align: center;
     margin: 5% auto 5% auto;
   }
-}
 
-@media screen and (min-width: $app-tablet) {
-  .degustation-profile-container {
-    .wineleaf-bg-img {
-      height: 130vh;
-    }
-    .assemblez-vin,
-    .selection-vin {
-      h3 {
-        font-size: 30px;
+  @media screen and (min-width: $app-tablet) {
+    .degustation-profile-container {
+      .wineleaf-bg-img {
+        height: 130vh;
+      }
+      .assemblez-vin,
+      .selection-vin {
+        h3 {
+          font-size: 30px;
+        }
+
+        img {
+          width: 230px;
+          height: 180px;
+        }
+
+        .selection-text {
+          width: 8rem;
+          bottom: 144px;
+        }
       }
 
-      img {
-        width: 230px;
-        height: 180px;
+      h4 {
+        font-size: 1.2rem;
       }
-
-      .selection-text {
-        width: 8rem;
-        bottom: 144px;
-      }
-    }
-
-    h4 {
-      font-size: 1.2rem;
     }
   }
 }

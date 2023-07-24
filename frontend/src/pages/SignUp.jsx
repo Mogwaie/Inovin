@@ -3,6 +3,8 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import InputForm from "../components/InputForm";
+import WhiteGrape from "../assets/images/whiteGrape.png";
+import Berries from "../assets/images/berries.png";
 import Button from "../components/Button";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -48,7 +50,7 @@ function Signup() {
         console.info(
           "Données enregistrées avec succès dans la base de données !"
         );
-        toast("Bravo ! Votre compte a bien été créé !", {
+        toast("Votre compte a bien été créé !", {
           position: "bottom-right",
           autoClose: 3000,
           hideProgressBar: false,
@@ -68,6 +70,9 @@ function Signup() {
 
   return (
     <form onSubmit={(e) => handleSubmit(e)} className="container_form">
+      <img className="rightGrape" src={WhiteGrape} alt="" />
+      <img className="berries" src={Berries} alt="berries" />
+
       <h2 className="title_form">Créer un compte</h2>
 
       <InputForm

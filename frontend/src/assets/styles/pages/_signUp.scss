@@ -2,6 +2,25 @@
   color: aqua;
 }
 
+.rightGrape {
+  position: absolute;
+  z-index: -1;
+  opacity: 30%;
+  left: 77vw;
+  height: 65vh;
+  display: none;
+}
+
+.berries {
+  position: absolute;
+  z-index: -1;
+  opacity: 30%;
+  height: 40vh;
+  right: 70vw;
+  top: 60vh;
+  display: none;
+}
+
 .container_form {
   display: flex;
   flex-direction: column;
@@ -132,4 +151,15 @@
       }
     }
   }
+}
+@media screen and (min-width: $app-desktop) {
+    .rightGrape {
+      display: block;
+    }
+    .berries {
+      display: block;
+    }
+    .form_login_link {
+      margin: 1rem 0;
+    }
 }

@@ -85,8 +85,7 @@ export default function Profile() {
         body
       );
       if (response.status === 200) {
-        console.info("yessssssss");
-        toast("Mise à jour ok", {
+        toast("Modifications enregistrées.", {
           position: "bottom-right",
           autoClose: 3000,
           hideProgressBar: false,

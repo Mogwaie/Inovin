@@ -31,7 +31,7 @@ function DegustationProfile() {
     <div className="degustation-profile-container">
       <div className="degustation-header">
         <h2>Votre profil de dégustation</h2>
-        <h2>{profilTaste.name}</h2>
+        <h3 className="profileTitle">{profilTaste.name}</h3>
 
         <p>{profilTaste.description}</p>
       </div>

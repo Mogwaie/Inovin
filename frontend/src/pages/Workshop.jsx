@@ -4,15 +4,20 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Button from "../components/Button";
-import wireframe from "../assets/images/imageAtelier.svg";
 import wineCork from "../assets/images/wineCork-bg.svg";
+import wireframe from "../assets/images/inovin-atelier.png";
 import CepageDosage from "../components/CepageDosage";
 import getDate from "../utils/getDate";
 
 function Workshop() {
   const navigateTo = useNavigate();
 
-  const [cepageList, setCepageList] = useState([]);
+  const [cepageList, setCepageList] = useState([
+    { name: "Loading", cepage_id: 1 },
+    { name: "Loading", cepage_id: 2 },
+    { name: "Loading", cepage_id: 3 },
+    { name: "Loading", cepage_id: 4 },
+  ]);
   const [userId, setUserId] = useState(null);
   const [levelListCepage, setLevelListCepage] = useState([
     { cepage: 1, level: 0, user_id: userId, session_date: getDate() },
@@ -22,7 +27,7 @@ function Workshop() {
   ]);
 
   useEffect(() => {
-    if (userId !== null) {
+    if (userId !== null && cepageList[0].name !== null) {
       let levelListCepageCopy = [...levelListCepage]; //eslint-disable-line
       for (let i = 0; i < levelListCepageCopy.length; i += 1) {
         if (levelListCepageCopy[i].user_id === null) {
@@ -44,7 +49,9 @@ function Workshop() {
         console.error(error);
         navigateTo("/page-500");
       });
+  }, []);
 
+  useEffect(() => {
     const fetchUserInformation = async () => {
       try {
         const token = localStorage.getItem("token");
@@ -117,50 +124,68 @@ function Workshop() {
   return (
     <form className="workshop" onSubmit={(e) => handleSubmitLevel(e)}>
       <h2 className="title-page-workshop">Atelier de création</h2>
-      <div className="name-level-cepage">
-        <h3>Cépage : </h3>
-        <h3>Dosage : </h3>
-      </div>
-      <div className="cepage-level-container">
-        {cepageList.map((cepage) => (
-          <CepageDosage
-            key={cepage.cepage_id}
-            id={cepage.cepage_id}
-            cepageName={cepage.name}
-            levelListCepage={levelListCepage}
-            setLevelListCepage={setLevelListCepage}
-          />
-        ))}
-      </div>
 
       <h3 className="title-guide-ctn">Guide :</h3>
       <div className="guide-ctn">
         <img src={wireframe} alt="img-guide" className="img-guide" />
 
         <div className="content-guide-ctn">
-          <ul>
-            <li>
-              Et consequat anim officia fugiat dolor aute excepteur deserunt
-              sint aute anim aliqua est.
-            </li>
-            <li>
-              Et consequat anim officia fugiat dolor aute excepteur deserunt
-              sint aute anim aliqua est.
-            </li>
+          <ul className="workShopList">
+            <div className="guide-step">
+              <li className="workshopGuide">Etape 1 :</li>
+              <li className="workshopGuide">
+                Préparez quatre échantillons de cépages différents dans des
+                récipients séparés.
+              </li>
+            </div>
+            <div className="guide-step">
+              <li className="workshopGuide">Etape 2 :</li>
+              <li className="workshopGuide">
+                Utilisez une pipette propre pour prélever une petite quantité de
+                chaque échantillon et déposez-les dans un récipient de mélange.
+              </li>
+            </div>
+            <div className="guide-step">
+              <li className="workshopGuide">Etape 3 :</li>
+              <li className="workshopGuide">
+                Mélangez délicatement les échantillons en utilisant la pipette
+                pour obtenir un mélange homogène.
+              </li>
+            </div>
 
-            <li>
-              Et consequat anim officia fugiat dolor aute excepteur deserunt
-              sint aute anim aliqua est.
-            </li>
-            <li>
-              Et consequat anim officia fugiat dolor aute excepteur deserunt
-              sint aute anim aliqua est.
-            </li>
-            <li>
-              Et consequat anim officia fugiat dolor aute excepteur deserunt
-              sint aute anim aliqua est.
-            </li>
+            <div className="guide-step">
+              <li className="workshopGuide">Etape 4 :</li>
+              <li className="workshopGuide">
+                Goûtez régulièrement le mélange pour ajuster les proportions des
+                cépages selon votre préférence.
+              </li>
+            </div>
+            <div className="guide-step">
+              <li className="workshopGuide">Etape 5:</li>
+              <li className="workshopGuide">
+                Une fois satisfait du résultat, transférez le vin assemblé dans
+                une bouteille propre à l'aide de la pipette pour le déguster.
+              </li>
+            </div>
           </ul>
+        </div>
+      </div>
+
+      <div className="name-level-cepage">
+        <div className="cepageAndDosage">
+          <h3>Cépage : </h3>
+          <h3>Dosage : </h3>
+        </div>
+        <div className="cepage-level-container">
+          {cepageList.map((cepage) => (
+            <CepageDosage
+              key={cepage.cepage_id}
+              id={cepage.cepage_id}
+              cepageName={cepage.name}
+              levelListCepage={levelListCepage}
+              setLevelListCepage={setLevelListCepage}
+            />
+          ))}
         </div>
       </div>
 

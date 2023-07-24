@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import InputForm from "../components/InputForm";
+import WhiteGrape from "../assets/images/whiteGrape.png";
+import Berries from "../assets/images/berries.png";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -57,6 +59,8 @@ export default function Login() {
 
   return (
     <div className="login-container-page">
+      <img className="rightGrape" src={WhiteGrape} alt="" />
+      <img className="berries" src={Berries} alt="berries" />
       <h2>Accéder à votre compte</h2>
 
       <form onSubmit={handleSubmit}>
