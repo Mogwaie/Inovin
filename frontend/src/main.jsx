@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import Root from "./routes/Root";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import userRoles from "./utils/constantRoles";
+import UserInfoProvider from "./context/UserRoleContext";
 
 import DegustationProfilProvider from "./context/DegustationProfilContext";
 import MaxLengthProvider from "./context/MaxLengthContext";
@@ -230,11 +231,13 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <DegustationProfilProvider>
-      <MaxLengthProvider>
-        <RouterProvider router={router} />
-        <ToastContainer closeButton={false} />
-      </MaxLengthProvider>
-    </DegustationProfilProvider>
+    <UserInfoProvider>
+      <DegustationProfilProvider>
+        <MaxLengthProvider>
+          <RouterProvider router={router} />
+          <ToastContainer closeButton={false} />
+        </MaxLengthProvider>
+      </DegustationProfilProvider>
+    </UserInfoProvider>
   </React.StrictMode>
 );

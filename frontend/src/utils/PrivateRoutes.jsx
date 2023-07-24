@@ -1,9 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
+import { UserInfoContext } from "../context/UserRoleContext";
+
 function PrivateRoutes({ expectedRoles, children }) {
+  const { setUserInfo } = useContext(UserInfoContext);
+
   const [currentUser, setCurrentUser] = useState(undefined);
   const [role, setRole] = useState(undefined);
 
@@ -19,6 +23,7 @@ function PrivateRoutes({ expectedRoles, children }) {
         if (response.status === 200) {
           const userInfo = response.data;
           setRole(userInfo.role);
+          setUserInfo(userInfo);
         } else {
           console.error("User information not found");
         }

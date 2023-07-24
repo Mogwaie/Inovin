@@ -1,10 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams, useLocation, Link } from "react-router-dom";
 import logoInovin from "../assets/images/logo_inovin_removebg.png";
 import UserBurgerMenu from "./UserBurgerMenu";
 import AdminBurgerMenu from "./AdminBurgerMenu";
 
+import { UserInfoContext } from "../context/UserRoleContext";
+
 export default function Navbar() {
+  const { userInfo } = useContext(UserInfoContext);
+  console.info(userInfo);
+
   const [showLinks, setShowLinks] = useState(false);
   const [currentUrl, setCurrentUrl] = useState("");
   const [showNav, setShowNav] = useState(true);
@@ -65,7 +70,7 @@ export default function Navbar() {
         </Link>
       )}
 
-      {isUrlAdmin ? (
+      {isUrlAdmin && userInfo.role === 1 ? (
         <AdminBurgerMenu
           handleShowLinks={handleShowLinks}
           showLinks={showLinks}
