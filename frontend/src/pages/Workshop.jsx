@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Button from "../components/Button";
 import wireframe from "../assets/images/imageAtelier.svg";
+import wineCork from "../assets/images/wineCork-bg.svg";
 import CepageDosage from "../components/CepageDosage";
 import getDate from "../utils/getDate";
 
@@ -166,6 +167,7 @@ function Workshop() {
       <div className="btn-workshop">
         <Button id="btn-to-go-review" text="Enregistrer" type="submit" />
       </div>
+      <img className="cork-wine-bg-img" src={wineCork} alt="BackgroundImage" />
     </form>
   );
 }
