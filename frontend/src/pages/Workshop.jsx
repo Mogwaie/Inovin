@@ -11,7 +11,12 @@ import getDate from "../utils/getDate";
 function Workshop() {
   const navigateTo = useNavigate();
 
-  const [cepageList, setCepageList] = useState([]);
+  const [cepageList, setCepageList] = useState([
+    { name: "Loading", cepage_id: 1 },
+    { name: "Loading", cepage_id: 2 },
+    { name: "Loading", cepage_id: 3 },
+    { name: "Loading", cepage_id: 4 },
+  ]);
   const [userId, setUserId] = useState(null);
   const [levelListCepage, setLevelListCepage] = useState([
     { cepage: 1, level: 0, user_id: userId, session_date: getDate() },
