@@ -122,7 +122,7 @@ export default function Reviews() {
         </button>
       </form>
       <img className="wineGlass" src={wineglass} alt="BackgroundImage" />
-      <a href="/">
+      <a href="/wine-selection">
         <p className="reviewsPageP nextTimeP">Une prochaine fois peut-être ?</p>
       </a>
     </div>
