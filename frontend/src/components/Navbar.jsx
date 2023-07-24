@@ -13,7 +13,6 @@ export default function Navbar() {
   const [currentUrl, setCurrentUrl] = useState("");
   const [showNav, setShowNav] = useState(true);
 
-  // const { id } = useParams();
   const location = useLocation();
 
   const hideNavbarList = ["/"];
@@ -30,32 +29,13 @@ export default function Navbar() {
     }
   }, [location]);
 
-  // current url
   useEffect(() => {
     setCurrentUrl(window.location.pathname);
   }, []);
 
-  // links burger menu
   const handleShowLinks = () => {
     setShowLinks(!showLinks);
   };
-
-  // url Admin
-  // const urlPageListAdmin = [
-  //   "/admin/home",
-  //   "/admin/user-list",
-  //   `/admin/user-list/${id}`,
-  //   "/admin/create-user",
-  //   "/admin/wine-list",
-  //   `/admin/wine-list/${id}`,
-  //   "/admin/degustation-profil-list",
-  //   `/admin/degustation-profile-admin/${id}`,
-  //   "/admin/degustation",
-  //   "/admin/workshop",
-  // ];
-
-  // compare current url with url array
-  // const isUrlAdmin = urlPageListAdmin.find((urlPage) => urlPage === currentUrl);
 
   return (
     <div className={`nav-container ${showNav ? "" : "hide-navbar"}`}>

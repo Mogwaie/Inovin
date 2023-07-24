@@ -1,14 +1,14 @@
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import { UserInfoContext } from "../context/UserRoleContext";
 
 function PrivateRoutes({ expectedRoles, children }) {
   const { setUserInfo } = useContext(UserInfoContext);
+  const navigate = useNavigate();
 
-  const [currentUser, setCurrentUser] = useState(undefined);
   const [role, setRole] = useState(undefined);
 
   useEffect(() => {
@@ -29,40 +29,19 @@ function PrivateRoutes({ expectedRoles, children }) {
         }
       } catch (error) {
         console.error("Can not get user data", error);
+        navigate("/login");
       }
     };
     fetchUserInformation();
   }, []);
 
-  setTimeout(() => {
-    if (localStorage.getItem("token")) {
-      setCurrentUser({ id: "1", name: "foo" });
-    } else {
-      setCurrentUser(null);
+  if (role !== undefined) {
+    if (!expectedRoles.includes(role)) {
+      console.info("You are not allowed to", role);
+      navigate("/login");
     }
-  }, 2000);
-
-  if (currentUser === undefined) {
-    return null;
   }
-
-  if (!currentUser) {
-    return <Navigate to="/login" />;
-  }
-
-  const isAuthorized = true;
-  const areRolesRequired = !!expectedRoles?.length;
-  const roles = [role];
-
-  const rolesMatch = areRolesRequired
-    ? expectedRoles.some((r) => roles.indexOf(r) >= 0)
-    : true;
-
-  if (!isAuthorized || !rolesMatch) {
-    return <Navigate to="/login" replace />;
-  }
-
-  return children;
+  return expectedRoles.includes(role) ? children : null;
 }
 
 PrivateRoutes.propTypes = {
