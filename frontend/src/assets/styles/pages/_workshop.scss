@@ -65,7 +65,7 @@
   }
 
   .btn-workshop {
-    margin-top: 2rem;
+    margin: 4rem 0;
   }
 }
 
@@ -94,10 +94,25 @@
       .img-guide {
         width: 30rem;
       }
+      .content-guide-ctn{
+        .workShopList{
+          .guide-step{
+            margin: 3rem 0;
+          }
+        }
+      }
     }
 
     .title-page-workshop {
       width: 22rem;
+    }
+    
+    .name-level-cepage{
+      margin: 3rem 0;
+    }
+
+    .btn-workshop{
+      margin-bottom: 5rem;
     }
   }
 }

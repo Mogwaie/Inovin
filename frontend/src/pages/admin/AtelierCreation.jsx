@@ -45,7 +45,7 @@ export default function AtelierCreation() {
         navigateTo("/page-500");
       }
     });
-    toast(`Mise à jour ok`, {
+    toast("Modifications enregistrées.", {
       position: "bottom-right",
       autoClose: 3000,
       hideProgressBar: false,

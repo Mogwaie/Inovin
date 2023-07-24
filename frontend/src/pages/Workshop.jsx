@@ -123,6 +123,53 @@ function Workshop() {
   return (
     <form className="workshop" onSubmit={(e) => handleSubmitLevel(e)}>
       <h2 className="title-page-workshop">Atelier de création</h2>
+
+      <h3 className="title-guide-ctn">Guide :</h3>
+      <div className="guide-ctn">
+        <img src={wireframe} alt="img-guide" className="img-guide" />
+
+        <div className="content-guide-ctn">
+          <ul className="workShopList">
+            <div className="guide-step">
+              <li className="workshopGuide">Etape 1 :</li>
+              <li className="workshopGuide">
+                Préparez quatre échantillons de cépages différents dans des
+                récipients séparés.
+              </li>
+            </div>
+            <div className="guide-step">
+              <li className="workshopGuide">Etape 2 :</li>
+              <li className="workshopGuide">
+                Utilisez une pipette propre pour prélever une petite quantité de
+                chaque échantillon et déposez-les dans un récipient de mélange.
+              </li>
+            </div>
+            <div className="guide-step">
+              <li className="workshopGuide">Etape 3 :</li>
+              <li className="workshopGuide">
+                Mélangez délicatement les échantillons en utilisant la pipette
+                pour obtenir un mélange homogène.
+              </li>
+            </div>
+
+            <div className="guide-step">
+              <li className="workshopGuide">Etape 4 :</li>
+              <li className="workshopGuide">
+                Goûtez régulièrement le mélange pour ajuster les proportions des
+                cépages selon votre préférence.
+              </li>
+            </div>
+            <div className="guide-step">
+              <li className="workshopGuide">Etape 5:</li>
+              <li className="workshopGuide">
+                Une fois satisfait du résultat, transférez le vin assemblé dans
+                une bouteille propre à l'aide de la pipette pour le déguster.
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+
       <div className="name-level-cepage">
         <div className="cepageAndDosage">
           <h3>Cépage : </h3>
@@ -138,41 +185,6 @@ function Workshop() {
               setLevelListCepage={setLevelListCepage}
             />
           ))}
-        </div>
-      </div>
-
-      <h3 className="title-guide-ctn">Guide :</h3>
-      <div className="guide-ctn">
-        <img src={wireframe} alt="img-guide" className="img-guide" />
-
-        <div className="content-guide-ctn">
-          <ul className="workShopList">
-            <li className="workshopGuide">Etape 1 :</li>
-            <li className="workshopGuide">
-              Préparez quatre échantillons de cépages différents dans des
-              récipients séparés.
-            </li>
-            <li className="workshopGuide">Etape 2 :</li>
-            <li className="workshopGuide">
-              Utilisez une pipette propre pour prélever une petite quantité de
-              chaque échantillon et déposez-les dans un récipient de mélange.
-            </li>
-            <li className="workshopGuide">Etape 3 :</li>
-            <li className="workshopGuide">
-              Mélangez délicatement les échantillons en utilisant la pipette
-              pour obtenir un mélange homogène.
-            </li>
-            <li className="workshopGuide">Etape 4 :</li>
-            <li className="workshopGuide">
-              Goûtez régulièrement le mélange pour ajuster les proportions des
-              cépages selon votre préférence.
-            </li>
-            <li className="workshopGuide">Etape 5:</li>
-            <li className="workshopGuide">
-              Une fois satisfait du résultat, transférez le vin assemblé dans
-              une bouteille propre à l'aide de la pipette pour le déguster.
-            </li>
-          </ul>
         </div>
       </div>
 
