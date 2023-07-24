@@ -31,7 +31,7 @@
     margin-top: 1rem;
 
     .img-guide {
-      width: 8rem;
+      width: 18rem;
       margin-top: 1rem;
     }
 
@@ -64,6 +64,12 @@
   .workshop {
     width: 70%;
     margin: auto;
+
+    .guide-ctn {
+      .img-guide {
+        width: 30rem;
+      }
+    }
 
     .title-page-workshop {
       width: 22rem;
