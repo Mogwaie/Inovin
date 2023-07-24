@@ -9,7 +9,7 @@ export default function DisplayDegustationProfil({ profil }) {
         <p>{profil.name}</p>
       </div>
       <div className="buttons-modif-container">
-        <Link to={`/degustation-profile-admin/${profil.taste_profile_id}`}>
+        <Link to={`/admin/degustation-profile/${profil.taste_profile_id}`}>
           <button type="button" className="modif-button">
             <img src={modifButton} alt="button modify a user" />
           </button>

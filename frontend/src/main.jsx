@@ -199,7 +199,7 @@ const router = createBrowserRouter([
             ),
           },
           {
-            path: "degustation-profile-admin/:id",
+            path: "degustation-profile/:id",
             element: (
               <PrivateRoutes expectedRoles={[userRoles.admin]}>
                 <AdminDegustationProfile />
