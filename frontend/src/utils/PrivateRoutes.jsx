@@ -29,24 +29,11 @@ function PrivateRoutes({ expectedRoles, children }) {
         }
       } catch (error) {
         console.error("Can not get user data", error);
+        navigate("/login");
       }
     };
     fetchUserInformation();
   }, []);
-
-  // const isAuthorized = true;
-  // const areRolesRequired = !!expectedRoles?.length;
-  // const roles = [role];
-
-  // const rolesMatch = areRolesRequired
-  //   ? expectedRoles.some((r) => roles.indexOf(r) >= 0)
-  //   : true;
-
-  // if (!isAuthorized || !rolesMatch) {
-  //   return <Navigate to="/login" replace />;
-  // }
-
-  // return children;
 
   if (role !== undefined) {
     if (!expectedRoles.includes(role)) {
