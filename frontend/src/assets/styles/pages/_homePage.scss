@@ -101,10 +101,14 @@
     width: 85vw;
   }
   .homeContentDiv {
-    padding-top: 10vh;
-    padding-bottom: 10vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
   }
   #homeButton {
-    margin-top: 10vh !important;
+    margin-top: 5vh !important;
+  }
+  .homeP {
+    margin-top: 0vh;
+    margin-bottom: 2vh;
   }
 }
