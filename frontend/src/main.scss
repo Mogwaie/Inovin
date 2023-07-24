@@ -92,6 +92,15 @@ p {
   @include font-text-phone;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+  -webkit-box-shadow: 0 0 0 30px $app-bg-color inset !important;
+  -webkit-text-fill-color: $font-family-title-color !important;
+}
+
+
 /* button */
 .primary-button {
   @include primary-button-phone;
