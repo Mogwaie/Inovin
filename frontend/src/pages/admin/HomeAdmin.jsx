@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import profilePicture from "../../assets/images/profilePicture.png";
+import grapesLeaves from "../../assets/images/grapesLeaves.png";
 
 function HomeAdmin() {
   return (
     <div className="home-page-admin-container">
       <img className="profileImage" src={profilePicture} alt="Profile" />
+      <img className="grapeLeafs" src={grapesLeaves} alt="grapeLeaves" />
       <div className="link-list-home-admin">
         <ul>
           <Link to="/admin/user-list">

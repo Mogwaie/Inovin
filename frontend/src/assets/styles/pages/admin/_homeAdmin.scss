@@ -4,6 +4,13 @@
   align-items: center;
   text-align: center;
 
+  .grapeLeafs {
+    position: absolute;
+    z-index: -5;
+    opacity: 20%;
+    right: 20vw;
+  }
+
   .link-list-home-admin {
     li {
       display: block;

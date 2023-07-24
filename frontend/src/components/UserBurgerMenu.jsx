@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import wineLeaf from "../assets/images/wineLeaf.png";
 
 export default function UserBurgerMenu({
   handleShowLinks,
@@ -58,6 +59,7 @@ export default function UserBurgerMenu({
         >
           <div className="burger-bar" />
         </button>
+        <img className="wineLeaf" src={wineLeaf} alt="wine leaf" />
       </div>
     </div>
   );

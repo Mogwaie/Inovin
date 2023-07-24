@@ -16,6 +16,17 @@
     transition: 0.5s ease-in-out;
   }
 
+  .wineLeaf {
+    position: absolute;
+    z-index: -5;
+    height: 50vh;
+    width: auto;
+    right: 18vw;
+    opacity: 20%;
+    top: 0vh;
+
+  }
+
   .show-nav {
     right: 0;
     width: 100%;
@@ -41,7 +52,7 @@
     background-color: $app-bg-color;
     outline: none;
     border: none;
-    margin-left: 1rem;
+    margin-left: -0.7vw;
   }
 
   .link-deconnection-admin:hover {
@@ -121,6 +132,7 @@
 
     li {
       font-size: $font-size-list-burger-tablet;
+      text-align: center;
     }
   }
 }
