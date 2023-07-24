@@ -41,7 +41,7 @@ function TastingSheetModif() {
             body
           );
           if (response) {
-            toast("Les modifications ont été prises en compte !", {
+            toast("Mises à jour ok", {
               position: "bottom-right",
               autoClose: 3000,
               hideProgressBar: false,
