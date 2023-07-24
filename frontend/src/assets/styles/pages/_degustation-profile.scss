@@ -8,7 +8,7 @@
 }
 
 .profileTitle {
-  margin: 1% auto 0% auto;
+  margin: 2% auto 1% auto;
   color: $app-primary-font-color;
 }
 
@@ -18,7 +18,7 @@
   justify-content: center;
 
   h2 {
-    margin: 0 auto 5% auto;
+    margin: 0 auto 1% auto;
   }
 
   p {
@@ -35,6 +35,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: -1vh;
+  margin-bottom: -7vh;
 
   a {
     text-decoration: none;
@@ -112,6 +114,7 @@ h4 {
   .selection-vin {
     h3 {
       font-size: 40px;
+      margin: 1% auto 3% auto;
     }
 
     img {
