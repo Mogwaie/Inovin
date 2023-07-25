@@ -92,25 +92,25 @@ VALUES
 
 INSERT INTO recipe (cepage_name, cepage_level, user_id, session_date) 
 VALUES 
-('Kyohō', 25, 1, 10072023),
+('Chenin', 25, 1, 10072023),
 ('Merlot', 26, 1, 10072023),
 ('Verdot', 23, 1, 10072023),
-('Sémillon', 29, 1, 10072023),
-('Kyohō', 25, 1, 11072023),
+('Macabeo', 29, 1, 10072023),
+('Chenin', 25, 1, 11072023),
 ('Merlot', 26, 1, 11072023),
-('Sémillon', 23, 1, 11072023),
+('Macabeo', 23, 1, 11072023),
 ('Sauvignon', 29, 1, 11072023),
 ('Verdot', 25, 1, 12072023),
-('Kyohō', 26, 1, 12072023),
-('Sémillon', 23, 1, 12072023),
+('Chenin', 26, 1, 12072023),
+('Macabeo', 23, 1, 12072023),
 ('Ugni', 29, 1, 12072023),
 ('Verdot', 25, 11, 12072023),
-('Sémillon', 26, 11, 12072023),
+('Macabeo', 26, 11, 12072023),
 ('Ugni', 23, 11, 12072023),
 ('Sauvignon', 29, 11, 12072023),
 ('Verdot', 25, 11, 19072023),
-('Sémillon', 26, 11, 19072023),
-('Kyohō', 23, 11, 19072023),
+('Macabeo', 26, 11, 19072023),
+('Chenin', 23, 11, 19072023),
 ('Sauvignon', 29, 11, 19072023);
 
 INSERT INTO taste_profile (name, description) 
