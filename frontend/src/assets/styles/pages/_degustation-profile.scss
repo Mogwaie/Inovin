@@ -7,16 +7,15 @@
   justify-content: space-between;
 
   .wineleaf-bg-img {
-    opacity: 12%;
+    opacity: 15%;
     z-index: -1;
     width: 100vw;
-    height: 167vh;
-    position: absolute;
-    object-fit: cover;
+    height: 100vh;
+    position: fixed;
   }
 
   .profileTitle {
-    margin: 1% auto 0% auto;
+    margin: 2% auto 1% auto;
     color: $app-primary-font-color;
   }
 
@@ -26,7 +25,7 @@
     justify-content: center;
 
     h2 {
-      margin: 0 auto 5% auto;
+      margin: 0 auto 1% auto;
     }
 
     p {
@@ -43,6 +42,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: -1vh;
+    margin-bottom: -7vh;
 
     a {
       text-decoration: none;
@@ -91,32 +92,31 @@
     text-align: center;
     margin: 5% auto 5% auto;
   }
-
-  @media screen and (min-width: $app-tablet) {
-    .degustation-profile-container {
-      .wineleaf-bg-img {
-        height: 130vh;
-      }
-      .assemblez-vin,
-      .selection-vin {
-        h3 {
-          font-size: 30px;
-        }
-
-        img {
-          width: 230px;
-          height: 180px;
-        }
-
-        .selection-text {
-          width: 8rem;
-          bottom: 144px;
-        }
+}
+@media screen and (min-width: $app-tablet) {
+  .degustation-profile-container {
+    .wineleaf-bg-img {
+      height: 132vh;
+    }
+    .assemblez-vin,
+    .selection-vin {
+      h3 {
+        font-size: 30px;
       }
 
-      h4 {
-        font-size: 1.2rem;
+      img {
+        width: 230px;
+        height: 180px;
       }
+
+      .selection-text {
+        width: 8rem;
+        bottom: 144px;
+      }
+    }
+
+    h4 {
+      font-size: 1.2rem;
     }
   }
 }
@@ -124,7 +124,7 @@
 @media screen and (min-width: $app-desktop-medium) {
   .degustation-profile-container {
     .wineleaf-bg-img {
-      height: 136vh;
+      height: 206vh;
     }
     .path-select-ctn {
       width: 100vw;
@@ -133,6 +133,7 @@
       .selection-vin {
         h3 {
           font-size: 40px;
+          margin: 1% auto 3% auto;
         }
 
         img {

@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import wineLeaf from "../assets/images/wineLeaf.png";
 
 export default function AdminBurgerMenu({ handleShowLinks, showLinks }) {
   const logout = () => {
@@ -43,6 +44,7 @@ export default function AdminBurgerMenu({ handleShowLinks, showLinks }) {
         <button type="button" className="menu-burger" onClick={handleShowLinks}>
           <div className="burger-bar" />
         </button>
+        <img className="wineLeaf" src={wineLeaf} alt="wine leaf" />
       </div>
     </div>
   );

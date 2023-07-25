@@ -7,7 +7,7 @@ import Button from "../components/Button";
 import wireframe from "../assets/images/inovin-atelier.png";
 import CepageDosage from "../components/CepageDosage";
 import getDate from "../utils/getDate";
-// import grapesLeaves from "../assets/images/grapesLeaves.png";
+import grapesLeaves from "../assets/images/grapesLeaves.png";
 
 function Workshop() {
   const navigateTo = useNavigate();
