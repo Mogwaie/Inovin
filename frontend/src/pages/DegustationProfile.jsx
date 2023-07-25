@@ -30,9 +30,14 @@ function DegustationProfile() {
     <div>
       <div className="degustation-header">
         <h2>Votre profil de dégustation</h2>
-        <h3 className="profileTitle">{profilTaste.name}</h3>
-
-        <p>{profilTaste.description}</p>
+        {profilTaste !== "" ? (
+          <>
+            <h3 className="profileTitle">{profilTaste.name}</h3>
+            <p>{profilTaste.description}</p>
+          </>
+        ) : (
+          <>Loading</>
+        )}
       </div>
       <div className="assemblez-vin">
         <h3 className="title-h3">Assemblez votre vin</h3>
