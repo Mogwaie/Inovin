@@ -55,6 +55,7 @@ export default function AtelierCreation() {
       progress: undefined,
       theme: "colored",
     });
+    navigateTo("/admin/home");
   };
 
   return (
