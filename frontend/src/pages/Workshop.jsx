@@ -26,7 +26,17 @@ function Workshop() {
     { cepage: 4, level: 0, user_id: userId, session_date: getDate() },
   ]);
 
+  const getData = async () => {
+    const response = await axios.get(
+      `${import.meta.env.VITE_BACKEND_URL}/api/cepages`
+    );
+    if (response) {
+      setCepageList(response.data);
+    }
+  };
+
   useEffect(() => {
+    getData();
     if (userId !== null && cepageList[0].name !== null) {
       let levelListCepageCopy = [...levelListCepage]; //eslint-disable-line
       for (let i = 0; i < levelListCepageCopy.length; i += 1) {
@@ -38,18 +48,6 @@ function Workshop() {
       setLevelListCepage(levelListCepage);
     }
   }, [userId, cepageList]);
-
-  useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/cepages`)
-      .then((response) => {
-        setCepageList(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-        navigateTo("/page-500");
-      });
-  }, []);
 
   useEffect(() => {
     const fetchUserInformation = async () => {
