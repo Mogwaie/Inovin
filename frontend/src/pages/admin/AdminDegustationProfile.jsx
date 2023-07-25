@@ -6,11 +6,9 @@ import ShopCave from "../../assets/images/ShopCave.png";
 import SetPen from "../../assets/images/setpen.svg";
 
 function DegustationProfile() {
-  const [profileTitle, setProfileTitle] = useState(
-    "- Entrée le type de profil ici -"
-  );
+  const [profileTitle, setProfileTitle] = useState("Type de profil");
   const [profileDescription, setProfileDescription] = useState(
-    "-- Entrée le texte de description ici --"
+    "Description du profil"
   );
   const [assembleImage, setAssembleImage] = useState(Assemblage);
   const [selectionImage, setSelectionImage] = useState(ShopCave);
@@ -80,10 +78,11 @@ function DegustationProfile() {
   };
 
   const cancelChanges = () => {
-    setProfileTitle("- titre du profil -");
-    setProfileDescription("-- texte de déscription --");
-    setAssembleImage(Assemblage);
-    setSelectionImage(ShopCave);
+    // setProfileTitle("- titre du profil -");
+    // setProfileDescription("-- texte de déscription --");
+    // setAssembleImage(Assemblage);
+    // setSelectionImage(ShopCave);
+    navigateTo("/admin/degustation-profil-list");
   };
 
   useEffect(() => {
