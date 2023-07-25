@@ -240,7 +240,7 @@ export default function ProfileAdmin() {
                         key={[idRecipeUser]}
                         className="recipe-by-cepage-and-level"
                       >
-                        {recipes.cepage_name} : {recipes.cepage_level} ml
+                        {recipes.cepage_name} : {recipes.cepage_level} cl
                       </li>
                     );
                   })}

@@ -37,7 +37,7 @@ function Workshop() {
       }
       setLevelListCepage(levelListCepage);
     }
-  }, [userId]);
+  }, [userId, cepageList]);
 
   useEffect(() => {
     axios
