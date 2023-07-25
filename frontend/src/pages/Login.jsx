@@ -91,10 +91,6 @@ export default function Login() {
             <p>Inscription</p>
           </Link>
         </div>
-
-        <Link to="/forgotten-password-form">
-          <p>Mot de passe oublié ?</p>
-        </Link>
       </div>
     </div>
   );
