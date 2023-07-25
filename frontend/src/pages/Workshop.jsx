@@ -27,12 +27,14 @@ function Workshop() {
   ]);
 
   const getData = async () => {
-    const response = await axios.get(
-      `${import.meta.env.VITE_BACKEND_URL}/api/cepages`
-    );
-    if (response) {
-      setCepageList(response.data);
-    }
+    await axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/cepages`)
+      .then((response) => {
+        setCepageList(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   useEffect(() => {
@@ -85,19 +87,16 @@ function Workshop() {
     Promise.all(requests)
       .then((responses) => {
         if (responses[0].status === 201) {
-          toast(
-            "Bravo ! Vous avez créé votre recette ! Pourquoi ne pas laisser un avis ?",
-            {
-              position: "bottom-right",
-              autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: false,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            }
-          );
+          toast("Votre recette a bien été enregistrée.", {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
           navigateTo("/reviews");
         }
       })
