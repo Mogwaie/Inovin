@@ -12,6 +12,7 @@
     width: 100vw;
     height: 100vh;
     position: fixed;
+    object-fit: cover;
   }
 
   .profileTitle {
@@ -125,7 +126,6 @@
   .degustation-profile-container {
     .wineleaf-bg-img {
       height: 206vh;
-      object-fit: cover;
     }
     .path-select-ctn {
       width: 100vw;
