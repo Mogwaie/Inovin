@@ -15,7 +15,7 @@
   .grapesLeaves {
     position: fixed;
     z-index: -5;
-    height: 60vh;
+    height: 80vh;
     opacity: 30%;
     top: 20vh;
     right: -2vw;
@@ -45,7 +45,7 @@
   }
 
   .workShopList {
-    list-style-type: none
+    list-style-type: none;
   }
 
   .title-guide-ctn {
@@ -91,10 +91,10 @@
 
     .guide-ctn {
       width: 58%;
-        .img-guide {
-          margin-top: 5vh;
-          margin-bottom: 0vh;
-        }
+      .img-guide {
+        margin-top: 5vh;
+        margin-bottom: 0vh;
+      }
     }
     .grapesLeaves {
       right: 5vw;
@@ -104,7 +104,6 @@
 }
 
 @media screen and (min-width: $app-desktop) {
-
   .workshop {
     width: 70%;
     margin: auto;
@@ -116,7 +115,6 @@
     .grapesLeaves {
       right: 20vw;
       top: 20vh;
-      height: 75vh;
     }
 
     .guide-ctn {
@@ -125,16 +123,15 @@
       }
     }
 
-
     .title-page-workshop {
       width: 100%;
     }
-    
-    .name-level-cepage{
+
+    .name-level-cepage {
       margin: 3rem 0;
     }
 
-    .btn-workshop{
+    .btn-workshop {
       margin-bottom: 5rem;
     }
   }

@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import SliderUser from "../components/SliderUser";
 import Button from "../components/Button";
 import { DegustationProfilContext } from "../context/DegustationProfilContext";
+import bgBottle from "../assets/images/bottleneck.png";
 
 function DegustationPage() {
   const { tasteIdRating } = useContext(DegustationProfilContext);
@@ -88,6 +89,7 @@ function DegustationPage() {
           </a>
         </div>
       )}
+      <img className="bottle-wine-img" src={bgBottle} alt="BackgroundImage" />
     </div>
   );
 }

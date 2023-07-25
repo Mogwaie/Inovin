@@ -1,5 +1,5 @@
 .sliderRating {
-  padding-top: 2rem;
+  padding-top: 2.5rem;
   .taste-info {
     display: flex;
     justify-content: space-between;
@@ -42,5 +42,10 @@
     border: 2px solid $font-family-title-color;
     height: 1rem;
     width: 2rem;
+  }
+}
+@media screen and (min-width: $app-tablet) and (max-width: $app-desktop) {
+  .taste-slider {
+    padding-top: 2rem;
   }
 }
