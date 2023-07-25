@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Button from "../components/Button";
-import wineCork from "../assets/images/wineCork-bg.svg";
 import wireframe from "../assets/images/inovin-atelier.png";
 import CepageDosage from "../components/CepageDosage";
 import getDate from "../utils/getDate";
+// import grapesLeaves from "../assets/images/grapesLeaves.png";
 
 function Workshop() {
   const navigateTo = useNavigate();
@@ -123,12 +123,12 @@ function Workshop() {
 
   return (
     <form className="workshop" onSubmit={(e) => handleSubmitLevel(e)}>
+      <img className="grapesLeaves" src={grapesLeaves} alt="grapes" />
       <h2 className="title-page-workshop">Atelier de création</h2>
 
       <h3 className="title-guide-ctn">Guide :</h3>
       <div className="guide-ctn">
         <img src={wireframe} alt="img-guide" className="img-guide" />
-
         <div className="content-guide-ctn">
           <ul className="workShopList">
             <div className="guide-step">
@@ -173,8 +173,8 @@ function Workshop() {
 
       <div className="name-level-cepage">
         <div className="cepageAndDosage">
-          <h3>Cépage : </h3>
-          <h3>Dosage : </h3>
+          <h3 className="title-guide-ctn">Cépage : </h3>
+          <h3 className="title-guide-ctn">Dosage : </h3>
         </div>
         <div className="cepage-level-container">
           {cepageList.map((cepage) => (
@@ -192,7 +192,6 @@ function Workshop() {
       <div className="btn-workshop">
         <Button id="btn-to-go-review" text="Enregistrer" type="submit" />
       </div>
-      <img className="cork-wine-bg-img" src={wineCork} alt="BackgroundImage" />
     </form>
   );
 }
