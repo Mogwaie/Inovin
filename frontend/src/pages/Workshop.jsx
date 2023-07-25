@@ -37,7 +37,7 @@ function Workshop() {
 
   useEffect(() => {
     getData();
-    if (userId !== null && cepageList[0].name !== null) {
+    if (userId !== null && cepageList[0].name !== "Loading") {
       let levelListCepageCopy = [...levelListCepage]; //eslint-disable-line
       for (let i = 0; i < levelListCepageCopy.length; i += 1) {
         if (levelListCepageCopy[i].user_id === null) {
