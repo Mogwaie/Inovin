@@ -9,12 +9,6 @@ function HomeAdmin() {
       <img className="grapeLeafs" src={grapesLeaves} alt="grapeLeaves" />
       <div className="link-list-home-admin">
         <ul>
-          <Link to="/admin/user-list">
-            <li>Membres</li>
-          </Link>
-          <Link to="/admin/wine-list">
-            <li>Fiches de Vins</li>
-          </Link>
           <Link to="/admin/degustation-profil-list">
             <li>Profils de Dégustation</li>
           </Link>
@@ -23,6 +17,12 @@ function HomeAdmin() {
           </Link>
           <Link to="/admin/workshop">
             <li>Atelier de Création</li>
+          </Link>
+          <Link to="/admin/user-list">
+            <li>Membres</li>
+          </Link>
+          <Link to="/admin/wine-list">
+            <li>Fiches de Vins</li>
           </Link>
         </ul>
       </div>
