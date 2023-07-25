@@ -30,6 +30,7 @@ function TastingSheetModif() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let ifResponse = 0;
     for (let i = 0; i < nameListTaste.length; i += 1) {
       if (!(nameListTaste[i].name === "")) {
         const body = nameListTaste[i];
@@ -40,23 +41,27 @@ function TastingSheetModif() {
             }`,
             body
           );
+
           if (response) {
-            toast("Modifications enregistrées.", {
-              position: "bottom-right",
-              autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: false,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            });
-            navigateTo("/admin");
+            ifResponse += 1;
           }
         } catch (error) {
           console.error(error);
         }
       }
+    }
+    if (ifResponse >= 0) {
+      toast("Modifications enregistrées.", {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      navigateTo("/admin");
     }
   };
 
