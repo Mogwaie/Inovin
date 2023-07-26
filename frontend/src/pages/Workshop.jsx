@@ -158,7 +158,7 @@ function Workshop() {
               </li>
             </div>
             <div className="guide-step">
-              <li className="workshopGuide">Etape 5:</li>
+              <li className="workshopGuide">Etape 5 :</li>
               <li className="workshopGuide">
                 Une fois satisfait du résultat, transférez le vin assemblé dans
                 une bouteille propre à l'aide de la pipette pour le déguster.
