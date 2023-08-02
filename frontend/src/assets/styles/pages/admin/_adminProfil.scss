@@ -11,6 +11,7 @@
         list-style-type: none;
         color: $font-family-title-color;
         line-height: 2rem;
+        font-size: $font-size-text-phone;
       }
     }
     .recipe-ctn {
@@ -30,8 +31,16 @@
     .recipe-container {
       ul {
         margin-left: 1rem;
+
+        li {
+          font-size: $font-size-text-tablet;
+        }
       }
       width: 100%;
+
+      .recipe-p {
+        font-size: 25px;
+      }
     }
   }
 }

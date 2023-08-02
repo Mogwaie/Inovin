@@ -92,26 +92,26 @@ VALUES
 
 INSERT INTO recipe (cepage_name, cepage_level, user_id, session_date) 
 VALUES 
-('CepageName 1', 25, 1, 10072023),
-('CepageName 2', 26, 1, 10072023),
-('CepageName 3', 23, 1, 10072023),
-('CepageName 4', 29, 1, 10072023),
-('CepageName 1', 25, 1, 11072023),
-('CepageName 2', 26, 1, 11072023),
-('CepageName 3', 23, 1, 11072023),
-('CepageName 4', 29, 1, 11072023),
-('CepageName 1', 25, 1, 12072023),
-('CepageName 2', 26, 1, 12072023),
-('CepageName 3', 23, 1, 12072023),
-('CepageName 4', 29, 1, 12072023),
-('CepageName 1', 25, 11, 12072023),
-('CepageName 2', 26, 11, 12072023),
-('CepageName 3', 23, 11, 12072023),
-('CepageName 4', 29, 11, 12072023),
-('CepageName 1', 25, 11, 19072023),
-('CepageName 2', 26, 11, 19072023),
-('CepageName 3', 23, 11, 19072023),
-('CepageName 4', 29, 11, 19072023);
+('Chenin', 25, 1, 10072023),
+('Merlot', 26, 1, 10072023),
+('Verdot', 23, 1, 10072023),
+('Macabeo', 29, 1, 10072023),
+('Chenin', 25, 1, 11072023),
+('Merlot', 26, 1, 11072023),
+('Macabeo', 23, 1, 11072023),
+('Sauvignon', 29, 1, 11072023),
+('Verdot', 25, 1, 12072023),
+('Chenin', 26, 1, 12072023),
+('Macabeo', 23, 1, 12072023),
+('Ugni', 29, 1, 12072023),
+('Verdot', 25, 11, 12072023),
+('Macabeo', 26, 11, 12072023),
+('Ugni', 23, 11, 12072023),
+('Sauvignon', 29, 11, 12072023),
+('Verdot', 25, 11, 19072023),
+('Macabeo', 26, 11, 19072023),
+('Chenin', 23, 11, 19072023),
+('Sauvignon', 29, 11, 19072023);
 
 INSERT INTO taste_profile (name, description) 
 VALUES 

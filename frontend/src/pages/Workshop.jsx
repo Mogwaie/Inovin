@@ -26,8 +26,20 @@ function Workshop() {
     { cepage: 4, level: 0, user_id: userId, session_date: getDate() },
   ]);
 
+  const getData = async () => {
+    await axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/cepages`)
+      .then((response) => {
+        setCepageList(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   useEffect(() => {
-    if (userId !== null && cepageList[0].name !== null) {
+    getData();
+    if (userId !== null && cepageList[0].name !== "Loading") {
       let levelListCepageCopy = [...levelListCepage]; //eslint-disable-line
       for (let i = 0; i < levelListCepageCopy.length; i += 1) {
         if (levelListCepageCopy[i].user_id === null) {
@@ -37,19 +49,7 @@ function Workshop() {
       }
       setLevelListCepage(levelListCepage);
     }
-  }, [userId]);
-
-  useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/cepages`)
-      .then((response) => {
-        setCepageList(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-        navigateTo("/page-500");
-      });
-  }, []);
+  }, [userId, cepageList]);
 
   useEffect(() => {
     const fetchUserInformation = async () => {
@@ -87,19 +87,16 @@ function Workshop() {
     Promise.all(requests)
       .then((responses) => {
         if (responses[0].status === 201) {
-          toast(
-            "Bravo ! Vous avez créé votre recette ! Pourquoi ne pas laisser un avis ?",
-            {
-              position: "bottom-right",
-              autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: false,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            }
-          );
+          toast("Votre recette a bien été enregistrée.", {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
           navigateTo("/reviews");
         }
       })
@@ -161,7 +158,7 @@ function Workshop() {
               </li>
             </div>
             <div className="guide-step">
-              <li className="workshopGuide">Etape 5:</li>
+              <li className="workshopGuide">Etape 5 :</li>
               <li className="workshopGuide">
                 Une fois satisfait du résultat, transférez le vin assemblé dans
                 une bouteille propre à l'aide de la pipette pour le déguster.

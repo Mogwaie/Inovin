@@ -25,3 +25,16 @@
     }
   }
 }
+
+@media screen and (min-width: $app-tablet) {
+  .sliderRating {
+    .name-and-pen-modif {
+      .taste-name {
+        font-size: $font-size-text-tablet;
+      }
+      .taste-name::placeholder {
+        font-size: $font-size-text-tablet;
+      }
+    }
+  }
+}
